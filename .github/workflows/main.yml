@@ -12,8 +12,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm run build
+      - run: npm ci --prefix ./steelers/assets/
+      - run: npm --prefix ./steelers/assets/ run build
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
