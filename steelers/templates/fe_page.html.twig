@@ -1,0 +1,9 @@
+{% extends '@Contao/fe_page' %}
+
+
+{% block main %}
+  <h1>Hello from Twig!</h1>
+  {{ theme_link_tags('app') }}
+  {{ theme_script_tags('app') }}
+  {{ parent() }}
+{% endblock %}
