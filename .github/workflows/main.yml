@@ -12,10 +12,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci --prefix ./steelers/assets/
-      - run: npm --prefix ./steelers/assets/ run build
+      - run: npm ci
+      - run: npm run build
 
-      - name: 📂 Sync files
+      - name: 📂 Sync theme files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: steelers.de
@@ -27,7 +27,24 @@ jobs:
             **/assets/**
             LICENSE
             README.md
-          local-dir: ./
-          server-dir: ./themes/
+          local-dir: ./dist/
+          server-dir: ./files/steelers/
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+
+      - name: 📂 Sync template files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: steelers.de
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/assets/**
+            LICENSE
+            README.md
+          local-dir: ./templates/
+          server-dir: ./templates/steelers/
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}

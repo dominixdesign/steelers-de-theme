@@ -1,0 +1,18 @@
+{
+  "name": "steelers-de-theme",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "css-dev": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/steelers.css --watch --config tailwind.config.cjs",
+    "css-build": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/steelers.css --minify --config tailwind.config.cjs",
+    "js-build": "npx rollup -c",
+    "build": "npm run css-build && npm run js-build"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
+    "dotenv": "^16.0.1",
+    "ftp": "^0.3.10",
+    "rollup": "^2.76.0",
+    "tailwindcss": "^3.1.6"
+  }
+}

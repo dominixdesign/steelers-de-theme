@@ -1,6 +1,0 @@
-theme:
-  name: steelers.de
-
-layouts:
-  _default:
-    name: Default layout
