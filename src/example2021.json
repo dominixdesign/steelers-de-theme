@@ -1,0 +1,1552 @@
+{
+  "matches": [
+    {
+      "id": 2121,
+      "start_date": "2021-09-10 19:30:00",
+      "real_end_date": "2021-09-10 21:57:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "1",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 1, "name": "ERC Ingolstadt", "shortcut": "ING" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 4 },
+          "first_period": { "score_home": 2, "score_guest": 1 },
+          "second_period": { "score_home": 2, "score_guest": 1 },
+          "third_period": { "score_home": 1, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2130,
+      "start_date": "2021-09-12 14:00:00",
+      "real_end_date": "2021-09-12 16:15:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "2",
+      "home": { "id": 14, "name": "Nürnberg Ice Tigers", "shortcut": "NIT" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 0 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 2, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2144,
+      "start_date": "2021-09-19 19:00:00",
+      "real_end_date": "2021-09-19 21:07:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "4",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 8, "name": "Grizzlys Wolfsburg", "shortcut": "WOB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 0, "score_guest": 4 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 0, "score_guest": 3 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2148,
+      "start_date": "2021-09-21 19:30:00",
+      "real_end_date": "2021-09-21 21:44:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "5",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 13, "name": "Augsburger Panther", "shortcut": "AEV" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 4 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 1, "score_guest": 3 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2157,
+      "start_date": "2021-09-24 19:30:00",
+      "real_end_date": "2021-09-24 22:05:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "6",
+      "home": { "id": 11, "name": "Kölner Haie", "shortcut": "KEC" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 4 },
+          "first_period": { "score_home": 2, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 2 },
+          "third_period": { "score_home": 1, "score_guest": 0 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2162,
+      "start_date": "2021-09-26 19:00:00",
+      "real_end_date": "2021-09-26 21:14:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "7",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": {
+        "id": 15,
+        "name": "Schwenninger Wild Wings",
+        "shortcut": "SWW"
+      },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 3 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 1 },
+          "overtime": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Verlängerung",
+      "actual_time_alias": "KP",
+      "last_event_time": 3646
+    },
+    {
+      "id": 2172,
+      "start_date": "2021-10-01 19:30:00",
+      "real_end_date": "2021-10-01 21:49:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "8",
+      "home": { "id": 6, "name": "Straubing Tigers", "shortcut": "STR" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 4 },
+          "first_period": { "score_home": 2, "score_guest": 2 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 1, "score_guest": 0 },
+          "overtime": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Verlängerung",
+      "actual_time_alias": "KP",
+      "last_event_time": 3656
+    },
+    {
+      "id": 2179,
+      "start_date": "2021-10-03 17:00:00",
+      "real_end_date": "2021-10-03 19:17:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "9",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 3, "name": "Eisbären Berlin", "shortcut": "EBB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 4 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 2 },
+          "third_period": { "score_home": 1, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2183,
+      "start_date": "2021-10-08 19:30:00",
+      "real_end_date": "2021-10-08 21:58:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "10",
+      "home": { "id": 5, "name": "Krefeld Pinguine", "shortcut": "KEV" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 4 },
+          "first_period": { "score_home": 1, "score_guest": 2 },
+          "second_period": { "score_home": 2, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 0 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2193,
+      "start_date": "2021-10-10 16:30:00",
+      "real_end_date": "2021-10-10 18:45:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "11",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 4, "name": "Düsseldorfer EG", "shortcut": "DEG" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 2 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 2, "score_guest": 0 },
+          "third_period": { "score_home": 2, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2200,
+      "start_date": "2021-10-15 19:30:00",
+      "real_end_date": "2021-10-15 21:51:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "12",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 7, "name": "Iserlohn Roosters", "shortcut": "IEC" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 2 },
+          "first_period": { "score_home": 3, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2204,
+      "start_date": "2021-10-17 16:30:00",
+      "real_end_date": "2021-10-17 18:46:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "13",
+      "home": { "id": 2, "name": "Adler Mannheim", "shortcut": "MAN" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 6, "score_guest": 2 },
+          "first_period": { "score_home": 3, "score_guest": 1 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2214,
+      "start_date": "2021-10-20 19:30:00",
+      "real_end_date": "2021-10-20 21:45:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "14",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 9, "name": "Pinguins Bremerhaven", "shortcut": "BHV" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 10 },
+          "first_period": { "score_home": 1, "score_guest": 3 },
+          "second_period": { "score_home": 1, "score_guest": 3 },
+          "third_period": { "score_home": 1, "score_guest": 4 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2221,
+      "start_date": "2022-02-25 19:30:00",
+      "real_end_date": "2022-02-25 21:40:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "48",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 12, "name": "EHC Red Bull München", "shortcut": "RBM" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 9 },
+          "first_period": { "score_home": 0, "score_guest": 3 },
+          "second_period": { "score_home": 1, "score_guest": 3 },
+          "third_period": { "score_home": 0, "score_guest": 3 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2228,
+      "start_date": "2021-10-24 14:00:00",
+      "real_end_date": "2021-10-24 16:06:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "16",
+      "home": { "id": 6, "name": "Straubing Tigers", "shortcut": "STR" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 1 },
+          "first_period": { "score_home": 3, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2234,
+      "start_date": "2021-10-29 19:30:00",
+      "real_end_date": "2021-10-29 21:42:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "17",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 2, "name": "Adler Mannheim", "shortcut": "MAN" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 4 },
+          "first_period": { "score_home": 1, "score_guest": 3 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2236,
+      "start_date": "2021-10-31 14:00:00",
+      "real_end_date": "2021-10-31 16:18:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "18",
+      "home": { "id": 9, "name": "Pinguins Bremerhaven", "shortcut": "BHV" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 8, "score_guest": 2 },
+          "first_period": { "score_home": 2, "score_guest": 1 },
+          "second_period": { "score_home": 3, "score_guest": 0 },
+          "third_period": { "score_home": 3, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2248,
+      "start_date": "2021-11-03 19:30:00",
+      "real_end_date": "2021-11-03 21:38:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "19",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 14, "name": "Nürnberg Ice Tigers", "shortcut": "NIT" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 2 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2256,
+      "start_date": "2021-11-05 19:30:00",
+      "real_end_date": "2021-11-05 21:48:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "20",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 1, "name": "ERC Ingolstadt", "shortcut": "ING" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 2 },
+          "first_period": { "score_home": 2, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 0 },
+          "overtime": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende n. Verlängerung",
+      "actual_time_alias": "KP",
+      "last_event_time": 3759
+    },
+    {
+      "id": 2260,
+      "start_date": "2021-11-07 14:00:00",
+      "real_end_date": "2021-11-07 16:08:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "21",
+      "home": { "id": 8, "name": "Grizzlys Wolfsburg", "shortcut": "WOB" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 2 },
+          "first_period": { "score_home": 3, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 2 },
+          "third_period": { "score_home": 0, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2269,
+      "start_date": "2021-11-19 19:30:00",
+      "real_end_date": "2021-11-19 21:49:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "22",
+      "home": { "id": 11, "name": "Kölner Haie", "shortcut": "KEC" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 7, "score_guest": 3 },
+          "first_period": { "score_home": 4, "score_guest": 0 },
+          "second_period": { "score_home": 1, "score_guest": 2 },
+          "third_period": { "score_home": 2, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2277,
+      "start_date": "2021-11-21 14:00:00",
+      "real_end_date": "2021-11-21 16:19:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "23",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 7, "name": "Iserlohn Roosters", "shortcut": "IEC" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 4 },
+          "first_period": { "score_home": 2, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 3 },
+          "third_period": { "score_home": 0, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2291,
+      "start_date": "2021-11-26 19:30:00",
+      "real_end_date": "2021-11-26 22:00:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "25",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 3, "name": "Eisbären Berlin", "shortcut": "EBB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 5 },
+          "first_period": { "score_home": 2, "score_guest": 2 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 1 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2293,
+      "start_date": "2021-11-28 14:00:00",
+      "real_end_date": "2021-11-28 16:21:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "26",
+      "home": {
+        "id": 15,
+        "name": "Schwenninger Wild Wings",
+        "shortcut": "SWW"
+      },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 5 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 3 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2300,
+      "start_date": "2021-12-03 19:30:00",
+      "real_end_date": "2021-12-03 21:47:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "27",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 13, "name": "Augsburger Panther", "shortcut": "AEV" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 0 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 2, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2312,
+      "start_date": "2021-12-05 16:30:00",
+      "real_end_date": "2021-12-05 18:35:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "28",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 5, "name": "Krefeld Pinguine", "shortcut": "KEV" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 4 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 3 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2319,
+      "start_date": "2021-12-10 19:30:00",
+      "real_end_date": "2021-12-10 21:43:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "29",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 12, "name": "EHC Red Bull München", "shortcut": "RBM" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 6, "score_guest": 3 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 1, "score_guest": 2 },
+          "third_period": { "score_home": 4, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2320,
+      "start_date": "2021-12-12 19:00:00",
+      "real_end_date": "2021-12-12 21:08:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "30",
+      "home": { "id": 4, "name": "Düsseldorfer EG", "shortcut": "DEG" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 1 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 2, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2328,
+      "start_date": "2021-12-17 19:30:00",
+      "real_end_date": "2021-12-17 21:44:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "31",
+      "home": { "id": 7, "name": "Iserlohn Roosters", "shortcut": "IEC" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 5 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 2, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 3 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2338,
+      "start_date": "2021-12-19 19:00:00",
+      "real_end_date": "2021-12-19 21:20:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "32",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 9, "name": "Pinguins Bremerhaven", "shortcut": "BHV" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 0, "score_guest": 2 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2346,
+      "start_date": "2021-12-21 19:30:00",
+      "real_end_date": "2021-12-21 21:40:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "33",
+      "home": { "id": 12, "name": "EHC Red Bull München", "shortcut": "RBM" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 7, "score_guest": 3 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 7, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2354,
+      "start_date": "2021-12-23 19:30:00",
+      "real_end_date": "2021-12-23 21:47:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "34",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 14, "name": "Nürnberg Ice Tigers", "shortcut": "NIT" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 4 },
+          "first_period": { "score_home": 1, "score_guest": 2 },
+          "second_period": { "score_home": 3, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2360,
+      "start_date": "2022-03-30 19:30:00",
+      "real_end_date": "2022-03-30 21:55:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "35",
+      "home": { "id": 1, "name": "ERC Ingolstadt", "shortcut": "ING" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 3 },
+          "first_period": { "score_home": 3, "score_guest": 2 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2368,
+      "start_date": "2021-12-28 19:30:00",
+      "real_end_date": "2021-12-28 21:36:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "36",
+      "home": { "id": 4, "name": "Düsseldorfer EG", "shortcut": "DEG" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 0, "score_guest": 3 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2372,
+      "start_date": "2021-12-30 19:30:00",
+      "real_end_date": "2021-12-30 21:42:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "37",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 2, "name": "Adler Mannheim", "shortcut": "MAN" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 4 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 3 },
+          "third_period": { "score_home": 4, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2379,
+      "start_date": "2022-01-02 14:00:00",
+      "real_end_date": "2022-01-02 16:34:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "38",
+      "home": { "id": 3, "name": "Eisbären Berlin", "shortcut": "EBB" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 5 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 3, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 3 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2389,
+      "start_date": "2022-01-05 20:30:00",
+      "real_end_date": "2022-01-05 22:42:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "39",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 11, "name": "Kölner Haie", "shortcut": "KEC" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 3 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2403,
+      "start_date": "2022-02-23 19:30:00",
+      "real_end_date": "2022-02-23 21:43:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "41",
+      "home": { "id": 5, "name": "Krefeld Pinguine", "shortcut": "KEV" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 5 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 4 },
+          "third_period": { "score_home": 2, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2405,
+      "start_date": "2022-01-14 19:30:00",
+      "real_end_date": "2022-01-14 21:45:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "42",
+      "home": { "id": 13, "name": "Augsburger Panther", "shortcut": "AEV" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 1 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 2, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2414,
+      "start_date": "2022-01-16 19:00:00",
+      "real_end_date": "2022-01-16 21:18:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "43",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 6, "name": "Straubing Tigers", "shortcut": "STR" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 6 },
+          "first_period": { "score_home": 1, "score_guest": 2 },
+          "second_period": { "score_home": 1, "score_guest": 2 },
+          "third_period": { "score_home": 0, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2424,
+      "start_date": "2022-01-19 20:30:00",
+      "real_end_date": "2022-01-19 22:48:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "44",
+      "home": { "id": 8, "name": "Grizzlys Wolfsburg", "shortcut": "WOB" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 3 },
+          "first_period": { "score_home": 3, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2428,
+      "start_date": "2022-02-18 19:30:00",
+      "real_end_date": "2022-02-18 21:49:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "45",
+      "home": {
+        "id": 15,
+        "name": "Schwenninger Wild Wings",
+        "shortcut": "SWW"
+      },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 5 },
+          "first_period": { "score_home": 1, "score_guest": 2 },
+          "second_period": { "score_home": 2, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2434,
+      "start_date": "2022-03-27 17:00:00",
+      "real_end_date": "2022-03-27 19:25:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "46",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 5, "name": "Krefeld Pinguine", "shortcut": "KEV" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 2 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 0 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2444,
+      "start_date": "2022-03-15 19:30:00",
+      "real_end_date": "2022-03-15 21:41:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "47",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 4, "name": "Düsseldorfer EG", "shortcut": "DEG" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 3 },
+          "first_period": { "score_home": 1, "score_guest": 2 },
+          "second_period": { "score_home": 3, "score_guest": 0 },
+          "third_period": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2449,
+      "start_date": "2021-10-26 19:30:00",
+      "real_end_date": "2021-10-26 21:39:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "15",
+      "home": { "id": 12, "name": "EHC Red Bull München", "shortcut": "RBM" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 0 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 2, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2460,
+      "start_date": "2022-02-27 16:30:00",
+      "real_end_date": "2022-02-27 19:14:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "49",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": {
+        "id": 15,
+        "name": "Schwenninger Wild Wings",
+        "shortcut": "SWW"
+      },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 2 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 3, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2464,
+      "start_date": "2022-03-02 19:30:00",
+      "real_end_date": "2022-03-02 21:47:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "50",
+      "home": { "id": 14, "name": "Nürnberg Ice Tigers", "shortcut": "NIT" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 5 },
+          "first_period": { "score_home": 0, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 1, "score_guest": 4 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2472,
+      "start_date": "2022-03-29 19:30:00",
+      "real_end_date": "2022-03-29 21:55:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "51",
+      "home": { "id": 1, "name": "ERC Ingolstadt", "shortcut": "ING" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 2 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 2, "score_guest": 1 },
+          "third_period": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2479,
+      "start_date": "2022-03-16 19:30:00",
+      "real_end_date": "2022-03-16 21:48:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "52",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 8, "name": "Grizzlys Wolfsburg", "shortcut": "WOB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 0, "score_guest": 4 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 2 },
+          "third_period": { "score_home": 0, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2484,
+      "start_date": "2022-03-25 19:30:00",
+      "real_end_date": "2022-03-25 21:42:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "53",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 6, "name": "Straubing Tigers", "shortcut": "STR" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 3 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 1 },
+          "third_period": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2490,
+      "start_date": "2022-03-11 19:30:00",
+      "real_end_date": "2022-03-11 22:00:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "54",
+      "home": { "id": 7, "name": "Iserlohn Roosters", "shortcut": "IEC" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 3, "score_guest": 4 },
+          "first_period": { "score_home": 0, "score_guest": 0 },
+          "second_period": { "score_home": 3, "score_guest": 0 },
+          "third_period": { "score_home": 0, "score_guest": 3 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2508,
+      "start_date": "2022-03-18 19:30:00",
+      "real_end_date": "2022-03-18 22:01:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "56",
+      "home": { "id": 2, "name": "Adler Mannheim", "shortcut": "MAN" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 4, "score_guest": 3 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 2, "score_guest": 2 },
+          "third_period": { "score_home": 0, "score_guest": 1 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 1, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2515,
+      "start_date": "2022-03-20 16:30:00",
+      "real_end_date": "2022-03-20 18:50:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "57",
+      "home": { "id": 13, "name": "Augsburger Panther", "shortcut": "AEV" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 2, "score_guest": 3 },
+          "first_period": { "score_home": 1, "score_guest": 0 },
+          "second_period": { "score_home": 0, "score_guest": 2 },
+          "third_period": { "score_home": 1, "score_guest": 0 },
+          "overtime": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Verlängerung",
+      "actual_time_alias": "KP",
+      "last_event_time": 3653
+    },
+    {
+      "id": 2519,
+      "start_date": "2022-03-23 19:30:00",
+      "real_end_date": "2022-03-23 21:54:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "58",
+      "home": { "id": 9, "name": "Pinguins Bremerhaven", "shortcut": "BHV" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": 1,
+      "results": {
+        "extra_time": true,
+        "shooting": true,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 2 },
+          "first_period": { "score_home": 1, "score_guest": 1 },
+          "second_period": { "score_home": 0, "score_guest": 0 },
+          "third_period": { "score_home": 0, "score_guest": 0 },
+          "overtime": { "score_home": 0, "score_guest": 0 },
+          "shootout": { "score_home": 0, "score_guest": 1 }
+        }
+      },
+      "actual_time_name": "Ende n. Penaltyschießen",
+      "actual_time_alias": "KN",
+      "last_event_time": 3900
+    },
+    {
+      "id": 2529,
+      "start_date": "2022-04-01 19:30:00",
+      "real_end_date": "2022-04-01 21:45:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "59",
+      "home": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "guest": { "id": 11, "name": "Kölner Haie", "shortcut": "KEC" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 1, "score_guest": 9 },
+          "first_period": { "score_home": 0, "score_guest": 4 },
+          "second_period": { "score_home": 1, "score_guest": 3 },
+          "third_period": { "score_home": 0, "score_guest": 2 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    },
+    {
+      "id": 2530,
+      "start_date": "2022-04-03 14:00:00",
+      "real_end_date": "2022-04-03 16:07:00",
+      "league_id": 1,
+      "league": "DEL",
+      "season": "2021",
+      "round": "60",
+      "home": { "id": 3, "name": "Eisbären Berlin", "shortcut": "EBB" },
+      "guest": { "id": 22, "name": "Bietigheim Steelers", "shortcut": "SCB" },
+      "status": "AFTER_MATCH",
+      "overtimeCount": null,
+      "results": {
+        "extra_time": false,
+        "shooting": false,
+        "contumacy": false,
+        "score": {
+          "final": { "score_home": 5, "score_guest": 1 },
+          "first_period": { "score_home": 2, "score_guest": 0 },
+          "second_period": { "score_home": 1, "score_guest": 1 },
+          "third_period": { "score_home": 2, "score_guest": 0 }
+        }
+      },
+      "actual_time_name": "Ende",
+      "actual_time_alias": "K",
+      "last_event_time": 3600
+    }
+  ]
+}

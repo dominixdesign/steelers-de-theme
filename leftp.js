@@ -20,6 +20,10 @@ var x = new LEftp({
       localRootDir: "templates",
       remoteRootDir: "/templates/steelers",
     },
+    {
+      localRootDir: "dominix/DelClientBundle",
+      remoteRootDir: "/src",
+    },
   ],
   // The following two parameters are depricated. Use watchList array instead
   // "localRootDir" : "C:/my/local/folder",	// Depricated, use watchList array instead
