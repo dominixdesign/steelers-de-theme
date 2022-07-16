@@ -12,7 +12,7 @@
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['del_rounds'] = array('Spielzeiten', 'Hier können Spielzeiten / Spielrunden bearbeitet werden.');
+$GLOBALS['TL_LANG']['MOD']['del_rounds'] = array('DEL Spielzeiten', 'Hier können Spielzeiten / Spielrunden bearbeitet werden.');
 $GLOBALS['TL_LANG']['MOD']['del_refresh'] = array('Aktualisieren', 'Hier können alle Daten von Holema manuell aktualisiert werden.');
 $GLOBALS['TL_LANG']['MOD']['del_games'] = array('Spielplan', 'Hier können alle Spiele bzw. Spielpläne bearbeitet werden.');
 

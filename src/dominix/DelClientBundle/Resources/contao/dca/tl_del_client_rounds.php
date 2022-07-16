@@ -33,12 +33,12 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         'sorting' => array
         (
             'mode'                    => 11,
-            'fields'                  => array('delid'),
+            'fields'                  => array('year'),
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array
         (
-            'fields'                  => array('delid', 'name', 'season'),
+            'fields'                  => array('year', 'name', 'season'),
             'showColumns'             => true,
         ),
         'global_operations' => array
@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => 'delid,name,season,autorefresh'
+        'default' => 'year,league,standingsid,name,season,autorefresh'
     ),
     // Fields
     'fields'   => array
@@ -90,13 +90,29 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         (
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
-        'delid' => array
+        'standingsid' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['delid'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['standingsid'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(10) unsigned NOT NULL"
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
+        ),
+        'year' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['year'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
+        ),
+        'league' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['league'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'name' => array
         (

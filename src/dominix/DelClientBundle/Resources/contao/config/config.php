@@ -18,7 +18,7 @@ $GLOBALS['BE_MOD']['del'] = array(
     'tables' => array('tl_del_client_games')
 	),
 	'del_refresh' => array(
-		'callback' => 'dominix\\DelClientBundle\\Modules\\ModuleRefresh'
+		'callback' => dominix\DelClientBundle\Modules\ModuleRefresh::class
 	)
 );
 

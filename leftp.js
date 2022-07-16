@@ -21,7 +21,7 @@ var x = new LEftp({
       remoteRootDir: "/templates/steelers",
     },
     {
-      localRootDir: "dominix/DelClientBundle",
+      localRootDir: "src/dominix/DelClientBundle",
       remoteRootDir: "/src",
     },
   ],
@@ -30,6 +30,6 @@ var x = new LEftp({
   // "remoteRootDir": 'public_html/remote/dir',	// Depricated, use watchList array instead
 
   frequency: 1, // Number of seconds between each scan
-  ext: [".css", ".js", ".html", ".html5", "txt", "jpg", "json"],
+  ext: [".css", ".js", ".html", ".html5", "txt", "jpg", "json", ".php"],
   onStartUploadAll: false, // On start, upload all files (that match the "watch criteria").
 });
