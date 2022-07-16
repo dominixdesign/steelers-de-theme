@@ -7,7 +7,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['del_round'] = array
 	 'exclude'                 => true,
 	 'search'                  => true,
 	 'inputType'               => 'select',
-	 'options_callback'        => array('dominix\\DelClientBundle\\Models\\DelRounds', 'findForSelect'),
+	 'options_callback'        => array('dominix\\DelClientBundle\\Model\\DelRounds', 'findForSelect'),
 	 'eval'										 => array('onchange' => 'Backend.autoSubmit(\'tl_module\')'),
 	 'sql'                     => "varchar(64) NOT NULL default ''"
 );

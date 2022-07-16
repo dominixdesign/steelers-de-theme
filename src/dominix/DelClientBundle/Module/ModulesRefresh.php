@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace dominix\DelClientBundle\Modules;
+namespace App\Contao\Module;
 
 use Contao\Database;
 use Contao\BackendModule;
-use dominix\DelClientBundle\Models\DelRounds;
-use dominix\DelClientBundle\Utils\DelRefreshStandings;
-use dominix\DelClientBundle\Utils\DelRefreshGames;
+use App\Contao\Model\DelRounds;
+use App\Contao\Utils\DelRefreshStandings;
+use App\Contao\Utils\DelRefreshGames;
 
 class ModuleRefresh extends BackendModule
 {
 
 	protected $strTemplate = 'be_refresh';
 
-	public function generate() {
+	public function compile() {
 
 		if (\Input::post('FORM_SUBMIT') == 'tl_del_refresh') {
 			$done = array();

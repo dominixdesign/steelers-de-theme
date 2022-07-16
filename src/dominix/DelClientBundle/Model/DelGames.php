@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace dominix\DelClientBundle\Models;
+namespace App\Contao\Model;
 
 use Contao\Database;
 use Contao\Model;

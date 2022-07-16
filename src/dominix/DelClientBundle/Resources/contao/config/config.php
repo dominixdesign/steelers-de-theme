@@ -18,16 +18,16 @@ $GLOBALS['BE_MOD']['del'] = array(
     'tables' => array('tl_del_client_games')
 	),
 	'del_refresh' => array(
-		'callback' => dominix\DelClientBundle\Modules\ModuleRefresh::class
+		'callback' => \App\Contao\Module\ModuleRefresh::class
 	)
 );
 
 /* Model Classes */
-$GLOBALS['TL_MODELS']['tl_del_client_rounds'] = '\dominix\DelClientBundle\Models\delRounds';
-$GLOBALS['TL_MODELS']['tl_del_client_games'] = '\dominix\DelClientBundle\Models\delGames';
+$GLOBALS['TL_MODELS']['tl_del_client_rounds'] = '\App\Contao\Model\delRounds';
+$GLOBALS['TL_MODELS']['tl_del_client_games'] = '\App\Contao\Model\delGames';
 
-/* Frontend Modules */
-$GLOBALS['FE_MOD']['del']['schedule'] = '\dominix\DelClientBundle\Modules\ScheduleModule';
+/* Frontend Module */
+$GLOBALS['FE_MOD']['del']['schedule'] = '\App\Contao\Module\ScheduleModule';
 
 /* Cronjob */
-// $GLOBALS['TL_CRON']['hourly'][] = array('\dominix\DelClientBundle\Utils\delApi','refreshAll');
+// $GLOBALS['TL_CRON']['hourly'][] = array('\App\Contao\Utils\delApi','refreshAll');

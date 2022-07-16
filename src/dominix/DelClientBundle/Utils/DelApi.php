@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace dominix\DelClientBundle\Utils;
+namespace App\Contao\Utils;
 
-use dominix\DelClientBundle\Models\DelStandings;
+use App\Contao\Model\DelStandings;
 use Contao\StringUtil;
 use Contao\Files;
 
-use dominix\DelClientBundle\Models\DelRounds;
-use dominix\DelClientBundle\Utils\DelRefreshStandings;
-use dominix\DelClientBundle\Utils\DelRefreshGames;
-use dominix\DelClientBundle\Utils\DelRefreshPlayers;
+use App\Contao\Model\DelRounds;
+use App\Contao\Utils\DelRefreshStandings;
+use App\Contao\Utils\DelRefreshGames;
+use App\Contao\Utils\DelRefreshPlayers;
 
 class DelApi
 {

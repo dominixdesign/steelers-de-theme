@@ -34,7 +34,7 @@ if($this->result) {
 	?>
 </div>
 </fieldset>
-<div style="margin-left: 15px"><button type="submit" name="save" id="save" class="tl_submit" accesskey="s">aktualisieren</button></div>
+<div style="margin-left: 15px; padding: 5px;"><button type="submit" name="save" id="save" class="tl_submit" accesskey="s">aktualisieren</button></div>
 </div>
 
 </form>

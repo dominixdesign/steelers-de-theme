@@ -39,7 +39,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         (
             'fields'                  => array('gamedate', 'hometeam', 'awayteam', 'round'),
             'showColumns'             => true,
-						'label_callback'					=> array('dominix\\DelClientBundle\\Models\\delStandings', 'findTeamsForDisplay')
+						'label_callback'					=> array('dominix\\DelClientBundle\\Model\\delStandings', 'findTeamsForDisplay')
         ),
         'global_operations' => array
         (
@@ -102,7 +102,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'select',
-						'options_callback'				=> array('dominix\\DelClientBundle\\Models\\delRounds', 'findForSelect'),
+						'options_callback'				=> array('dominix\\DelClientBundle\\Model\\delRounds', 'findForSelect'),
             'eval'                    => array('mandatory' => true, 'tl_class' => 'clr w50', 'onchange' => 'Backend.autoSubmit(\'tl_del_client_games\')'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
@@ -112,7 +112,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'select',
-						'options_callback'			  => array('dominix\\DelClientBundle\\Models\\delStandings', 'findTeamsForSelect'),
+						'options_callback'			  => array('dominix\\DelClientBundle\\Model\\delStandings', 'findTeamsForSelect'),
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr w50'),
             'sql'                     => "int(10) NULL"
         ),
@@ -122,7 +122,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'select',
-						'options_callback'			  => array('dominix\\DelClientBundle\\Models\\delStandings', 'findTeamsForSelect'),
+						'options_callback'			  => array('dominix\\DelClientBundle\\Model\\delStandings', 'findTeamsForSelect'),
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "int(10) NULL"
         ),

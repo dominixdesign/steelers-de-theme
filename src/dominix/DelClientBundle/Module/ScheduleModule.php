@@ -1,9 +1,9 @@
 <?php
 
-namespace dominix\DelClientBundle\Modules;
+namespace App\Contao\Module;
 
 use Contao\Module;
-use dominix\DelClientBundle\Models\DelGames;
+use App\Contao\Model\DelGames;
 
 class ScheduleModule extends Module {
 
