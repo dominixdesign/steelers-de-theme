@@ -21,8 +21,16 @@ var x = new LEftp({
       remoteRootDir: "/templates/steelers",
     },
     {
-      localRootDir: "src/dominix/DelClientBundle",
-      remoteRootDir: "/src",
+      localRootDir: "src/TilastotBundle/Tilastot",
+      remoteRootDir: "/src/Tilastot",
+    },
+    {
+      localRootDir: "src/TilastotBundle/Resources",
+      remoteRootDir: "/src/Resources",
+    },
+    {
+      localRootDir: "src/TilastotBundle/config",
+      remoteRootDir: "/config",
     },
   ],
   // The following two parameters are depricated. Use watchList array instead
@@ -30,6 +38,6 @@ var x = new LEftp({
   // "remoteRootDir": 'public_html/remote/dir',	// Depricated, use watchList array instead
 
   frequency: 1, // Number of seconds between each scan
-  ext: [".css", ".js", ".html", ".html5", "txt", "jpg", "json", ".php"],
+  ext: [".css", ".js", ".html", ".html5", "txt", "jpg", "json", ".php", ".yml"],
   onStartUploadAll: false, // On start, upload all files (that match the "watch criteria").
 });

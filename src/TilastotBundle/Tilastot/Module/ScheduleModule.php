@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Contao\Module;
+namespace App\Tilastot\Module;
 
 use Contao\Module;
-use App\Contao\Model\DelGames;
+use App\Tilastot\Model\DelGames;
 
 class ScheduleModule extends Module {
 

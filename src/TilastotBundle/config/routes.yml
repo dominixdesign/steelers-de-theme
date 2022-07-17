@@ -1,0 +1,3 @@
+app.tilastot.utils:
+  resource: ../src/Tilastot/Utils
+  type: annotation

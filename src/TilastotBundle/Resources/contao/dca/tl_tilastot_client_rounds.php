@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DelClientBundle.
+ * This file is part of the TilastotBundle.
  *
  * (c) Dominik Sander <http://dominix-design.de>
  *
@@ -10,9 +10,9 @@
  */
 
 /**
- * Table tl_del_client_rounds
+ * Table tl_tilastot_client_rounds
  */
-$GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
+$GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
 (
     // Config
     'config'   => array
@@ -55,22 +55,22 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         (
             'edit' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['edit'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['edit'],
                 'href'                => 'act=edit',
                 'icon'                => 'edit.gif'
             ),
             'delete' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['show'],
                 'href'                => 'act=show',
-                'icon'                => 'show.gif'
+                'icon'                => 'show.svg' 
             )
         )
     ),
@@ -92,7 +92,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         ),
         'standingsid' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['standingsid'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['standingsid'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
@@ -100,7 +100,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         ),
         'year' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['year'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['year'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
@@ -108,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         ),
         'league' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['league'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['league'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
@@ -116,7 +116,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         ),
         'name' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['name'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['name'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -125,7 +125,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         ),
         'season' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['season'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['season'],
             'exclude'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'rgxp'=>'alphanumeric', 'tl_class'=>'w50'),
@@ -133,7 +133,7 @@ $GLOBALS['TL_DCA']['tl_del_client_rounds'] = array
         ),
         'autorefresh' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_rounds']['autorefresh'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['autorefresh'],
             'exclude'                 => true,
             'inputType'               => 'checkbox',
             'eval'                    => array('mandatory'=>false, 'tl_class'=>'w50'),

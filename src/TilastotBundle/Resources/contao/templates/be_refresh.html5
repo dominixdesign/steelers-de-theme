@@ -12,9 +12,9 @@ if($this->result) {
   <a href="<?= $this->href ?>" class="header_back" title="<?= $this->title ?>"><?= $this->button ?></a>
 </div>
 
-<form action="<?= $this->formSubmit ?>" id="tl_holema_refresh" class="tl_form tl_edit_form" method="post" enctype="application/x-www-form-urlencoded">
+<form action="<?= $this->formSubmit ?>" id="tl_tilastot_refresh" class="tl_form tl_edit_form" method="post" enctype="application/x-www-form-urlencoded">
 <div class="tl_formbody_edit">
-<input type="hidden" name="FORM_SUBMIT" value="tl_holema_refresh" />
+<input type="hidden" name="FORM_SUBMIT" value="tl_tilastot_refresh" />
 <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN ?>" />
 
 <fieldset class="tl_tbox nolegend">

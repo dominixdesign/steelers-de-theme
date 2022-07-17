@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  App\Tilastot\:
+    resource: ../src/Tilastot
+    exclude: ../src/Tilastot/{Entity,Migrations,Model,Resources,Tests,Widget}
+
+  App\Tilastot\Utils\:
+    resource: ../src/Tilastot/Utils
+    public: true

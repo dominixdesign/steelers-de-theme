@@ -9,18 +9,8 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Contao\Model;
-
-use Contao\Database;
-use Contao\Model;
-
-class DelGames extends Model
-{
-
-    /**
-     * Name of the table
-     * @var string
-     */
-    protected static $strTable = 'tl_del_client_games';
-
-}
+/**
+ * Miscellaneous
+ */
+$GLOBALS['TL_LANG']['MSC']['delId'] = array('DEL ID der aktuellen Runde','Trage hier die ID der aktuelle Runde ein.');
+$GLOBALS['TL_LANG']['MSC']['tilastot_legend'] = 'DEL Einstellungen';

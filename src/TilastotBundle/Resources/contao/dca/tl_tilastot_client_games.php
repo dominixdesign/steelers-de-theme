@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-$GLOBALS['TL_DCA']['tl_del_client_games'] = array
+$GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array
 (
     // Config
     'config'   => array
@@ -55,26 +55,26 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         (
             'edit' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_games']['edit'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['edit'],
                 'href'                => 'act=edit',
                 'icon'                => 'edit.gif'
             ),
             'copy'   => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_games']['copy'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['copy'],
                 'href'                => 'act=paste&amp;mode=copy',
                 'icon'                => 'copy.gif',
             ),
             'delete' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_games']['delete'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['delete'],
                 'href'                => 'act=delete',
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
             'show' => array
             (
-                'label'               => &$GLOBALS['TL_LANG']['tl_del_client_games']['show'],
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['show'],
                 'href'                => 'act=show',
                 'icon'                => 'show.gif'
             )
@@ -98,17 +98,17 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'round' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['round'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['round'],
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'select',
 						'options_callback'				=> array('dominix\\DelClientBundle\\Model\\delRounds', 'findForSelect'),
-            'eval'                    => array('mandatory' => true, 'tl_class' => 'clr w50', 'onchange' => 'Backend.autoSubmit(\'tl_del_client_games\')'),
+            'eval'                    => array('mandatory' => true, 'tl_class' => 'clr w50', 'onchange' => 'Backend.autoSubmit(\'tl_tilastot_client_games\')'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'hometeam' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['hometeam'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['hometeam'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'select',
@@ -118,7 +118,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'awayteam' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['awayteam'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['awayteam'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'select',
@@ -128,7 +128,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'gameday' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['gameday'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['gameday'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -137,7 +137,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'gamedate' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['gamedate'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['gamedate'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -146,7 +146,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'gametime' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['gametime'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['gametime'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -155,7 +155,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'location' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['location'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['location'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -164,7 +164,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'spectators' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['spectators'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['spectators'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'number',
@@ -173,7 +173,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'periodscore' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['periodscore'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['periodscore'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -182,7 +182,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'homescore' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['homescore'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['homescore'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -191,7 +191,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'awayscore' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['awayscore'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['awayscore'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -200,7 +200,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'resulttype' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['resulttype'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['resulttype'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'select',
@@ -210,7 +210,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'gamestatus' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['gamestatus'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['gamestatus'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
@@ -219,7 +219,7 @@ $GLOBALS['TL_DCA']['tl_del_client_games'] = array
         ),
         'ended' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_del_client_games']['ended'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['ended'],
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'checkbox',

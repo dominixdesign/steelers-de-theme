@@ -9,27 +9,27 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Contao\Module;
+namespace App\Tilastot\Module;
 
 use Contao\Database;
 use Contao\BackendModule;
-use App\Contao\Model\DelRounds;
-use App\Contao\Utils\DelRefreshStandings;
-use App\Contao\Utils\DelRefreshGames;
+use App\Tilastot\Model\Rounds;
+use App\Tilastot\Utils\RefreshStandings;
+// use App\Contao\Utils\RefreshGames;
 
-class ModuleRefresh extends BackendModule
+class RefreshModule extends BackendModule
 {
 
 	protected $strTemplate = 'be_refresh';
 
 	public function compile() {
 
-		if (\Input::post('FORM_SUBMIT') == 'tl_del_refresh') {
+		if (\Input::post('FORM_SUBMIT') == 'tl_tilastot_refresh') {
 			$done = array();
 			foreach(\Input::post('round') as $round) {
-					DelRefreshStandings::refresh($round);
-					DelRefreshGames::refresh($round);
-					$done[$round] = DelRounds::findOneBy('delid', $round);
+					RefreshStandings::refresh($round);
+					//DelRefreshGames::refresh($round);
+					$done[$round] = Rounds::findOneBy('id', $round);
 			}
 			$this->Template->result = $done;
 		}
@@ -38,8 +38,8 @@ class ModuleRefresh extends BackendModule
 		$this->Template->href = $this->getReferer(true);
 		$this->Template->title = specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']);
 		$this->Template->button = $GLOBALS['TL_LANG']['MSC']['backBT'];
-		$this->Template->formSubmit = 'contao?do=del_refresh';
-		$this->Template->rounds = DelRounds::findAll();
+		$this->Template->formSubmit = 'contao?do=tilastot_refresh';
+		$this->Template->rounds = Rounds::findAll();
 		
 		return 'lorem ipüsum';
 

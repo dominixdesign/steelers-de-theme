@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the DelClientBundle.
+ * This file is part of the TilastotBundle.
  *
  * (c) Dominik Sander <http://dominix-design.de>
  *
@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Contao\Model;
+namespace App\Tilastot\Model;
 
 use Contao\Database;
 use Contao\Model;
 
-class DelRounds extends Model
+class Rounds extends Model
 {
 
     /**
      * Name of the table
      * @var string
      */
-    protected static $strTable = 'tl_del_client_rounds';
+    protected static $strTable = 'tl_tilastot_client_rounds';
 
 		public function findForSelect() {
 			$ret = array();
 			$ret[-1] = '';
 
-			foreach(DelRounds::findAll() as $round) {
+			foreach(Rounds::findAll() as $round) {
 				$ret[$round->id] = $round->name." ".$round->season;
 			}
 
