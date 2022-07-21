@@ -3,7 +3,8 @@
 namespace App\Tilastot\Module;
 
 use Contao\Module;
-use App\Tilastot\Model\DelGames;
+use App\Tilastot\Model\Games;
+use App\Tilastot\Model\Standings;
 
 class ScheduleModule extends Module {
 
@@ -34,28 +35,29 @@ class ScheduleModule extends Module {
   protected function compile()
   {
 
-		if($this->del_my_team) {
-			$games = DelGames::findAll(array (
+		if($this->tilastot_my_team) {
+			$games = Games::findAll(array (
 				'order'   => ' gamedate ASC',
 				'column'  => array('gamedate >= ? AND gamedate <= ? AND (awayteam = ? OR hometeam = ?)'),
-				'value'   => array($this->del_from_date,$this->del_to_date,$this->del_my_team,$this->del_my_team)
+				'value'   => array($this->tilastot_from_date,$this->tilastot_to_date,$this->tilastot_my_team,$this->tilastot_my_team)
 			));
 		} else {
-			$games = DelGames::findAll(array (
+			$games = Games::findAll(array (
 				'order'   => ' gamedate ASC',
 				'column'  => array('gamedate >= ? AND gamedate <= ?'),
-				'value'   => array($this->del_from_date,$this->del_to_date)
+				'value'   => array($this->tilastot_from_date,$this->tilastot_to_date)
 			));
 
 		}
+		var_dump($games);
 		if(!$games) {
 			return null;
 		}
 
 		$gameArray = $games->fetchAll();
 		foreach($gameArray as $key => $game) {
-			$gameArray[$key]['home'] = DelStandings::findByIdAndRound($game['hometeam'],$game['round']);
-			$gameArray[$key]['away'] = DelStandings::findByIdAndRound($game['awayteam'],$game['round']);
+			$gameArray[$key]['home'] = Standings::findByIdAndRound($game['hometeam'],$game['round']);
+			$gameArray[$key]['away'] = Standings::findByIdAndRound($game['awayteam'],$game['round']);
 		}
 
 		$this->Template->my_team = $this->del_my_team;

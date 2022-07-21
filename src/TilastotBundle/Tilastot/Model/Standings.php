@@ -24,14 +24,12 @@ class Standings extends Model
      */
     protected static $strTable = 'tl_tilastot_client_standings';
 
-		public function findTeamsForSelect($dc) {
-			$round = $dc->activeRecord->round;
+		public function findTeamsForSelect() {
 			$ret = array();
 			$ret[-1] = "";
-			if(Standings::findByRound($round)) {
-				foreach(Standings::findByRound($round) as $team) {
-					$ret[$team->tolestotid] = $team->name;
-				}
+			$teams = Standings::findAll();
+			foreach($teams as $team) {
+				$ret[$team->tilastotid] = $team->name;
 			}
 
 			return $ret;

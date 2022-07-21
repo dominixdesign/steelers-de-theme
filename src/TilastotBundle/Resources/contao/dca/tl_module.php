@@ -19,6 +19,15 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_table_rows'] = array
 	 'eval'                    => array('mandatory'=>false, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
 	 'sql'                     => "int(3) NULL"
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_my_team'] = array
+(
+	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_my_team'],
+	 'exclude'                 => true,
+	 'inputType'               => 'select',
+	 'options_callback'        => array('App\\Tilastot\\Model\\Standings', 'findTeamsForSelect'),
+	 'eval'                    => array('tl_class'=>'w50'),
+	 'sql'                     => "int(5) NULL"
+);
 $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_config_json'] = array
 (
 	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_config_json'],
@@ -45,5 +54,5 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_to_date'] = array
 
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] = '{title_legend},name,headline,type;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'].= '{tilastot_legend},tilastot_from_date,tilastot_to_date;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'].= '{tilastot_legend},tilastot_my_team,tilastot_from_date,tilastot_to_date;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
