@@ -34,4 +34,14 @@ class Rounds extends Model
 			return $ret;
 
 		}
+
+		public function findForDisplay($roundId) {
+			$round = Rounds::findAll(array (
+		    'limit'   => 1,
+		    'column'  => array('id=?'),
+		    'value'   => array($roundId)
+		  ));
+
+			return $round->name;
+		}
 }

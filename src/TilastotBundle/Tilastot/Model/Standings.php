@@ -13,6 +13,7 @@ namespace App\Tilastot\Model;
 
 use Contao\Database;
 use Contao\Model;
+use App\Tilastot\Model\Rounds;
 
 class Standings extends Model
 {
@@ -24,12 +25,12 @@ class Standings extends Model
     protected static $strTable = 'tl_tilastot_client_standings';
 
 		public function findTeamsForSelect($dc) {
-			$round = ($dc->activeRecord->holema_round) ? $dc->activeRecord->holema_round : $dc->activeRecord->round;
+			$round = $dc->activeRecord->round;
 			$ret = array();
 			$ret[-1] = "";
 			if(Standings::findByRound($round)) {
 				foreach(Standings::findByRound($round) as $team) {
-					$ret[$team->holemaid] = $team->name;
+					$ret[$team->tolestotid] = $team->name;
 				}
 			}
 
@@ -41,20 +42,21 @@ class Standings extends Model
 			$args[0] = date('d.m.Y',$args[0]);
 			$args[1] = self::getTeamData($args[1],$args[3]);
 			$args[2] = self::getTeamData($args[2],$args[3]);
+			$args[3] = Rounds::findForDisplay($args[3]);
 			return $args;
 		}
 
-    public static function getTeamData($holemaId, $round, $data='name') {
+    public static function getTeamData($tilastotId, $round, $data='name') {
       $team = self::findAll(array (
   	    'limit'   => 1,
-  	    'column'  => array('holemaid=?','round=?'),
-  	    'value'   => array($holemaId, $round)
+  	    'column'  => array('tilastotid=?','round=?'),
+  	    'value'   => array($tilastotId, $round)
   	  ));
       if($team) {
         $team = $team->fetchAll();
         return $team[0][$data];
       } else {
-        return '## unknown team ('.$holemaId.', '.$round.') ##';
+        return '## unknown team ('.$tilastotId.', '.$round.') ##';
       }
     }
 
