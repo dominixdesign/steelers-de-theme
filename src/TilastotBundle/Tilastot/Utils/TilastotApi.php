@@ -48,11 +48,13 @@ class TilastotApi
   }
  
   public static function getGames($round) {
-    return self::call('league-team-matches/2021/1/22.json', $round);
+		$r = Rounds::findById($round);
+    return self::call('league-team-matches/'.$r->year.'/'.$r->league.'/22.json', $round);
   }
 
   public static function getStandings($round) {
-    return self::call('tables/19.json', $round);
+		$r = Rounds::findById($round);
+    return self::call('tables/'.$r->standingsid.'.json', $round);
   }
 
 	public static function updateTeam($tilastotTeam, $round) {
