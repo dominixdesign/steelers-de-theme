@@ -1,0 +1,38 @@
+[
+  {
+    "localRootDir": "dist/js",
+    "remoteRootDir": "/files/steelers/js"
+  },
+  {
+    "localRootDir": "dist/css",
+    "remoteRootDir": "/files/steelers/css"
+  },
+  {
+    "localRootDir": "templates",
+    "remoteRootDir": "/templates/steelers"
+  },
+  {
+    "localRootDir": "src/TilastotBundle/Tilastot",
+    "remoteRootDir": "/src/Tilastot"
+  },
+  {
+    "localRootDir": "src/TilastotBundle/Resources",
+    "remoteRootDir": "/src/Resources"
+  },
+  {
+    "localRootDir": "src/TilastotBundle/Controller",
+    "remoteRootDir": "/src/Controller"
+  },
+  {
+    "localRootDir": "src/TilastotBundle/Controller",
+    "remoteRootDir": "/src/Controller"
+  },
+  {
+    "localRootDir": "src/TilastotBundle/config",
+    "remoteRootDir": "/config"
+  },
+  {
+    "localRootDir": "src/scripts",
+    "remoteRootDir": "/src"
+  }
+]

@@ -14,6 +14,7 @@ use App\Tilastot\Model\Games;
 use App\Tilastot\Model\Standings;
 use App\Tilastot\Module\ScheduleModule;
 use \App\Tilastot\Module\RefreshModule;
+use App\Controller\Page\UpdatePageController;
 
 /* Backend Module */
 $GLOBALS['BE_MOD']['del'] = array(
@@ -38,6 +39,9 @@ $GLOBALS['TL_MODELS']['tl_tilastot_client_standings'] = Standings::class;
 
 /* Frontend Module */
 $GLOBALS['FE_MOD']['tilastot']['schedule'] = ScheduleModule::class;
+
+/* Page Types */ 
+$GLOBALS['TL_PTY']['update'] = UpdatePageController::class;
 
 /* Cronjob */
 // $GLOBALS['TL_CRON']['hourly'][] = array('\App\Contao\Utils\delApi','refreshAll');
