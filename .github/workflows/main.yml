@@ -25,3 +25,4 @@ jobs:
         env:
           webhook_url: https://2022.steelers.de/webhook-update.php
           webhook_secret: ${{ env.WEBHOOK }}
+          verbose: true
