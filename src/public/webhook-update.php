@@ -11,8 +11,8 @@ $hookSecret = file_get_contents('../src/secret.txt');
 
 $post = file_get_contents('php://input');
 
-if($post !== $hookSecret) {
-    var_dump($post, $hookSecret);
+if(trim($post) !== trim($hookSecret)) {
+    var_dump(trim($post), trim($hookSecret));
     //header('HTTP/1.1 500 Internal Server Error');
     die();
 }
