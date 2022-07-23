@@ -24,8 +24,8 @@
     "remoteRootDir": "/src/Controller"
   },
   {
-    "localRootDir": "src/TilastotBundle/Controller",
-    "remoteRootDir": "/src/Controller"
+    "localRootDir": "src/public",
+    "remoteRootDir": "/public"
   },
   {
     "localRootDir": "src/TilastotBundle/config",

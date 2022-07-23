@@ -40,8 +40,5 @@ $GLOBALS['TL_MODELS']['tl_tilastot_client_standings'] = Standings::class;
 /* Frontend Module */
 $GLOBALS['FE_MOD']['tilastot']['schedule'] = ScheduleModule::class;
 
-/* Page Types */ 
-$GLOBALS['TL_PTY']['update'] = UpdatePageController::class;
-
 /* Cronjob */
 // $GLOBALS['TL_CRON']['hourly'][] = array('\App\Contao\Utils\delApi','refreshAll');

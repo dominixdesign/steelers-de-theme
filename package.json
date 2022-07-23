@@ -6,6 +6,8 @@
     "css-dev": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/steelers.css --watch --config tailwind.config.cjs",
     "css-build": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/steelers.css --minify --config tailwind.config.cjs",
     "js-build": "npx rollup -c",
+    "ftp-dev": "node leftp.js",
+    "deploy": "node leftp.js deploy",
     "build": "npm run css-build && npm run js-build"
   },
   "devDependencies": {
