@@ -27,6 +27,7 @@ var x = new LEftp({
     ".php",
     ".yml",
     ".sh",
+    ".public",
   ],
   onStartUploadAll, // On start, upload all files (that match the "watch criteria").
 });
