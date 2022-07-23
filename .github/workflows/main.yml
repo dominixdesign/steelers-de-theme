@@ -14,8 +14,8 @@ jobs:
           COMPOSE_TLS_VERSION: TLSv1_2
         with:
           node-version: 16
-      - run: export WEBHOOK=$(openssl rand -hex 12)
-      - run: echo "$WEBHOOK"
+      - run: echo "WEBHOOK=$(openssl rand -hex 12)" >> $GITHUB_ENV
+      - run: echo $WEBHOOK
       - run: printf '%s\n' "$WEBHOOK" >src/scripts/secret.txt
       - run: npm ci
       - run: npm run build
