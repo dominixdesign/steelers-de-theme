@@ -9,12 +9,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🏗 build theme
-        uses: actions/setup-node@v3
         env:
-          FTP_USERNAME: ${{ secrets.ftp_user }}
-          FTP_PASSWORD: ${{ secrets.ftp_password }}
+          FTP_USERNAME:
+          FTP_PASSWORD:
+        uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm ci
       - run: npm run build
-      - run: npm run deploy
+      - run: node leftp deploy ${{ secrets.ftp_user }} ${{ secrets.ftp_password }}

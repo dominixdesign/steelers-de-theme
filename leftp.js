@@ -2,18 +2,18 @@ var LEftp = require("./tools/leftp.js");
 require("dotenv").config();
 const watchList = require("./targets.json");
 const argv = process.argv;
-console.log(process.env);
+
 let onStartUploadAll = false;
 
-if (argv[3] === "deploy") {
+if (argv[2] === "deploy") {
   onStartUploadAll = true;
 }
 
 var x = new LEftp({
   host: "steelers.de",
   port: 21,
-  user: process.env.FTP_USERNAME,
-  password: process.env.FTP_PASSWORD,
+  user: process.env.FTP_USERNAME || argv[3],
+  password: process.env.FTP_PASSWORD || argv[4],
   watchList,
   frequency: 1, // Number of seconds between each scan
   ext: [
