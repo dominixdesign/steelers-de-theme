@@ -12,8 +12,8 @@ if (argv[3] === "deploy") {
 var x = new LEftp({
   host: "steelers.de",
   port: 21,
-  user: process.env.FTP_USERNAME || process.env.secrets.ftp_user,
-  password: process.env.FTP_PASSWORD || process.env.secrets.ftp_password,
+  user: process.env.FTP_USERNAME || argv[4],
+  password: process.env.FTP_PASSWORD || argv[5],
   watchList,
   frequency: 1, // Number of seconds between each scan
   ext: [
