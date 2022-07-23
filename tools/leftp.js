@@ -220,7 +220,7 @@ class leFtp {
     if (!file || !file.name) return;
     var localFileNameFull =
       file.localRoot + (file.localRoot == "" ? "" : "/") + file.name;
-    localFileNameFull = localFileNameFull.replace(/\//g, "\\");
+    //localFileNameFull = localFileNameFull.replace(/\//g, "\\");
     var dirFileBoundary = file.name.lastIndexOf("/");
     var localDirRelative = file.name.substr(0, dirFileBoundary);
     var fileNameOnly = file.name.substr(dirFileBoundary + 1);
