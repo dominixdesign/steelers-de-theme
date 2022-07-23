@@ -10,8 +10,11 @@ jobs:
 
       - name: 🏗 build theme
         uses: actions/setup-node@v3
+        env: # Or as an environment variable
+          FTP_USERNAME: ${{ secrets.ftp_user }}
+          FTP_PASSWORD: ${{ secrets.ftp_password }}
         with:
           node-version: 16
       - run: npm ci
       - run: npm run build
-      - run: npm run deploy {{ secrets.ftp_user }} {{ secrets.ftp_password }}
+      - run: npm run deploy
