@@ -68,7 +68,6 @@ class leFtp {
       console.log(err.code);
       throw err;
     });
-    console.log(config);
     this.Ftp.connect({
       host: config.host,
       port: config.port,
