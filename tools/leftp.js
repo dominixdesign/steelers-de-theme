@@ -231,7 +231,14 @@ class leFtp {
     //console.log(`Upload: ${remoteDirPath}   --  ${fileNameOnly}`);
     //console.log(`Upload: ${localFileNameFull}   -->  ${remoteFileNameFull}`);
 
-    await this.Ftp.put(localFileNameFull, remoteFileNameFull);
+    try {
+      await this.Ftp.put(localFileNameFull, remoteFileNameFull);
+      console.log(
+        `uploaded file "${localFileNameFull}" to "${remoteFileNameFull}"`
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
   deleteFile(file) {
     var remoteFileNameFull =
