@@ -8,6 +8,10 @@
     "remoteRootDir": "/files/steelers/css"
   },
   {
+    "localRootDir": "./src/files",
+    "remoteRootDir": "/files/steelers"
+  },
+  {
     "localRootDir": "./templates",
     "remoteRootDir": "/templates/steelers"
   },
