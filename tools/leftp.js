@@ -75,22 +75,22 @@ class leFtp {
       password: config.password,
       secure: true,
       secureOptions: { rejectUnauthorized: false },
+    }).then(() => {
+      if (config.onStartUploadAll) {
+        this.allFiles = [];
+        setTimeout(this.compareFiles.bind(this), this.frequency);
+        //this.compareFiles(); // Uploads everything as it compares against empty list
+      } else {
+        this.getSnapshot().then((struct) => {
+          this.allFiles = struct;
+          if (this.keepWatch)
+            this.schedule = setTimeout(
+              this.compareFiles.bind(this),
+              this.frequency
+            );
+        });
+      }
     });
-
-    if (config.onStartUploadAll) {
-      this.allFiles = [];
-      setTimeout(this.compareFiles.bind(this), this.frequency);
-      //this.compareFiles(); // Uploads everything as it compares against empty list
-    } else {
-      this.getSnapshot().then((struct) => {
-        this.allFiles = struct;
-        if (this.keepWatch)
-          this.schedule = setTimeout(
-            this.compareFiles.bind(this),
-            this.frequency
-          );
-      });
-    }
   }
 
   stop() {
