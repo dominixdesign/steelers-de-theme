@@ -2,7 +2,7 @@ var LEftp = require("./tools/leftp.js");
 require("dotenv").config();
 const watchList = require("./targets.json");
 const argv = process.argv;
-
+console.log(process.env);
 let onStartUploadAll = false;
 
 if (argv[3] === "deploy") {

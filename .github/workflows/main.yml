@@ -10,7 +10,7 @@ jobs:
 
       - name: 🏗 build theme
         uses: actions/setup-node@v3
-        env: # Or as an environment variable
+        env:
           FTP_USERNAME: ${{ secrets.ftp_user }}
           FTP_PASSWORD: ${{ secrets.ftp_password }}
         with:
