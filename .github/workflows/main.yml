@@ -14,9 +14,7 @@ jobs:
           COMPOSE_TLS_VERSION: TLSv1_2
         with:
           node-version: 16
-      - run: export WEBHOOK=$(openssl rand -hex 12)
-      - run: printf '%s\n' "$WEBHOOK" >secret.txt
-      - run: mv secret.txt src/scripts/secret.txt
+      - run: touch src/scripts/secret2.txt
       - run: npm ci
       - run: npm run build
       - run: node leftp deploy ${{ secrets.ftp_user }} ${{ secrets.ftp_password }}
