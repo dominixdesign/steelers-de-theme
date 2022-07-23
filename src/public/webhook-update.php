@@ -9,12 +9,18 @@
 
 $hookSecret = file_get_contents('../src/secret.txt');
 
+
+var_dump($hookSecret);
+$post = file_get_contents('php://input');
+file_put_contents('test', var_export($post, true));
+
+
 set_error_handler(function($severity, $message, $file, $line) {
     throw new \ErrorException($message, 0, $severity, $file, $line);
 });
 
 set_exception_handler(function($e) {
-    // header('HTTP/1.1 500 Internal Server Error');
+    header('HTTP/1.1 500 Internal Server Error');
     echo "Error on line {$e->getLine()}: " . htmlSpecialChars($e->getMessage());
     die();
 });

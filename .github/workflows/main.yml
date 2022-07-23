@@ -14,13 +14,9 @@ jobs:
           COMPOSE_TLS_VERSION: TLSv1_2
         with:
           node-version: 16
+      - run: echo "WEBHOOK=$(openssl rand -hex 12)" >> $GITHUB_ENV
+      - run: printf '%s\n' "$WEBHOOK" >src/scripts/secret.txt
       - run: npm ci
       - run: npm run build
       - run: node leftp deploy ${{ secrets.ftp_user }} ${{ secrets.ftp_password }}
-
-      - name: Restart Contao
-        uses: distributhor/workflow-webhook@v2
-        env:
-          webhook_url: https://2022.steelers.de/webhook-update.php
-          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
-          verbose: true
+      - run: curl -d "@src/scripts/secret.txt" -X POST https://2022.steelers.de/webhook-update.php
