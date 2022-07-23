@@ -1,5 +1,5 @@
 var fs = require("fs");
-var ftp = require("ftp");
+var ftp = require("ssh2-sftp-client");
 
 class sFile {
   constructor(localRoot, remoteRoot, relativePath, modTime) {
@@ -185,17 +185,17 @@ class leFtp {
     });
   }
 
-  compareFiles() {
+  async compareFiles() {
     //var d=new Date(); var dh=d.getHours(); var dm=d.getMinutes(); var ds=(dh<10?'0'+dh:dh)+':'+(dm<10?'0'+dm:dm); console.log(`${ds} : Checking`);
 
-    this.getSnapshot()
+    await this.getSnapshot()
       .then((str) => {
-        str.forEach((f) => {
+        str.forEach(async (f) => {
           let i = this.allFiles
             .map((af) => af.localRoot + "/" + af.name)
             .indexOf(f.localRoot + "/" + f.name);
           // console.log(`Looking for ${f.name}, found i=${i} [${this.allFiles[i].name} (${this.allFiles[i].modTime})]`);
-          if (i == -1) this.uploadFile(f);
+          if (i == -1) await this.uploadFile(f);
           else {
             if (f.modTime > this.allFiles[i].modTime) this.uploadFile(f);
             this.allFiles.splice(i, 1);
@@ -216,7 +216,7 @@ class leFtp {
       });
   }
 
-  uploadFile(file) {
+  async uploadFile(file) {
     if (!file || !file.name) return;
     var localFileNameFull =
       file.localRoot + (file.localRoot == "" ? "" : "/") + file.name;
@@ -231,23 +231,7 @@ class leFtp {
     //console.log(`Upload: ${remoteDirPath}   --  ${fileNameOnly}`);
     //console.log(`Upload: ${localFileNameFull}   -->  ${remoteFileNameFull}`);
 
-    this.Ftp.put(localFileNameFull, remoteFileNameFull, (err) => {
-      if (err) {
-        if (err.code == 553) {
-          // Destination folder may not exist. Create and retry
-          console.log("Will create remote directory " + remoteDirPath);
-
-          this.Ftp.mkdir(remoteDirPath, true, (err2) => {
-            if (err2) throw err2;
-            // Destination folder created on remote. Now upload
-            this.Ftp.put(localFileNameFull, remoteFileNameFull, (err3) => {
-              if (err3) throw err3;
-              else console.log(`Uploaded ${file.name}`);
-            });
-          });
-        } else throw err; // Some error, other than "destination directory does not exist"
-      } else console.log(`Uploaded ${file.name}`);
-    });
+    await this.Ftp.put(localFileNameFull, remoteFileNameFull);
   }
   deleteFile(file) {
     var remoteFileNameFull =

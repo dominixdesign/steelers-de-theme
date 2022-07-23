@@ -11,7 +11,7 @@ if (argv[2] === "deploy") {
 
 var x = new LEftp({
   host: "steelers.de",
-  port: 21,
+  port: 22,
   user: process.env.FTP_USERNAME || argv[3],
   password: process.env.FTP_PASSWORD || argv[4],
   watchList,
