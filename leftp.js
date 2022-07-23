@@ -4,7 +4,7 @@ const watchList = require("./targets.json");
 const argv = process.argv;
 
 let onStartUploadAll = false;
-
+console.log(argv);
 if (argv[2] === "deploy") {
   onStartUploadAll = true;
 }
