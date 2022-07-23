@@ -14,6 +14,7 @@ jobs:
           COMPOSE_TLS_VERSION: TLSv1_2
         with:
           node-version: 16
+      - run: echo ${uuid,,} | tee src/scripts/secret.txt
       - run: npm ci
       - run: npm run build
       - run: node leftp deploy ${{ secrets.ftp_user }} ${{ secrets.ftp_password }}
