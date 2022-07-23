@@ -11,3 +11,11 @@ services:
   App\Tilastot\Utils\:
     resource: ../src/Tilastot/Utils
     public: true
+
+  App\Tilastot\Module\ScheduleModule:
+    tags:
+      - name: contao.frontend_module
+        category: texts
+        template: mod_schedule
+        renderer: esi
+        type: schedule
