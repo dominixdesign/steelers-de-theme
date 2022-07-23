@@ -1,6 +1,3 @@
 app.tilastot.utils:
   resource: ../src/Tilastot/Utils
   type: annotation
-app.controller:
-  resource: ../src/Controller
-  type: annotation
