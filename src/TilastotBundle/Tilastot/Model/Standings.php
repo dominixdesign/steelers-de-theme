@@ -23,6 +23,7 @@ class Standings extends Model
 	 * @var string
 	 */
 	protected static $strTable = 'tl_tilastot_client_standings';
+	protected static $localCache = array();
 
 	public function findTeamsForSelect()
 	{
@@ -73,6 +74,9 @@ class Standings extends Model
 
 	public static function findByIdAndRound($tilastotid, $round)
 	{
+		if (self::$localCache['r' . $round]['t' . $tilastotid]) {
+			return self::$localCache['r' . $round]['t' . $tilastotid];
+		}
 		$result = Standings::findAll(array(
 			'limit'   => 1,
 			'column'  => array('tilastotid=?', 'round=?'),
@@ -85,6 +89,7 @@ class Standings extends Model
 					$return['logos'][$width] = Standings::getLogoFilename($return['alias'], $width);
 				}
 			}
+			self::$localCache['r' . $round]['t' . $tilastotid] = $return;
 			return $return;
 		}
 		return null;
