@@ -24,4 +24,4 @@ jobs:
         uses: distributhor/workflow-webhook@v2
         env:
           webhook_url: https://2022.steelers.de/webhook-update.php
-          webhook_secret: ${{ WEBHOOK }}
+          webhook_secret: ${{ env.WEBHOOK }}
