@@ -9,12 +9,6 @@
 
 $hookSecret = file_get_contents('../src/secret.txt');
 
-
-var_dump($hookSecret);
-$post = file_get_contents('php://input');
-file_put_contents('test', var_export($post, true));
-
-
 set_error_handler(function($severity, $message, $file, $line) {
     throw new \ErrorException($message, 0, $severity, $file, $line);
 });
