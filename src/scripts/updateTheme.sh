@@ -1,3 +1,4 @@
+cd ..
 vendor/bin/contao-console contao:maintenance-mode enable
 composer dump-autoload
 composer install -o
