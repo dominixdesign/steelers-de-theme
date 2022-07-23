@@ -14,7 +14,9 @@ jobs:
           COMPOSE_TLS_VERSION: TLSv1_2
         with:
           node-version: 16
-      - run: openssl rand -hex 12 >> src/scripts/secret.txt
+      - run: |
+          rm src/scripts/secret.txt
+          openssl rand -hex 12 >> src/scripts/secret.txt
       - run: npm ci
       - run: npm run build
       - run: node leftp deploy ${{ secrets.ftp_user }} ${{ secrets.ftp_password }}
