@@ -79,7 +79,8 @@ class leFtp {
 
     if (config.onStartUploadAll) {
       this.allFiles = [];
-      this.compareFiles(); // Uploads everything as it compares against empty list
+      setTimeout(this.compareFiles.bind(this), this.frequency);
+      //this.compareFiles(); // Uploads everything as it compares against empty list
     } else {
       this.getSnapshot().then((struct) => {
         this.allFiles = struct;
