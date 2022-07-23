@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
       - run: |
-          rm src/scripts/secret.txt
+          rm src/scripts/secret.txt 2> /dev/null
           openssl rand -hex 12 >> src/scripts/secret.txt
       - run: npm ci
       - run: npm run build
