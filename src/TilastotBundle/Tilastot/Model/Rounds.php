@@ -17,31 +17,32 @@ use Contao\Model;
 class Rounds extends Model
 {
 
-    /**
-     * Name of the table
-     * @var string
-     */
-    protected static $strTable = 'tl_tilastot_client_rounds';
+	/**
+	 * Name of the table
+	 * @var string
+	 */
+	protected static $strTable = 'tl_tilastot_client_rounds';
 
-		public function findForSelect() {
-			$ret = array();
-			$ret[-1] = '';
+	public static function findForSelect()
+	{
+		$ret = array();
+		$ret[-1] = '';
 
-			foreach(Rounds::findAll() as $round) {
-				$ret[$round->id] = $round->name." ".$round->season;
-			}
-
-			return $ret;
-
+		foreach (Rounds::findAll() as $round) {
+			$ret[$round->id] = $round->name . " " . $round->season;
 		}
 
-		public function findForDisplay($roundId) {
-			$round = Rounds::findAll(array (
-		    'limit'   => 1,
-		    'column'  => array('id=?'),
-		    'value'   => array($roundId)
-		  ));
+		return $ret;
+	}
 
-			return $round->name;
-		}
+	public static function findForDisplay($roundId)
+	{
+		$round = Rounds::findAll(array(
+			'limit'   => 1,
+			'column'  => array('id=?'),
+			'value'   => array($roundId)
+		));
+
+		return $round->name;
+	}
 }
