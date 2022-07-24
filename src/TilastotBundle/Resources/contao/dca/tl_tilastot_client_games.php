@@ -68,7 +68,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'round,hometeam,awayteam,gameday,gamedate,gametime,location,spectators,periodscore,homescore,awayscore,resulttype,gamestatus,ended'
+        'default' => 'round,hometeam,awayteam,gameday,gamedate,gametime,location,spectators,periodscore,homescore,awayscore,resulttype,gamestatus,ended,magentaurl,eventimurl'
     ),
     // Fields
     'fields'   => array(
