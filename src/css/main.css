@@ -1,4 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+nav .grid-nav {
+  grid-template-columns: 2fr 1fr 2fr;
+}
+
+.sticky #top-sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+#top-sticky-nav {
+  position: relative;
+  overflow-x: clip;
+}
+
+#top-sticky-nav::before {
+  @apply bg-steellightgreen;
+  content: '';
+  display: none;
+  opacity: .3;
+  position: absolute;
+  height: 100%;
+  width: 75px;
+  left: var(--mouse-x);
+  transform: skewX(20deg) translateX(-50%);
+}
+#top-sticky-nav:hover::before {
+  display: block;
+}
+
+.header-nav-logo {
+ @apply bottom-1 w-52 transition-all;
+}
+
+.sticky .header-nav-logo {
+ @apply bottom-1 transition-all;
+ width: 86px;
+}
+
+.header-nav-logo .starcolor {
+  @apply fill-steelgreen;
+}
+.sticky .header-nav-logo .starcolor {
+  @apply fill-white;
+}

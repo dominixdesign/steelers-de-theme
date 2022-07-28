@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./templates/**/*.html5", "./src/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        steelgreen: "#069848",
+        steelblue: "#009cde",
+        steellightgreen: "#29fb86",
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };

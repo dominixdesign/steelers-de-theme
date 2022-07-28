@@ -28,6 +28,7 @@ var x = new LEftp({
     ".yml",
     ".sh",
     ".public",
+    ".svg",
   ],
   onStartUploadAll, // On start, upload all files (that match the "watch criteria").
 });
