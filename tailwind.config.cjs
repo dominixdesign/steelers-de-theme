@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        steelwhite: "#f5faf8",
         steelgreen: "#069848",
         steelblue: "#009cde",
         steellightgreen: "#29fb86",
