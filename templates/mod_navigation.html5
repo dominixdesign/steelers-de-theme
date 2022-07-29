@@ -3,7 +3,7 @@
   style="<?= $this->style ?>" <?php endif; ?>>
 
   <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="hidden"><?= $this->skipNavigation ?></a>
-  <div class="grid grid-nav items-center place-items-center px-16 py-4 relative max-w-screen-2xl mx-auto">
+  <div class="grid grid-nav items-center place-items-center py-4 relative max-w-screen-2xl mx-auto">
     <?= $this->items ?>
   </div>
 

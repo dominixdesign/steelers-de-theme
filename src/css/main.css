@@ -21,10 +21,10 @@ nav .grid-nav {
 }
 
 #top-sticky-nav::before {
-  @apply bg-steellightgreen;
+  @apply bg-steellightgreen transition-opacity;
   content: '';
-  display: none;
-  opacity: .3;
+  display: block;
+  opacity: 0;
   position: absolute;
   height: 100%;
   width: 75px;
@@ -32,7 +32,7 @@ nav .grid-nav {
   transform: skewX(20deg) translateX(-50%);
 }
 #top-sticky-nav:hover::before {
-  display: block;
+  opacity: 0.3;
 }
 
 .header-nav-logo {

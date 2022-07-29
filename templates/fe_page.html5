@@ -33,6 +33,7 @@
   <?php $this->sections('top'); ?>
 
   <div id="wrapper">
+    <img src="files/steelers/layout/star-background.svg" class="fixed top-10" />
 
     <header id="header">
       <div class="inside">
@@ -53,7 +54,7 @@
     <div id="container">
 
       <?php $this->block('main'); ?>
-      <main id="main">
+      <main id="main" class="max-w-screen-2xl mx-auto">
         <div class="inside">
           <?= $this->main ?>
         </div>
