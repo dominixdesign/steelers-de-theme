@@ -17,6 +17,7 @@
   <?php if ($this->canonical) : ?>
   <link rel="canonical" href="<?= $this->canonical ?>">
   <?php endif; ?>
+  <script src="https://unpkg.com/vue@3"></script>
 
   <?= $this->viewport ?>
   <?= $this->framework ?>

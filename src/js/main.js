@@ -1,4 +1,8 @@
 import throttle from "lodash.throttle";
+import { createApp } from "vue";
+import HomeSchedule from "./HomeSchedule.vue";
+
+createApp(HomeSchedule).mount("#homeschedule");
 
 // eventlisteners
 window.onscroll = function () {

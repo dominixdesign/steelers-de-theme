@@ -5,23 +5,23 @@
   "scripts": {
     "css-dev": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/steelers.css --watch --config tailwind.config.cjs",
     "css-build": "npx tailwindcss -i ./src/css/main.css -o ./dist/css/steelers.css --minify --config tailwind.config.cjs",
-    "js-dev": "npx rollup -w -c",
-    "js-build": "npx rollup -c",
+    "js-dev": "vite",
+    "js-build": "vite build",
     "ftp-dev": "node leftp.js",
     "deploy": "node leftp.js deploy",
     "build": "npm run css-build && npm run js-build"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.1",
-    "@rollup/plugin-node-resolve": "^13.3.0",
     "@tailwindcss/forms": "^0.5.2",
     "dotenv": "^16.0.1",
     "ftp": "^0.3.10",
-    "rollup": "^2.76.0",
     "ssh2-sftp-client": "^9.0.2",
-    "tailwindcss": "^3.1.6"
+    "tailwindcss": "^3.1.6",
+    "@vitejs/plugin-vue": "^3.0.0",
+    "vite": "^3.0.0"
   },
   "dependencies": {
-    "lodash.throttle": "^4.1.1"
+    "lodash.throttle": "^4.1.1",
+    "vue": "^3.2.37"
   }
 }
