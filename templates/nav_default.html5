@@ -1,11 +1,11 @@
 <ul class="<?= $this->level ?> text-white w-full font-bold flex justify-items-center justify-around uppercase text-xl">
   <?php foreach (array_slice($this->items, 0, 5) as $item) : ?>
   <?php if ($item['isActive']) : ?>
-  <li class="px-3 py-1"><strong trong class="<?= $item['class'] ?>" <?php if (!empty($item['subitems'])) : ?>
-      aria-haspopup="true" <?php endif; ?>><?= $item['link'] ?></strong></li>
+  <li class="active"><strong <?php if (!empty($item['subitems'])) : ?> aria-haspopup="true"
+      <?php endif; ?>><?= $item['link'] ?></strong></li>
   <?php else : ?>
   <li<?php if ($item['class']) : ?> class="<?= $item['class'] ?>" <?php endif; ?>><a href="<?= $item['href'] ?: './' ?>"
-      title="<?= $item['pageTitle'] ?: $item['title'] ?>" class="px-3 py-1" <?php if ('' !== $item['accesskey']) : ?>
+      title="<?= $item['pageTitle'] ?: $item['title'] ?>" <?php if ('' !== $item['accesskey']) : ?>
       accesskey="<?= $item['accesskey'] ?>" <?php endif; ?><?php if ($item['tabindex']) : ?>
       tabindex="<?= $item['tabindex'] ?>"
       <?php endif; ?><?= $item['target'] ?><?= $item['rel'] ?? '' ?><?php if (!empty($item['subitems'])) : ?>
@@ -13,7 +13,8 @@
     <?php endif; ?>
     <?php endforeach; ?>
 </ul>
-<div><svg class="header-nav-logo absolute left-0 right-0 m-auto" version="1.1" viewBox="0 0 211.074 135">
+<a class="block" href="/"><svg class="header-nav-logo absolute left-0 right-0 m-auto" version="1.1"
+    viewBox="0 0 211.074 135">
     <g>
       <path fill="#FFFFFF"
         d="M127.802,76.581c0.754-0.874,1.512-1.675,2.28-2.419
@@ -139,15 +140,15 @@
 				C96.751,60.31,96.866,60.269,96.967,60.267 M74.158,66.845c0.3-0.006,0.538,0.196,0.637,0.53
 				c0.377,1.07-2.143,6.637-7.214,10.184c0.505-4.718,3.301-8.855,6.259-10.607C73.943,66.886,74.058,66.847,74.158,66.845" />
     </g>
-  </svg></div>
+  </svg></a>
 <ul class="<?= $this->level ?> text-white w-full font-bold flex justify-items-center justify-around uppercase text-xl">
   <?php foreach (array_slice($this->items, 5, 5) as $item) : ?>
   <?php if ($item['isActive']) : ?>
-  <li class="px-3 py-1"><strong class="<?= $item['class'] ?>" <?php if (!empty($item['subitems'])) : ?>
-      aria-haspopup="true" <?php endif; ?>><?= $item['link'] ?></strong></li>
+  <li class="active"><strong <?php if (!empty($item['subitems'])) : ?> aria-haspopup="true"
+      <?php endif; ?>><?= $item['link'] ?></strong></li>
   <?php else : ?>
   <li<?php if ($item['class']) : ?> class="<?= $item['class'] ?>" <?php endif; ?>><a href="<?= $item['href'] ?: './' ?>"
-      title="<?= $item['pageTitle'] ?: $item['title'] ?>" class="px-3 py-1" <?php if ('' !== $item['accesskey']) : ?>
+      title="<?= $item['pageTitle'] ?: $item['title'] ?>" <?php if ('' !== $item['accesskey']) : ?>
       accesskey="<?= $item['accesskey'] ?>" <?php endif; ?><?php if ($item['tabindex']) : ?>
       tabindex="<?= $item['tabindex'] ?>"
       <?php endif; ?><?= $item['target'] ?><?= $item['rel'] ?? '' ?><?php if (!empty($item['subitems'])) : ?>

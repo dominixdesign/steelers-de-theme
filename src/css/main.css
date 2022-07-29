@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Whyte';
+  src: url('/files/steelers/fonts/WhyteInktrap-Super.otf') format('truetype');
+}
+@font-face {
+  font-family: 'WhyteItalic';
+  src: url('/files/steelers/fonts/WhyteInktrap-SuperItalic.otf') format('truetype');
+}
+
 body, html {
   @apply bg-steelwhite;
 }
@@ -33,6 +42,18 @@ nav .grid-nav {
 }
 #top-sticky-nav:hover::before {
   opacity: 0.3;
+}
+#top-sticky-nav li {
+  font-family: 'Whyte', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#top-sticky-nav li > * {
+  @apply px-3 py-1;
+  border-bottom: 5px solid transparent;
+}
+
+#top-sticky-nav li.active > * {
+  border-bottom: 5px solid #fff;
 }
 
 .header-nav-logo {
