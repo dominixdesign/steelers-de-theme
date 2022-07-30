@@ -1,14 +1,11 @@
 <?php $this->block('content'); ?>
-<div class="bg-black">
-  <div class="max-w-screen-2xl mx-auto relative py-4 my-10">
-    <<?= $this->headline['unit'] ?>><?= $this->headline['value'] ?></<?= $this->headline['unit'] ?>>
-    <script>
-    window.tilastot_gamedata = <?= json_encode($this->games, JSON_PRETTY_PRINT) ?>;
-    </script>
-    <div class="mt-20">
-      <div id="homeschedule"></div>
-    </div>
-    <a href="/tickets.html" class="btn-default">Tickets</a>
+<div class="basis-1/2">
+  <script>
+  window.tilastot_gamedata = <?= json_encode($this->games, JSON_PRETTY_PRINT) ?>;
+  </script>
+  <div class="mt-20">
+    <div id="homeschedule"></div>
   </div>
+  <a href="/tickets.html" class="btn-default">Tickets</a>
 </div>
 <?php $this->endblock(); ?>

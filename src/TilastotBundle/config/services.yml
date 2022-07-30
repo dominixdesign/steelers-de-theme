@@ -19,3 +19,15 @@ services:
         template: mod_schedule
         renderer: esi
         type: schedule
+  App\Tilastot\ContentElement\WrapperBlockStart:
+    tags:
+      - name: contao.content_element
+        category: grid
+        template: wrapper_block_start
+        type: rowStart
+  App\Tilastot\ContentElement\WrapperBlockEnd:
+    tags:
+      - name: contao.content_element
+        category: grid
+        template: wrapper_block_end
+        type: rowEnd

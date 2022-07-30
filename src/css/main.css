@@ -118,3 +118,7 @@ nav .grid-nav {
     text-shadow: none;
   }
 }
+
+.block-black {
+  @apply bg-black text-white;
+}

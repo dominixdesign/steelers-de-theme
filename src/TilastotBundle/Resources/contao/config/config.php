@@ -13,6 +13,8 @@ use App\Tilastot\Model\Rounds;
 use App\Tilastot\Model\Games;
 use App\Tilastot\Model\Standings;
 use \App\Tilastot\Module\RefreshModule;
+use \App\Tilastot\ContentElement\WrapperBlockStart;
+use \App\Tilastot\ContentElement\WrapperBlockEnd;
 use App\Controller\Page\UpdatePageController;
 
 /* Backend Module */
@@ -42,3 +44,8 @@ $GLOBALS['TL_MODELS']['tl_tilastot_client_standings'] = Standings::class;
 
 /* Cronjob */
 // $GLOBALS['TL_CRON']['hourly'][] = array('\App\Contao\Utils\delApi','refreshAll');
+
+
+/* Wrapper */
+$GLOBALS['TL_WRAPPERS']['start'][] = 'rowStart';
+$GLOBALS['TL_WRAPPERS']['stop'][] = 'rowEnd';
