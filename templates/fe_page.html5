@@ -17,7 +17,6 @@
   <?php if ($this->canonical) : ?>
   <link rel="canonical" href="<?= $this->canonical ?>">
   <?php endif; ?>
-  <script src="https://unpkg.com/vue@3"></script>
 
   <?= $this->viewport ?>
   <?= $this->framework ?>
@@ -55,7 +54,7 @@
     <div id="container">
 
       <?php $this->block('main'); ?>
-      <main id="main" class="max-w-screen-2xl mx-auto">
+      <main id="main">
         <div class="inside">
           <?= $this->main ?>
         </div>

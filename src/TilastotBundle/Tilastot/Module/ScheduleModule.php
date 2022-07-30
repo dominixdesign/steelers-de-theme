@@ -38,7 +38,7 @@ class ScheduleModule extends AbstractFrontendModuleController
 		}
 
 		if (!$games) {
-			return null;
+			return new Response();
 		}
 
 		$gameArray = $games->fetchAll();
@@ -49,7 +49,7 @@ class ScheduleModule extends AbstractFrontendModuleController
 
 		$template->my_team = $model->tilastot_my_team;
 		$template->games = $gameArray;
-		$template->headline = $model->headline;
+		$template->headline = unserialize($model->headline);
 		$template->headlineUnit = $model->hl;
 		$template->cssId = $model->cssID[0];
 		$template->cssClass = $model->cssID[1];
