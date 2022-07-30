@@ -6,6 +6,5 @@
   <div class="mt-20">
     <div id="homeschedule"></div>
   </div>
-  <a href="/tickets.html" class="btn-default">Tickets</a>
 </div>
 <?php $this->endblock(); ?>
