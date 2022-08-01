@@ -1,12 +1,11 @@
 <?php
 
-
 $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_round'] = array(
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_round'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('App\\Tilastots\\Model\\Rounds', 'findForSelect'),
+	'options_callback'        => array('App\\Tilastot\\Model\\Rounds', 'findForSelect'),
 	'eval'										 => array('onchange' => 'Backend.autoSubmit(\'tl_module\')'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
@@ -61,5 +60,5 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{tilastot_legend},ti
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] = '{title_legend},name,headline,type;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] .= '{tolestat_legend},tolestat_round,tolestat_table_rows,tolestat_my_team,tolestat_standings_columns;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] .= '{tilastot_legend},tilastot_round,tilastot_table_rows,tilastot_my_team,tilastot_standings_columns;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';

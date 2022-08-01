@@ -15,14 +15,14 @@ services:
   App\Tilastot\Module\ScheduleModule:
     tags:
       - name: contao.frontend_module
-        category: texts
+        category: tilastot
         template: mod_schedule
         renderer: esi
         type: schedule
   App\Tilastot\Module\StandingsModule:
     tags:
       - name: contao.frontend_module
-        category: texts
+        category: tilastot
         template: mod_standings
         renderer: esi
         type: standings

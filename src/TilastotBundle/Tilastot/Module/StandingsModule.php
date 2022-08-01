@@ -11,14 +11,11 @@ use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @FrontendModule(category="texts")
- */
 class StandingsModule extends AbstractFrontendModuleController
 {
   protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
   {
-    $standings = Standings::findByRound($model->tilastot_round, array('order' => ' points DESC'));
+    $standings = Standings::findByRound($model->tilastot_round, array('order' => 'points/games DESC, points DESC'));
     if (!$standings) {
       return null;
     }
@@ -31,7 +28,7 @@ class StandingsModule extends AbstractFrontendModuleController
         $standings[$key]['rank'] = $r++;
         if ($team['tilastotid'] == $model->tilastot_my_team) {
           if ($key >= $model->tilastot_table_rows) {
-            $startKey += ($key - $model->tilastot_table_rows) + 2;
+            $startKey += ($key - $model->tilastot_table_rows) + 3;
           }
           if (($startKey + $model->tilastot_table_rows) > count($standings)) {
             $startKey = count($standings) - $model->tilastot_table_rows;

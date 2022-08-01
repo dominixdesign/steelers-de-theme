@@ -16,9 +16,6 @@ use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @FrontendModule(category="texts")
- */
 class ScheduleModule extends AbstractFrontendModuleController
 {
 	protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
