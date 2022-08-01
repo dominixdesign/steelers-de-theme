@@ -101,7 +101,7 @@ nav .grid-nav {
   left: 4px;
 }
 
-#main h2 {
+#main .block-headline {
   @apply absolute italic;
   color: #009cde;
   font-family: 'WhyteItalic', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -112,7 +112,7 @@ nav .grid-nav {
 }
 
 @supports(-webkit-text-stroke: 3px #009cde) {
-  #main h2 {
+  #main .block-headline {
     color: transparent;
     -webkit-text-stroke: 3px #009cde;
     text-shadow: none;
