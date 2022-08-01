@@ -19,6 +19,13 @@ services:
         template: mod_schedule
         renderer: esi
         type: schedule
+  App\Tilastot\Module\StandingsModule:
+    tags:
+      - name: contao.frontend_module
+        category: texts
+        template: mod_standings
+        renderer: esi
+        type: standings
   App\Tilastot\ContentElement\WrapperBlockStart:
     tags:
       - name: contao.content_element
