@@ -1,4 +1,5 @@
-<div class="<?= $this->css ?>">
+<div class="<?= $this->css ?> mt-24">
   <div class="max-w-screen-2xl mx-auto relative py-4 my-10">
-    <<?= $this->headline['unit'] ?>><?= $this->headline['value'] ?></<?= $this->headline['unit'] ?>>
-    <div class="flex flex-row">
+    <<?= $this->headline['unit'] ?> class="block-headline"><?= $this->headline['value'] ?>
+    </<?= $this->headline['unit'] ?>>
+    <div class="flex flex-row pt-20">

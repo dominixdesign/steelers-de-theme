@@ -26,6 +26,7 @@ nav .grid-nav {
 }
 #top-sticky-nav {
   position: relative;
+  z-index: 100;
   overflow-x: clip;
 }
 

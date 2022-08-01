@@ -3,8 +3,6 @@
   <script>
   window.tilastot_gamedata = <?= json_encode($this->games, JSON_PRETTY_PRINT) ?>;
   </script>
-  <div class="mt-20">
-    <div id="homeschedule"></div>
-  </div>
+  <div id="homeschedule"></div>
 </div>
 <?php $this->endblock(); ?>
