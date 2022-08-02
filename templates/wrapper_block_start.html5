@@ -2,4 +2,4 @@
   <div class="max-w-screen-2xl mx-auto relative py-4 my-10">
     <<?= $this->headline['unit'] ?> class="block-headline"><?= $this->headline['value'] ?>
     </<?= $this->headline['unit'] ?>>
-    <div class="flex flex-row pt-20">
+    <div class="flex flex-row pt-20 gap-8">

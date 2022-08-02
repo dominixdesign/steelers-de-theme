@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex place-content-between flex-col h-full">
     <h4 class="uppercase font-bold text-3xl tracking-wide text-center">
       Spiele
     </h4>
@@ -114,8 +114,7 @@
         {{ currentGame.away.name }}
       </div>
     </div>
-    <hr class="border-t border-gray-400 my-5" />
-    <div>
+    <div class="border-t border-gray-400 my-5">
       <h4 class="font-bold text-2xl tracking-tight text-center">
         Penny DEL - Hauptrunde - Spiel {{ currentIndex + 1 }}
       </h4>
@@ -152,8 +151,7 @@
         <span>{{ currentGame.displayTime }} Uhr</span>
       </p>
     </div>
-    <hr class="border-t border-gray-400 my-5" />
-    <div class="text-center">
+    <div class="text-center border-t border-gray-400 my-5 pt-5">
       <a href="/tickets" class="btn-default">Tickets</a>
     </div>
   </div>
