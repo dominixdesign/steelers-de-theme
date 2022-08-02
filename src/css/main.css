@@ -123,3 +123,17 @@ nav .grid-nav {
 .block-black {
   @apply bg-black text-white;
 }
+
+.big-text-block {
+  @apply max-w-screen-2xl mx-auto relative py-6 my-24 text-8xl uppercase;
+}
+.big-text-block strong {
+  @apply relative;
+  font-weight: normal;
+}
+
+.big-text-block strong::after {
+  @apply absolute left-0 right-0 bottom-2 h-8 bg-steellightgreen;
+  z-index:-5;
+  content: '';
+}
