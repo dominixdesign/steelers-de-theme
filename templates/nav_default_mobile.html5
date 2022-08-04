@@ -1,0 +1,15 @@
+<ul class="<?= $this->level ?> text-white w-full font-bold flex justify-items-center justify-around">
+  <?php foreach ($this->items as $item) : ?>
+  <?php if ($item['isActive']) : ?>
+  <li class="active"><a <?php if (!empty($item['subitems'])) : ?> aria-haspopup="true"
+      <?php endif; ?>><?= $item['link'] ?></a></li>
+  <?php else : ?>
+  <li<?php if ($item['class']) : ?> class="<?= $item['class'] ?>" <?php endif; ?>><a href="<?= $item['href'] ?: './' ?>"
+      title="<?= $item['pageTitle'] ?: $item['title'] ?>" <?php if ('' !== $item['accesskey']) : ?>
+      accesskey="<?= $item['accesskey'] ?>" <?php endif; ?><?php if ($item['tabindex']) : ?>
+      tabindex="<?= $item['tabindex'] ?>"
+      <?php endif; ?><?= $item['target'] ?><?= $item['rel'] ?? '' ?><?php if (!empty($item['subitems'])) : ?>
+      aria-haspopup="true" <?php endif; ?>><?= $item['link'] ?></a></li>
+    <?php endif; ?>
+    <?php endforeach; ?>
+</ul>

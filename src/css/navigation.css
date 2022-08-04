@@ -5,7 +5,7 @@ nav .grid-nav {
 .sticky #top-sticky-nav {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
 }
 
 #top-sticky-nav {
@@ -16,7 +16,7 @@ nav .grid-nav {
 
 #top-sticky-nav::before {
   @apply bg-steellightgreen transition-opacity;
-  content: '';
+  content: "";
   display: block;
   opacity: 0;
   position: absolute;
@@ -32,39 +32,39 @@ nav .grid-nav {
 
 #top-sticky-nav li {
   @apply uppercase text-lg;
-  font-family: 'Whyte', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-#top-sticky-nav li>* {
+#top-sticky-nav li > * {
   @apply px-2 py-1;
   border-bottom: 5px solid transparent;
 }
 
-#top-sticky-nav li.active>* {
+#top-sticky-nav li.active > * {
   border-bottom: 5px solid #fff;
 }
 
 .header-nav-logo {
-  @apply w-24 transition-all;
-  bottom: 4.5rem;
-
-}
-
-.sticky .header-nav-logo {
-  opacity: 0;
+  @apply transition-all bottom-1;
+  width: 86px;
 }
 
 .header-nav-logo .puckcolor,
 .header-nav-logo .starcolor {
-  @apply fill-steelgreen;
-}
-
-.sticky .header-nav-logo .starcolor,
-.sticky .header-nav-logo .puckcolor {
   @apply fill-white;
 }
 
-@media (min-width:1100px) {
+@media (min-width: 786px) {
+  .header-nav-logo {
+    bottom: 4.5rem;
+  }
+  .header-nav-logo .puckcolor,
+  .header-nav-logo .starcolor {
+    @apply fill-steelgreen;
+  }
+}
+
+@media (min-width: 1100px) {
   .header-nav-logo {
     @apply w-52;
     bottom: 0rem;
@@ -78,6 +78,9 @@ nav .grid-nav {
   .header-nav-logo .starcolor {
     @apply fill-steelgreen;
   }
+  .sticky .header-nav-logo .starcolor {
+    @apply fill-white;
+  }
 
   .header-nav-logo .puckcolor {
     @apply fill-white;
@@ -90,13 +93,253 @@ nav .grid-nav {
   }
 }
 
-@media (min-width:1280px) {
+@media (min-width: 1280px) {
   #top-sticky-nav li {
     @apply uppercase text-xl;
   }
 
-  #top-sticky-nav li>* {
+  #top-sticky-nav li > * {
     @apply px-3;
   }
 }
- 
+
+/* Main menu positionning */
+.main-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  background: #fff;
+  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
+  transition: all 0.375s;
+}
+
+.main-nav .header-nav-logo {
+  @apply absolute left-3 top-3 w-1/2 opacity-0;
+  transition: all 250ms 50ms;
+}
+
+.main-nav.is-open .header-nav-logo {
+  @apply opacity-100;
+}
+
+.main-nav.is-open {
+  opacity: 1;
+  z-index: 100;
+  visibility: visible;
+}
+
+/* Yellow band effect */
+.main-nav::before {
+  @apply bg-steelgreen;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -15px;
+  transform-origin: 0 0;
+  transform: skew(-14deg) translateX(-120%);
+  transition: all 0.275s 0.1s;
+}
+
+.main-nav.is-open::before {
+  transform: skew(-14deg) translateX(0);
+}
+
+/* Skewing effect on menu links */
+.main-nav ul {
+  display: inline-flex;
+  flex-direction: column;
+  height: 93%;
+  /* Should be 100%, but we have a notice message :D */
+  align-items: flex-end;
+  justify-content: center;
+  transform: translateX(-35%) skew(-14deg);
+}
+
+.main-nav li {
+  font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  display: block;
+  margin: 0.5rem 0;
+  text-align: right;
+  transform: skew(16deg);
+}
+
+/* Apparition effect on links */
+.main-nav a {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.main-nav.is-open a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.main-nav li:nth-child(1) a {
+  transition: all 275ms 75ms;
+}
+
+.main-nav li:nth-child(2) a {
+  transition: all 275ms 125ms;
+}
+
+.main-nav li:nth-child(3) a {
+  transition: all 275ms 175ms;
+}
+
+.main-nav li:nth-child(4) a {
+  transition: all 275ms 225ms;
+}
+
+.main-nav li:nth-child(5) a {
+  transition: all 275ms 275ms;
+}
+
+.main-nav li:nth-child(6) a {
+  transition: all 275ms 325ms;
+}
+
+.main-nav li:nth-child(7) a {
+  transition: all 275ms 375ms;
+}
+
+.main-nav li:nth-child(8) a {
+  transition: all 275ms 425ms;
+}
+
+.main-nav li:nth-child(9) a {
+  transition: all 275ms 475ms;
+}
+
+.main-nav li:nth-child(10) a {
+  transition: all 275ms 525ms;
+}
+
+.main-nav li:nth-child(11) a {
+  transition: all 275ms 575ms;
+}
+
+/* Decoration */
+.main-nav ul,
+.main-nav li {
+  list-style: none;
+  padding: 0;
+}
+
+.main-nav a,
+.main-nav li span {
+  display: block;
+  padding: 12px 0;
+  color: #fff;
+  font-size: 1.4em;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-nav li.active a::after {
+  @apply absolute left-0 right-0 bottom-4 h-4 bg-steelblue;
+  z-index: -5;
+  content: "";
+}
+
+@media only screen and (orientation: landscape) {
+  .main-nav li {
+    margin: 0.1rem 0;
+  }
+  .main-nav a,
+  .main-nav li span {
+    padding: 2px 0;
+  }
+  .main-nav ul {
+    transform: translateX(-20%) skew(-14deg);
+  }
+  .main-nav li.active a::after {
+    @apply absolute left-0 right-0 bottom-2 h-3 bg-steelblue;
+    z-index: -5;
+    content: "";
+  }
+}
+
+/* Burger Style: @see: https://codepen.io/CreativeJuiz/full/oMZNXy */
+.open-main-nav {
+  position: absolute;
+  top: 15px;
+  padding-top: 15px;
+  right: 15px;
+  z-index: 1000;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.open-main-nav:focus {
+  outline: none;
+}
+
+.burger {
+  position: relative;
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 0 auto;
+  background: #fff;
+  transform: skew(5deg);
+  transition: all 0.275s;
+}
+
+.burger:after,
+.burger:before {
+  content: "";
+  display: block;
+  height: 100%;
+  background: #fff;
+  transition: all 0.275s;
+}
+
+.burger:after {
+  transform: translateY(-12px) translateX(-2px) skew(-20deg);
+}
+
+.burger:before {
+  transform: translateY(-16px) skew(-10deg);
+}
+
+/* Toggle State part */
+.is-open .burger {
+  transform: skew(5deg) translateY(-8px) rotate(-45deg);
+}
+
+.is-open .burger:before {
+  transform: translateY(0px) skew(-10deg) rotate(75deg);
+}
+
+.is-open .burger:after {
+  transform: translateY(-12px) translateX(10px) skew(-20deg);
+  opacity: 0;
+}
+
+/* MENU Text part */
+
+.burger-text {
+  @apply transition-opacity;
+  display: block;
+  font-size: 0.675rem;
+  letter-spacing: 0.05em;
+  margin-top: 0.5em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  opacity: 1;
+}
+
+.is-open .burger-text {
+  opacity: 0;
+}

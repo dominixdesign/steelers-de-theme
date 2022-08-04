@@ -12,17 +12,16 @@ window.onscroll = function () {
 };
 
 var stickyNav = document.getElementById("top-sticky-nav");
-var body = document.getElementsByTagName("body");
-var sticky = stickyNav.offsetTop;
+var sticky = 80;
 
 // events
 function stickyNavFunc() {
   if (window.pageYOffset > sticky) {
-    body[0].classList.add("sticky");
+    document.body.classList.add("sticky");
     document.getElementById("container").style.paddingTop =
       stickyNav.offsetHeight + "px";
   } else {
-    body[0].classList.remove("sticky");
+    document.body.classList.remove("sticky");
     document.getElementById("container").style.paddingTop = 0;
   }
 }
@@ -38,3 +37,24 @@ stickyNav.addEventListener("mousemove", (evt) => {
 
 // on boot
 stickyNavFunc();
+
+let burger = document.getElementById("burger"),
+  burgerClose = document.getElementById("burger-close"),
+  nav = document.getElementById("main-nav"),
+  main = document.getElementById("main");
+
+burger.addEventListener("click", function (e) {
+  nav.classList.add("is-open");
+  stickyNav.classList.add("opacity-0");
+  window.setTimeout(() => main.classList.add("hidden"), 275);
+  document.body.classList.toggle("overflow-hidden");
+});
+burgerClose.addEventListener("click", function (e) {
+  nav.classList.remove("is-open");
+  main.classList.remove("hidden");
+  stickyNav.classList.remove("opacity-0");
+  window.setTimeout(
+    () => document.body.classList.remove("overflow-hidden"),
+    275
+  );
+});
