@@ -1,5 +1,5 @@
 <!-- indexer::stop -->
-<div id="top-sticky-nav" class="<?= $this->class ?> device bg-steelgreen block md:hidden"
+<div class="<?= $this->class ?> top-sticky-nav device bg-steelgreen block md:hidden"
   <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
   <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="hidden"><?= $this->skipNavigation ?></a>
   <div class="grid grid-nav items-center place-items-center py-2 relative max-w-screen-2xl mx-auto"

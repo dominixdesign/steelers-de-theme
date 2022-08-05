@@ -2,19 +2,19 @@ nav .grid-nav {
   grid-template-columns: 2fr 0 2fr;
 }
 
-.sticky #top-sticky-nav {
+.sticky .top-sticky-nav {
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-#top-sticky-nav {
+.top-sticky-nav {
   position: relative;
   z-index: 100;
   overflow-x: clip;
 }
 
-#top-sticky-nav::before {
+.top-sticky-nav::before {
   @apply bg-steellightgreen transition-opacity;
   content: "";
   display: block;
@@ -26,21 +26,21 @@ nav .grid-nav {
   transform: skewX(20deg) translateX(-50%);
 }
 
-#top-sticky-nav:hover::before {
+.top-sticky-nav:hover::before {
   opacity: 0.3;
 }
 
-#top-sticky-nav li {
+.top-sticky-nav li {
   @apply uppercase text-lg;
   font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-#top-sticky-nav li > * {
+.top-sticky-nav li > * {
   @apply px-2 py-1;
   border-bottom: 5px solid transparent;
 }
 
-#top-sticky-nav li.active > * {
+.top-sticky-nav li.active > * {
   border-bottom: 5px solid #fff;
 }
 
@@ -94,11 +94,11 @@ nav .grid-nav {
 }
 
 @media (min-width: 1280px) {
-  #top-sticky-nav li {
+  .top-sticky-nav li {
     @apply uppercase text-xl;
   }
 
-  #top-sticky-nav li > * {
+  .top-sticky-nav li > * {
     @apply px-3;
   }
 }

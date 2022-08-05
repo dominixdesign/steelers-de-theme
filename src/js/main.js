@@ -11,7 +11,7 @@ window.onscroll = function () {
   stickyNavFunc();
 };
 
-var stickyNav = document.getElementById("top-sticky-nav");
+var stickyNav = document.getElementsByClassName("top-sticky-nav");
 var sticky = 80;
 
 // events
@@ -19,7 +19,7 @@ function stickyNavFunc() {
   if (window.pageYOffset > sticky) {
     document.body.classList.add("sticky");
     document.getElementById("container").style.paddingTop =
-      stickyNav.offsetHeight + "px";
+    sticky + "px";
   } else {
     document.body.classList.remove("sticky");
     document.getElementById("container").style.paddingTop = 0;
@@ -27,11 +27,15 @@ function stickyNavFunc() {
 }
 
 function mouseMoveNav(evt) {
-  stickyNav.style.setProperty("--mouse-x", evt.clientX + "px");
+  stickyNav[0].style.setProperty("--mouse-x", evt.clientX + "px");
+  stickyNav[1].style.setProperty("--mouse-x", evt.clientX + "px");
 }
 
 const mouseMoveAction = throttle(mouseMoveNav, 20);
-stickyNav.addEventListener("mousemove", (evt) => {
+stickyNav[0].addEventListener("mousemove", (evt) => {
+  mouseMoveAction(evt);
+});
+stickyNav[1].addEventListener("mousemove", (evt) => {
   mouseMoveAction(evt);
 });
 
