@@ -1,0 +1,49 @@
+<?php
+if (!function_exists('tokenTruncate')) {
+  function tokenTruncate($string, $your_desired_width)
+  {
+    $parts = preg_split('/([\s\n\r]+)/', $string, -1, PREG_SPLIT_DELIM_CAPTURE);
+    $parts_count = count($parts);
+
+    $length = 0;
+    $last_part = 0;
+    for (; $last_part < $parts_count; ++$last_part) {
+      $length += strlen($parts[$last_part]);
+      if ($length > $your_desired_width) {
+        break;
+      }
+    }
+
+    return implode(array_slice($parts, 0, $last_part));
+  }
+}
+?>
+<div class="group relative bg-white border border-gray-200 flex flex-col overflow-hidden">
+  <div class="aspect-w-4 aspect-h-5 bg-gray-200 sm:aspect-none sm:h-96 overflow-hidden">
+    <?php if ($this->addImage) : ?>
+    <img src="<?= $this->arrData['singleSRC'] ?>" alt="<?= $this->newsHeadline ?>"
+      class="w-full transition-all h-full object-center object-cover group-hover:opacity-90 group-hover:scale-105  sm:w-full sm:h-full">
+    <?php endif; ?>
+  </div>
+  <div class="flex-1 p-4 space-y-2 flex flex-col">
+    <h3 class="font-bold text-steelgreen uppercase text-xl">
+      <a href="#">
+        <span aria-hidden="true" class="absolute inset-0"></span>
+        <?= $this->newsHeadline ?>
+      </a>
+    </h3>
+    <p class="text-sm text-gray-500"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
+    <div class="flex-1 flex flex-col justify-end">
+      <time class="text-sm italic text-steelgreen" datetime="<?= $this->datetime ?>"><?= $this->date ?></time>
+    </div>
+  </div>
+</div>
+<?php
+
+$schemaOrg = $this->getSchemaOrgData();
+
+if ($this->hasText) {
+  $schemaOrg['text'] = $this->rawHtmlToPlainText($this->text);
+}
+
+$this->addSchemaOrg($schemaOrg);
