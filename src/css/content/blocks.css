@@ -3,10 +3,11 @@
   color: #009cde;
   font-family: 'WhyteItalic', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-transform: uppercase;
-  font-size: 14em;
+  font-size: clamp(4em, 20vw, 14em);
   line-height: 0;
   text-shadow: 1px 1px white, -1px -1px white;
 }
+
 
 @supports(-webkit-text-stroke: 3px #009cde) {
   #main .block-headline {

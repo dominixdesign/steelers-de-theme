@@ -1,5 +1,5 @@
 <?php $this->block('content'); ?>
-<div class="basis-1/2">
+<div class="basis-full md:basis-1/2">
   <script>
   window.tilastot_gamedata = <?= json_encode($this->games, JSON_PRETTY_PRINT) ?>;
   </script>
