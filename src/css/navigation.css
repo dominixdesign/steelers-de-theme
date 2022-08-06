@@ -66,8 +66,8 @@ nav .grid-nav {
 
 @media (min-width: 1100px) {
   .header-nav-logo {
-    @apply w-52;
-    bottom: 0rem;
+    bottom: 0.4rem;
+    width: 200px;
     opacity: 1;
   }
 
