@@ -19,7 +19,7 @@ if (!function_exists('tokenTruncate')) {
 }
 ?>
 <div class="group relative bg-white border border-gray-200 flex flex-col overflow-hidden">
-  <div class="aspect-w-4 aspect-h-5 bg-gray-200 sm:aspect-none sm:h-96 overflow-hidden">
+  <div class="aspect-w-4 aspect-h-5 bg-gray-200 overflow-hidden">
     <?php if ($this->addImage) : ?>
     <img src="<?= $this->arrData['singleSRC'] ?>" alt="<?= $this->newsHeadline ?>"
       class="w-full transition-all h-full object-center object-cover group-hover:opacity-90 group-hover:scale-105  sm:w-full sm:h-full">
@@ -27,7 +27,7 @@ if (!function_exists('tokenTruncate')) {
   </div>
   <div class="flex-1 p-4 space-y-2 flex flex-col">
     <h3 class="font-bold text-steelgreen uppercase text-xl">
-      <a href="#">
+      <a href="<?= $this->link ?>">
         <span aria-hidden="true" class="absolute inset-0"></span>
         <?= $this->newsHeadline ?>
       </a>

@@ -31,7 +31,7 @@ nav .grid-nav {
 }
 
 .top-sticky-nav li {
-  @apply uppercase text-lg;
+  @apply uppercase text-lg relative;
   font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
@@ -40,8 +40,11 @@ nav .grid-nav {
   border-bottom: 5px solid transparent;
 }
 
-.top-sticky-nav li.active > * {
-  border-bottom: 5px solid #fff;
+.top-sticky-nav li.active > *::after,
+.top-sticky-nav li.trail > *::after {
+  @apply absolute left-0 right-0 bottom-0 h-3 bg-steelblue;
+  z-index: -5;
+  content: "";
 }
 
 .header-nav-logo {
@@ -243,7 +246,8 @@ nav .grid-nav {
   font-weight: bold;
 }
 
-.main-nav li.active a::after {
+.main-nav li.active a::after,
+.main-nav li.trail a::after {
   @apply absolute left-0 right-0 bottom-4 h-4 bg-steelblue;
   z-index: -5;
   content: "";
@@ -260,7 +264,8 @@ nav .grid-nav {
   .main-nav ul {
     transform: translateX(-20%) skew(-14deg);
   }
-  .main-nav li.active a::after {
+  .main-nav li.active a::after,
+  .main-nav li.trail a::after {
     @apply absolute left-0 right-0 bottom-2 h-3 bg-steelblue;
     z-index: -5;
     content: "";

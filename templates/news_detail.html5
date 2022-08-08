@@ -1,0 +1,25 @@
+<div class="max-w-screen-2xl mx-auto relative my-20">
+  <div class="grid grid-cols-2 items-end -mt-52">
+    <div class="mb-20 p-5">
+      <h3 class="text-3xl uppercase font-bold"><?= $this->newsHeadline ?></h3>
+      <p class="mt-2">
+        <?php if (count($this->categoriesList) > 0) : ?>
+        <span class="text-lg uppercase font-bold"><?= implode(' / ', $this->categoriesList) ?> /</span>
+        <?php endif; ?>
+        <time class="text-lg font-bold text-steelgreen" datetime="<?= $this->datetime ?>"><?= $this->date ?></time>
+      </p>
+    </div>
+    <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
+      <?php if ($this->addImage) : ?>
+      <img src="<?= $this->arrData['singleSRC'] ?>" alt="<?= $this->newsHeadline ?>"
+        class="w-full h-full object-center object-cover sm:w-full sm:h-full">
+      <?php endif; ?>
+    </div>
+  </div>
+  <div
+    class="sm:w-3/4 leading-relaxed p-5 my-10 text-lg mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg shadow-steelwhite"
+    style="box-shadow: 0 0 30px 10px #f5faf8;">
+    <?= $this->teaser; ?>
+    <hr class="border-black border-t mt-8">
+  </div>
+</div>
