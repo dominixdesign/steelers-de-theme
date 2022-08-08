@@ -83,7 +83,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'select',
-            'options_callback'                => array('App\\Tilastot\\Model\\Rounds', 'findForSelect'),
+            'options_callback'        => array('App\\Tilastot\\Model\\Rounds', 'findForSelect'),
             'eval'                    => array('mandatory' => true, 'tl_class' => 'clr w50', 'onchange' => 'Backend.autoSubmit(\'tl_tilastot_client_games\')'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
@@ -92,7 +92,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'select',
-            'options_callback'              => array('App\\Tilastot\\Model\\Standings', 'findTeamsForSelect'),
+            'options_callback'        => array('App\\Tilastot\\Model\\Standings', 'findTeamsForSelect'),
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr w50'),
             'sql'                     => "int(10) NULL"
         ),
@@ -119,7 +119,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('datepicker' => true, 'rgxp' => 'date', 'mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(10) unsigned NOT NULL"
+            'sql'                     => "int(10) unsigned NULL"
         ),
         'gametime' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['gametime'],

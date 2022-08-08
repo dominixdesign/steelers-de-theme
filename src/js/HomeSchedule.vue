@@ -44,14 +44,22 @@
         <div
           :title="currentGame.home.name"
           class="h-40 w-40 bg-contain bg-no-repeat bg-center"
-          :style="`background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${currentGame.home.shortname}.png)`"
+          :style="
+            currentGame.home.logo
+              ? `background-image: url(${currentGame.home.logo})`
+              : `background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${currentGame.home.shortname}.png)`
+          "
         ></div>
       </div>
       <div
         class="col-span-4 place-self-center text-center font-bold font-headline"
       >
-        <span class="text-8xl whitespace-nowrap tracking-tighter"
+        <span
+          v-if="currentGame.ended > 0"
+          class="text-8xl whitespace-nowrap tracking-tighter"
           >{{ currentGame.homescore }} : {{ currentGame.awayscore }}</span
+        ><span v-else class="text-8xl whitespace-nowrap tracking-tighter"
+          >- : -</span
         ><br />
         <span>{{ currentGame.resulttype }}</span>
       </div>
@@ -59,7 +67,11 @@
         <div
           :title="currentGame.away.name"
           class="h-40 w-40 bg-contain bg-no-repeat bg-center"
-          :style="`background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${currentGame.away.shortname}.png)`"
+          :style="
+            currentGame.away.logo
+              ? `background-image: url(${currentGame.away.logo})`
+              : `background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${currentGame.away.shortname}.png)`
+          "
         ></div>
       </div>
       <div class="col-span-2 place-self-center justify-self-end">
@@ -116,7 +128,10 @@
     </div>
     <div class="border-t border-gray-400 my-5">
       <h4 class="font-bold text-2xl tracking-tight text-center">
-        Penny DEL - Hauptrunde - Spiel {{ currentIndex + 1 }}
+        {{ currentGame.season.name }} - {{ currentGame.season.season }}
+        <span v-if="currentGame.gameday > 0"
+          >- {{ currentGame.gameday }}. Spieltag</span
+        >
       </h4>
       <p class="text-center text-sm mt-3">
         <svg
@@ -149,6 +164,23 @@
           />
         </svg>
         <span>{{ currentGame.displayTime }} Uhr</span>
+        <br />
+        <template v-if="currentGame.location">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 inline-block mb-0.5 mr-1 ml-4"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>{{ currentGame.location }}</span>
+        </template>
+        <span v-else class="h-5 w-5 inline-block mb-0.5 mr-1 ml-4">&nbsp;</span>
       </p>
     </div>
     <div class="text-center border-t border-gray-400 my-5 pt-5">
@@ -173,10 +205,7 @@ const currentGame = computed(() => {
     day: "numeric",
     month: "long",
   }).format(date);
-  game.displayTime = new Intl.DateTimeFormat("de-DE", {
-    hour: "numeric",
-    minute: "2-digit",
-  }).format(date);
+  game.displayTime = game.gametime;
   return game;
 });
 </script>

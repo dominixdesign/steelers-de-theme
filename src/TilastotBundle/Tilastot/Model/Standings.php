@@ -13,6 +13,7 @@ namespace App\Tilastot\Model;
 
 use Contao\Database;
 use Contao\Model;
+use Contao\System;
 use App\Tilastot\Model\Rounds;
 
 class Standings extends Model
@@ -72,27 +73,38 @@ class Standings extends Model
 		return $ret;
 	}
 
-	public static function findByIdAndRound($tilastotid, $round)
+	public static function findByIdAndRound($tilastotid, $round, $justName = false)
 	{
 		if (self::$localCache['r' . $round]['t' . $tilastotid]) {
-			return self::$localCache['r' . $round]['t' . $tilastotid];
-		}
-		$result = Standings::findAll(array(
-			'limit'   => 1,
-			'column'  => array('tilastotid=?', 'round=?'),
-			'value'   => array($tilastotid, $round)
-		));
-		if ($result) {
-			$return = $result->fetchAll()[0];
-			foreach ([20, 50, 100, 200] as $width) {
-				if (file_exists(TL_ROOT . $filename)) {
-					$return['logos'][$width] = Standings::getLogoFilename($return['alias'], $width);
+			$return = self::$localCache['r' . $round]['t' . $tilastotid];
+		} else {
+			$result = Standings::findAll(array(
+				'limit'   => 1,
+				'column'  => array('tilastotid=?', 'round=?'),
+				'value'   => array($tilastotid, $round)
+			));
+			if ($result) {
+				$return = $result->fetchAll()[0];
+				if ($return['logo']) {
+					$figureBuilder = System::getContainer()
+						->get('contao.image.studio')
+						->createFigureBuilder()
+						->from($return['logo']);
+					$figure = $figureBuilder->buildIfResourceExists();
+					$return['logo'] = $figure->getImage()->getImageSrc();
 				}
+				self::$localCache['r' . $round]['t' . $tilastotid] = $return;
+			} else {
+				return null;
 			}
-			self::$localCache['r' . $round]['t' . $tilastotid] = $return;
-			return $return;
 		}
-		return null;
+		if ($justName) {
+			$removeKeys = array('id', 'tilastotid', 'round', 'tstamp', 'city', 'alias', 'games', 'rw', 'ow', 'pw', 'pl', 'ol', 'rl', 'points', 'goalsfor', 'goalsagainst', 'penalties');
+			foreach ($removeKeys as $key) {
+				unset($return[$key]);
+			}
+		}
+		return $return;
 	}
 
 	public static function getLogoFilename($alias, $width)

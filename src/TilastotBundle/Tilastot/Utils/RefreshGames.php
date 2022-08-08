@@ -45,8 +45,9 @@ class RefreshGames
 			$g->hometeam = $game->home->id;
 			$g->awayteam = $game->guest->id;
 			$g->gamedate = mktime($date['hour'], $date['minute'], 0, $date['month'], $date['day'], $date['year']);
-			$g->gametime = $date['hour'] . ":" . $date['minute'];
+			$g->gametime = $date['hour'] . ":" . sprintf('%02d', $date['minute']);
 			$g->round = $round;
+			$g->gameday = $game->round;
 			$g->periodscore = $game->periodscore;
 			$g->gamestatus = $game->status;
 			$g->homescore = $game->results->score->final->score_home;

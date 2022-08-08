@@ -22,6 +22,7 @@ class Rounds extends Model
 	 * @var string
 	 */
 	protected static $strTable = 'tl_tilastot_client_rounds';
+	protected static $localCache = array();
 
 	public static function findForSelect()
 	{
@@ -44,5 +45,24 @@ class Rounds extends Model
 		));
 
 		return $round->name;
+	}
+
+	public static function findByPkFiltered($id, $justName = false)
+	{
+		if (self::$localCache['r' . $id]) {
+			$season = self::$localCache['r' . $id];
+		} else {
+			$data = self::findByPk($id);
+			$season = $data->row();
+			self::$localCache['r' . $id] = $season;
+		}
+
+		if ($justName) {
+			$removeKeys = array('id', 'tstamp', 'standingsid', 'year', 'league', 'autorefresh');
+			foreach ($removeKeys as $key) {
+				unset($season[$key]);
+			}
+		}
+		return $season;
 	}
 }
