@@ -29,6 +29,7 @@ var x = new LEftp({
     ".sh",
     ".public",
     ".svg",
+    ".png",
   ],
   onStartUploadAll, // On start, upload all files (that match the "watch criteria").
 });

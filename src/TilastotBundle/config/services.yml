@@ -19,6 +19,13 @@ services:
         template: mod_schedule
         renderer: esi
         type: schedule
+  App\Tilastot\Module\NextGameModule:
+    tags:
+      - name: contao.frontend_module
+        category: tilastot
+        template: mod_nextgame
+        renderer: esi
+        type: nextgame
   App\Tilastot\Module\StandingsModule:
     tags:
       - name: contao.frontend_module
