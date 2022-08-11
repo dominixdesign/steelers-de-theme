@@ -24,7 +24,7 @@
 #preheader .image_container a img {
   @apply transition-transform w-5;
 }
-#preheader .image_container a:hover img {
+#preheader .ce_hyperlink:not(#header-del-logo) .image_container a:hover img {
   @apply scale-150;
 }
 
@@ -61,5 +61,5 @@
 }
 
 #header-del-logo img {
-  @apply !h-14 !w-28;
+  @apply !h-12 !w-24;
 }

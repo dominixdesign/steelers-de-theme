@@ -10,19 +10,31 @@
     <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
       style="<?= $this->game['away']['logo'] ? 'background-image: url(' . $this->game['away']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['away']['shortname'] . '.png)' ?>">
     </div>
-    <div class="font-bold tracking-tighter leading-tight text-base 2xl:text-lg pl-2"><span
-        class="tracking-normal uppercase">Nächstes
-        Heimspiel</span><br><?php
-                            $fmt = new IntlDateFormatter(
-                              'de-DE',
-                              IntlDateFormatter::FULL,
-                              IntlDateFormatter::FULL,
-                              'Europe/Berlin',
-                              IntlDateFormatter::GREGORIAN,
-                              'E dd.MM.Y'
-                            );
-                            echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . ' Uhr';
-                            ?>
+    <div class="font-bold tracking-tighter leading-tight text-base 2xl:text-lg pl-2">
+      <?php
+      $today = date('Ymd');
+      $tomorrow = date('Ymd', time() + 24 * 60 * 60);
+      if ($today == date('Ymd', $this->game['gamedate'])) {
+        $title = 'Heute Heimspiel!';
+      } else if ($tomorrow == date('Ymd', $this->game['gamedate'])) {
+        $title = 'Morgen Heimspiel!';
+      } else {
+        $title = 'Nächstes Heimspiel';
+      }
+      ?>
+      <span class="tracking-normal uppercase"><?= $title ?></span>
+      <br><?php
+
+          $fmt = new IntlDateFormatter(
+            'de-DE',
+            IntlDateFormatter::FULL,
+            IntlDateFormatter::FULL,
+            'Europe/Berlin',
+            IntlDateFormatter::GREGORIAN,
+            'E dd.MM.Y'
+          );
+          echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . ' Uhr';
+          ?>
     </div>
     <div class="pl-2"><a href="/tickets"><img src="/files/steelers/layout/tickets-icon-preheader.png" height="50"
           width="62" /></a></div>

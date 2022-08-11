@@ -57,7 +57,7 @@ nav .grid-nav {
   @apply fill-white;
 }
 
-@media (min-width: 786px) {
+@media (min-width: 768px) {
   .header-nav-logo {
     bottom: 4.5rem;
   }
