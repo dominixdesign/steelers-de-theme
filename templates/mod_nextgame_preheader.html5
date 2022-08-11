@@ -1,48 +1,31 @@
 <?php $this->block('content'); ?>
-<div class="next-game-at-home flex flex-row items-center <?= $this->cssClass ?>"
-  <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
-  <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center"
-    style="<?= $this->game['home']['logo'] ? 'background-image: url(' . $this->game['home']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['home']['shortname'] . '.png)' ?>">
+<div class="grow justify-end flex">
+  <div
+    class=" next-game-at-home flex flex-row items-center border-r border-gray-400 pr-2 2xl:pr-5 <?= $this->cssClass ?>"
+    <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
+    <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 hidden xl:block bg-contain bg-no-repeat bg-center"
+      style="<?= $this->game['home']['logo'] ? 'background-image: url(' . $this->game['home']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['home']['shortname'] . '.png)' ?>">
+    </div>
+    <div class="font-bold text-xl px-1 hidden xl:block">vs</div>
+    <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
+      style="<?= $this->game['away']['logo'] ? 'background-image: url(' . $this->game['away']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['away']['shortname'] . '.png)' ?>">
+    </div>
+    <div class="font-bold tracking-tighter leading-tight text-base 2xl:text-lg pl-2"><span
+        class="tracking-normal uppercase">Nächstes
+        Heimspiel</span><br><?php
+                            $fmt = new IntlDateFormatter(
+                              'de-DE',
+                              IntlDateFormatter::FULL,
+                              IntlDateFormatter::FULL,
+                              'Europe/Berlin',
+                              IntlDateFormatter::GREGORIAN,
+                              'E dd.MM.Y'
+                            );
+                            echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . ' Uhr';
+                            ?>
+    </div>
+    <div class="pl-2"><a href="/tickets"><img src="/files/steelers/layout/tickets-icon-preheader.png" height="50"
+          width="62" /></a></div>
   </div>
-  <div class="font-bold text-xl px-1">vs</div>
-  <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center"
-    style="<?= $this->game['away']['logo'] ? 'background-image: url(' . $this->game['away']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['away']['shortname'] . '.png)' ?>">
-  </div>
-  <div class="font-bold tracking-tighter leading-tight pl-2"><span class="tracking-normal uppercase">Nächstes
-      Heimspiel</span><br><?php
-                          $fmt = new IntlDateFormatter(
-                            'de-DE',
-                            IntlDateFormatter::FULL,
-                            IntlDateFormatter::FULL,
-                            'Europe/Berlin',
-                            IntlDateFormatter::GREGORIAN,
-                            'E dd.MM.Y'
-                          );
-                          echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . ' Uhr';
-                          ?>
-  </div>
-  <div><img src="/files/steelers/layout/tickets-icon-preheader.png" height="50" width="62" /></div>
-  <!--
-<table>
-    <thead>
-      <tr>
-        <th>Datum</th>
-        <th>Uhrzeit</th>
-        <th>Heim</th>
-        <th>Auswärts</th>
-        <th>Ergebnis</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><?= \System::parseDate('d.m.Y', $this->game['gamedate']) ?></td>
-        <td><?= $this->game['gametime'] ?> Uhr</td>
-        <td><?= $this->game['home']['name'] ?></td>
-        <td><?= $this->game['away']['name'] ?></td>
-        <td><?= $this->game['homescore'] . ":" . $this->game['awayscore'] ?> <?= $this->game['resulttype'] ?></td>
-      </tr>
-    </tbody>
-  </table>
--->
 </div>
 <?php $this->endblock(); ?>
