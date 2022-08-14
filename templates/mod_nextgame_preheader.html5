@@ -1,7 +1,7 @@
 <?php $this->block('content'); ?>
 <div class="grow justify-end flex">
   <div
-    class=" next-game-at-home flex flex-row items-center border-r border-gray-400 pr-2 2xl:pr-5 <?= $this->cssClass ?>"
+    class=" next-game-at-home flex flex-row items-center lg:border-r lg:border-gray-400 lg:pr-2 2xl:pr-5 <?= $this->cssClass ?>"
     <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
     <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 hidden xl:block bg-contain bg-no-repeat bg-center"
       style="<?= $this->game['home']['logo'] ? 'background-image: url(' . $this->game['home']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['home']['shortname'] . '.png)' ?>">

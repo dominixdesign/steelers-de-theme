@@ -45,18 +45,20 @@ stickyNavFunc();
 let burger = document.getElementById("burger"),
   burgerClose = document.getElementById("burger-close"),
   nav = document.getElementById("main-nav"),
-  main = document.getElementById("main");
+  mainDiv = document.getElementById("main");
 
 burger.addEventListener("click", function (e) {
   nav.classList.add("is-open");
-  stickyNav.classList.add("opacity-0");
-  window.setTimeout(() => main.classList.add("hidden"), 275);
+  stickyNav[0].classList.add("opacity-0");
+  stickyNav[1].classList.add("opacity-0");
+  window.setTimeout(() => mainDiv.classList.add("hidden"), 275);
   document.body.classList.toggle("overflow-hidden");
 });
 burgerClose.addEventListener("click", function (e) {
   nav.classList.remove("is-open");
-  main.classList.remove("hidden");
-  stickyNav.classList.remove("opacity-0");
+  mainDiv.classList.remove("hidden");
+  stickyNav[0].classList.remove("opacity-0");
+  stickyNav[1].classList.remove("opacity-0");
   window.setTimeout(
     () => document.body.classList.remove("overflow-hidden"),
     275

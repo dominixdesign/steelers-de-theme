@@ -57,5 +57,4 @@
 
 <script setup>
 const standings = window.tilastot_standings;
-console.log(standings);
 </script>

@@ -2,16 +2,12 @@
   @apply flex flex-row content-center items-center m-3 gap-2;
 }
 
-#preheader > .inside > .mod_article > * {
+#header-del-logo {
+  @apply relative z-50;
 }
 
-#header-del-logo,
-#preheader .preheader-right {
-  @apply border-r border-gray-400 pr-2;
-}
-
-#preheader .ce_hyperlink {
-  @apply uppercase font-medium text-xs;
+#preheader .ce_hyperlink:not(#header-del-logo) {
+  @apply uppercase font-medium text-xs hidden;
 }
 
 #preheader .preheader-right {
@@ -32,6 +28,15 @@
   @apply flex flex-row gap-2;
 }
 
+@media (min-width: 1024px) {
+  #preheader .ce_hyperlink {
+    @apply !block;
+  }
+  #header-del-logo,
+  #preheader .preheader-right {
+    @apply border-r border-gray-400 pr-2;
+  }
+}
 @media (min-width: 1280px) {
   #preheader > .inside > .mod_article {
     @apply gap-2;
@@ -62,4 +67,14 @@
 
 #header-del-logo img {
   @apply !h-12 !w-24;
+}
+
+@media (min-width: 1024px) {
+  .preheader-links > span {
+    @apply hidden;
+  }
+
+  .preheader-links-inner {
+    @apply flex flex-row gap-3;
+  }
 }

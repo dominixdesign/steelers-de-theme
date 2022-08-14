@@ -10,7 +10,7 @@ nav .grid-nav {
 
 .top-sticky-nav {
   position: relative;
-  z-index: 100;
+  z-index: 80;
   overflow-x: clip;
 }
 
@@ -67,7 +67,10 @@ nav .grid-nav {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1024px) {
+  .nav-meta-links {
+    @apply hidden;
+  }
   .header-nav-logo {
     bottom: 0.4rem;
     width: 200px;
