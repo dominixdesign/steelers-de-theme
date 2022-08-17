@@ -225,9 +225,14 @@ nav .grid-nav {
   font-weight: bold;
 }
 
+/* test */
 .main-nav > ul.subItemIsOpen > li > a,
 .main-nav > ul.subItemIsOpen > li > span {
-  @apply text-gray-300;
+  @apply text-gray-300 opacity-50;
+}
+.main-nav > ul.subItemIsOpen > li > a.activeSub,
+.main-nav > ul.subItemIsOpen > li > span.activeSub {
+  @apply text-white opacity-100;
 }
 
 .main-nav > ul.level_2 > li > a,
@@ -237,8 +242,8 @@ nav .grid-nav {
   font-weight: bold;
 }
 
-.main-nav  > ul > li.active > a::after,
-.main-nav  > ul > li.trail > a::after {
+.main-nav ul li.active > a::after,
+.main-nav ul li.trail > a::after {
   @apply absolute left-0 right-0 bottom-4 h-4 bg-steelblue;
   z-index: -5;
   content: "";
