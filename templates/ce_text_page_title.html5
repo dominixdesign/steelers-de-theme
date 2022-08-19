@@ -15,7 +15,7 @@
     <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
         <?php
     if ($this->addImage) : 
-      echo $this->replaceInsertTags('{{image::'.$this->arrData['singleSRC'].'?height=768&weight=768&mode=box&alt='.$this->headline.'&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
+      echo $this->replaceInsertTags('{{image::'.$this->arrData['singleSRC'].'?height=768&width=768&mode=box&alt='.$this->headline.'&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
     endif;
     ?>
     </div>

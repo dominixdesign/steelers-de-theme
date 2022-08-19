@@ -4,3 +4,4 @@
 @import "content/blocks.css";
 @import "content/news.css";
 @import "content/pre-header.css";
+@import "../../node_modules/glightbox/dist/css/glightbox.css";

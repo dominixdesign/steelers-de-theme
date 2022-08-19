@@ -31,7 +31,7 @@ if($this->level == 'level_1') :
       }
     }
   </script>
-<ul id="mobile-nav-ul" class="<?= $this->level ?> text-white w-full font-bold flex h-full items-stretch">
+<ul id="mobile-nav-ul" class="<?= $this->level ?> text-white w-full font-bold flex h-full items-stretch md:!hidden">
   <?php foreach ($this->items as $key => $item) : ?>
   <?php if (!empty($item['subitems'])) : ?>
     <li class="<?= $item['class'] ?> <?=$item['isActive'] ? 'active' : ''; ?> cursor-pointer">
@@ -54,7 +54,7 @@ if($this->level == 'level_1') :
     <?php endforeach; ?>
 </ul>
 <?php else : ?>
-  <ul class="<?= $this->level ?> text-white w-full font-bold flex absolute gap-2 top-0 mt-24 content-start">
+  <ul class="<?= $this->level ?> text-white w-full font-bold flex absolute gap-2 top-0 mt-24 content-start md:!hidden">
     <?php foreach ($this->items as $item) : ?>
       <?php if ($item['isActive']) : ?>
         <li class="isSubElement active"><a><?= $item['link'] ?></a></li>

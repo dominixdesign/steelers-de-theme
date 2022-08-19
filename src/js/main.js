@@ -1,10 +1,18 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
+import GLightbox from 'glightbox';
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 
 createApp(HomeSchedule).mount("#homeschedule");
 createApp(HomeStandings).mount("#homestandings");
+
+//Lightbox
+const lightbox = GLightbox({
+  touchNavigation: true,
+  loop: false,
+  autoplayVideos: false
+});
 
 // eventlisteners
 window.onscroll = function () {
