@@ -1,0 +1,4 @@
+.gridwrapper h3 {
+  @apply text-steelgreen font-bold text-5xl uppercase;
+  font-family: "WhyteItalic", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

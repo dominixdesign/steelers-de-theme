@@ -43,6 +43,14 @@ html {
   left: 4px;
 }
 
+a.email {
+  @apply text-steelblue underline;
+}
+
+.defaultcontainer {
+  @apply max-w-screen-2xl mx-auto relative my-20;
+}
+
 li:nth-child(0) { --nth-child: 0 }
 li:nth-child(1) { --nth-child: 1 }
 li:nth-child(2) { --nth-child: 2 }
