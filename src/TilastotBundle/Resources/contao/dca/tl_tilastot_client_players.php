@@ -81,7 +81,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => '{style_legend},styleDesignation;{css_legend},cssClasses;{permissions_legend},disableInArticle,disableInContent,disableInCalendarEvent,disableInForm,disableInFormField,disableInLayout,disableInModule,disableInNews,disableInPage'
+        'default' => 'lastname,firstname,eliteprospectsid,position,alias'
     ),
     // Fields
     'fields'   => array
@@ -100,7 +100,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'text',
-            'options_callback'				=> array('App\\Tilastot\\Model\\Rounds', 'findForSelect'),
+            'options_callback'		  => array('App\\Tilastot\\Model\\Rounds', 'findForSelect'),
             'eval'                    => array('mandatory' => true, 'rgxp'=>'numeric', 'tl_class' => 'w50'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
@@ -115,9 +115,9 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
         ),
         'eliteprospectsid' => array
         (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['eliteprospectsid'],
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_players']['eliteprospectsid'],
             'exclude'                 => true,
-            'inputType'               => 'number',
+            'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
             'sql'                     => "int(10) NOT NULL default '0'"
         ),

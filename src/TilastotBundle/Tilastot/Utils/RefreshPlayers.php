@@ -70,7 +70,7 @@ class RefreshPlayers
 
 			$p->alias = StringUtil::generateAlias($p->firstname . " " . $p->lastname);
 
-			if ($p->eliteprospectsid) {
+			if ($p->eliteprospectsid > 0) {
 				$rss = new \SimpleXMLElement('http://eliteprospects.com/rss_player_stats2.php?player=' . $p->eliteprospectsid, null, true);
 				foreach ($rss->xpath('channel/item') as $item) {
 					$p->epstats = utf8_decode($item->description);

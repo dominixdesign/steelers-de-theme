@@ -14,6 +14,7 @@
  */
 $GLOBALS['TL_LANG']['tl_tilastot_client_players']['firstname'] = array('Vorname', 'Vorname');
 $GLOBALS['TL_LANG']['tl_tilastot_client_players']['lastname'] = array('Name', 'Name');
+$GLOBALS['TL_LANG']['tl_tilastot_client_players']['eliteprospectsid'] = array('ID auf eliteprospects.com', 'eliteprospectsid');
 $GLOBALS['TL_LANG']['tl_tilastot_client_players']['round'] = array('Runde', 'Runde');
 
 
