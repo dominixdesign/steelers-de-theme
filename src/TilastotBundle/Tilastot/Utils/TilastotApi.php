@@ -21,50 +21,58 @@ use App\Tilastot\Utils\RefreshGames;
 use App\Tilastot\Utils\RefreshPlayers;
 
 class TilastotApi
-{ 
+{
 
-  const API_URL = 'https://s3-eu-west-1.amazonaws.com/de.hokejovyzapis.cz/';
+	const API_URL = 'https://s3-eu-west-1.amazonaws.com/de.hokejovyzapis.cz/';
 
-  private static function call($page, $round) {
-    $uri = self::API_URL . $page;
+	private static function call($page, $round)
+	{
+		$uri = self::API_URL . $page;
 
-    $curl = curl_init();
-    curl_setopt_array($curl, array( 
-      CURLOPT_RETURNTRANSFER => 1,
-      CURLOPT_URL => $uri,
-      CURLOPT_USERAGENT => 'starting6media powered website'
-    ));
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => $uri,
+			CURLOPT_USERAGENT => 'starting6media powered website'
+		));
 
-    $response = curl_exec($curl);
-		if(curl_errno($curl)>0) {
+		$response = curl_exec($curl);
+		if (curl_errno($curl) > 0) {
 			throw new \Exception(curl_error());
-		} elseif(curl_getinfo($curl,CURLINFO_HTTP_CODE)!=200) {
-			throw new \Exception('DEL API response http code: '.curl_getinfo($curl,CURLINFO_HTTP_CODE));
+		} elseif (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 200) {
+			throw new \Exception('DEL API response http code: ' . curl_getinfo($curl, CURLINFO_HTTP_CODE));
 		}
 		curl_close($curl);
 
-    return $response;
+		return $response;
+	}
 
-  }
- 
-  public static function getGames($round) {
+	public static function getGames($round)
+	{
 		$r = Rounds::findById($round);
-    return self::call('league-team-matches/'.$r->year.'/'.$r->league.'/22.json', $round);
-  }
+		return self::call('league-team-matches/' . $r->year . '/' . $r->league . '/22.json', $round);
+	}
 
-  public static function getStandings($round) {
+	public static function getStandings($round)
+	{
 		$r = Rounds::findById($round);
-    return self::call('tables/'.$r->standingsid.'.json', $round);
-  }
+		return self::call('tables/' . $r->standingsid . '.json', $round);
+	}
 
-	public static function updateTeam($tilastotTeam, $round) {
+	public static function getPlayers($round) {
+		$r = Rounds::findById($round);
+		return self::call('league-team-stats/' . $r->year . '/' . $r->league . '/22.json', $round);
+	}
 
-		$t = Standings::findAll(array (
-	    'limit'   => 1,
-	    'column'  => array('tilastotid=?','round=?'),
-	    'value'   => array($tilastotTeam->id, $round)
-	  ));
-		if(!$t) {
+	public static function updateTeam($tilastotTeam, $round)
+	{
+
+		$t = Standings::findAll(array(
+			'limit'   => 1,
+			'column'  => array('tilastotid=?', 'round=?'),
+			'value'   => array($tilastotTeam->id, $round)
+		));
+		if (!$t) {
 			$t = new Standings();
 			$t->tilastotid = $tilastotTeam->id;
 		}
@@ -79,21 +87,19 @@ class TilastotApi
 		return $t;
 	}
 
-	public static function refreshAll() {
-		$r = Rounds::findAll(array (
-	    'column'  => array('autorefresh=?'),
-	    'value'   => array(1)
-	  ));
+	public static function refreshAll()
+	{
+		$r = Rounds::findAll(array(
+			'column'  => array('autorefresh=?'),
+			'value'   => array(1)
+		));
 
-//		foreach($r as $round) {
-//				DelRefreshStandings::refresh($round->holemaid);
-//				DelRefreshGames::refresh($round->holemaid);
-//				DelRefreshPlayers::refresh($round->holemaid);
-//		}
+		//		foreach($r as $round) {
+		//				DelRefreshStandings::refresh($round->holemaid);
+		//				DelRefreshGames::refresh($round->holemaid);
+		//				DelRefreshPlayers::refresh($round->holemaid);
+		//		}
 
-    \System::log('DEL Update done.', __METHOD__, TL_CRON);
-
+		\System::log('DEL Update done.', __METHOD__, TL_CRON);
 	}
-
-
 }

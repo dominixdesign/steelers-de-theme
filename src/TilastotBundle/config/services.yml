@@ -33,6 +33,13 @@ services:
         template: mod_standings
         renderer: esi
         type: standings
+  App\Tilastot\Module\RosterModule:
+    tags:
+      - name: contao.frontend_module
+        category: tilastot
+        template: mod_roster
+        renderer: esi
+        type: roster
   App\Tilastot\ContentElement\WrapperBlockStart:
     tags:
       - name: contao.content_element

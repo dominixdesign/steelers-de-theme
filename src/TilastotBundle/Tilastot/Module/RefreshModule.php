@@ -16,6 +16,7 @@ use Contao\BackendModule;
 use App\Tilastot\Model\Rounds;
 use App\Tilastot\Utils\RefreshStandings;
 use App\Tilastot\Utils\RefreshGames;
+use App\Tilastot\Utils\RefreshPlayers;
 
 class RefreshModule extends BackendModule
 {
@@ -29,6 +30,7 @@ class RefreshModule extends BackendModule
 			foreach(\Input::post('round') as $round) {
 					RefreshStandings::refresh($round);
 					RefreshGames::refresh($round);
+					RefreshPlayers::refresh($round);
 					$done[$round] = Rounds::findOneBy('id', $round);
 			}
 			$this->Template->result = $done;

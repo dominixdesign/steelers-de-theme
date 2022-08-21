@@ -12,6 +12,7 @@
 use App\Tilastot\Model\Rounds;
 use App\Tilastot\Model\Games;
 use App\Tilastot\Model\Standings;
+use App\Tilastot\Model\Players;
 use \App\Tilastot\Module\RefreshModule;
 
 /* Backend Module */
@@ -26,6 +27,9 @@ $GLOBALS['BE_MOD']['del'] = array(
 	'tilastot_games' => array(
 		'tables' => array('tl_tilastot_client_games')
 	),
+	'tilastot_players' => array(
+    'tables' => array('tl_tilastot_client_players')
+	),
 	'tilastot_refresh' => array(
 		'callback' => RefreshModule::class
 	)
@@ -34,6 +38,7 @@ $GLOBALS['BE_MOD']['del'] = array(
 /* Model Classes */
 $GLOBALS['TL_MODELS']['tl_tilastot_client_rounds'] = Rounds::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_games'] = Games::class;
+$GLOBALS['TL_MODELS']['tl_tilastot_client_players'] = Players::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_standings'] = Standings::class;
 
 /* Cronjob */
