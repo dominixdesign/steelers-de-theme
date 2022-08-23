@@ -15,13 +15,14 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
     'config'   => array
     (
         'dataContainer' => 'Table',
+        'ctable' => ['tl_tilastot_client_stats'],
         'enableVersioning' => true,
         'sql' => array
         (
             'keys' => array
             (
                 'id' => 'primary',
-								'tilastotid,round' => 'unique'
+				'tilastotid' => 'unique'
             )
         )
     ),
@@ -31,12 +32,12 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
         'sorting' => array
         (
             'mode'                    => 11,
-            'fields'                  => array('round'),
+            'fields'                  => array('lastname'),
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array
         (
-            'fields'                  => array('round', 'lastname','firstname'),
+            'fields'                  => array('lastname','firstname'),
             'showColumns'             => true,
         ),
         'global_operations' => array
@@ -51,11 +52,15 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
         ),
         'operations' => array
         (
-            'edit' => array
+            'edit' => [
+                'href' => 'table=tl_tilastot_client_stats',
+                'icon' => 'edit.svg',
+            ],
+            'editheader' => array
             (
                 'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_client_players']['edit'],
                 'href'                => 'act=edit',
-                'icon'                => 'edit.gif'
+                'icon'                => 'header.gif'
             ),
             'copy'   => array
             (
@@ -92,16 +97,6 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
         ),
         'tstamp' => array
         (
-            'sql'                     => "int(10) unsigned NOT NULL default '0'"
-        ),
-        'round' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_players']['round'],
-            'exclude'                 => true,
-            'filter'                  => true,
-            'inputType'               => 'text',
-            'options_callback'		  => array('App\\Tilastot\\Model\\Rounds', 'findForSelect'),
-            'eval'                    => array('mandatory' => true, 'rgxp'=>'numeric', 'tl_class' => 'w50'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'tilastotid' => array
@@ -164,14 +159,6 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
             'eval'                    => array('mandatory'=>true, 'maxlength'=>255, 'rgxp'=>'alphanumeric', 'tl_class'=>'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
-        'jersey' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['jersey'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
         'shoots' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['shoots'],
@@ -207,78 +194,6 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array
         'weight' => array
         (
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['weight'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'games' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['games'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'goals' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['goals'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'assists' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['assists'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'points' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['points'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'penalties' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['penalties'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'plusminus' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['plusminus'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'faceoffswon' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['faceoffswon'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'faceoffslost' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['faceoffslost'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
-            'sql'                     => "int(5) NOT NULL default '0'"
-        ),
-        'shots' => array
-        (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['shots'],
             'exclude'                 => true,
             'inputType'               => 'number',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),

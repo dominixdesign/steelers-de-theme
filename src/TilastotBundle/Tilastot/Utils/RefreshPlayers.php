@@ -13,6 +13,7 @@ namespace App\Tilastot\Utils;
 
 use Contao\Database;
 use App\Tilastot\Model\Players;
+use App\Tilastot\Model\PlayerStats;
 use Contao\StringUtil;
 use Contao\Files;
 
@@ -35,38 +36,24 @@ class RefreshPlayers
 
 			$p = Players::findAll(array(
 				'limit'   => 1,
-				'column'  => array('tilastotid=?', 'round=?'),
-				'value'   => array($player->id, $round)
+				'column'  => array('tilastotid=?'),
+				'value'   => array($player->id)
 			));
 			if (!$p) {
 				$p = new Players();
 				$p->tilastotid = $player->id;
 			}
-			$p->round = $round;
 			$birthday = date_parse_from_format("Y-m-d", $player->birthday);
 			// $p->eliteprospectsid = $player->{'@eliteprospectsid'};
 			$p->birthday = mktime(0, 0, 0, $birthday['month'], $birthday['day'], $birthday['year']);
 			$p->firstname = $player->firstname;
 			$p->lastname = $player->surname;
-			$p->jersey = $player->jersey;
 			$p->position = $player->position;
 			$p->nationality = $player->nationality;
 			$p->shoots = $player->stick;
 			$p->birthplace = $player->birthCountry;
 			$p->height = $player->height;
 			$p->weight = $player->weight;
-
-			if ($player->statistics) {
-				$p->games = $player->statistics->games;
-				$p->goals = $player->statistics->goals->home + $player->statistics->goals->away;
-				$p->assists = $player->statistics->assists->home + $player->statistics->assists->away;
-				$p->points = $player->statistics->points->home + $player->statistics->points->away;
-				$p->penalties = $player->statistics->penaltyMinutes;
-				$p->plusminus = $player->statistics->positive -  $player->statistics->negative;
-				$p->faceoffswon = $player->statistics->faceoffsWin;
-				$p->faceoffslost = $player->statistics->faceoffsLosses;
-				$p->shots = $player->statistics->shotsOnGoal->home + $player->statistics->shotsOnGoal->away;
-			}
 
 			$p->alias = StringUtil::generateAlias($p->firstname . " " . $p->lastname);
 
@@ -79,19 +66,34 @@ class RefreshPlayers
 			}
 
 			$p->tstamp = time();
-			$p->save();
+			$savedPlayer = $p->save();
 
-			/*
-			<games>52</games>
-			<goals>23</goals>
-			<assists>27</assists>
-			<points>50</points>
-			<penalties>66</penalties>
-			<plusminus>+12</plusminus>
-			<faceoffswon>568</faceoffswon>
-			<faceoffslost>487</faceoffslost>
-			<shots>190</shots>
-			*/
+			
+			if ($player->statistics) {
+				$stats = PlayerStats::findAll(array(
+					'limit'   => 1,
+					'column'  => array('pid=?', 'round=?'),
+					'value'   => array($savedPlayer->id, $round)
+				));
+				if (!$stats) {
+					$stats = new PlayerStats();
+					$stats->pid = $savedPlayer->id;
+				}
+				
+				$stats->round = $round;
+				$stats->jersey = $player->jersey;
+				$stats->games = $player->statistics->games;
+				$stats->goals = $player->statistics->goals->home + $player->statistics->goals->away;
+				$stats->assists = $player->statistics->assists->home + $player->statistics->assists->away;
+				$stats->points = $player->statistics->points->home + $player->statistics->points->away;
+				$stats->penalties = $player->statistics->penaltyMinutes;
+				$stats->plusminus = $player->statistics->positive -  $player->statistics->negative;
+				$stats->faceoffswon = $player->statistics->faceoffsWin;
+				$stats->faceoffslost = $player->statistics->faceoffsLosses;
+				$stats->shots = $player->statistics->shotsOnGoal->home + $player->statistics->shotsOnGoal->away;
+				$stats->tstamp = time();
+				$stats->save();
+			}
 		}
 	}
 }

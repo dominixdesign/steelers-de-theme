@@ -37,7 +37,7 @@ class RosterModule extends AbstractFrontendModuleController
 		$playerlist['4F'] = $playerlist['FO'];
 		unset($playerlist['GK']);
 		unset($playerlist['DE']);
-		unset($playerlist['F']);
+		unset($playerlist['FO']);
 		ksort($playerlist);
 
 		$template->players = $playerlist;
