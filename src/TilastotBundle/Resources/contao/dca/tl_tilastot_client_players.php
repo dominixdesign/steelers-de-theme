@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'lastname,firstname,eliteprospectsid,position,alias'
+        'default' => 'lastname,firstname,eliteprospectsid,position,alias;{source_legend},pictures'
     ),
     // Fields
     'fields'   => array(
@@ -189,6 +189,17 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
             'inputType'               => 'text',
             'eval'                    => array('mandatory' => true, 'maxlength' => 5, 'rgxp' => 'numeric', 'tl_class' => 'w50'),
             'sql'                     => "blob Null"
+        ),
+        'orderPictures' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['MSC']['sortOrder'],
+            'sql'                     => "blob NULL"
+        ),
+        'pictures' => array(
+            'label'                   => array('Spielerfotos', 'Erstes Bild wird als Portrait-Foto genutzt'),
+            'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array('multiple' => true, 'fieldType' => 'checkbox', 'orderField' => 'orderPictures', 'files' => true),
+            'sql'                     => "blob NULL"
         )
     )
 );

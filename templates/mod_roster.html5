@@ -1,41 +1,47 @@
 <?php $this->block('content'); ?>
 <div class="tilastot-roster <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
 
-	<?php foreach ($this->players as $position => $posPlayers) : ?>
-		<h4 class="uppercase text-5xl font-headline w-full border-b border-gray-800 p-4 mb-4"><?php
-																																											switch ($position) {
-																																												case '0G':
-																																													echo 'Goalies';
-																																													break;
-																																												case '2D':
-																																													echo 'Verteidiger';
-																																													break;
-																																												case '4F':
-																																													echo 'Stürmer';
-																																													break;
-																																											} ?></h4>
+  <?php foreach ($this->players as $position => $posPlayers) : ?>
+  <h4 class="uppercase text-5xl font-headline w-full border-b border-gray-800 p-4 mb-4"><?php
+																																													switch ($position) {
+																																														case '0G':
+																																															echo 'Goalies';
+																																															break;
+																																														case '2D':
+																																															echo 'Verteidiger';
+																																															break;
+																																														case '4F':
+																																															echo 'Stürmer';
+																																															break;
+																																													} ?></h4>
 
 
-		<ul role="list" class="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-			<?php foreach ($posPlayers as $player) : ?>
-				<li class="col-span-1 flex flex-col text-center bg-white shadow">
-					<div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden">
-						<img class="w-full h-full object-center object-cover" src="https://www.eishockey.net/admin/files/pictures/46911/46911_29644_1024_1775.png" alt="<?= $player['firstname'] ?> <?= $player['lastname'] ?>">
-					</div>
-					<div>
-						<div class="-mt-px flex divide-x divide-gray-200">
-							<div class="w-0 flex-1 flex">
-								<p><?= $player['firstname'] ?></p>
-								<p><?= $player['lastname'] ?></p>
-							</div>
-						</div>
-					</div>
-				</li>
+  <ul role="list" class="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <?php if (is_array($posPlayers)) : ?>
+    <?php foreach ($posPlayers as $player) : ?>
+    <li class="col-span-1 flex flex-col text-center bg-white shadow">
+      <div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden">
+        <?php
+							if ($player['profilePic']) :
+								echo $this->replaceInsertTags('{{image::' . $player['profilePic']['path'] . '?width=450&mode=proportional&alt=' . $player['firstname'] . ' ' . $player['lastname'] . '&class=w-full h-full object-center object-cover}}');
+							endif;
+							?>
+      </div>
+      <div>
+        <div class="-mt-px flex divide-x divide-gray-200">
+          <div class="w-0 flex-1 flex">
+            <p><?= $player['firstname'] ?></p>
+            <p><?= $player['lastname'] ?></p>
+          </div>
+        </div>
+      </div>
+    </li>
 
-			<?php endforeach; ?>
-		</ul>
-	<?php endforeach; ?>
-	<?php
+    <?php endforeach; ?>
+    <?php endif; ?>
+  </ul>
+  <?php endforeach; ?>
+  <?php
 	var_dump($this->players);
 	?>
 </div>

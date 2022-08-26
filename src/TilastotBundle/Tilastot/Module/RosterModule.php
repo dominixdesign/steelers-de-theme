@@ -7,6 +7,9 @@ use App\Tilastot\Model\Players;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\ModuleModel;
 use Contao\Template;
+use Contao\StringUtil;
+use Contao\ArrayUtil;
+use Contao\FilesModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -23,6 +26,16 @@ class RosterModule extends AbstractFrontendModuleController
 			return new Response();
 		}
 		foreach ($players->fetchAll() as $p) {
+
+			$pictures = StringUtil::deserialize($p['pictures']);
+
+			if (!empty($pictures) || is_array($pictures)) {
+				$files = ArrayUtil::sortByOrderField($pictures, StringUtil::deserialize($p['orderPictures']));
+				$allPictures = FilesModel::findMultipleByUuids($files)->fetchAll();
+				$p['profilePic'] = array_shift($allPictures);
+				$p['pictures'] = $allPictures;
+			}
+
 			switch ($p['position']) {
 				case 'RW':
 				case 'C':
