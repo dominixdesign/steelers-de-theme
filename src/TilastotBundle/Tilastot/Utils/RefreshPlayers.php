@@ -43,7 +43,7 @@ class RefreshPlayers
 				$p = new Players();
 				$p->tilastotid = $player->id;
 			}
-			$birthday = date_parse_from_format("Y-m-d", $player->birthday);
+			$birthday = date_parse_from_format("Y-m-d", $player->dateOfBirth);
 			// $p->eliteprospectsid = $player->{'@eliteprospectsid'};
 			$p->birthday = mktime(0, 0, 0, $birthday['month'], $birthday['day'], $birthday['year']);
 			$p->firstname = $player->firstname;

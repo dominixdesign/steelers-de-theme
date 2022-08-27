@@ -3,25 +3,63 @@
   <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
 
   <?php foreach ($this->players as $position => $posPlayers) : ?>
-  <h4 class="uppercase text-5xl font-headline w-full border-b border-gray-800 p-4 mb-4"><?php
-                                                                                          switch ($position) {
-                                                                                            case '0G':
-                                                                                              echo 'Goalies';
-                                                                                              break;
-                                                                                            case '2D':
-                                                                                              echo 'Verteidiger';
-                                                                                              break;
-                                                                                            case '4F':
-                                                                                              echo 'Stürmer';
-                                                                                              break;
-                                                                                          } ?></h4>
-
+  <h4 class="uppercase text-5xl font-headline w-full border-b border-gray-800 p-4 mb-4">
+    <?php
+      switch ($position) {
+        case '0G':
+          echo 'Goalies';
+          break;
+        case '2D':
+          echo 'Verteidiger';
+          break;
+        case '4F':
+          echo 'Stürmer';
+          break;
+      }
+      ?>
+  </h4>
 
   <ul role="list" class="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <?php if (is_array($posPlayers)) : ?>
     <?php foreach ($posPlayers as $player) : ?>
-    <li class="col-span-1 flex flex-col text-center bg-white shadow">
-      <div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden">
+    <li class="col-span-1 flex flex-col bg-white shadow group">
+      <div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden relative">
+        <div
+          class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-6xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
+          #<?= $player['jersey'] ?></div>
+        <div class="hidden group-hover:block absolute z-20 text-white bg-steelgreen bg-opacity-80">
+          <div class="flex flex-col justify-end h-full p-5">
+            <div class="uppercase">Geboren</div>
+            <div class="text-xl font-bold -mt-1"><?= Date::parse('d. F Y', $player['birthday']) ?></div>
+            <div class="text-xl font-bold -mt-1"><?= $player['birthplace'] ?></div>
+            <div class="border-t-4 border-white my-3"></div>
+            <div class="uppercase">Facts</div>
+            <div class="text-xl font-bold -mt-1"><?= $player['weight'] ?> kg</div>
+            <div class="text-xl font-bold -mt-1"><?= $player['height'] ?> cm</div>
+            <div class="text-xl font-bold -mt-1">
+              <?php
+                    if ($position == '0G') {
+                      if ($player['shoots'] == 'left') {
+                        echo "fängt links";
+                      } else if ($player['shoots'] == 'right') {
+                        echo "fängt rechts";
+                      }
+                    } else {
+                      if ($player['shoots'] == 'left') {
+                        echo "schießt links";
+                      } else if ($player['shoots'] == 'right') {
+                        echo "schießt rechts";
+                      }
+                    };
+
+                    ?>
+            </div>
+            <div class="border-t-4 border-white my-3"></div>
+            <div class="uppercase">Ein Steeler seit</div>
+            <div class="text-xl font-bold -mt-1"><?= $player['since'] ?></div>
+          </div>
+
+        </div>
         <?php
               if ($player['profilePic']) :
                 echo $this->replaceInsertTags('{{image::' . $player['profilePic']['path'] . '?width=450&mode=proportional&alt=' . $player['firstname'] . ' ' . $player['lastname'] . '&class=w-full h-full object-center object-cover}}');
@@ -29,11 +67,9 @@
               ?>
       </div>
       <div>
-        <div class="-mt-px flex divide-x divide-gray-200">
-          <div class="w-0 flex-1 flex">
-            <p><?= $player['firstname'] ?></p>
-            <p><?= $player['lastname'] ?></p>
-          </div>
+        <div class="p-5 uppercase">
+          <div class="text-2xl"><?= $player['firstname'] ?></div>
+          <div class="-mt-2 text-steelgreen text-4xl font-bold"><?= $player['lastname'] ?></div>
         </div>
       </div>
     </li>
@@ -42,8 +78,5 @@
     <?php endif; ?>
   </ul>
   <?php endforeach; ?>
-  <?php
-  var_dump($this->players);
-  ?>
 </div>
 <?php $this->endblock(); ?>
