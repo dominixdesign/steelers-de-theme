@@ -47,6 +47,7 @@ class RefreshPlayers
 			// $p->eliteprospectsid = $player->{'@eliteprospectsid'};
 			$p->birthday = mktime(0, 0, 0, $birthday['month'], $birthday['day'], $birthday['year']);
 			$p->firstname = $player->firstname;
+			$p->jersey = $player->jersey;
 			$p->lastname = $player->surname;
 			$p->position = $player->position;
 			$p->nationality = $player->nationality;
@@ -68,7 +69,7 @@ class RefreshPlayers
 			$p->tstamp = time();
 			$savedPlayer = $p->save();
 
-			
+
 			if ($player->statistics) {
 				$stats = PlayerStats::findAll(array(
 					'limit'   => 1,
@@ -79,7 +80,7 @@ class RefreshPlayers
 					$stats = new PlayerStats();
 					$stats->pid = $savedPlayer->id;
 				}
-				
+
 				$stats->round = $round;
 				$stats->jersey = $player->jersey;
 				$stats->games = $player->statistics->games;

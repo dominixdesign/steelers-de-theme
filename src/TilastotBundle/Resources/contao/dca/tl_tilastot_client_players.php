@@ -108,6 +108,13 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
             'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
+        'jersey' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['jersey'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory' => true, 'maxlength' => 5, 'rgxp' => 'numeric', 'tl_class' => 'w50'),
+            'sql'                     => "int(5) NOT NULL default '0'"
+        ),
         'published' => array(
             'exclude'                 => true,
             'toggle'                  => true,
