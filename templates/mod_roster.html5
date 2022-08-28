@@ -19,59 +19,61 @@
       ?>
   </h4>
 
-  <ul role="list" class="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <ul role="list" class="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <?php if (is_array($posPlayers)) : ?>
     <?php foreach ($posPlayers as $player) : ?>
-    <li class="col-span-1 flex flex-col bg-white shadow group">
-      <div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden relative">
-        <div
-          class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-6xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
-          #<?= $player['jersey'] ?></div>
-        <div class="hidden group-hover:block absolute z-20 text-white bg-steelgreen bg-opacity-80">
-          <div class="flex flex-col justify-end h-full p-5">
-            <div class="uppercase">Geboren</div>
-            <div class="text-xl font-bold -mt-1"><?= Date::parse('d. F Y', $player['birthday']) ?></div>
-            <div class="text-xl font-bold -mt-1"><?= $player['birthplace'] ?></div>
-            <div class="border-t-4 border-white my-3"></div>
-            <div class="uppercase">Facts</div>
-            <div class="text-xl font-bold -mt-1"><?= $player['weight'] ?> kg</div>
-            <div class="text-xl font-bold -mt-1"><?= $player['height'] ?> cm</div>
-            <div class="text-xl font-bold -mt-1">
-              <?php
-                    if ($position == '0G') {
-                      if ($player['shoots'] == 'left') {
-                        echo "fängt links";
-                      } else if ($player['shoots'] == 'right') {
-                        echo "fängt rechts";
-                      }
-                    } else {
-                      if ($player['shoots'] == 'left') {
-                        echo "schießt links";
-                      } else if ($player['shoots'] == 'right') {
-                        echo "schießt rechts";
-                      }
-                    };
+    <li class="bg-white shadow group">
+      <a class="col-span-1 flex flex-col " href="/spieler/<?= $player['alias'] ?>">
+        <div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden relative">
+          <div
+            class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-6xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
+            #<?= $player['jersey'] ?></div>
+          <div class="hidden group-hover:block absolute z-20 text-white bg-steelgreen bg-opacity-80">
+            <div class="flex flex-col justify-end h-full p-5">
+              <div class="text-sm uppercase">Geboren</div>
+              <div class="text-lg font-bold -mt-1"><?= Date::parse('d. F Y', $player['birthday']) ?></div>
+              <div class="text-lg font-bold -mt-1"><?= $player['birthplace'] ?></div>
+              <div class="border-t-4 border-white my-3"></div>
+              <div class="text-sm uppercase">Facts</div>
+              <div class="text-lg font-bold -mt-1"><?= $player['weight'] ?> kg</div>
+              <div class="text-lg font-bold -mt-1"><?= $player['height'] ?> cm</div>
+              <div class="text-lg font-bold -mt-1">
+                <?php
+                      if ($position == '0G') {
+                        if ($player['shoots'] == 'left') {
+                          echo "fängt links";
+                        } else if ($player['shoots'] == 'right') {
+                          echo "fängt rechts";
+                        }
+                      } else {
+                        if ($player['shoots'] == 'left') {
+                          echo "schießt links";
+                        } else if ($player['shoots'] == 'right') {
+                          echo "schießt rechts";
+                        }
+                      };
 
-                    ?>
+                      ?>
+              </div>
+              <div class="border-t-4 border-white my-3"></div>
+              <div class="text-sm uppercase">Ein Steeler seit</div>
+              <div class="text-lg font-bold -mt-1"><?= $player['since'] ?></div>
             </div>
-            <div class="border-t-4 border-white my-3"></div>
-            <div class="uppercase">Ein Steeler seit</div>
-            <div class="text-xl font-bold -mt-1"><?= $player['since'] ?></div>
-          </div>
 
+          </div>
+          <?php
+                if ($player['profilePic']) :
+                  echo $this->replaceInsertTags('{{image::' . $player['profilePic']['path'] . '?width=450&mode=proportional&alt=' . $player['firstname'] . ' ' . $player['lastname'] . '&class=w-full h-full object-center object-cover}}');
+                endif;
+                ?>
         </div>
-        <?php
-              if ($player['profilePic']) :
-                echo $this->replaceInsertTags('{{image::' . $player['profilePic']['path'] . '?width=450&mode=proportional&alt=' . $player['firstname'] . ' ' . $player['lastname'] . '&class=w-full h-full object-center object-cover}}');
-              endif;
-              ?>
-      </div>
-      <div>
-        <div class="p-5 uppercase">
-          <div class="text-2xl"><?= $player['firstname'] ?></div>
-          <div class="-mt-2 text-steelgreen text-4xl font-bold"><?= $player['lastname'] ?></div>
+        <div>
+          <div class="p-5 uppercase">
+            <div class="text-2xl"><?= $player['firstname'] ?></div>
+            <div class="-mt-2 text-steelgreen text-4xl font-bold"><?= $player['lastname'] ?></div>
+          </div>
         </div>
-      </div>
+      </a>
     </li>
 
     <?php endforeach; ?>

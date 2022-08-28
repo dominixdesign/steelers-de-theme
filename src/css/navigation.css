@@ -36,7 +36,7 @@ nav .grid-nav {
 }
 
 .top-sticky-nav li > * {
-  @apply px-2 py-1;
+  @apply px-2 py-1 whitespace-nowrap;
   border-bottom: 5px solid transparent;
 }
 
@@ -194,7 +194,7 @@ nav .grid-nav {
 }
 
 /* Apparition effect on links */
-.main-nav  > ul > li > a {
+.main-nav > ul > li > a {
   opacity: 0;
   transform: translateY(-10px);
 }
@@ -238,7 +238,7 @@ nav .grid-nav {
 .main-nav > ul.level_2 > li > a,
 .main-nav > ul.level_2 > li > span {
   @apply pointer-events-auto;
-  font-size: 1.0em;
+  font-size: 1em;
   font-weight: bold;
 }
 

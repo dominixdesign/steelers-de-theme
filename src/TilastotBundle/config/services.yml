@@ -40,6 +40,13 @@ services:
         template: mod_roster
         renderer: esi
         type: roster
+  App\Tilastot\Module\PlayerModule:
+    tags:
+      - name: contao.frontend_module
+        category: tilastot
+        template: mod_player
+        renderer: esi
+        type: player
   App\Tilastot\ContentElement\WrapperBlockStart:
     tags:
       - name: contao.content_element

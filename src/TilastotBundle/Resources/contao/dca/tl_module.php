@@ -53,13 +53,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_to_date'] = array(
 	'eval'                    => array('rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'),
 	'sql'                     => "varchar(10) NOT NULL default ''"
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_config_json'] = array
-(
-	 'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_config_json'],
-	 'inputType'               => 'textarea',
-	 'reference'               => &$GLOBALS['TL_LANG']['tilastot_config_json'],
-	 'eval'                    => array('style'=>'height:60px', 'preserveTags'=>true, 'rte'=>'ace|html', 'tl_class'=>'clr'),
-	 'sql'                     => "text NULL"
+$GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_config_json'] = array(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_config_json'],
+	'inputType'               => 'textarea',
+	'reference'               => &$GLOBALS['TL_LANG']['tilastot_config_json'],
+	'eval'                    => array('style' => 'height:60px', 'preserveTags' => true, 'rte' => 'ace|html', 'tl_class' => 'clr'),
+	'sql'                     => "text NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] = '{title_legend},name,headline,type;';
@@ -67,8 +66,11 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{tilastot_legend},ti
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] = '{title_legend},name,headline,type;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{holema_legend},tilastot_round,tilastot_my_team,tilastot_config_json;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'].= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] .= '{holema_legend},tilastot_round,tilastot_my_team,tilastot_config_json;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['player'] = '{title_legend},name,type;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['player'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'] = '{title_legend},name,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'] .= '{tilastot_legend},tilastot_my_team;';
