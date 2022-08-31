@@ -3,13 +3,27 @@
   <div
     class=" next-game-at-home flex flex-row items-center lg:border-r lg:border-gray-400 lg:pr-2 2xl:pr-5 <?= $this->cssClass ?>"
     <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
-    <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 hidden xl:block bg-contain bg-no-repeat bg-center"
-      style="<?= $this->game['home']['logo'] ? 'background-image: url(' . $this->game['home']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['home']['shortname'] . '.png)' ?>">
-    </div>
+    <?php
+    if($this->game['home']['logo']) {
+      $logoUrl = $this->replaceInsertTags('{{figure::'.$this->game['home']['logo'].'?size=9&template=image_url}}');
+    } else {
+      $logoUrl = 'https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['home']['shortname'] . '.png';
+    }
+     ?>
+      <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
+        style="<?= 'background-image: url('.$logoUrl.')' ?>">
+      </div>
     <div class="font-bold text-xl px-1 hidden xl:block">vs</div>
-    <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
-      style="<?= $this->game['away']['logo'] ? 'background-image: url(' . $this->game['away']['logo'] . ')' : 'background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['away']['shortname'] . '.png)' ?>">
-    </div>
+    <?php
+    if($this->game['away']['logo']) {
+      $logoUrl = $this->replaceInsertTags('{{figure::'.$this->game['away']['logo'].'?size=9&template=image_url}}');
+    } else {
+      $logoUrl = 'https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['away']['shortname'] . '.png';
+    }
+     ?>
+     <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
+       style="<?= 'background-image: url('.$logoUrl.')' ?>">
+     </div>
     <div class="font-bold tracking-tighter leading-tight text-base 2xl:text-lg pl-2">
       <?php
       $today = date('Ymd');

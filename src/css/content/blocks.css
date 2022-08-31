@@ -3,9 +3,12 @@
   color: #009cde;
   font-family: "WhyteItalic", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-transform: uppercase;
-  font-size: clamp(4em, 20vw, 13em);
+  font-size: clamp(4em, 15vw, 13em);
   line-height: 0;
   text-shadow: 1px 1px white, -1px -1px white;
+  max-width: 100%;
+  overflow-x: clip;
+  padding: 0 10px 0 10px;
 }
 
 @supports (-webkit-text-stroke: 3px #009cde) {

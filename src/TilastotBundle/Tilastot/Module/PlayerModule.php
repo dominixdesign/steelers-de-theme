@@ -21,7 +21,7 @@ class PlayerModule extends AbstractFrontendModuleController
   protected $strTemplate = 'mod_player';
   protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
   {
-    $player = Players::findByAlias(\Input::get('auto_item'));
+    $player = Players::findByAlias(Input::get('auto_item'));
     if (!$player) {
       throw new PageNotFoundException('Page not found: ' . \Environment::get('uri'));
     }
@@ -54,5 +54,6 @@ class PlayerModule extends AbstractFrontendModuleController
       $objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
       return $objTemplate->parse();
     }
+    Input::get('auto_item');
   }
 }
