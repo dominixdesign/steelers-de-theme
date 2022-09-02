@@ -14,6 +14,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
     'config'   => array(
         'dataContainer' => 'Table',
         'enableVersioning' => true,
+        'onsubmit_callback' => array(array('tl_tilastot_client_games', 'saveCallback')),
         'sql' => array(
             'keys' => array(
                 'id' => 'primary',
@@ -21,6 +22,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
                 'awayteam' => 'index'
             )
         )
+
     ),
     // List
     'list' => array(
@@ -212,3 +214,17 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
         )
     )
 );
+
+class tl_tilastot_client_games extends Backend
+{
+    function saveCallback(DataContainer $dc) {
+        // Return if there is no ID
+        if (!$dc->id)
+        {
+            return;
+        }
+        $gamedate = date_create_immutable_from_format("Y-m-d H:i", date('Y-m-d ', $dc->activeRecord->gamedate) . $dc->activeRecord->gametime );
+        $arrSet['gamedate'] = $gamedate->getTimestamp();
+        $this->Database->prepare("UPDATE tl_tilastot_client_games %s WHERE id=?")->set($arrSet)->execute($dc->id);
+    }
+}
