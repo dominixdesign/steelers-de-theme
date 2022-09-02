@@ -11,7 +11,8 @@ use Contao\Template;
 use Contao\System;
 use Contao\CoreBundle\Routing\ResponseContext\HtmlHeadBag\HtmlHeadBag;
 use Contao\Input;
-use Contao\Config;
+use Contao\Environment;
+use Contao\CoreBundle\Exception\PageNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -23,19 +24,10 @@ class PlayerModule extends AbstractFrontendModuleController
   {
     $player = Players::findByAlias(Input::get('auto_item'));
     if (!$player) {
-      throw new PageNotFoundException('Page not found: ' . \Environment::get('uri'));
-    }
-    $responseContext = System::getContainer()->get('contao.routing.response_context_accessor')->getResponseContext();
-
-    if ($responseContext && $responseContext->has(HtmlHeadBag::class)) {
-      /** @var HtmlHeadBag $htmlHeadBag */
-      $htmlHeadBag = $responseContext->get(HtmlHeadBag::class);
-      $htmlDecoder = System::getContainer()->get('contao.string.html_decoder');
-
-      $htmlHeadBag->setTitle(strip_tags(\StringUtil::stripInsertTags($player->firstname) . ' ' . \StringUtil::stripInsertTags($player->lastname)));
+      throw new PageNotFoundException('Page not found: ' . Environment::get('uri'));
     }
 
-    $template->player = $player;
+    $template->player = $player->row();
     $template->headlineUnit = $this->hl;
     $template->cssId = $this->cssID[0];
     $template->cssClass = $this->cssID[1];
