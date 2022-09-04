@@ -1,0 +1,21 @@
+.standings-table {
+  @apply w-full grid grid-cols-1 divide-y divide-black;
+}
+
+.standings-table .table-header,
+.standings-table .table-row {
+  @apply grid grid-cols-12 py-4 items-center;
+}
+
+.standings-table .table-header {
+  @apply font-bold;
+}
+
+.standings-table .table-row {
+  @apply divide-x divide-black;
+}
+
+.standings-table .table-header > div,
+.standings-table .table-row > div {
+  @apply text-center px-4 whitespace-nowrap uppercase;
+}

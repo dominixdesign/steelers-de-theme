@@ -1,23 +1,23 @@
 <div class="<?= $this->class ?> mt-24">
-  <div class="max-w-screen-2xl mx-auto relative py-4 my-20 z-40">
+  <div class="max-w-screen-2xl mx-auto relative py-4 my-32 z-40">
     <h2 class="block-headline"><?= $this->replaceInsertTags('{{article_title::{{page::alias}}}}'); ?></h2>
   </div>
 </div>
 <div class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20">
-  <div class="grid grid-cols-2 items-end -mt-52">
+  <div class="grid grid-cols-2 items-end -mt-72">
     <div class="mb-20 p-5">
-        
+
       <h3 class="text-3xl uppercase font-bold"><?= $this->headline ?></h3>
       <p class="mt-2">
         <?= strip_tags($this->text) ?>
       </p>
     </div>
     <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
-        <?php
-    if ($this->addImage) : 
-      echo $this->replaceInsertTags('{{image::'.$this->arrData['singleSRC'].'?height=768&width=768&mode=box&alt='.$this->headline.'&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
-    endif;
-    ?>
+      <?php
+      if ($this->addImage) :
+        echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=768&width=768&mode=box&alt=' . $this->headline . '&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
+      endif;
+      ?>
     </div>
   </div>
 </div>

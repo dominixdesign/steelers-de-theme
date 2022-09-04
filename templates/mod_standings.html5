@@ -1,0 +1,35 @@
+<?php $this->block('content'); ?>
+<div class="defaultcontainer <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
+  <div class="standings-table">
+    <div class="table-header">
+      <div class="!text-right">Platz</div>
+      <div class="!text-left col-span-4">Team</div>
+      <div class="col-span-2">Spiele<br><small>(S3 | S2 | N1 | N0)</small></div>
+      <div class="col-span-2">Tore<br><small>Differenz</small></div>
+      <div>Pkt.</div>
+      <div>PPG</div>
+    </div>
+    <?php
+    foreach ($this->standings as $key => $team) {
+      $class = ($team['tilastotid'] == $this->my_team) ? 'highlight-team' : '';
+    ?>
+    <div class="table-row <?= $class ?>">
+      <div class="!text-right font-headline text-steelgreen text-4xl"><?= $team['rank'] ?></div>
+      <div class="!text-left font-bold col-span-4"><?= $team['name'] ?></div>
+      <div class=" col-span-2"><strong><?= $team['games'] ?></strong><br><small><?= $team['rw'] ?> |
+          <?= $team['ow'] + $team['pw'] ?> |
+          <?= $team['ol'] + $team['pl'] ?> | <?= $team['rl'] ?></small></div>
+      <div class="col-span-2">
+        <?= $team['goalsfor'] . ':' . $team['goalsagainst'] ?><br><small><?= $team['goalsfor'] - $team['goalsagainst'] ?></small>
+      </div>
+      <div><?= $team['points'] ?></div>
+      <div><?= $team['points'] / $team['games'] ?></div>
+    </div>
+    <?php
+    }
+    ?>
+  </div>
+  <?php
+  var_dump($this->columns);
+  ?>
+  <?php $this->endblock(); ?>

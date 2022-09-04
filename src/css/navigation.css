@@ -42,7 +42,10 @@ nav .grid-nav {
 }
 
 .main_submenu {
-  @apply transition-opacity duration-300 opacity-0 pointer-events-none flex absolute top-7 py-3 bg-[#11b55c] right-0 text-white gap-2 flex-col justify-items-center justify-around;
+  @apply transition-opacity duration-300 opacity-0 pointer-events-none flex absolute top-7 py-3 bg-[#11b55c] right-0 text-white gap-2 flex-col justify-items-center justify-around isolate;
+}
+.main_submenu > li {
+  @apply whitespace-nowrap;
 }
 
 .top-sticky-nav li.active > a::after,
