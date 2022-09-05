@@ -23,7 +23,7 @@ nav .grid-nav {
   height: 100%;
   width: 75px;
   left: var(--mouse-x);
-  transform: skewX(20deg) translateX(-50%);
+  transform: skewX(12deg) translateX(-50%);
 }
 
 .top-sticky-nav:hover::before {
@@ -35,13 +35,25 @@ nav .grid-nav {
   font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.top-sticky-nav li > * {
+.top-sticky-nav .level_1 > li > strong,
+.top-sticky-nav .level_1 > li > a {
   @apply px-2 py-1 whitespace-nowrap;
   border-bottom: 5px solid transparent;
 }
 
-.top-sticky-nav li.active > *::after,
-.top-sticky-nav li.trail > *::after {
+.main_submenu {
+  @apply transition-opacity duration-300 opacity-0 pointer-events-none flex absolute top-7 py-3 bg-[#11b55c] right-0 text-white gap-2 flex-col justify-items-center justify-around isolate;
+}
+.main_submenu > li {
+  @apply whitespace-nowrap;
+}
+
+.top-sticky-nav li.active > a::after,
+.main_submenu li.active > a::after,
+.top-sticky-nav li.trail > a::after,
+.top-sticky-nav li.active > strong::after,
+.main_submenu li.active > strong::after,
+.top-sticky-nav li.trail > strong::after {
   @apply absolute left-0 right-0 bottom-0 h-3 bg-steelblue;
   z-index: -5;
   content: "";
