@@ -44,6 +44,10 @@ html {
   left: 4px;
 }
 
+h4 {
+  @apply text-steelgreen font-bold text-5xl uppercase font-headline my-3;
+}
+
 a.email {
   @apply text-steelblue underline;
 }

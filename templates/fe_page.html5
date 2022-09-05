@@ -26,7 +26,10 @@
   <?= $this->mooScripts ?>
   <?= $this->head ?>
   <?php $this->endblock(); ?>
-
+  <?php
+  // classes to avoid purging
+  // mt-10
+  ?>
 </head>
 
 <body id="top" class="overflow-y-scroll <?= $this->class ?>" <?php if ($this->onload) : ?> onload="<?= $this->onload ?>"
