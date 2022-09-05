@@ -6,24 +6,31 @@
       <div class="!text-left col-span-4">Team</div>
       <div class="col-span-2">Spiele<br><small>(S3 | S2 | N1 | N0)</small></div>
       <div class="col-span-2">Tore<br><small>Differenz</small></div>
-      <div>Pkt.</div>
-      <div>PPG</div>
+      <div class="col-span-2">PPG<br><small>Punkte</small></div>
     </div>
     <?php
     foreach ($this->standings as $key => $team) {
       $class = ($team['tilastotid'] == $this->my_team) ? 'highlight-team' : '';
     ?>
-    <div class="table-row <?= $class ?>">
+    <div class="table-row <?= $class ?> <?= $this->my_team == $team['id'] ? 'highlight-team' : '' ?>">
       <div class="!text-right font-headline text-steelgreen text-4xl"><?= $team['rank'] ?></div>
-      <div class="!text-left font-bold col-span-4"><?= $team['name'] ?></div>
+      <div class="!text-left font-bold col-span-4 flex items-center">
+        <div class="logo">
+          <?php
+            $logo = $team['logo'] ? '/' . $team['logo'] : 'https://www.penny-del.org/assets/img/teams/dark/team_' . $team['shortname'] . '.png';
+            echo $this->replaceInsertTags('{{image::' . $logo . '?width=30&height=30&mode=proportional&alt=' . $team['name'] . '}}');
+            ?>
+        </div><?= $team['name'] ?>
+      </div>
       <div class=" col-span-2"><strong><?= $team['games'] ?></strong><br><small><?= $team['rw'] ?> |
           <?= $team['ow'] + $team['pw'] ?> |
           <?= $team['ol'] + $team['pl'] ?> | <?= $team['rl'] ?></small></div>
       <div class="col-span-2">
-        <?= $team['goalsfor'] . ':' . $team['goalsagainst'] ?><br><small><?= $team['goalsfor'] - $team['goalsagainst'] ?></small>
+        <strong><?= $team['goalsfor'] . ':' . $team['goalsagainst'] ?></strong><br><small><?= $team['goalsfor'] - $team['goalsagainst'] ?></small>
       </div>
-      <div><?= $team['points'] ?></div>
-      <div><?= $team['points'] / $team['games'] ?></div>
+      <div class="col-span-2">
+        <strong><?= number_format($team['points'] / $team['games'], 2, ',', '.') ?></strong><br><small><?= $team['points'] ?></small>
+      </div>
     </div>
     <?php
     }

@@ -26,6 +26,7 @@ class StandingsModule extends AbstractFrontendModuleController
       $r = 1;
       foreach ($standings as $key => $team) {
         $standings[$key]['rank'] = $r++;
+        $standings[$key]['logo'] = Standings::parseLogo($standings[$key]['logo']);
         if ($team['tilastotid'] == $model->tilastot_my_team) {
           if ($key >= $model->tilastot_table_rows) {
             $startKey += ($key - $model->tilastot_table_rows) + 3;

@@ -86,12 +86,7 @@ class Standings extends Model
 			if ($result) {
 				$return = $result->fetchAll()[0];
 				if ($return['logo']) {
-					$figureBuilder = System::getContainer()
-						->get('contao.image.studio')
-						->createFigureBuilder()
-						->from($return['logo']);
-					$figure = $figureBuilder->buildIfResourceExists();
-					$return['logo'] = $figure->getImage()->getImageSrc();
+					$return['logo'] = self::parseLogo($return['logo']);
 				}
 				self::$localCache['r' . $round]['t' . $tilastotid] = $return;
 			} else {
@@ -110,5 +105,18 @@ class Standings extends Model
 	public static function getLogoFilename($alias, $width)
 	{
 		return '/files/holema_logos/' . $alias . "_" . $width . ".png";
+	}
+
+	public static function parseLogo($binary)
+	{
+		if ($binary) {
+			$figureBuilder = System::getContainer()
+				->get('contao.image.studio')
+				->createFigureBuilder()
+				->from($binary);
+			$figure = $figureBuilder->buildIfResourceExists();
+			return $figure->getImage()->getImageSrc();
+		}
+		return null;
 	}
 }

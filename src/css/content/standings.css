@@ -14,6 +14,13 @@
 .standings-table .table-row {
   @apply divide-x divide-black;
 }
+.standings-table .table-row.highlight-team {
+  @apply bg-steelblue text-white;
+}
+
+.standings-table .table-row .logo {
+  @apply mr-2;
+}
 
 .standings-table .table-header > div,
 .standings-table .table-row > div {

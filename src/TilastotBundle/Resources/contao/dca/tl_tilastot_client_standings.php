@@ -66,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_standings'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'round,name,tilastotid,alias,shortname,city,logo'
+        'default' => 'round,name,tilastotid,alias,shortname,city;{logo_legend},logo'
     ),
     // Fields
     'fields'   => array(
@@ -202,6 +202,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_standings'] = array(
         ),
         'logo' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['logo'],
+            'exclude'                 => true,
             'inputType'               => 'fileTree',
             'eval'                    => array('fieldType' => 'radio', 'filesOnly' => true, 'extensions' => '%contao.image.valid_extensions%', 'mandatory' => false),
             'sql'                     => "binary(16) NULL"
