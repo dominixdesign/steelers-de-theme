@@ -78,3 +78,10 @@
     @apply flex flex-row gap-3;
   }
 }
+
+.game_is_today::before {
+  @apply bg-steelgreen absolute block w-24 h-4 top-0 -z-10;
+
+  content: "";
+  
+}

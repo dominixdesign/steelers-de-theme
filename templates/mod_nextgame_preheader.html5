@@ -28,15 +28,18 @@
       <?php
       $today = date('Ymd');
       $tomorrow = date('Ymd', time() + 24 * 60 * 60);
+      $addClasses = '';
       if ($today == date('Ymd', $this->game['gamedate'])) {
         $title = 'Heute Heimspiel!';
+        $addClasses = ' game_is_today';
       } else if ($tomorrow == date('Ymd', $this->game['gamedate'])) {
         $title = 'Morgen Heimspiel!';
+        $addClasses = ' game_is_tomorrow';
       } else {
         $title = 'Nächstes Heimspiel';
       }
       ?>
-      <span class="tracking-normal uppercase"><?= $title ?></span>
+      <span class="tracking-normal uppercase relative inline-block <?= $addClasses ?>"><?= $title ?></span>
       <br><?php
 
           $fmt = new IntlDateFormatter(
