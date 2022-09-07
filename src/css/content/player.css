@@ -1,0 +1,11 @@
+h3.player-subheadline {
+  @apply text-5xl uppercase font-bold text-gray-600 font-headline mt-2;
+}
+
+@supports (-webkit-text-stroke: 1px #000) {
+  h3.player-subheadline {
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: none;
+  }
+}

@@ -8,8 +8,9 @@ use App\Tilastot\Model\Stats;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\ModuleModel;
 use Contao\Template;
-use Contao\System;
-use Contao\CoreBundle\Routing\ResponseContext\HtmlHeadBag\HtmlHeadBag;
+use Contao\StringUtil;
+use Contao\ArrayUtil;
+use Contao\FilesModel;
 use Contao\Input;
 use Contao\Environment;
 use Contao\CoreBundle\Exception\PageNotFoundException;
@@ -27,7 +28,18 @@ class PlayerModule extends AbstractFrontendModuleController
       throw new PageNotFoundException('Page not found: ' . Environment::get('uri'));
     }
 
-    $template->player = $player->row();
+    $p = $player->row();
+    $pictures = StringUtil::deserialize($p['pictures']);
+
+    if (!empty($pictures) || is_array($pictures)) {
+      $files = ArrayUtil::sortByOrderField($pictures, StringUtil::deserialize($p['orderPictures']));
+      $allPictures = FilesModel::findMultipleByUuids($files)->fetchAll();
+      $p['profilePic'] = $allPictures[0];
+      $p['pictures'] = $allPictures;
+    }
+
+
+    $template->player = $p;
     $template->headlineUnit = $this->hl;
     $template->cssId = $this->cssID[0];
     $template->cssClass = $this->cssID[1];

@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'lastname,firstname,eliteprospectsid,position,alias;{source_legend},pictures'
+        'default' => 'lastname,firstname,eliteprospectsid,position,alias,steelersince;about;{source_legend},pictures'
     ),
     // Fields
     'fields'   => array(
@@ -189,6 +189,20 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
             'inputType'               => 'number',
             'eval'                    => array('mandatory' => true, 'maxlength' => 5, 'rgxp' => 'numeric', 'tl_class' => 'w50'),
             'sql'                     => "int(5) NOT NULL default '0'"
+        ),
+        'steelersince' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['steelersince'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory' => false, 'maxlength' => 5, 'rgxp' => 'alphanumeric', 'tl_class' => 'w50'),
+            'sql'                     => "varchar(12) NULL"
+        ),
+        'about' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['about'],
+            'exclude'                 => true,
+            'inputType'               => 'textarea',
+            'eval'                    => array('mandatory' => false),
+            'sql'                     => "blob Null"
         ),
         'epstats' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['epstats'],
