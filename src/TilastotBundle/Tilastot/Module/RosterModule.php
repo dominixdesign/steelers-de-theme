@@ -18,7 +18,8 @@ class RosterModule extends AbstractFrontendModuleController
 	protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
 	{
 		$players = Players::findAll(array(
-			'column'  => array('published=1')
+			'column'  => array('published=1'),
+			'order' => 'jersey ASC'
 		));
 		$playerlist = array();
 

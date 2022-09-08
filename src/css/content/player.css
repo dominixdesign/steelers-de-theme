@@ -36,7 +36,7 @@ h3.player-subheadline {
 }
 
 .table_stats .tdh_stats {
-  @apply text-steelgreen font-bold uppercase pb-3 border-b border-black;
+  @apply text-steelgreen font-bold uppercase py-3 border-b border-black;
 }
 
 .table_stats tr:nth-child(2) td {

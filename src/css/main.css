@@ -1,6 +1,7 @@
 @import "tailwind.css";
 @import "navigation.css";
 @import "base.css";
+@import "footer.css";
 @import "content/blocks.css";
 @import "content/news.css";
 @import "content/pre-header.css";

@@ -40,7 +40,7 @@ class TilastotApi
 		if (curl_errno($curl) > 0) {
 			throw new \Exception(curl_error());
 		} elseif (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 200) {
-			throw new \Exception('DEL API response http code: ' . curl_getinfo($curl, CURLINFO_HTTP_CODE));
+			throw new \Exception('DEL API response http code: ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) . ' (' . $uri . ')');
 		}
 		curl_close($curl);
 
@@ -59,7 +59,8 @@ class TilastotApi
 		return self::call('tables/' . $r->standingsid . '.json', $round);
 	}
 
-	public static function getPlayers($round) {
+	public static function getPlayers($round)
+	{
 		$r = Rounds::findById($round);
 		return self::call('league-team-stats/' . $r->year . '/' . $r->league . '/22.json', $round);
 	}
