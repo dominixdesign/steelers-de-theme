@@ -3,7 +3,7 @@
 namespace App\Tilastot\Module;
 
 use App\Tilastot\Model\Players;
-use App\Tilastot\Model\Stats;
+use App\Tilastot\Model\PlayerStats;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\ModuleModel;
@@ -38,8 +38,15 @@ class PlayerModule extends AbstractFrontendModuleController
       $p['pictures'] = $allPictures;
     }
 
+    $stats = PlayerStats::findAll(array(
+      'column'  => array('pid=?'),
+      'order'   => 'round ASC',
+      'limit'   => '1',
+      'value'   => array($p['id'])
+    ));
 
     $template->player = $p;
+    $template->stats = $stats->fetchAll()[0];
     $template->headlineUnit = $this->hl;
     $template->cssId = $this->cssID[0];
     $template->cssClass = $this->cssID[1];

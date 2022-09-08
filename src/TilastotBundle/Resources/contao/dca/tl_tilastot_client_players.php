@@ -98,7 +98,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_players']['eliteprospectsid'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory' => true, 'maxlength' => 5, 'rgxp' => 'numeric', 'tl_class' => 'w50'),
+            'eval'                    => array('mandatory' => true, 'maxlength' => 7, 'rgxp' => 'numeric', 'tl_class' => 'w50'),
             'sql'                     => "int(10) NOT NULL default '0'"
         ),
         'alias' => array(

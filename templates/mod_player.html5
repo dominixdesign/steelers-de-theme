@@ -65,7 +65,7 @@
     <div class="grid grid-cols-2 items-start gap-8">
       <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
         <?php if ($this->player['profilePic']) :  ?>
-          <?= $this->replaceInsertTags('{{image::' . $this->player['profilePic']['path'] . '?width=450&height=450&mode=crop&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full}}'); ?>
+        <?= $this->replaceInsertTags('{{image::' . $this->player['profilePic']['path'] . '?width=450&height=450&mode=crop&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full}}'); ?>
         <?php endif; ?>
       </div>
       <div class="pt-10">
@@ -80,9 +80,45 @@
   </div>
   <div class="my-20">
     <h3 class="text-steelgreen font-bold text-5xl uppercase font-headline">Aktuelle Saison</h3>
+    <div class="sm:w-4/5 mx-auto relative my-8 player-stats">
+      <div>
+        <div class="number"><?= $this->stats['games'] ?></div>
+        <div class="title"><?= ngettext("Spiel", "Spiele", $this->stats['games']) ?></div>
+      </div>
+      <div>
+        <div class="number"><?= $this->stats['goals'] ?></div>
+        <div class="title"><?= ngettext("Tor", "Tore", $this->stats['goals']) ?></div>
+      </div>
+      <div>
+        <div class="number"><?= $this->stats['assists'] ?></div>
+        <div class="title"><?= ngettext("Vorlage", "Vorlagen", $this->stats['assists']) ?></div>
+      </div>
+      <div>
+        <div class="number"><?= $this->stats['points'] ?></div>
+        <div class="title"><?= ngettext("Punkt", "Punkte", $this->stats['points']) ?></div>
+      </div>
+      <div>
+        <div class="number"><?= $this->stats['penalties'] ?></div>
+        <div class="title">Strafminuten</div>
+      </div>
+      <div>
+        <div class="number"><?= $this->stats['shots'] ?></div>
+        <div class="title"><?= ngettext("Schuss", "Schüsse", $this->stats['shots']) ?></div>
+      </div>
+      <div>
+        <div class="number"><?= $this->stats['plusminus'] ?></div>
+        <div class="title">+/-</div>
+      </div>
+      <div>
+        <div class="number"><?= number_format($this->stats['points'] / $this->stats['games'], 2, ',', '.') ?></div>
+        <div class="title">Punkte pro Spiel</div>
+      </div>
+    </div>
+  </div>
+  <div class="my-20 career-stats">
+    <h3 class="text-steelgreen font-bold text-5xl uppercase font-headline">Karriere</h3>
+    <div class="sm:w-4/5 mx-auto relative my-8">
+      <?= $this->player['epstats'] ?>
+    </div>
   </div>
 </div>
-
-<?php
-var_dump($this->player);
-?>

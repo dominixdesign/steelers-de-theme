@@ -9,3 +9,39 @@ h3.player-subheadline {
     text-shadow: none;
   }
 }
+
+.player-stats {
+  @apply grid grid-cols-4 items-center text-center;
+}
+.player-stats > div {
+  @apply px-3 pt-8 my-4 border-t-2 border-black;
+}
+
+.player-stats .number {
+  @apply font-headline text-6xl border-r border-black;
+}
+.player-stats .title {
+  @apply font-bold text-xl uppercase border-r border-black;
+}
+.player-stats > div:nth-child(4n) .title,
+.player-stats > div:nth-child(4n) .number {
+  @apply border-none;
+}
+
+.career-stats a {
+  @apply text-steelblue;
+}
+.table_stats {
+  @apply bg-steelwhite/70 mt-4;
+}
+
+.table_stats .tdh_stats {
+  @apply text-steelgreen font-bold uppercase pb-3 border-b border-black;
+}
+
+.table_stats tr:nth-child(2) td {
+  @apply pt-3;
+}
+.table_stats .tr_stats_even {
+  @apply bg-black/10;
+}
