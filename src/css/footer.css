@@ -1,3 +1,22 @@
-#footer {
-  @apply mt-5 bg-steelgreen text-steelwhite;
+.steelers-footer {
+  @apply mt-5 bg-steelgreen text-steelwhite py-10 px-20;
+}
+
+.steelers-footer .top {
+  @apply flex items-center;
+}
+
+.steelers-footer .top > div {
+  @apply flex-shrink;
+}
+.steelers-footer .top > div:first-child {
+  @apply flex-grow;
+}
+
+.steelers-footer .top .ce_image .image_container {
+  @apply w-32 mb-4;
+}
+
+.steelers-footer .ce_hyperlink {
+  @apply px-2 fill-white;
 }

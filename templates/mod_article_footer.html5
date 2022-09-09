@@ -1,0 +1,12 @@
+  <div class="<?= $this->class ?> steelers-footer" <?= $this->cssID ?>>
+    <?php $this->block('content'); ?>
+    <?= implode('', $this->elements) ?>
+    <?php $this->endblock(); ?>
+  </div>
+  <div class="bg-black text-gray-400 p-12 font-bold text-center uppercase">
+    <div class="ce_text block">
+      <p class="mb-4">Copyright 2022 Bietigheim Steelers</p>
+      <p><a href="presse">Impressum</a> | <a href="presse">Datenschutz</a> | <a href="presse">Rechtliche Hinweise</a>
+      </p>
+    </div>
+  </div>
