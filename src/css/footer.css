@@ -2,6 +2,10 @@
   @apply mt-5 bg-steelgreen text-steelwhite py-10 px-20;
 }
 
+.footer-container {
+  @apply max-w-screen-2xl mx-auto relative px-0 lg:px-3;
+}
+
 .steelers-footer .top {
   @apply flex items-center;
 }
@@ -18,5 +22,5 @@
 }
 
 .steelers-footer .ce_hyperlink {
-  @apply px-2 fill-white;
+  @apply px-2 fill-white invert;
 }

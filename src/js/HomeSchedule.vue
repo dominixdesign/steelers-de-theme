@@ -1,11 +1,15 @@
 <template>
   <div class="flex place-content-between flex-col h-full">
-    <h4 class="uppercase font-bold text-3xl tracking-wide text-center">
+    <h5 class="uppercase font-bold text-3xl tracking-wide text-center">
       Spiele
-    </h4>
+    </h5>
     <div class="grid grid-cols-12 gap-1" satyle="grid-template-rows: 1fr 1fr">
       <div class="col-span-2 self-center">
-        <button @click="currentIndex--" :disabled="currentIndex === 0">
+        <button
+          @click="currentIndex--"
+          :disabled="currentIndex === 0"
+          aria-label="vorheriges Spiel"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             :class="[
@@ -44,11 +48,7 @@
         <div
           :title="currentGame.home.name"
           class="h-40 w-40 bg-contain bg-no-repeat bg-center"
-          :style="
-            currentGame.home.logo
-              ? `background-image: url(${currentGame.home.logo})`
-              : `background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${currentGame.home.shortname}.png)`
-          "
+          :style="`background-image: url(${currentGame.home.logo})`"
         ></div>
       </div>
       <div
@@ -67,17 +67,14 @@
         <div
           :title="currentGame.away.name"
           class="h-40 w-40 bg-contain bg-no-repeat bg-center"
-          :style="
-            currentGame.away.logo
-              ? `background-image: url(${currentGame.away.logo})`
-              : `background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${currentGame.away.shortname}.png)`
-          "
+          :style="`background-image: url(${currentGame.away.logo})`"
         ></div>
       </div>
       <div class="col-span-2 place-self-center justify-self-end">
         <button
           @click="currentIndex++"
           :disabled="currentIndex + 1 === allGames.length"
+          aria-label="nächstes Spiel"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -127,12 +124,12 @@
       </div>
     </div>
     <div class="border-t border-gray-400 my-5">
-      <h4 class="font-bold text-2xl tracking-tight text-center">
+      <h6 class="font-bold text-2xl tracking-tight text-center">
         {{ currentGame.season.name }} - {{ currentGame.season.season }}
         <span v-if="currentGame.gameday > 0"
           >- {{ currentGame.gameday }}. Spieltag</span
         >
-      </h4>
+      </h6>
       <p class="text-center text-sm mt-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +191,11 @@ import { ref, computed } from "vue";
 
 const allGames = window.tilastot_gamedata;
 
-const currentIndex = ref(0);
+const nextGame = allGames.findIndex((game) => {
+  return game.gamedate > Date.now() / 1000;
+});
+
+const currentIndex = ref(nextGame - 1);
 
 const currentGame = computed(() => {
   const game = allGames[currentIndex.value];

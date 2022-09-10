@@ -29,7 +29,7 @@
                 <span
                   :title="row.name"
                   class="h-8 w-8 block bg-contain bg-no-repeat bg-center"
-                  :style="`background-image: url(https://www.penny-del.org/assets/img/teams/dark/team_${row.shortname}.png)`"
+                  :style="row.logo ? `background-image: url(${row.logo}` : ''"
                 ></span>
                 <span class="block ml-4 uppercase">{{ row.name }}</span>
               </td>
