@@ -13,9 +13,14 @@
 
 @supports (-webkit-text-stroke: 3px #009cde) {
   #main .block-headline {
-    color: transparent;
+    color: white;
     -webkit-text-stroke: 3px #009cde;
     text-shadow: none;
+  }
+  @media (min-width: 768px) {
+    #main .block-headline {
+      color: transparent;
+    }
   }
 }
 

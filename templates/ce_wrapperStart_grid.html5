@@ -1,6 +1,7 @@
-<div class="<?= $this->class ?> defaultcontainer gridwrapper block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="<?= $this->class ?> defaultcontainer gridwrapper !px-2 md:px-0 block"
+  <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
 
-<?php if ($this->headline): ?>
-<h3><?= $this->headline ?></h3>
-<?php endif; ?>
-<div class="inside grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+  <?php if ($this->headline) : ?>
+  <h3 title="<?= $this->headline ?>"><?= $this->headline ?></h3>
+  <?php endif; ?>
+  <div class="inside grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">

@@ -124,6 +124,9 @@ nav .grid-nav {
 /* Main menu positionning */
 .main-nav {
   position: absolute;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
   top: 0;
   right: 0;
   left: 0;
@@ -137,8 +140,10 @@ nav .grid-nav {
 }
 
 .main-nav .header-nav-logo {
-  @apply absolute left-3 top-3 w-1/2 opacity-0;
+  @apply absolute top-0 opacity-0;
   transition: all 250ms 50ms;
+  width: 35vw;
+  left: 5vw;
 }
 
 .main-nav.is-open .header-nav-logo {

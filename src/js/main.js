@@ -1,6 +1,6 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
-import GLightbox from 'glightbox';
+import GLightbox from "glightbox";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 
@@ -11,7 +11,7 @@ createApp(HomeStandings).mount("#homestandings");
 const lightbox = GLightbox({
   touchNavigation: true,
   loop: false,
-  autoplayVideos: false
+  autoplayVideos: false,
 });
 
 // eventlisteners
@@ -26,8 +26,7 @@ var sticky = 80;
 function stickyNavFunc() {
   if (window.pageYOffset > sticky) {
     document.body.classList.add("sticky");
-    document.getElementById("container").style.paddingTop =
-    sticky + "px";
+    document.getElementById("container").style.paddingTop = sticky + "px";
   } else {
     document.body.classList.remove("sticky");
     document.getElementById("container").style.paddingTop = 0;
@@ -54,17 +53,20 @@ let burger = document.getElementById("burger"),
   burgerClose = document.getElementById("burger-close"),
   nav = document.getElementById("main-nav"),
   mainDiv = document.getElementById("main");
+footer = document.getElementById("footer");
 
 burger.addEventListener("click", function (e) {
   nav.classList.add("is-open");
   stickyNav[0].classList.add("opacity-0");
   stickyNav[1].classList.add("opacity-0");
   window.setTimeout(() => mainDiv.classList.add("hidden"), 275);
+  window.setTimeout(() => footer.classList.add("hidden"), 275);
   document.body.classList.toggle("overflow-hidden");
 });
 burgerClose.addEventListener("click", function (e) {
   nav.classList.remove("is-open");
   mainDiv.classList.remove("hidden");
+  footer.classList.remove("hidden");
   stickyNav[0].classList.remove("opacity-0");
   stickyNav[1].classList.remove("opacity-0");
   window.setTimeout(

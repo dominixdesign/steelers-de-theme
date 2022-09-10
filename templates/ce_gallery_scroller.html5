@@ -1,0 +1,21 @@
+<div class="relative">
+  <div class="absolute -z-10 w-screen h-4/6 bg-black">
+    <?php
+    $allPictures = StringUtil::deserialize($this->orderSRC);
+    echo $this->replaceInsertTags('{{image::' . $allPictures[0] . '?height=768&width=768&mode=box&alt=' . $this->headline . '&class=w-full h-full object-center object-cover opacity-20 grayscale}}');
+    ?>
+  </div>
+  <h3 class="p-5"><?= $this->headline ?></h3>
+  <div class=" overflow-x-auto">
+    <ul class="flex" style="width: 2000px;">
+      <?php
+      foreach ($allPictures as $picture) :
+        $file = \FilesModel::findByUuid($picture);
+        echo '<li class="p-3"><a href="/' . $file->path . '" class="glightbox" data-gallery="gallery' . $this->id . '">';
+        echo $this->replaceInsertTags('{{image::' . $picture . '?height=375&width=300&mode=crop&alt=' . $this->headline . '&class=w-full h-full object-center object-cover}}');
+        echo '</a></li>';
+      endforeach;
+      ?>
+    </ul>
+  </div>
+</div>
