@@ -1,11 +1,14 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
 import GLightbox from "glightbox";
+import VueAgile from "vue-agile";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
+import HomeNews from "./HomeNews.vue";
 
 createApp(HomeSchedule).mount("#homeschedule");
 createApp(HomeStandings).mount("#homestandings");
+createApp(HomeNews).use(VueAgile).mount("#homenews");
 
 //Lightbox
 const lightbox = GLightbox({
@@ -52,8 +55,8 @@ stickyNavFunc();
 let burger = document.getElementById("burger"),
   burgerClose = document.getElementById("burger-close"),
   nav = document.getElementById("main-nav"),
-  mainDiv = document.getElementById("main");
-footer = document.getElementById("footer");
+  mainDiv = document.getElementById("main"),
+  footer = document.getElementById("footer");
 
 burger.addEventListener("click", function (e) {
   nav.classList.add("is-open");

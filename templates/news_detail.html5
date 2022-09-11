@@ -1,5 +1,5 @@
 <div class="max-w-screen-2xl mx-auto relative my-20">
-  <div class="grid grid-cols-2 items-end -mt-52">
+  <div class="grid grid-cols-2 items-end -mt-72">
     <div class="mb-20 p-5">
       <h3 class="text-3xl uppercase font-bold"><?= $this->newsHeadline ?></h3>
       <p class="mt-2">
@@ -10,10 +10,11 @@
       </p>
     </div>
     <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
-      <?php if ($this->addImage) : ?>
-      <img src="<?= $this->arrData['singleSRC'] ?>" alt="<?= $this->newsHeadline ?>"
-        class="w-full h-full object-center object-cover sm:w-full sm:h-full">
-      <?php endif; ?>
+      <?php
+      if ($this->addImage) :
+        echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?width=800&mode=proportional&alt=' . $this->newsHeadline . '&class=w-full transition-all h-full object-center object-cover}}');
+      endif;
+      ?>
     </div>
   </div>
   <div
