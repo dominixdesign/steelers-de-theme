@@ -1,5 +1,5 @@
 .agile__actions {
-  @apply p-5;
+  @apply p-5 max-w-screen-2xl mx-auto;
   justify-content: left !important;
 }
 .agile__actions button svg {

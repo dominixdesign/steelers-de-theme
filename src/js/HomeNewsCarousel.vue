@@ -1,37 +1,39 @@
 <template>
-  <div class="">
-    <VueAgile :infinite="false">
+  <div class="relative">
+    <div class="h-4/6 absolute bg-black w-screen overflow-hidden z-0">
+      <img
+        :src="allNews[0].image"
+        class="w-full h-full object-top object-cover opacity-20"
+      />
+    </div>
+    <h3 class="text-steelgreen z-10">Steelers News</h3>
+    <VueAgile :infinite="true" :slidesToShow="3">
       <div
+        class="bg-white shadow m-5"
+        style="width: 320px; max-width: 320px"
         v-for="news in allNews"
         :key="news.id"
-        class="slide relative overflow-hidden h-96"
       >
-        <div class="h-96 absolute bg-gray-400 w-screen overflow-hidden">
-          <a :href="news.link">
+        <a class="col-span-1 flex flex-col" :href="news.link">
+          <div class="bg-white overflow-hidden relative" style="height: 400px">
             <img
               :src="news.image"
-              :alt="news.newsHeadline"
-              class="w-full h-full object-top object-cover sm:w-full sm:h-full"
+              witdh="320"
+              height="400"
+              class="object-center object-cover"
             />
-          </a>
-        </div>
-        <div
-          class="max-w-screen-2xl mx-auto h-96 pb-5 grid grid-cols-1 items-end"
-        >
-          <div class="p-5 z-0">
-            <h3
-              class="text-3xl mb-5 uppercase font-bold font-sans text-steelgreen"
-            >
-              <a
-                class="bg-steelwhite decoration-clone py-1 px-3 leading-9"
-                :href="news.link"
-              >
-                {{ news.newsHeadline }}</a
-              >
-            </h3>
-            <a :href="news.link" class="btn-default">weiterlesen</a>
           </div>
-        </div>
+          <div>
+            <div class="p-5 uppercase">
+              <div class="font-bold">Katgeorie</div>
+              <div
+                class="-mt-2 text-xl text-steelgreen font-bold leading-tight"
+              >
+                {{ news.newsHeadline }}
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
       <template v-slot:prevButton
         ><svg
