@@ -1,0 +1,19 @@
+<div class="relative overflow-hidden z-10">
+  <div class="absolute -z-10 w-screen h-4/6 bg-black">
+    <?php
+    $re = '/data-bigimage="([^"]*)"/m';
+    $str = $this->articles[0];
+    preg_match_all($re, $str, $matches, PREG_SET_ORDER, 0);
+    $picture = $matches[0][1];
+    if ($picture) {
+      echo $this->replaceInsertTags('{{image::' . $picture . '?height=768&width=1024&mode=box&alt=STEELERS%20News&class=w-full h-full object-center object-cover opacity-20 grayscale}}');
+    }
+    ?>
+  </div>
+  <h3 class="pl-5"><?= $this->headline ?></h3>
+  <div class="overflow-x-scroll w-full snap-x">
+    <ul class="flex">
+      <?= implode('', $this->articles) ?>
+    </ul>
+  </div>
+</div>
