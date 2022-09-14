@@ -29,7 +29,7 @@
 }
 
 .big-text-block {
-  @apply max-w-screen-2xl mx-auto relative py-6 my-24 text-8xl uppercase;
+  @apply max-w-screen-2xl mx-auto relative py-6 my-24 text-6xl md:text-8xl uppercase;
 }
 
 .big-text-block strong {

@@ -4,9 +4,11 @@
       <div
         v-for="news in allNews"
         :key="news.id"
-        class="slide relative overflow-hidden h-96"
+        class="slide relative overflow-hidden h-96 xl:h-[32rem]"
       >
-        <div class="h-96 absolute bg-gray-400 w-screen overflow-hidden">
+        <div
+          class="h-96 xl:h-[32rem] absolute bg-gray-400 w-screen overflow-hidden"
+        >
           <a :href="news.link">
             <img
               :src="news.image"
@@ -16,7 +18,7 @@
           </a>
         </div>
         <div
-          class="max-w-screen-2xl mx-auto h-96 pb-5 grid grid-cols-1 items-end"
+          class="max-w-screen-2xl mx-auto h-96 xl:h-[32rem] pb-5 grid grid-cols-1 items-end"
         >
           <div class="p-5 z-0">
             <h3

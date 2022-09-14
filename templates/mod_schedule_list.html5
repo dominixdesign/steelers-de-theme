@@ -74,6 +74,5 @@
     </div>
   </div>
   <?php endforeach; ?>
-  <?php var_dump($this->games, JSON_PRETTY_PRINT) ?>;
 </div>
 <?php $this->endblock(); ?>

@@ -24,7 +24,7 @@
                 row.tilastotid === '22' ? 'text-steellightgreen font-bold' : '',
               ]"
             >
-              <td class="text-right py-2 pr-2">{{ row.id }}.</td>
+              <td class="text-right py-2 pr-2">{{ row.rank }}.</td>
               <td class="text-left flex items-center py-2">
                 <span
                   :title="row.name"
@@ -39,9 +39,11 @@
               </td>
               <td class="text-right py-2 pr-2">
                 {{
-                  new Intl.NumberFormat("de-DE", {
-                    maximumSignificantDigits: 3,
-                  }).format(row.points / row.games)
+                  row.games > 0
+                    ? new Intl.NumberFormat("de-DE", {
+                        maximumSignificantDigits: 3,
+                      }).format(row.points / row.games)
+                    : "0,00"
                 }}
               </td>
             </tr>

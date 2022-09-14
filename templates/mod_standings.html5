@@ -29,7 +29,7 @@
         <strong><?= $team['goalsfor'] . ':' . $team['goalsagainst'] ?></strong><br><small><?= $team['goalsfor'] - $team['goalsagainst'] ?></small>
       </div>
       <div class="col-span-2">
-        <strong><?= number_format($team['points'] / $team['games'], 2, ',', '.') ?></strong><br><small><?= $team['points'] ?></small>
+        <strong><?= $team['games'] > 0 ? number_format($team['points'] / $team['games'], 2, ',', '.') : '0,00' ?></strong><br><small><?= $team['points'] ?></small>
       </div>
     </div>
     <?php
