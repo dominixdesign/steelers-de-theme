@@ -1,0 +1,35 @@
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> defaultcontainer bg-black relative !mt-64"
+  <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
+
+  <img src="files/steelers/layout/player_newsletter.png" class="absolute bottom-0 h-[50vh]" alt="STEELERS Newsletter" />
+
+  <form<?php if ($this->action) : ?> action="<?= $this->action ?>" <?php endif; ?> method="<?= $this->method ?>"
+    enctype="<?= $this->enctype ?>" <?= $this->attributes ?><?= $this->novalidate ?>>
+    <div class="grid grid-cols-2">
+      <div class="formbody text-steelwhite offset col-start-2 p-10">
+        <p class=" uppercase text-lg pb-5 pr-5">Du möchtest alle News erhalten und Dir besondere Angebote in unserem
+          Online
+          Shop
+          sichern?
+        </p>
+        <p class="uppercase text-xl font-bold pb-8 pr-5">Hinterlasse deine E-Mail-Adresse, um auf dem Laufenden zu
+          bleiben.
+        </p>
+        <?php if ('get' != $this->method) : ?>
+        <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formSubmit ?>">
+        <input type="hidden" name="REQUEST_TOKEN" value="<?= $this->requestToken ?>">
+        <?php if ($this->maxFileSize) : ?>
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?= $this->maxFileSize ?>">
+        <?php endif; ?>
+        <?php endif; ?>
+        <?= $this->hidden ?>
+        <div class="formfields">
+          <?= $this->fields ?>
+        </div>
+      </div>
+    </div>
+    </form>
+
+</div>
+<!-- indexer::continue -->

@@ -15,7 +15,7 @@ class StandingsModule extends AbstractFrontendModuleController
 {
   protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
   {
-    $standings = Standings::findByRound($model->tilastot_round, array('order' => 'points/games DESC, points DESC'));
+    $standings = Standings::findByRound($model->tilastot_round, array('order' => 'COALESCE(points/games, 0) DESC, points DESC, goalsfor-goalsagainst DESC'));
     if (!$standings) {
       return null;
     }

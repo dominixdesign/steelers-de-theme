@@ -8,3 +8,42 @@
 .agile__actions button:disabled svg {
   @apply fill-slate-300 stroke-slate-300 p-1;
 }
+
+.formbody .invisible,
+.formbody label {
+  @apply hidden;
+}
+
+.formbody .formfields {
+  @apply flex text-2xl leading-10;
+}
+
+.formbody .formfields .widget:first-child {
+  @apply grow;
+}
+.formbody .formfields .widget input {
+  @apply text-black;
+}
+.formbody .formfields .widget input,
+.formbody .formfields .widget button {
+  @apply w-full h-full;
+}
+.formbody .formfields .widget:last-child {
+  @apply flex-none w-52;
+}
+.formbody .formfields .widget:last-child button {
+  @apply bg-steelgreen text-lg text-white font-bold py-2 px-4 relative border-none uppercase whitespace-nowrap;
+}
+
+.formbody .formfields .widget:last-child button::after {
+  content: "";
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("/files/steelers/layout/btn-arrow.svg");
+  width: 42px;
+  height: 21px;
+  position: relative;
+  top: 4px;
+  left: 4px;
+}

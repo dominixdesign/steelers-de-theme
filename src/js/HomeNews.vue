@@ -13,7 +13,7 @@
             <img
               :src="news.image"
               :alt="news.newsHeadline"
-              class="w-full h-full object-top object-cover sm:w-full sm:h-full"
+              class="w-full h-full object-center object-cover sm:w-full sm:h-full"
             />
           </a>
         </div>
