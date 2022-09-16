@@ -40,8 +40,9 @@ class RosterModule extends AbstractFrontendModuleController
 			switch ($p['position']) {
 				case 'RW':
 				case 'C':
+				case 'CE':
 				case 'LW':
-					$playerlist['F'][] = $p;
+					$playerlist['FO'][] = $p;
 					break;
 				default:
 					$playerlist[$p['position']][] = $p;
