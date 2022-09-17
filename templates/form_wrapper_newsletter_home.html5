@@ -1,13 +1,14 @@
 <!-- indexer::stop -->
-<div class="<?= $this->class ?> defaultcontainer bg-black relative !mt-64"
+<div class="<?= $this->class ?> defaultcontainer form-home bg-black relative !mt-64"
   <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
 
-  <img src="files/steelers/layout/player_newsletter.png" class="absolute bottom-0 h-[50vh]" alt="STEELERS Newsletter" />
+  <img src="files/steelers/layout/player_newsletter.png" class="hidden lg:block absolute bottom-0"
+    alt="STEELERS Newsletter" />
 
   <form<?php if ($this->action) : ?> action="<?= $this->action ?>" <?php endif; ?> method="<?= $this->method ?>"
     enctype="<?= $this->enctype ?>" <?= $this->attributes ?><?= $this->novalidate ?>>
-    <div class="grid grid-cols-2">
-      <div class="formbody text-steelwhite offset col-start-2 p-10">
+    <div class="grid lg:grid-cols-2">
+      <div class="formbody text-steelwhite offset lg:col-start-2 p-10">
         <p class=" uppercase text-lg pb-5 pr-5">Du möchtest alle News erhalten und Dir besondere Angebote in unserem
           Online
           Shop
