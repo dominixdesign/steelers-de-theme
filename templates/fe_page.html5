@@ -28,7 +28,7 @@
   <?php $this->endblock(); ?>
   <?php
   // classes to avoid purging
-  // mt-10
+  // mt-10 mt-5
   ?>
 </head>
 
