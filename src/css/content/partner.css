@@ -1,0 +1,6 @@
+.partner-cards .ce_hyperlink {
+  @apply shadow rounded bg-white flex items-center p-5 transition-all duration-500;
+}
+.partner-cards .ce_hyperlink:hover {
+  @apply scale-110 shadow-lg;
+}

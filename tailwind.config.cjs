@@ -5,9 +5,9 @@ module.exports = {
     extend: {
       colors: {
         steelwhite: "#f5faf8",
-        steelgreen: "#069848",
+        steelgreen: "#10b75a",
         steelblue: "#009cde",
-        steellightgreen: "#29fb86",
+        steellightgreen: "#10b75a",
       },
       fontFamily: {
         headline: [
