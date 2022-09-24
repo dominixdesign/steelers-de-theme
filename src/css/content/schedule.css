@@ -9,6 +9,9 @@
   .mod_schedule .row {
     @apply grid grid-cols-9 ml-12 items-stretch divide-x divide-black;
   }
+  .mod_schedule .row.next-game {
+    @apply bg-slate-200;
+  }
 
   .mod_schedule .row > * {
     @apply m-2 py-6 px-3 flex;
@@ -22,6 +25,14 @@
   }
   .mod_schedule .row .datetime .day {
     @apply font-bold text-lg mb-1;
+  }
+  .mod_schedule .row .datetime .day::before {
+    display: block;
+    content: " ";
+    margin-top: -285px;
+    height: 285px;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .mod_schedule .row .round {

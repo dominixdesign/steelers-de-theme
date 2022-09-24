@@ -2,7 +2,13 @@
 <div class="defaultcontainer mod_schedule">
   <?php
   $lastMonth = 0;
+  $nextGameDone = false;
   foreach ($this->games as $game) :
+    $isNextGame = '';
+    if (time() < $game['gamedate'] && !$game['ended'] && !$nextGameDone) {
+      $isNextGame = 'next-game';
+      $nextGameDone = true;
+    }
     $gameMonth = date('m', $game['gamedate']);
     if ($gameMonth != $lastMonth) :
       $lastMonth = $gameMonth;
@@ -14,10 +20,11 @@
     endif;
     ?>
   <div class="topborder"></div>
-  <div class="row">
-    <div class="datetime">
+  <div class="row <?= $isNextGame; ?>">
+    <div class=" datetime">
       <div>
-        <div class="day"><?= Contao\Date::parse('l', $game['gamedate']); ?></div>
+        <div class="day" id="<?= $isNextGame; ?>"><?= Contao\Date::parse('l', $game['gamedate']); ?>
+        </div>
         <div class="date"><?= Contao\Date::parse('d.m.Y', $game['gamedate']); ?></div>
         <div class="time"><?= $game['gametime']; ?> Uhr</div>
       </div>
@@ -64,7 +71,7 @@
     </div>
     <div class="actions">
       <div>
-        <?php if ($game['home']['shortname'] == 'SCB' && !$game['ended']) : ?>
+        <?php if ($game['home']['shortname'] == 'SCB' && !$game['ended'] && time() < $game['gamedate']) : ?>
         <a href="/tickets" class="btn-default">Tickets</a>
         <?php endif; ?>
         <?php if ($game['magentaurl'] && $game['ended']) : ?>
