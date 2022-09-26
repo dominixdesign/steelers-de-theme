@@ -1,6 +1,16 @@
+.partner-cards {
+  @apply overflow-hidden;
+}
 .partner-cards .ce_hyperlink {
   @apply shadow rounded bg-white flex items-center p-5 transition-all duration-500;
 }
-.partner-cards .ce_hyperlink:hover {
+.partner-cards .ce_hyperlink:not(.nohover):hover {
   @apply scale-110 shadow-lg;
+}
+
+.partner-cards ul {
+  @apply list-disc;
+}
+.partner-cards ul > li {
+  @apply ml-3;
 }

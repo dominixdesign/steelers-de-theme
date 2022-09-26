@@ -14,6 +14,9 @@ h3 {
 .grid-543 {
   @apply inside grid grid-cols-3 gap-4;
 }
+.grid-111 {
+  @apply inside grid grid-cols-1 gap-4;
+}
 
 @media (min-width: 768px) {
   .grid-321 {
@@ -25,6 +28,9 @@ h3 {
   .grid-543 {
     @apply grid-cols-4 gap-8;
   }
+  .grid-111 {
+    @apply gap-8;
+  }
 }
 @media (min-width: 1024px) {
   .grid-321 {
@@ -34,6 +40,9 @@ h3 {
     @apply grid-cols-4 gap-16;
   }
   .grid-543 {
-    @apply grid-cols-3 gap-16;
+    @apply grid-cols-5 gap-16;
+  }
+  .grid-111 {
+    @apply gap-16;
   }
 }

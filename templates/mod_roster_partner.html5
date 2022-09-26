@@ -1,0 +1,17 @@
+<?php $this->block('content'); ?>
+<?php foreach ($this->players as $position => $posPlayers) : ?>
+<?php if (is_array($posPlayers)) : ?>
+<?php foreach ($posPlayers as $player) : ?>
+<div class="ce_hyperlink flex flex-col">
+  <div class="">
+    <div class="uppercase text-center"><?= $player['lastname'] ?></div>
+    <div class="text-center text-5xl font-bold text-steelgreen"><?= $player['jersey'] ?></div>
+  </div>
+  <div class="text-center font-bold">
+    <?= $player['warmuppartner'] ?>
+  </div>
+</div>
+<?php endforeach; ?>
+<?php endif; ?>
+<?php endforeach; ?>
+<?php $this->endblock(); ?>

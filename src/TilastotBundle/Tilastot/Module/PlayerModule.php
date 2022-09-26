@@ -40,7 +40,7 @@ class PlayerModule extends AbstractFrontendModuleController
 
     $stats = PlayerStats::findAll(array(
       'column'  => array('pid=?'),
-      'order'   => 'round ASC',
+      'order'   => 'round DESC',
       'limit'   => '1',
       'value'   => array($p['id'])
     ));
