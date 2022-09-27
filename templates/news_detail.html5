@@ -1,7 +1,7 @@
 <div class="max-w-screen-2xl mx-auto relative my-20">
   <div class="grid grid-cols-2 items-end -mt-72">
     <div class="mb-20 p-5">
-      <h3 class="text-3xl uppercase font-bold"><?= $this->newsHeadline ?></h3>
+      <h3 class="text-5xl uppercase font-bold font-sans text-black leading-tight"><?= $this->newsHeadline ?></h3>
       <p class="mt-2">
         <?php if (count($this->categoriesList) > 0) : ?>
         <span class="text-lg uppercase font-bold"><?= implode(' / ', $this->categoriesList) ?> /</span>
