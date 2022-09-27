@@ -31,10 +31,12 @@
       $addClasses = '';
       if ($today == date('Ymd', $this->game['gamedate'])) {
         $title = 'Heute Heimspiel!';
+        $iconClasses = 'animate-wiggle';
         $addClasses = ' game_is_today';
       } else if ($tomorrow == date('Ymd', $this->game['gamedate'])) {
         $title = 'Morgen Heimspiel!';
         $addClasses = ' game_is_tomorrow';
+        $iconClasses = '';
       } else {
         $title = 'Nächstes Heimspiel';
       }
@@ -53,7 +55,7 @@
           echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . ' Uhr';
           ?>
     </div>
-    <div class="pl-2"><a href="/tickets"><img src="/files/steelers/layout/tickets-icon-preheader.png"
+    <div class="pl-2"><a href="/tickets"><img class="<?= $iconClasses ?>" src="/files/steelers/layout/ticket-icon.svg"
           alt="STEELERS Tickets" height="50" width="62" /></a></div>
   </div>
 </div>

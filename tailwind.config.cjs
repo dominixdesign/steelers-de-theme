@@ -9,6 +9,25 @@ module.exports = {
         steelblue: "#009cde",
         steellightgreen: "#10b75a",
       },
+      keyframes: {
+        wiggle: {
+          '70%,100%': {
+            transform: 'rotate(0deg) scale(1)'
+          },
+          '80%': {
+            transform: 'rotate(-3deg) scale(1.1)'
+          },
+          '90%': {
+            transform: 'rotate(3deg) scale(0.9)'
+          },
+          '95%': {
+            transform: 'rotate(-3deg) scale(1)'
+          }
+        }
+      },
+      animation: {
+          wiggle: 'wiggle 5s ease-in-out infinite',
+      },
       fontFamily: {
         headline: [
           "Whyte",
