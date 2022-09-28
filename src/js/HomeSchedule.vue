@@ -47,7 +47,7 @@
       <div class="col-span-2 place-self-center">
         <div
           :title="currentGame.home.name"
-          class="h-40 w-40 bg-contain bg-no-repeat bg-center"
+          class="h-20 w-20 md:h-40 md:w-40 bg-contain bg-no-repeat bg-center"
           :style="`background-image: url(${currentGame.home.logo})`"
         ></div>
       </div>
@@ -56,9 +56,9 @@
       >
         <span
           v-if="currentGame.ended > 0"
-          class="text-8xl whitespace-nowrap tracking-tighter"
+          class="text-6xl md:text-8xl whitespace-nowrap tracking-tighter"
           >{{ currentGame.homescore }} : {{ currentGame.awayscore }}</span
-        ><span v-else class="text-8xl whitespace-nowrap tracking-tighter"
+        ><span v-else class="text-6xl md:text-8xl whitespace-nowrap tracking-tighter"
           >- : -</span
         ><br />
         <span>{{ currentGame.resulttype }}</span>
@@ -66,7 +66,7 @@
       <div class="col-span-2 place-self-center text-center">
         <div
           :title="currentGame.away.name"
-          class="h-40 w-40 bg-contain bg-no-repeat bg-center"
+          class="h-20 w-20 md:h-40 md:w-40 bg-contain bg-no-repeat bg-center"
           :style="`background-image: url(${currentGame.away.logo})`"
         ></div>
       </div>
@@ -181,7 +181,9 @@
       </p>
     </div>
     <div class="text-center border-t border-gray-400 my-5 pt-5">
-      <a href="/tickets" class="btn-default">Tickets</a>
+      <a v-if="currentGame.gamedate * 1000 > Date.now() && currentGame.home.shortname == 'SCB'" href="/tickets" class="btn-default">Tickets</a>
+      <a v-else-if="currentGame.magentaurl" :href="currentGame.magentaurl" class="btn-default">Highlights</a>
+      <div v-else style="height: 43px;">&nbsp;</div>
     </div>
   </div>
 </template>
