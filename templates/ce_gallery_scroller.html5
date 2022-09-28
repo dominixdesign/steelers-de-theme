@@ -1,4 +1,4 @@
-<div class="relative overflow-hidden">
+<div class="relative overflow-hidden isolate">
   <div class="absolute -z-10 w-screen h-4/6 bg-black">
     <?php
     $allPictures = StringUtil::deserialize($this->orderSRC);

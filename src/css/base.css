@@ -1,10 +1,12 @@
 @font-face {
   font-family: "Whyte";
+  font-display: swap;
   src: url("/files/steelers/fonts/WhyteInktrap-Super.otf") format("truetype");
 }
 
 @font-face {
   font-family: "WhyteItalic";
+  font-display: swap;
   src: url("/files/steelers/fonts/WhyteInktrap-SuperItalic.otf")
     format("truetype");
 }
