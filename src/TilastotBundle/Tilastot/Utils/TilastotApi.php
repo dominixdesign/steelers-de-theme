@@ -95,11 +95,11 @@ class TilastotApi
 			'value'   => array(1)
 		));
 
-		//		foreach($r as $round) {
-		//				DelRefreshStandings::refresh($round->holemaid);
-		//				DelRefreshGames::refresh($round->holemaid);
-		//				DelRefreshPlayers::refresh($round->holemaid);
-		//		}
+		foreach ($r as $round) {
+			RefreshStandings::refresh($round->holemaid);
+			RefreshGames::refresh($round->holemaid);
+			RefreshPlayers::refresh($round->holemaid);
+		}
 
 		\System::log('DEL Update done.', __METHOD__, TL_CRON);
 	}

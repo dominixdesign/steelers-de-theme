@@ -29,7 +29,7 @@ $GLOBALS['BE_MOD']['del'] = array(
 		'tables' => array('tl_tilastot_client_games')
 	),
 	'tilastot_players' => array(
-    'tables' => array('tl_tilastot_client_players','tl_tilastot_client_stats')
+		'tables' => array('tl_tilastot_client_players', 'tl_tilastot_client_stats')
 	),
 	'tilastot_refresh' => array(
 		'callback' => RefreshModule::class
@@ -44,7 +44,7 @@ $GLOBALS['TL_MODELS']['tl_tilastot_client_stats'] = PlayerStats::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_standings'] = Standings::class;
 
 /* Cronjob */
-// $GLOBALS['TL_CRON']['hourly'][] = array('\App\Contao\Utils\delApi','refreshAll');
+$GLOBALS['TL_CRON']['hourly'][] = array('App\\Tilastot\\Utils\\TilastotApi', 'refreshAll');
 
 /* Wrapper */
 $GLOBALS['TL_WRAPPERS']['start'][] = 'rowStart';
