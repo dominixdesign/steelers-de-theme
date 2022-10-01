@@ -96,9 +96,9 @@ class TilastotApi
 		));
 
 		foreach ($r as $round) {
-			RefreshStandings::refresh($round->holemaid);
-			RefreshGames::refresh($round->holemaid);
-			RefreshPlayers::refresh($round->holemaid);
+			RefreshStandings::refresh($round->id);
+			RefreshGames::refresh($round->id);
+			RefreshPlayers::refresh($round->id);
 		}
 
 		\System::log('DEL Update done.', __METHOD__, TL_CRON);
