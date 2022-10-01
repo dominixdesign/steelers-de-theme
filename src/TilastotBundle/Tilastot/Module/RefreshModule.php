@@ -23,15 +23,16 @@ class RefreshModule extends BackendModule
 
 	protected $strTemplate = 'be_refresh';
 
-	public function compile() {
+	public function compile()
+	{
 
 		if (\Input::post('FORM_SUBMIT') == 'tl_tilastot_refresh') {
 			$done = array();
-			foreach(\Input::post('round') as $round) {
-					RefreshStandings::refresh($round);
-					RefreshGames::refresh($round);
-					RefreshPlayers::refresh($round);
-					$done[$round] = Rounds::findOneBy('id', $round);
+			foreach (\Input::post('round') as $round) {
+				RefreshStandings::refresh($round);
+				RefreshGames::refresh($round);
+				RefreshPlayers::refresh($round);
+				$done[$round] = Rounds::findOneBy('id', $round);
 			}
 			$this->Template->result = $done;
 		}
@@ -42,9 +43,5 @@ class RefreshModule extends BackendModule
 		$this->Template->button = $GLOBALS['TL_LANG']['MSC']['backBT'];
 		$this->Template->formSubmit = 'contao?do=tilastot_refresh';
 		$this->Template->rounds = Rounds::findAll();
-		
-		return 'lorem ipüsum';
-
 	}
-
 }
