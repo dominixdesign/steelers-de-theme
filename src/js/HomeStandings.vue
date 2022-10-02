@@ -41,7 +41,8 @@
                 {{
                   row.games > 0
                     ? new Intl.NumberFormat("de-DE", {
-                        maximumSignificantDigits: 3,
+                        minimumSignificantDigits: 2,
+                        maximumSignificantDigits: 2,
                       }).format(row.points / row.games)
                     : "0,00"
                 }}
