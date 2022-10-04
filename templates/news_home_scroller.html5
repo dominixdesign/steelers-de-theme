@@ -1,7 +1,7 @@
 <li class="p-3 flex-none snap-start" style="width: 320px">
   <div class="flex-row bg-steelwhite shadow">
     <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
-      <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=375&width=320&mode=crop&alt=' . $this->newsHeadline . '&class=w-full h-full object-center object-cover}}'); ?>
+      <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=370&width=296&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news w-full h-full object-center object-cover}}'); ?>
     </a>
     <div class="p-3 uppercase">
       <div class="font-bold">Katgeorie</div>

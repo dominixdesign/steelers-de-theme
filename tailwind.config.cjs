@@ -9,6 +9,9 @@ module.exports = {
         steelblue: "#009cde",
         steellightgreen: "#10b75a",
       },
+      aspectRatio: {
+        'news': '4 / 5',
+      },
       keyframes: {
         wiggle: {
           '70%,100%': {

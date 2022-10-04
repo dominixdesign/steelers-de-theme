@@ -19,10 +19,10 @@ if (!function_exists('tokenTruncate')) {
 }
 ?>
 <div class="group relative bg-white border border-gray-200 flex flex-col overflow-hidden">
-  <div class="aspect-w-4 aspect-h-5 bg-gray-200 overflow-hidden">
+  <div class="aspect-news w-full bg-gray-200 overflow-hidden">
     <?php
     if ($this->addImage) : 
-      echo $this->replaceInsertTags('{{image::'.$this->arrData['singleSRC'].'?width=600&mode=proportional&alt='.$this->newsHeadline.'&class=w-full transition-all h-full object-center object-cover group-hover:opacity-90 group-hover:scale-105  sm:w-full sm:h-full}}');
+      echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=460&width=368&mode=crop&alt=' . $this->newsHeadline . '&class=w-full h-full object-cover transition-all group-hover:opacity-90 group-hover:scale-105}}');
     endif;
     ?>
   </div>
