@@ -5,10 +5,12 @@ import VueAgile from "vue-agile";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 import HomeNews from "./HomeNews.vue";
+import HomeShop from "./HomeShop.vue";
 
 createApp(HomeSchedule).mount("#homeschedule");
 createApp(HomeStandings).mount("#homestandings");
 createApp(HomeNews).use(VueAgile).mount("#homenews");
+createApp(HomeShop).mount("#homeshop");
 
 //Lightbox
 const lightbox = GLightbox({

@@ -12,6 +12,11 @@ services:
     resource: ../src/Tilastot/Utils
     public: true
 
+  App\Tilastot\Cron\getLatestProductsCron:
+    arguments:
+      - '%woo_key%'
+      - '%woo_secret%'
+
   App\Tilastot\Module\ScheduleModule:
     tags:
       - name: contao.frontend_module
