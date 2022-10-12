@@ -32,6 +32,13 @@ module.exports = {
           wiggle: 'wiggle 5s ease-in-out infinite',
       },
       fontFamily: {
+        sans: [
+          "WhyteReg",
+          "Lucida Sans Unicode",
+          "Geneva",
+          "Verdana",
+          "sans-serif",
+        ],
         headline: [
           "Whyte",
           "Lucida Sans Unicode",
@@ -40,7 +47,7 @@ module.exports = {
           "sans-serif",
         ],
         headlineItalic: [
-          "WhyteItalic",
+          "WhyteSuperItalic",
           "Lucida Sans Unicode",
           "Geneva",
           "Verdana",
