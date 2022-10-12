@@ -12,9 +12,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/files/steelers/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/files/steelers/icons/favicon-16x16.png">
   <link rel="manifest" href="/files/steelers/icons/site.webmanifest">
-  <link rel="mask-icon" href="/files/steelers/icons/safari-pinned-tab.svg" color="#10b75a">
+  <link rel="mask-icon" href="/files/steelers/icons/safari-pinned-tab.svg" color="#009943">
   <link rel="shortcut icon" href="/files/steelers/icons/favicon.ico">
-  <meta name="msapplication-TileColor" content="#10b75a">
+  <meta name="msapplication-TileColor" content="#009943">
   <meta name="msapplication-config" content="/files/steelers/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
@@ -53,7 +53,7 @@
 
     <header id="header">
       <div class="inside">
-        <div class="h-20 max-h-20 overflow-hidden">
+        <div class="h-20 max-h-20 overflow-hidden bg-white">
           <?php $this->section('preheader'); ?>
         </div>
         <?php $this->block('header'); ?>

@@ -7,7 +7,7 @@
 }
 
 #preheader .ce_hyperlink:not(#header-del-logo) {
-  @apply uppercase font-medium text-xs hidden;
+  @apply uppercase font-medium text-xs lg:text-sm hidden;
 }
 
 #preheader .preheader-right {

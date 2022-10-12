@@ -105,15 +105,15 @@ nav .grid-nav {
   }
 
   .sticky .header-nav-logo {
-    @apply bottom-1;
-    width: 86px;
+    bottom: 0.35rem;
+    width: 110px;
     opacity: 1;
   }
 }
 
 @media (min-width: 1280px) {
   .top-sticky-nav li {
-    @apply uppercase text-xl;
+    @apply uppercase text-2xl;
   }
 
   .top-sticky-nav li > * {
@@ -237,7 +237,7 @@ nav .grid-nav {
   display: block;
   padding: 8px 0;
   color: #fff;
-  font-size: 1.4em;
+  font-size: 1.5em;
   text-decoration: none;
   font-weight: bold;
 }
