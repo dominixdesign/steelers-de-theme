@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        steelwhite: "#f5faf8",
-        steelgreen: "#10b75a",
+        steelwhite: "#eef0eb",
+        steelgreen: "#009943",
         steelblue: "#009cde",
-        steellightgreen: "#10b75a",
+        steellightgreen: "#009943",
       },
       aspectRatio: {
         'news': '4 / 5',
