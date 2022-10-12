@@ -1,7 +1,7 @@
 <?php $this->block('content'); ?>
 <div class="grow justify-end flex">
   <div
-    class=" next-game-at-home flex flex-row items-center lg:border-r lg:border-gray-400 lg:pr-2 2xl:pr-5 <?= $this->cssClass ?>"
+    class=" next-game-at-home flex flex-row items-center lg:border-r lg:border-gray-400 lg:pr-4 2xl:pr-5 <?= $this->cssClass ?>"
     <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
     <?php
     if ($this->game['home']['logo']) {
@@ -13,7 +13,7 @@
     <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
       style="<?= 'background-image: url(' . $logoUrl . ')' ?>">
     </div>
-    <div class="font-bold text-xl px-1 hidden xl:block">vs</div>
+    <div class="font-bold text-xl lg:px-4 hidden xl:block">vs</div>
     <?php
     if ($this->game['away']['logo']) {
       $logoUrl = $this->replaceInsertTags('{{figure::' . $this->game['away']['logo'] . '?size=9&template=image_url}}');
@@ -24,7 +24,7 @@
     <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
       style="<?= 'background-image: url(' . $logoUrl . ')' ?>">
     </div>
-    <div class="font-bold leading-tight text-base 2xl:text-lg pl-2">
+    <div class="font-bold leading-4 text-lg lg:pl-8">
       <?php
       $today = date('Ymd');
       $tomorrow = date('Ymd', time() + 24 * 60 * 60);
@@ -41,7 +41,7 @@
         $title = 'Nächstes Heimspiel';
       }
       ?>
-      <span class="uppercase relative inline-block <?= $addClasses ?>"><?= $title ?></span>
+      <span class="relative inline-block <?= $addClasses ?>"><?= $title ?></span>
       <br><?php
 
           $fmt = new IntlDateFormatter(
@@ -50,12 +50,12 @@
             IntlDateFormatter::FULL,
             'Europe/Berlin',
             IntlDateFormatter::GREGORIAN,
-            'E dd.MM.Y'
+            'E dd.MM.YY'
           );
           echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . ' Uhr';
           ?>
     </div>
-    <div class="pl-2"><a href="/tickets"><img class="<?= $iconClasses ?>" src="/files/steelers/layout/ticket-icon.svg"
+    <div class="pl-2 lg:pl-4"><a href="/tickets"><img class="<?= $iconClasses ?>" src="/files/steelers/layout/ticket-icon.svg"
           alt="STEELERS Tickets" height="50" width="62" /></a></div>
   </div>
 </div>
