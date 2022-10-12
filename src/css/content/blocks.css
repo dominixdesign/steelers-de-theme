@@ -1,10 +1,10 @@
 #main .block-headline {
-  @apply absolute italic;
+  @apply italic;
   color: #009cde;
   font-family: "WhyteItalic", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-transform: uppercase;
-  font-size: clamp(4em, 15vw, 13em);
-  line-height: 0;
+  font-size: clamp(4em, 15vw, 16em);
+  line-height: 12rem;
   text-shadow: 1px 1px white, -1px -1px white;
   max-width: 100%;
   overflow-x: clip;

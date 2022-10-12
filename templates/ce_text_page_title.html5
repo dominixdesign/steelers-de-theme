@@ -10,7 +10,7 @@
   </div>
 </div>
 <div class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20">
-  <div class="grid md:grid-cols-2 items-end -mt-72">
+  <div class="grid md:grid-cols-2 items-end -mt-[32rem]">
     <div class="mb-20 p-5 order-last md:order-first">
 
       <h3 class="text-3xl uppercase font-bold"><?= $this->headline ?></h3>

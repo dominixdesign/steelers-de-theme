@@ -1,5 +1,5 @@
 <div class="max-w-screen-2xl mx-auto relative my-20">
-  <div class="grid items-end mb-20 -mt-72" style="grid-template-columns: 6fr 4fr;">
+  <div class="grid items-end mb-20 -mt-[32rem]" style="grid-template-columns: 1fr 1fr;">
     <div class="lg:mb-10 p-5 pr-10">
       <h3 class="text-5xl uppercase font-bold font-sans text-black leading-none"><?= $this->newsHeadline ?></h3>
       <p class="lg:mt-10">
@@ -9,7 +9,7 @@
     <div class="overflow-hidden">
       <?php
       if ($this->addImage) :
-        echo $this->replaceInsertTags('{{image::' . $this->singleSRC . '?height=750&width=600&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news}}');
+        echo $this->replaceInsertTags('{{image::' . $this->singleSRC . '?height=800&width=800&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-square}}');
       endif;
       ?>
     </div>

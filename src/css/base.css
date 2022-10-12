@@ -3,7 +3,7 @@
   font-weight: 400;
   font-display: swap;
   src: url("/files/steelers/fonts/ABCWhyte-Regular.woff2") format("woff2"),
-       url("/files/steelers/fonts/ABCWhyte-Regular.woff") format("woff");
+    url("/files/steelers/fonts/ABCWhyte-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -11,21 +11,22 @@
   font-weight: 700;
   font-display: swap;
   src: url("/files/steelers/fonts/ABCWhyte-Bold.woff2") format("woff2"),
-       url("/files/steelers/fonts/ABCWhyte-Bold.woff") format("woff");
+    url("/files/steelers/fonts/ABCWhyte-Bold.woff") format("woff");
 }
 
 @font-face {
   font-family: "Whyte";
   font-display: swap;
   src: url("/files/steelers/fonts/ABCWhyteInktrap-Super.woff2") format("woff2"),
-       url("/files/steelers/fonts/ABCWhyteInktrap-Super.woff") format("woff");
+    url("/files/steelers/fonts/ABCWhyteInktrap-Super.woff") format("woff");
 }
 @font-face {
   font-family: "WhyteItalic";
   font-style: italic;
   font-display: swap;
-  src: url("/files/steelers/fonts/ABCWhyteInktrap-SuperItalic.woff2") format("woff2"),
-       url("/files/steelers/fonts/ABCWhyteInktrap-SuperItalic.woff") format("woff");
+  src: url("/files/steelers/fonts/ABCWhyteInktrap-SuperItalic.woff2")
+      format("woff2"),
+    url("/files/steelers/fonts/ABCWhyteInktrap-SuperItalic.woff") format("woff");
 }
 
 body,
@@ -34,7 +35,7 @@ html {
 }
 
 .btn-default {
-  @apply bg-steelgreen text-white font-bold py-2 px-4 relative transition-all scale-100 inline-block shadow-none;
+  @apply bg-steelgreen text-white font-bold py-2 px-4 relative transition-all scale-100 inline-block uppercase shadow-none;
 }
 
 .btn-default:hover {

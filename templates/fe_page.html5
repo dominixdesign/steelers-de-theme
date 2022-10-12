@@ -48,7 +48,7 @@
   <?php $this->sections('top'); ?>
 
   <div id="wrapper">
-    <img src="files/steelers/layout/star-background.svg" class="fixed top-10 pointer-events-none"
+    <img src="files/steelers/layout/star-background.svg" class="fixed top-10 pointer-events-none opacity-25 w-full"
       alt="STEELERS Sterne" />
 
     <header id="header">
