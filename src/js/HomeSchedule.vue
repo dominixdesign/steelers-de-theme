@@ -1,6 +1,6 @@
 <template>
   <div class="flex place-content-between flex-col h-full">
-    <h5 class="uppercase font-bold text-3xl tracking-wide text-center">
+    <h5 class="uppercase font-bold text-3xl text-center">
       Spiele
     </h5>
     <div class="grid grid-cols-12 gap-1" satyle="grid-template-rows: 1fr 1fr">
@@ -56,9 +56,9 @@
       >
         <span
           v-if="currentGame.ended > 0"
-          class="text-6xl md:text-8xl whitespace-nowrap tracking-tighter"
+          class="text-6xl md:text-8xl whitespace-nowrap"
           >{{ currentGame.homescore }} : {{ currentGame.awayscore }}</span
-        ><span v-else class="text-6xl md:text-8xl whitespace-nowrap tracking-tighter"
+        ><span v-else class="text-6xl md:text-8xl whitespace-nowrap"
           >- : -</span
         ><br />
         <span>{{ currentGame.resulttype }}</span>
@@ -124,7 +124,7 @@
       </div>
     </div>
     <div class="border-t border-gray-400 my-5">
-      <h6 class="font-bold text-2xl tracking-tight text-center">
+      <h6 class="font-bold text-2xl text-center">
         {{ currentGame.season.name }} - {{ currentGame.season.season }}
         <span v-if="currentGame.gameday > 0"
           >- {{ currentGame.gameday }}. Spieltag</span

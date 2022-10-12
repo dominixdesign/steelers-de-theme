@@ -24,7 +24,7 @@
     <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
       style="<?= 'background-image: url(' . $logoUrl . ')' ?>">
     </div>
-    <div class="font-bold tracking-tighter leading-tight text-base 2xl:text-lg pl-2">
+    <div class="font-bold leading-tight text-base 2xl:text-lg pl-2">
       <?php
       $today = date('Ymd');
       $tomorrow = date('Ymd', time() + 24 * 60 * 60);
@@ -41,7 +41,7 @@
         $title = 'Nächstes Heimspiel';
       }
       ?>
-      <span class="tracking-normal uppercase relative inline-block <?= $addClasses ?>"><?= $title ?></span>
+      <span class="uppercase relative inline-block <?= $addClasses ?>"><?= $title ?></span>
       <br><?php
 
           $fmt = new IntlDateFormatter(

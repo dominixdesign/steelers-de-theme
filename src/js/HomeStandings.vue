@@ -1,6 +1,6 @@
 <template>
   <div class="flex place-content-between flex-col h-full">
-    <h4 class="uppercase font-bold text-3xl tracking-wide text-center">
+    <h4 class="uppercase font-bold text-3xl text-center">
       Tabelle
     </h4>
     <div>

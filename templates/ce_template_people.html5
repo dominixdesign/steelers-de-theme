@@ -2,7 +2,7 @@
 
 <?php $this->block('content'); ?>
 <div class="border-t-4 border-gray-800 pt-6 mt-6">
-	<h5 class="uppercase text-2xl font-bold leading-tight tracking-wide"><?= $this->keys['name']; ?></h5>
+	<h5 class="uppercase text-2xl font-bold leading-tight"><?= $this->keys['name']; ?></h5>
 	<p class="uppercase text-lg font-light leading-tight"><?= $this->keys['role']; ?></p>
 	<ul class="mt-6">
 		<li><a href="tel:<?= $this->keys['phone']; ?>"><?= $this->keys['phone']; ?></a></li>
