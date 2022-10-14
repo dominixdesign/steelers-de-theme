@@ -1,12 +1,39 @@
-<li class="p-3 flex-none snap-start" style="width: 320px">
-  <div class="flex-row bg-steelwhite shadow">
+<?php
+if (!function_exists('tokenTruncate')) {
+  function tokenTruncate($string, $your_desired_width)
+  {
+    $parts = preg_split('/([\s\n\r]+)/', $string, -1, PREG_SPLIT_DELIM_CAPTURE);
+    $parts_count = count($parts);
+
+    $length = 0;
+    $last_part = 0;
+    for (; $last_part < $parts_count; ++$last_part) {
+      $length += strlen($parts[$last_part]);
+      if ($length > $your_desired_width) {
+        break;
+      }
+    }
+
+    return implode(array_slice($parts, 0, $last_part));
+  }
+}
+?>
+<li class="flex-none snap-start w-[320px] xl:w-[20vw] first:ml-12 last:mr-12">
+  <div class="flex flex-col bg-white h-full">
     <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
-      <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=370&width=296&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news w-full h-full object-center object-cover}}'); ?>
+      <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=370&width=296&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news w-full}}'); ?>
     </a>
-    <div class="p-3 uppercase">
-      <div class="font-bold">Katgeorie</div>
-      <div class="-mt-2 text-lg text-steelgreen font-bold leading-tight">
+    <div class="p-5 grow flex flex-col">
+      <div class="font-bold uppercase">
+        <?php if (count($this->categoriesList) > 0) : ?>
+        <?= implode(', ', $this->categoriesList) ?>
+        <?php endif; ?>&nbsp;</div>
+      <div class="mt-1 text-xl text-steelgreen uppercase font-bold">
         <?= $this->newsHeadline ?>
+      </div>
+      <p class="mt-5 text-sm text-gray-500"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
+      <div class="mt-5 flex-1 flex flex-col justify-end">
+        <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
       </div>
     </div>
   </div>

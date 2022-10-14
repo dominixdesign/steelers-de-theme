@@ -12,6 +12,9 @@ module.exports = {
       aspectRatio: {
         'news': '4 / 5',
       },
+      spacing: {
+        'defaultbig': '150px',
+      },
       keyframes: {
         wiggle: {
           '70%,100%': {

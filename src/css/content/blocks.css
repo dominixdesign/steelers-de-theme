@@ -11,6 +11,13 @@
   padding: 0 10px 0 10px;
 }
 
+#main .block-headline.headline--small {
+  font-size: 12em;
+  line-height: 8rem;
+  position: relative;
+  top: -4rem;
+}
+
 @supports (-webkit-text-stroke: 3px #009cde) {
   #main .block-headline {
     color: white;

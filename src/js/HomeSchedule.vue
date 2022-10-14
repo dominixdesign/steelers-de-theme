@@ -47,7 +47,7 @@
       <div class="col-span-2 place-self-center">
         <div
           :title="currentGame.home.name"
-          class="h-20 w-20 md:h-40 md:w-40 bg-contain bg-no-repeat bg-center"
+          class="h-20 w-20 md:h-32 md:w-32 mx-2 md:mx-6 bg-contain bg-no-repeat bg-center"
           :style="`background-image: url(${currentGame.home.logo})`"
         ></div>
       </div>
@@ -66,7 +66,7 @@
       <div class="col-span-2 place-self-center text-center">
         <div
           :title="currentGame.away.name"
-          class="h-20 w-20 md:h-40 md:w-40 bg-contain bg-no-repeat bg-center"
+          class="h-20 w-20 md:h-32 md:w-32 mx-2 md:mx-6 bg-contain bg-no-repeat bg-center"
           :style="`background-image: url(${currentGame.away.logo})`"
         ></div>
       </div>
@@ -124,7 +124,7 @@
       </div>
     </div>
     <div class="border-t border-gray-400 my-5">
-      <h6 class="font-bold text-2xl text-center">
+      <h6 class="font-bold text-2xl text-center pt-10">
         {{ currentGame.season.name }} - {{ currentGame.season.season }}
         <span v-if="currentGame.gameday > 0"
           >- {{ currentGame.gameday }}. Spieltag</span
@@ -180,10 +180,10 @@
         <span v-else class="h-5 w-5 inline-block mb-0.5 mr-1 ml-4">&nbsp;</span>
       </p>
     </div>
-    <div class="text-center border-t border-gray-400 my-5 pt-5">
+    <div class="text-center border-t border-gray-400 mb-5 pt-5 flex place-content-center gap-5">
       <a v-if="currentGame.gamedate * 1000 > Date.now() && currentGame.home.shortname == 'SCB'" href="/tickets" class="btn-default">Tickets</a>
       <a v-else-if="currentGame.magentaurl" :href="currentGame.magentaurl" class="btn-default">Highlights</a>
-      <div v-else style="height: 43px;">&nbsp;</div>
+      <a href="/saison/spielplan" class="btn-default">gesamter Spielplan</a>
     </div>
   </div>
 </template>

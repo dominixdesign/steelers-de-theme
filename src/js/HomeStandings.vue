@@ -1,13 +1,13 @@
 <template>
-  <div class="flex place-content-between flex-col h-full">
-    <h4 class="uppercase font-bold text-3xl text-center">
+  <div class="flex place-content-end flex-col h-full">
+    <h5 class="uppercase font-bold text-3xl text-center">
       Tabelle
-    </h4>
+    </h5>
     <div>
       <table class="w-full border-separate border-spacing-0.5">
         <thead class="uppercase font-bold">
           <tr>
-            <th class="text-right">Platz</th>
+            <th class="text-center">Platz</th>
             <th class="text-left">Team</th>
             <th class="text-right pr-2">Spiele</th>
             <th class="text-center">Tore</th>
@@ -24,11 +24,11 @@
                 row.tilastotid === '22' ? 'text-steellightgreen font-bold' : '',
               ]"
             >
-              <td class="text-right py-2 pr-2">{{ row.rank }}.</td>
+              <td class="text-center py-2 pr-2">{{ row.rank }}</td>
               <td class="text-left flex items-center py-2">
                 <span
                   :title="row.name"
-                  class="h-8 w-8 block bg-contain bg-no-repeat bg-center"
+                  class="h-16 w-16 block bg-contain bg-no-repeat bg-center"
                   :style="row.logo ? `background-image: url(${row.logo}` : ''"
                 ></span>
                 <span class="block ml-4 uppercase">{{ row.name }}</span>
@@ -52,8 +52,8 @@
         </tbody>
       </table>
     </div>
-    <div class="text-center border-t border-gray-400 my-5 pt-5">
-      <a href="/saison/tabelle" class="btn-default">Vollständige Tabelle</a>
+    <div class="text-center border-t border-gray-400 mb-5 pt-5">
+      <a href="/saison/tabelle" class="btn-default">gesamte Tabelle</a>
     </div>
   </div>
 </template>
