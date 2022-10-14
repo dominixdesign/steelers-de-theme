@@ -15,7 +15,7 @@ nav .grid-nav {
 }
 
 .top-sticky-nav::before {
-  @apply bg-steellightgreen transition-opacity;
+  @apply bg-steelwhite transition-opacity;
   content: "";
   display: block;
   opacity: 0;
@@ -27,7 +27,7 @@ nav .grid-nav {
 }
 
 .top-sticky-nav:hover::before {
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 .top-sticky-nav li {
