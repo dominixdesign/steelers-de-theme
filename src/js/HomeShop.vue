@@ -1,27 +1,27 @@
 <template>
-  <div class="<?= $this->class ?> mt-64">
+  <div class="<?= $this->class ?> mt-64 pointer-events-none">
     <div class="max-w-screen-2xl mx-auto relative py-4 my-32 z-40 flex">
-      <h2 class="block-headline">Shop</h2>
+      <h2 class="block-headline headline--small">Shop</h2>
     </div>
   </div>
   <div
-    class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20 -mt-28"
+    class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20 -mt-64"
   >
     <div class="grid grid-cols-11">
-      <div class="pt-10 col-span-2 text-center relative">
+      <div class="pt-10 col-span-2 relative">
         <a
           :href="currentProduct.link"
-          class="btn-default absolute -right-32 top-48"
+          class="btn-default absolute -right-32 top-56"
           >Jetzt kaufen</a
         >
-        <h3 class="text-4xl text-black">{{ currentProduct.name }}</h3>
+        <h3 class="text-4xl text-black">Edition 2022/23</h3>
       </div>
       <div
         class="aspect-1 col-span-3"
         v-for="product in shopData.slice(currentIndex, currentIndex + 3)"
         :key="product.name"
       >
-        <a :href="product.link">
+        <a :href="product.link" class="h-[480px] w-[480px]">
           <img
             class="aspect-1 object-cover"
             :alt="product.name"
@@ -112,7 +112,11 @@ C39.875,8.926,30.949,0,19.938,0L19.938,0z"
           </svg>
         </button>
       </div>
-      <div class="w-1/3 text-right border-t-2 border-black pt-3 uppercase font-bold"><a href="https://shop.steelers.de" class="link-default">zum Shop</a></div>
+      <div
+        class="w-1/3 text-right border-t-2 border-black pt-3 uppercase font-bold"
+      >
+        <a href="https://shop.steelers.de" class="link-default">zum Shop</a>
+      </div>
     </div>
   </div>
 </template>
