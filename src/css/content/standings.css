@@ -3,7 +3,7 @@
 }
 
 .standings-table {
-  @apply w-full grid grid-cols-1 divide-y divide-black;
+  @apply w-full grid grid-cols-1 divide-y-2 divide-black;
 }
 
 .standings-table .table-header,
@@ -41,6 +41,7 @@
 @media (min-width: 768px) {
   .standings-table small {
     @apply inline;
+    font-size: 87.5%;
   }
 }
 @media (min-width: 640px) {

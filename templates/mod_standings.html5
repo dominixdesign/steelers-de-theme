@@ -2,7 +2,7 @@
 <div class="defaultcontainer <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
   <div class="standings-table">
     <div class="table-header">
-      <div class="!text-right">Platz</div>
+      <div class="">Platz</div>
       <div class="!text-left col-span-5">Team</div>
       <div class="col-span-2">Spiele<br><small>(S3 | S2 | N1 | N0)</small></div>
       <div class="hidden sm:block sm:col-span-2">Tore<br><small>Differenz</small></div>
@@ -13,12 +13,12 @@
       $class = ($team['tilastotid'] == $this->my_team) ? 'highlight-team' : '';
     ?>
     <div class="table-row <?= $class ?> <?= $this->my_team == $team['id'] ? 'highlight-team' : '' ?>">
-      <div class="!text-right font-bold md:font-headline text-steelgreen md:text-4xl"><?= $team['rank'] ?></div>
+      <div class="font-bold md:font-headline text-steelgreen md:text-5xl"><?= $team['rank'] ?></div>
       <div class="!text-left font-bold col-span-5 flex items-center text-ellipsis overflow-hidden">
         <div class="logo">
           <?php
             $logo = $team['logo'] ? '/' . $team['logo'] : 'https://www.penny-del.org/assets/img/teams/dark/team_' . $team['shortname'] . '.png';
-            echo $this->replaceInsertTags('{{image::' . $logo . '?width=30&height=30&mode=proportional&alt=' . $team['name'] . '}}');
+            echo $this->replaceInsertTags('{{image::' . $logo . '?width=65&height=65&mode=proportional&alt=' . $team['name'] . '}}');
             ?>
         </div><?= $team['name'] ?>
       </div>
