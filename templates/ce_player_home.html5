@@ -2,9 +2,9 @@
 
 <?php $this->block('content'); ?>
 
-<figure class="relative">
+<figure class="relative my-36">
   <?php if ($this->isVideo) : ?>
-  <div class="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-80 z-10 flex items-center justify-center">
+  <div class="absolute top-0 bottom-0 left-0 right-0 bg-black bg-opacity-80 z-10 flex items-center justify-center">
     <div>
       <h6 class="font-headline text-steelgreen text-[12rem] leading-[10rem] uppercase text-center">Ich bin
         ein<br />Steeler</h6>

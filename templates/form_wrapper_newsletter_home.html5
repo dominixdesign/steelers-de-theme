@@ -9,12 +9,14 @@
     enctype="<?= $this->enctype ?>" <?= $this->attributes ?><?= $this->novalidate ?>>
     <div class="grid lg:grid-cols-2">
       <div class="formbody text-steelwhite offset lg:col-start-2 p-10">
-        <p class=" uppercase text-lg pb-5 pr-5">Du möchtest alle News erhalten und Dir besondere Angebote in unserem
+        <p class=" uppercase text-base font-bold leading-5 pb-5 pr-5">Du möchtest alle News erhalten und Dir besondere
+          Angebote in
+          unserem
           Online
           Shop
           sichern?
         </p>
-        <p class="uppercase text-xl font-bold pb-8 pr-5">Hinterlasse deine E-Mail-Adresse, um auf dem Laufenden zu
+        <p class="uppercase text-2xl font-bold pb-8 pr-5">Hinterlasse deine E-Mail-Adresse, um auf dem Laufenden zu
           bleiben.
         </p>
         <?php if ('get' != $this->method) : ?>
