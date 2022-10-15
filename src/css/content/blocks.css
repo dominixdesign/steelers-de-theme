@@ -45,7 +45,7 @@
 }
 
 .big-text-block strong::after {
-  @apply absolute left-0 right-0 bottom-2 h-8 bg-steellightgreen;
+  @apply absolute left-0 right-0 bottom-5 h-7 bg-steellightgreen;
   z-index: -5;
   content: "";
 }

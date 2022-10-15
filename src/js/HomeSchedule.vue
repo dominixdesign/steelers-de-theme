@@ -1,8 +1,6 @@
 <template>
   <div class="flex place-content-between flex-col h-full">
-    <h5 class="uppercase font-bold text-3xl text-center">
-      Spiele
-    </h5>
+    <h5 class="uppercase font-bold text-3xl text-center">Spiele</h5>
     <div class="grid grid-cols-12 gap-1" satyle="grid-template-rows: 1fr 1fr">
       <div class="col-span-2 self-center">
         <button
@@ -58,8 +56,7 @@
           v-if="currentGame.ended > 0"
           class="text-6xl md:text-8xl whitespace-nowrap"
           >{{ currentGame.homescore }} : {{ currentGame.awayscore }}</span
-        ><span v-else class="text-6xl md:text-8xl whitespace-nowrap"
-          >- : -</span
+        ><span v-else class="text-6xl md:text-8xl whitespace-nowrap">- : -</span
         ><br />
         <span>{{ currentGame.resulttype }}</span>
       </div>
@@ -176,13 +173,29 @@
             />
           </svg>
           <span>{{ currentGame.location }}</span>
+          <br />
         </template>
-        <span v-else class="h-5 w-5 inline-block mb-0.5 mr-1 ml-4">&nbsp;</span>
+        <a
+          v-if="
+            currentGame.gamedate * 1000 > Date.now() &&
+            currentGame.home.shortname == 'SCB'
+          "
+          href="/tickets"
+          class="link-text--big"
+          >Tickets kaufen</a
+        >
+        <a
+          v-else-if="currentGame.magentaurl"
+          :href="currentGame.magentaurl"
+          class="link-text--big"
+          >Highlights anschauen</a
+        >
+        <span v-else class="link-text--big">&nbsp;</span>
       </p>
     </div>
-    <div class="text-center border-t border-gray-400 mb-5 pt-5 flex place-content-center gap-5">
-      <a v-if="currentGame.gamedate * 1000 > Date.now() && currentGame.home.shortname == 'SCB'" href="/tickets" class="btn-default">Tickets</a>
-      <a v-else-if="currentGame.magentaurl" :href="currentGame.magentaurl" class="btn-default">Highlights</a>
+    <div
+      class="text-center border-t border-gray-400 mb-5 pt-5 flex place-content-center gap-5"
+    >
       <a href="/saison/spielplan" class="btn-default">gesamter Spielplan</a>
     </div>
   </div>

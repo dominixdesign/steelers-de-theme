@@ -1,8 +1,6 @@
 <template>
   <div class="flex place-content-end flex-col h-full">
-    <h5 class="uppercase font-bold text-3xl text-center">
-      Tabelle
-    </h5>
+    <h5 class="uppercase font-bold text-3xl text-center">Tabelle</h5>
     <div>
       <table class="w-full border-separate border-spacing-0.5">
         <thead class="uppercase font-bold">
@@ -21,7 +19,7 @@
             </tr>
             <tr
               :class="[
-                row.tilastotid === '22' ? 'text-steellightgreen font-bold' : '',
+                row.tilastotid === '22' ? 'text-steelgreen font-bold' : '',
               ]"
             >
               <td class="text-center py-2 pr-2">{{ row.rank }}</td>
