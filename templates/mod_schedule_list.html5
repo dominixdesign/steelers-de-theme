@@ -11,8 +11,13 @@
     }
     $gameMonth = date('m', $game['gamedate']);
     if ($gameMonth != $lastMonth) :
-      $lastMonth = $gameMonth;
   ?>
+  <?php if ($lastMonth != 0) : ?>
+  <div class="bottomborder"></div>
+  <?php
+      endif;
+      $lastMonth = $gameMonth;
+      ?>
   <div class="titlerow">
     <?= Contao\Date::parse('F', $game['gamedate']); ?>
     <?php if (!$buttonShown) : ?>

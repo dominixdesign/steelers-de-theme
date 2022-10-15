@@ -76,11 +76,14 @@
     @apply ml-12;
   }
   .mod_schedule .row {
-    @apply grid grid-cols-9 ml-12 items-stretch divide-x divide-black;
+    @apply grid grid-cols-9 ml-12 items-stretch divide-x divide-black border-t-2 border-black;
+  }
+  .mod_schedule .bottomborder {
+    @apply ml-12 border-t-2 border-black;
   }
 
   .mod_schedule .row > * {
-    @apply m-2 py-6 px-3 flex;
+    @apply m-2 py-10 px-3 flex;
   }
   .mod_schedule .row > * > * {
     @apply self-center;
@@ -90,7 +93,7 @@
     @apply col-span-1 uppercase text-base leading-5;
   }
   .mod_schedule .row .datetime .day {
-    @apply font-bold text-lg mb-1;
+    @apply font-bold text-xl mb-1;
   }
 
   .mod_schedule .row .round {
@@ -98,7 +101,7 @@
   }
 
   .mod_schedule .row .game {
-    @apply col-span-4 grid grid-cols-5 items-center py-0;
+    @apply col-span-4 grid grid-cols-5 items-center py-8;
   }
   .mod_schedule .row .game .team {
     @apply col-span-2;
@@ -113,7 +116,7 @@
     @apply font-sans text-base inline-block uppercase;
   }
   .mod_schedule .row .game .team .name {
-    @apply uppercase text-center font-medium;
+    @apply uppercase text-center font-medium tracking-tight;
   }
   .mod_schedule .row .game .team .logo {
     @apply aspect-1 object-cover mx-auto flex;
@@ -124,6 +127,6 @@
   }
 
   .mod_schedule .row .actions {
-    @apply col-span-2;
+    @apply col-span-2 place-content-end;
   }
 }
