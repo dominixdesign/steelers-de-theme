@@ -22,35 +22,30 @@ services:
       - name: contao.frontend_module
         category: tilastot
         template: mod_schedule
-        renderer: esi
         type: schedule
   App\Tilastot\Module\NextGameModule:
     tags:
       - name: contao.frontend_module
         category: tilastot
         template: mod_nextgame
-        renderer: esi
         type: nextgame
   App\Tilastot\Module\StandingsModule:
     tags:
       - name: contao.frontend_module
         category: tilastot
         template: mod_standings
-        renderer: esi
         type: standings
   App\Tilastot\Module\RosterModule:
     tags:
       - name: contao.frontend_module
         category: tilastot
         template: mod_roster
-        renderer: esi
         type: roster
   App\Tilastot\Module\PlayerModule:
     tags:
       - name: contao.frontend_module
         category: tilastot
         template: mod_player
-        renderer: esi
         type: player
   App\Tilastot\ContentElement\WrapperBlockStart:
     tags:

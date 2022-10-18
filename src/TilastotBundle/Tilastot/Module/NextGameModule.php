@@ -2,17 +2,12 @@
 
 namespace App\Tilastot\Module;
 
-use Contao\Module;
 use App\Tilastot\Model\Rounds;
 use App\Tilastot\Model\Games;
 use App\Tilastot\Model\Standings;
 
-
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
-use Contao\CoreBundle\Exception\RedirectResponseException;
-use Contao\CoreBundle\ServiceAnnotation\FrontendModule;
 use Contao\ModuleModel;
-use Contao\PageModel;
 use Contao\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
