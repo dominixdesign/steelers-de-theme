@@ -1,5 +1,5 @@
-<div class="<?= $this->class ?> mt-24">
-  <div class="max-w-screen-2xl mx-auto relative py-4 my-36 z-40">
+<div class="<?= $this->class ?>">
+  <div class="max-w-screen-2xl mx-auto relative py-4 opacity-0 xl:opacity-100 my-36 z-40">
     <<?= $this->hl ?> class="block-headline"><?= $this->headline ?>
     </<?= $this->hl ?>>
   </div>

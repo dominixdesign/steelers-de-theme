@@ -1,7 +1,7 @@
 <div class="max-w-screen-2xl mx-auto relative my-20">
   <div class="grid items-end mb-20 -mt-[32rem]" style="grid-template-columns: 1fr 1fr;">
     <div class="lg:mb-10 p-5 pr-10">
-      <h3 class="text-5xl uppercase font-bold font-sans text-black leading-none"><?= $this->newsHeadline ?></h3>
+      <h3 class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none"><?= $this->newsHeadline ?></h3>
       <p class="lg:mt-10">
         <a class="btn-default inline-block" href="<?= $this->href ?>">mehr erfahren</a>
       </p>

@@ -71,7 +71,8 @@ nav .grid-nav {
 
 @media (min-width: 768px) {
   .header-nav-logo {
-    bottom: 4.5rem;
+    bottom: 5rem;
+    width: 105px;
   }
   .header-nav-logo .puckcolor,
   .header-nav-logo .starcolor {
@@ -80,6 +81,14 @@ nav .grid-nav {
 }
 
 @media (min-width: 1024px) {
+  .top-sticky-nav li {
+    @apply uppercase text-base;
+  }
+
+  .top-sticky-nav li > * {
+    @apply px-1;
+  }
+
   .nav-meta-links {
     @apply hidden;
   }
@@ -112,6 +121,16 @@ nav .grid-nav {
 }
 
 @media (min-width: 1280px) {
+  .top-sticky-nav li {
+    @apply uppercase text-xl;
+  }
+
+  .top-sticky-nav li > * {
+    @apply px-2;
+  }
+}
+
+@media (min-width: 1536px) {
   .top-sticky-nav li {
     @apply uppercase text-2xl;
   }
