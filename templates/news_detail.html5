@@ -1,3 +1,7 @@
+<?php 
+ $ogimage = $this->getImage( $this->urlEncode( $this->singleSRC ), 600, 315 , 'crop' ); 
+ $GLOBALS['og:image'] = $this->Environment->base . $ogimage; 
+?>
 <div class="max-w-screen-2xl mx-auto relative my-20">
   <div class="grid items-end -mt-[32rem]" style="grid-template-columns: 1fr 1fr;">
     <div class="mb-20 p-5 pr-10">
