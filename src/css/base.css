@@ -35,7 +35,8 @@ html {
 }
 
 .btn-default {
-  @apply bg-steelgreen text-white font-bold py-2 px-4 relative transition-all scale-100 inline-block uppercase shadow-none;
+  @apply bg-steelgreen text-white py-2 px-4 relative transition-all scale-100 inline-block uppercase shadow-none;
+  letter-spacing: 0.15rem;
 }
 
 .btn-default:hover {
@@ -76,7 +77,7 @@ span.link-text--big {
 }
 
 h4 {
-  @apply text-steelgreen font-bold text-5xl uppercase font-headline my-3;
+  @apply text-steelgreen font-bold text-5xl uppercase font-headline my-3 mt-28;
 }
 
 a.email {

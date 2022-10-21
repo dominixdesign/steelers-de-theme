@@ -50,7 +50,7 @@
         </tbody>
       </table>
     </div>
-    <div class="text-center border-t border-gray-400 mb-5 pt-5">
+    <div class="text-center border-t border-gray-400 mb-12 pt-12">
       <a href="/saison/tabelle" class="btn-default">gesamte Tabelle</a>
     </div>
   </div>

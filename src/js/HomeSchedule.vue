@@ -194,7 +194,7 @@
       </p>
     </div>
     <div
-      class="text-center border-t border-gray-400 mb-5 pt-5 flex place-content-center gap-5"
+      class="text-center border-t border-gray-400 mb-12 pt-12 flex place-content-center gap-5"
     >
       <a href="/saison/spielplan" class="btn-default">gesamter Spielplan</a>
     </div>

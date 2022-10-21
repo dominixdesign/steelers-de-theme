@@ -22,8 +22,7 @@
     </div>
   </div>
   <div
-    class="sm:w-3/4 leading-relaxed p-5 my-10 text-lg mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg shadow-steelwhite"
-    style="box-shadow: 0 0 30px 10px #f5faf8;">
+    class="sm:w-3/4 p-5 my-24 text-lg mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg leading-6">
     <?= $this->teaser; ?>
     <hr class="border-black border-t mt-8">
   </div>

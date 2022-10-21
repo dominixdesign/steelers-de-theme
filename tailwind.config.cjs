@@ -5,9 +5,10 @@ module.exports = {
     extend: {
       colors: {
         steelwhite: "#eef0eb",
-        steelgreen: "#009943",
+        steelnav: "#009a44",
+        steelgreen: "#10b75a",
         steelblue: "#009cde",
-        steellightgreen: "#29D374",
+        steellightgreen: "#10b75a",
       },
       aspectRatio: {
         news: "4 / 5",

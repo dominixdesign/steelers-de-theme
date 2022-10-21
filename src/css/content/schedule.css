@@ -1,5 +1,5 @@
 .mod_schedule .titlerow {
-  @apply text-steelgreen font-bold text-5xl uppercase font-headline my-14;
+  @apply text-steelgreen font-bold text-5xl uppercase font-headline mb-14 mt-28;
 }
 
 .mod_schedule .row .datetime .day::before {

@@ -12,25 +12,33 @@
 }
 
 .standings-table .table-header {
-  @apply font-bold;
+  @apply font-bold leading-5;
 }
 
 .standings-table .table-row {
   @apply divide-x divide-black;
 }
+.standings-table .table-row > div:nth-child(1) {
+  @apply border-r-4 border-black;
+}
 .standings-table .table-row:nth-child(-n + 11) > div:nth-child(1) {
   @apply border-r-4 border-steelblue;
 }
 .standings-table .table-row:nth-child(n + 15) > div:nth-child(1) {
-  @apply border-r-4 border-red-700;
+  @apply border-r-4;
+  border-color: #E31E74;
+}
+.standings-table .table-row > div:nth-child(2) {
+  @apply !border-l-0;
 }
 
 .standings-table .table-row.highlight-team {
-  @apply bg-gray-200 text-steelgreen;
+  @apply text-steelgreen;
+  background-color: rgba(0, 156, 222, 0.05);
 }
 
 .standings-table .table-row .logo {
-  @apply mr-2 hidden;
+  @apply mx-2 hidden;
 }
 
 .standings-table .table-header > div,

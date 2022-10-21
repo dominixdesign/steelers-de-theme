@@ -28,10 +28,10 @@ if (!function_exists('tokenTruncate')) {
         <?php if (count($this->categoriesList) > 0) : ?>
         <?= implode(', ', $this->categoriesList) ?>
         <?php endif; ?>&nbsp;</div>
-      <div class="mt-1 text-xl text-steelgreen uppercase font-bold">
+      <div class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">
         <?= $this->newsHeadline ?>
       </div>
-      <p class="mt-5 text-sm text-gray-500"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
+      <p class="mt-5 text-sm text-black"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
       <div class="mt-5 flex-1 flex flex-col justify-end">
         <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
       </div>
