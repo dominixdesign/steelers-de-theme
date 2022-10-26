@@ -46,6 +46,13 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_from_date'] = array(
 	'eval'                    => array('rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'),
 	'sql'                     => "varchar(10) NOT NULL default ''"
 );
+$GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_schedule_type'] = array(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_schedule_type'],
+	'inputType'               => 'select',
+	'options'				  => array('results_fixtures','results', 'fixtures'),
+	'eval'                    => array('tl_class' => 'w50 wizard'),
+	'sql'                     => "varchar(10) NOT NULL default ''"
+);
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_to_date'] = array(
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_to_date'],
@@ -62,7 +69,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_config_json'] = array(
 );
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] = '{title_legend},name,headline,type;';
-$GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{tilastot_legend},tilastot_my_team,tilastot_from_date,tilastot_to_date;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{tilastot_legend},tilastot_my_team,tilastot_from_date,tilastot_to_date,tilastot_schedule_type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['schedule'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
 
 $GLOBALS['TL_DCA']['tl_module']['palettes']['roster'] = '{title_legend},name,headline,type;';

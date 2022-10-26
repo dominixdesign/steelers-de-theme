@@ -21,19 +21,27 @@ class ScheduleModule extends AbstractFrontendModuleController
 {
 	protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
 	{
+		$column = array('gamedate >= ? AND gamedate <= ?');
+		$array = array($model->tilastot_from_date, $model->tilastot_to_date);
+		// tilastot_schedule_type
 		if ($model->tilastot_my_team > 0) {
-			$games = Games::findAll(array(
-				'order'   => ' gamedate ASC',
-				'column'  => array('gamedate >= ? AND gamedate <= ? AND (awayteam = ? OR hometeam = ?)'),
-				'value'   => array($model->tilastot_from_date, $model->tilastot_to_date, $model->tilastot_my_team, $model->tilastot_my_team)
-			));
-		} else {
-			$games = Games::findAll(array(
-				'order'   => ' gamedate ASC',
-				'column'  => array('gamedate >= ? AND gamedate <= ?'),
-				'value'   => array($model->tilastot_from_date, $model->tilastot_to_date)
-			));
+			$column[0] .= ' AND (awayteam = ? OR hometeam = ?)';
+			array_push($array, $model->tilastot_my_team);
+			array_push($array, $model->tilastot_my_team);
 		}
+		if($model->tilastot_schedule_type === 'results') {
+			$column[0] .= ' AND gamedate <= ?';
+			array_push($array, time());
+		}
+		if($model->tilastot_schedule_type === 'fixtures') {
+			$column[0] .= ' AND gamedate >= ?';
+			array_push($array, time());
+		}
+		$games = Games::findAll(array(
+			'order'   => ' gamedate ASC',
+			'column'  => $column,
+			'value'   => $array
+		));
 
 		if (!$games) {
 			return new Response();
