@@ -20,12 +20,6 @@
       ?>
   <div class="titlerow">
     <?= Contao\Date::parse('F', $game['gamedate']); ?>
-    <?php if (!$buttonShown) : ?>
-    <div class="float-right"><a class="btn-default font-sans text-sm" href="{{env::request}}#next-game">Nächstes
-        Spiel</a></div>
-    <?php
-          $buttonShown = true;
-        endif; ?>
   </div>
   <?php
     endif;

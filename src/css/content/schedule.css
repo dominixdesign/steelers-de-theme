@@ -11,7 +11,7 @@
   pointer-events: none;
 }
 .mod_schedule .row.next-game {
-  @apply bg-slate-200;
+  background-color: rgba(0, 156, 222, 0.05);
 }
 
 @media (max-width: 1023px) {
