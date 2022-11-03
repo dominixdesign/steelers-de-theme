@@ -1,5 +1,5 @@
 h3.player-subheadline {
-  @apply text-5xl uppercase font-bold text-gray-600 font-headline mt-2;
+  @apply text-5xl uppercase font-bold text-gray-600 font-sans mt-2;
 }
 
 @supports (-webkit-text-stroke: 1px #000) {

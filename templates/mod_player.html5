@@ -6,11 +6,8 @@
 <div class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20">
   <div class="grid md:grid-cols-2 items-end -mt-[30rem]">
     <div class="mb-0 pb-0 p-5">
-
-      <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold !m-0 !text-black leading-3">
-        <?= $this->player['firstname'] ?></h3>
-      <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-steelgreen leading-3">
-        <?= $this->player['lastname'] ?></h3>
+      <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-black leading-3">
+        <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?></h3>
       <h3 class="player-subheadline leading-3"><?php
                                                 switch ($this->player['position']) {
                                                   case 'GK':
@@ -27,7 +24,7 @@
                                                     break;
                                                 }
                                                 ?></h3>
-      <div class="flex flex-col justify-end h-full pt-5 w-3/4">
+      <div class="flex flex-col justify-end h-full pt-2 w-3/4">
         <div class="text-sm uppercase">Geboren</div>
         <div class="text-lg font-bold -mt-1"><?= Date::parse('d. F Y', $this->player['birthday']) ?></div>
         <div class="text-lg font-bold -mt-1"><?= $this->player['birthplace'] ?></div>
