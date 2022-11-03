@@ -48,9 +48,6 @@
   .mod_schedule .row .game .versus {
     @apply col-span-1 font-headline text-steelgreen text-5xl text-center relative -top-3 leading-6;
   }
-  .mod_schedule .row .game .versus.not-ended {
-    @apply text-gray-500;
-  }
   .mod_schedule .row .game .versus small {
     @apply font-sans text-base inline-block uppercase;
   }
@@ -90,7 +87,7 @@
   }
 
   .mod_schedule .row .datetime {
-    @apply col-span-1 uppercase text-base leading-5;
+    @apply col-span-1 uppercase text-base leading-5 pl-0 ml-0;
   }
   .mod_schedule .row .datetime .day {
     @apply font-bold text-xl mb-1;
@@ -108,9 +105,6 @@
   }
   .mod_schedule .row .game .versus {
     @apply col-span-1 font-headline text-steelgreen text-6xl text-center relative -top-3 leading-6;
-  }
-  .mod_schedule .row .game .versus.not-ended {
-    @apply text-gray-500;
   }
   .mod_schedule .row .game .versus small {
     @apply font-sans text-base inline-block uppercase;

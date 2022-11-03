@@ -35,7 +35,7 @@ nav .grid-nav {
   font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.top-sticky-nav .level_1 > li > strong,
+.top-sticky-nav .level_1 > li > span,
 .top-sticky-nav .level_1 > li > a {
   @apply px-2 py-1 whitespace-nowrap;
   border-bottom: 5px solid transparent;
@@ -51,9 +51,9 @@ nav .grid-nav {
 .top-sticky-nav li.active > a::after,
 .main_submenu li.active > a::after,
 .top-sticky-nav li.trail > a::after,
-.top-sticky-nav li.active > strong::after,
-.main_submenu li.active > strong::after,
-.top-sticky-nav li.trail > strong::after {
+.top-sticky-nav li.active > span::after,
+.main_submenu li.active > span::after,
+.top-sticky-nav li.trail > span::after {
   @apply absolute left-0 right-0 bottom-0 h-3 bg-steelblue;
   z-index: -5;
   content: "";

@@ -1,15 +1,15 @@
 <div class="relative my-20">
   <div class="grid items-end mb-20 -mt-[32rem]" style="grid-template-columns: 1fr 1fr;">
-    <div class="lg:mb-52 p-5 pr-10">
+    <div class="lg:mb-52 p-5 pr-16 lg:pl-32">
       <h3 class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none"><?= $this->newsHeadline ?></h3>
       <p class="lg:mt-10">
         <a class="btn-default inline-block" href="<?= $this->href ?>">mehr erfahren</a>
       </p>
     </div>
-    <div class="overflow-hidden">
+    <div class="overflow-hidden" style="max-height: 75vh">
       <?php
       if ($this->addImage) :
-        echo $this->replaceInsertTags('{{image::' . $this->singleSRC . '?height=800&width=800&mode=crop&alt=' . $this->newsHeadline . '&class=object-cover%20w-full%20h-full%20aspect-square}}');
+        echo $this->replaceInsertTags('{{image::' . $this->singleSRC . '?height=800&width=800&mode=crop&alt=' . $this->newsHeadline . '&class=object-cover%20object-center%20w-full%20h-full%20aspect-square}}');
       endif;
       ?>
     </div>
