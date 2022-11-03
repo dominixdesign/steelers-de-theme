@@ -2,7 +2,7 @@
       <div class="max-w-screen-2xl mx-auto relative mt-defaultbig">
         <h3 class="block-headline headline--small z-40">News</h3>
       </div>
-      <div class="absolute overflow-hidden -z-10 w-screen h-1/2 top-0 bg-black">
+      <div class="absolute overflow-hidden -z-10 w-screen h-1/2 top-0 bg-black" style="max-width: 100%;">
         <?php
         $re = '/data-bigimage="([^"]*)"/m';
         $str = $this->articles[0];
