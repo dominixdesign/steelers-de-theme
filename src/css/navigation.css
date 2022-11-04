@@ -24,6 +24,8 @@ nav .grid-nav {
   width: 75px;
   left: var(--mouse-x);
   transform: skewX(12deg) translateX(-50%);
+  pointer-events: none;
+  z-index: 100;
 }
 
 .top-sticky-nav:hover::before {
@@ -42,10 +44,16 @@ nav .grid-nav {
 }
 
 .main_submenu {
-  @apply transition-opacity duration-300 opacity-0 pointer-events-none flex absolute top-7 py-3 bg-[#11b55c] right-0 text-white gap-2 flex-col justify-items-center justify-around isolate;
+  @apply transition-opacity duration-300 opacity-0 pointer-events-none flex absolute py-3 !px-1 bg-[#11b55c] right-0 text-white gap-1 flex-col justify-items-center justify-around isolate;
+  padding-top: 26px;
 }
-.main_submenu > li {
-  @apply whitespace-nowrap;
+.main_submenu::before {
+  @apply w-full bg-steelnav;
+  content: "";
+  height: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .top-sticky-nav li.active > a::after,
@@ -77,6 +85,9 @@ nav .grid-nav {
   .header-nav-logo .puckcolor,
   .header-nav-logo .starcolor {
     @apply fill-steelgreen;
+  }
+  .main_submenu {
+    top: 2.25rem;
   }
 }
 
@@ -118,6 +129,9 @@ nav .grid-nav {
     width: 110px;
     opacity: 1;
   }
+  .main_submenu {
+    top: 2.05rem;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -127,6 +141,9 @@ nav .grid-nav {
 
   .top-sticky-nav li > * {
     @apply px-2;
+  }
+  .main_submenu {
+    top: 2.25rem;
   }
 }
 
@@ -138,6 +155,14 @@ nav .grid-nav {
   .top-sticky-nav li > * {
     @apply px-3;
   }
+
+  .main_submenu {
+    @apply top-10;
+  }
+}
+
+.main_submenu > li {
+  @apply whitespace-nowrap text-lg text-left leading-4;
 }
 
 /* Main menu positionning */
