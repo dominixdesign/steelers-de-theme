@@ -1,16 +1,46 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
+import BlazeSlider from "blaze-slider";
 import GLightbox from "glightbox";
-import VueAgile from "vue-agile";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
-import HomeNews from "./HomeNews.vue";
 import HomeShop from "./HomeShop.vue";
 
 createApp(HomeSchedule).mount("#homeschedule");
 createApp(HomeStandings).mount("#homestandings");
-createApp(HomeNews).use(VueAgile).mount("#homenews");
 createApp(HomeShop).mount("#homeshop");
+
+//Slider
+document.querySelectorAll(".blaze-slider").forEach((el) => {
+  let config = {};
+  if (el.dataset.blazeconfig === "gallery") {
+    config = {
+      all: {
+        enableAutoplay: true,
+        autoplayInterval: 2000,
+        transitionDuration: 300,
+        slideGap: "0px",
+        slidesToShow: 6,
+      },
+      "(max-width: 1536px)": {
+        slidesToShow: 5,
+      },
+      "(max-width: 1280px)": {
+        slidesToShow: 4,
+      },
+      "(max-width: 1024px)": {
+        slidesToShow: 3,
+      },
+      "(max-width: 768px)": {
+        slidesToShow: 2,
+      },
+      "(max-width: 500px)": {
+        slidesToShow: 1,
+      },
+    };
+  }
+  new BlazeSlider(el, config);
+});
 
 //Lightbox
 const lightbox = GLightbox({

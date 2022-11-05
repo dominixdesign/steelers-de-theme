@@ -123,7 +123,6 @@ C39.875,8.926,30.949,0,19.938,0L19.938,0z"
 
 <script setup>
 import { ref, computed } from "vue";
-import { VueAgile } from "vue-agile";
 
 const shopData = window.steelers_shopdata;
 

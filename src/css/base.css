@@ -69,6 +69,13 @@ html {
   left: 4px;
 }
 
+.layout--no-header #header {
+  display: none;
+}
+.layout--no-header #container {
+  padding-top: 0 !important;
+}
+
 *::selection {
   @apply bg-steelgreen text-white;
 }
