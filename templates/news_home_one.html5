@@ -1,7 +1,9 @@
-<div class="relative my-20">
-  <div class="grid items-end mb-20 -mt-[32rem]" style="grid-template-columns: 1fr 1fr;">
-    <div class="lg:mb-52 p-5 pr-16 lg:pl-32">
-      <h3 class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none"><?= $this->newsHeadline ?></h3>
+<div class="relative mb-20">
+  <div class="grid items-end mb-20 grid-cols-1 md:grid-cols-2">
+    <div class="lg:mb-52 py-5 pr-16" style="padding-left: 3vw">
+      <h3
+        class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
+        <?= $this->newsHeadline ?></h3>
       <p class="lg:mt-10">
         <a class="btn-default inline-block" href="<?= $this->href ?>">mehr erfahren</a>
       </p>

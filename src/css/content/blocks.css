@@ -12,7 +12,7 @@
 }
 
 #main .block-headline.headline--small {
-  font-size: 12em;
+  font-size: clamp(4em, 15vw, 12em);
   line-height: 8rem;
   position: relative;
   top: -4rem;

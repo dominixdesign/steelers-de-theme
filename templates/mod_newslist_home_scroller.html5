@@ -1,5 +1,5 @@
     <div class=" relative z-10" style="margin-top: calc(150px + 4rem)">
-      <div class="max-w-screen-2xl mx-auto relative mt-defaultbig">
+      <div class="max-w-screen-2xl mx-auto relative mt-24 lg:mt-defaultbig">
         <h3 class="block-headline headline--small z-40">News</h3>
       </div>
       <div class="absolute overflow-hidden -z-10 w-screen h-1/2 top-0 bg-black" style="max-width: 100%;">
@@ -15,7 +15,7 @@
       </div>
       <div class="overflow-x-scroll w-full snap-x" id="news-scroller-home">
         <ul class="flex gap-8">
-          <li class="flex-none snap-start w-12 h-12"></li>
+          <li class="flex-none snap-start w-2 md:w-12 h-12"></li>
           <?= implode('', $this->articles) ?>
           <li class="flex-none snap-start w-12 h-12"></li>
         </ul>
