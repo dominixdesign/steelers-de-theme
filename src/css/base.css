@@ -96,7 +96,7 @@ a.email {
 }
 
 .defaultcontainer {
-  @apply max-w-screen-2xl mx-auto relative my-20 px-0 lg:px-3;
+  @apply max-w-screen-2xl mx-auto relative my-20 px-2 lg:px-3;
 }
 
 li:nth-child(0) {

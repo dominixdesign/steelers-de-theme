@@ -2,7 +2,8 @@
 <div class="defaultcontainer <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
   <div class="standings-table">
     <div class="table-header">
-      <div class="">Platz</div>
+      <div class="sm:hidden">Pl.</div>
+      <div class="hidden sm:block">Platz</div>
       <div class="!text-left col-span-5">Team</div>
       <div class="col-span-2">Spiele<br><small>(S3 | S2 | N1 | N0)</small></div>
       <div class="hidden sm:block sm:col-span-2">Tore<br><small>Differenz</small></div>
