@@ -17,6 +17,9 @@ C39.875,8.926,30.949,0,19.938,0L19.938,0z"></path>
     </a>
     <?php endif; ?>
   </div>
+  <div class="block md:hidden">
+    <p><?= $this->total ?></p>
+  </div>
   <div class="hidden md:-mt-px md:flex">
     <?php foreach ($this->pages as $page) : ?>
     <?php if (null === $page['href']) : ?>
