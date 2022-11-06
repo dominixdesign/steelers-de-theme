@@ -16,6 +16,7 @@ document.querySelectorAll(".glide-gallery").forEach((el) => {
     type: "carousel",
     gap: 20,
     rewind: false,
+    perView: 6,
     breakpoints: {
       480: {
         perView: 1,
