@@ -1,6 +1,6 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
-import BlazeSlider from "blaze-slider";
+import Glide from "@glidejs/glide";
 import GLightbox from "glightbox";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
@@ -11,36 +11,90 @@ createApp(HomeStandings).mount("#homestandings");
 createApp(HomeShop).mount("#homeshop");
 
 //Slider
-document.querySelectorAll(".blaze-slider").forEach((el) => {
-  let config = {};
-  if (el.dataset.blazeconfig === "gallery") {
-    config = {
-      all: {
-        enableAutoplay: true,
-        autoplayInterval: 2000,
-        transitionDuration: 300,
-        slideGap: "0px",
-        slidesToShow: 6,
+document.querySelectorAll(".glide-gallery").forEach((el) => {
+  new Glide(el, {
+    type: "carousel",
+    gap: 20,
+    rewind: false,
+    breakpoints: {
+      480: {
+        perView: 1,
       },
-      "(max-width: 1536px)": {
-        slidesToShow: 5,
+      768: {
+        perView: 2,
       },
-      "(max-width: 1280px)": {
-        slidesToShow: 4,
+      1024: {
+        perView: 3,
       },
-      "(max-width: 1024px)": {
-        slidesToShow: 3,
+      1280: {
+        perView: 4,
       },
-      "(max-width: 768px)": {
-        slidesToShow: 2,
+      1536: {
+        perView: 5,
       },
-      "(max-width: 500px)": {
-        slidesToShow: 1,
+      1960: {
+        perView: 6,
       },
+    },
+  }).mount();
+});
+
+var breakpoints = {};
+var elementWidth = 340;
+
+for (var i = 1920; i > 0; i -= 200 / 2) {
+  if (Math.floor(i / elementWidth) <= 1) {
+    breakpoints[i] = {
+      perView: 1,
+      peek: { before: 0, after: 0 },
+    };
+  } else {
+    breakpoints[i] = {
+      perView: Math.floor((i - 100) / elementWidth),
+      peek: { before: 0, after: Math.floor((i - 100) % elementWidth) },
     };
   }
-  new BlazeSlider(el, config);
+}
+
+document.querySelectorAll(".glide-news").forEach((el) => {
+  new Glide(el, {
+    bound: true,
+    perView: 6,
+    gap: 20,
+    peek: { before: 0, after: 110 },
+    breakpoints,
+  }).mount();
 });
+// document.querySelectorAll(".blaze-slider").forEach((el) => {
+//   let config = {};
+//   if (el.dataset.blazeconfig === "gallery") {
+//     config = {
+//       all: {
+//         enableAutoplay: true,
+//         autoplayInterval: 2000,
+//         transitionDuration: 300,
+//         slideGap: "0px",
+//         slidesToShow: 6,
+//       },
+//       "(max-width: 1536px)": {
+//         slidesToShow: 5,
+//       },
+//       "(max-width: 1280px)": {
+//         slidesToShow: 4,
+//       },
+//       "(max-width: 1024px)": {
+//         slidesToShow: 3,
+//       },
+//       "(max-width: 768px)": {
+//         slidesToShow: 2,
+//       },
+//       "(max-width: 500px)": {
+//         slidesToShow: 1,
+//       },
+//     };
+//   }
+//   new BlazeSlider(el, config);
+// });
 
 //Lightbox
 const lightbox = GLightbox({

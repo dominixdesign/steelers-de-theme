@@ -20,7 +20,7 @@
 
 @supports (-webkit-text-stroke: 3px #009cde) {
   #main .block-headline {
-    color: white;
+    color: transparent;
     -webkit-text-stroke: 3px #009cde;
     text-shadow: none;
   }
