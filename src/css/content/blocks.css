@@ -36,7 +36,7 @@
 }
 
 .big-text-block {
-  @apply max-w-screen-2xl mx-auto relative py-6 my-24 text-6xl md:text-8xl uppercase;
+  @apply max-w-screen-2xl mx-2 sm:mx-auto relative py-6 my-24 text-5xl sm:text-6xl md:text-8xl uppercase;
 }
 
 .big-text-block strong {
@@ -45,7 +45,7 @@
 }
 
 .big-text-block strong::after {
-  @apply absolute left-0 right-0 bottom-5 h-7 bg-steellightgreen;
+  @apply absolute left-0 right-0 bottom-5 h-3 sm:h-7 bg-steellightgreen;
   z-index: -5;
   content: "";
 }

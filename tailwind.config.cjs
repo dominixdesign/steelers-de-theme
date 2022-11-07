@@ -16,6 +16,14 @@ module.exports = {
       spacing: {
         defaultbig: "150px",
       },
+      width: {
+        p60: "60px",
+        p40: "40px",
+      },
+      height: {
+        p60: "60px",
+        p40: "40px",
+      },
       keyframes: {
         wiggle: {
           "70%,100%": {

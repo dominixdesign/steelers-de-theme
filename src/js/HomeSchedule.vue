@@ -1,5 +1,5 @@
 <template>
-  <div class="flex place-content-between flex-col h-full">
+  <div class="mx-2 sm:mx-0 flex place-content-between flex-col h-full">
     <h5 class="uppercase font-bold text-3xl text-center">Spiele</h5>
     <div class="grid grid-cols-12 gap-1" satyle="grid-template-rows: 1fr 1fr">
       <div class="col-span-2 self-center">
@@ -14,11 +14,10 @@
               currentIndex === 0
                 ? 'fill-slate-800 stroke-slate-800'
                 : 'fill-white stroke-white',
+              'w-[60px] h-[40px]',
             ]"
             x="0px"
             y="0px"
-            width="60px"
-            height="40px"
             viewBox="0 0 60 40"
           >
             <g>
@@ -45,7 +44,7 @@
       <div class="col-span-2 place-self-center">
         <div
           :title="currentGame.home.name"
-          class="h-20 w-20 md:h-32 md:w-32 mx-2 md:mx-6 bg-contain bg-no-repeat bg-center"
+          class="h-16 w-16 sm:h-20 sm:w-20 md:h-32 md:w-32 mx-2 md:mx-6 bg-contain bg-no-repeat bg-center"
           :style="`background-image: url(${currentGame.home.logo})`"
         ></div>
       </div>
@@ -63,7 +62,7 @@
       <div class="col-span-2 place-self-center text-center">
         <div
           :title="currentGame.away.name"
-          class="h-20 w-20 md:h-32 md:w-32 mx-2 md:mx-6 bg-contain bg-no-repeat bg-center"
+          class="h-16 w-16 sm:h-20 sm:w-20 md:h-32 md:w-32 mx-2 md:mx-6 bg-contain bg-no-repeat bg-center"
           :style="`background-image: url(${currentGame.away.logo})`"
         ></div>
       </div>
@@ -82,9 +81,8 @@
               currentIndex + 1 === allGames.length
                 ? 'fill-slate-800 stroke-slate-800'
                 : 'fill-white stroke-white',
+              'w-p60 h-p40',
             ]"
-            width="60px"
-            height="40px"
             viewBox="0 0 60 40"
           >
             <g>
