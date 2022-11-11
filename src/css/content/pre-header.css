@@ -28,7 +28,7 @@
   @apply flex flex-row gap-2;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   #preheader .ce_hyperlink {
     @apply !block;
   }
@@ -37,7 +37,7 @@
     @apply border-r border-gray-400 pr-2;
   }
 }
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   #preheader > .inside > .mod_article {
     @apply gap-2;
   }
@@ -46,7 +46,7 @@
   #preheader .preheader-right {
     @apply pr-2;
   }
-}
+} */
 @media (min-width: 1536px) {
   #preheader > .inside > .mod_article {
     @apply gap-5;

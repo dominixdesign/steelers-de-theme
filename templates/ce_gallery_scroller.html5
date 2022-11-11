@@ -6,21 +6,22 @@
     ?>
   </div>
   <h3 class="pl-5"><?= $this->headline ?></h3>
-  <div class="glide-gallery">
+  <div class="glide-gallery mx-2 md:mx-12">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         <?php
         foreach ($allPictures as $picture) :
           $file = \FilesModel::findByUuid($picture);
-          echo '<li class="glide__slide p-5 "><a href="/' . $file->path . '" class="glightbox" data-gallery="gallery' . $this->id . '">';
+          echo '<li class="glide__slide"><a href="/' . $file->path . '" class="glightbox" data-gallery="gallery' . $this->id . '">';
           echo $this->replaceInsertTags('{{image::' . $picture . '?height=375&width=300&mode=crop&alt=' . $this->headline . '&class=w-full h-full object-center object-cover}}');
           echo '</a></li>';
         endforeach;
         ?>
       </ul>
     </div>
-    <div class="pl-5 mt-9 glide__arrows" data-glide-el="controls">
-      <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><svg xmlns="http://www.w3.org/2000/svg" class="fill-black stroke-black" x="0px" y="0px" width="60px" height="40px" viewBox="0 0 60 40">
+    <div class="mt-5 flex gap-14 glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><svg xmlns="http://www.w3.org/2000/svg"
+          class="fill-black stroke-black" x="0px" y="0px" width="60px" height="40px" viewBox="0 0 60 40">
           <g>
             <line stroke-width="2" x1="62.5" y1="20.031" x2="20.5" y2="20.031"></line>
             <polygon stroke-miterlimit="10" points="21,25 15.406,20.093 21,15.06"></polygon>
@@ -29,7 +30,8 @@ S10.071,2.045,19.938,2.045 M19.938,0C8.926,0,0,8.926,0,19.938c0,11.011,8.926,19.
 C39.875,8.926,30.949,0,19.938,0L19.938,0z"></path>
           </g>
         </svg></button>
-      <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="rotate-180 fill-black stroke-black" width="60px" height="40px" viewBox="0 0 60 40">
+      <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><svg xmlns="http://www.w3.org/2000/svg"
+          x="0px" y="0px" class="rotate-180 fill-black stroke-black" width="60px" height="40px" viewBox="0 0 60 40">
           <g>
             <line fill="none" stroke-width="2" x1="62.5" y1="20.031" x2="20.5" y2="20.031"></line>
             <polygon stroke-miterlimit="10" points="21,25 15.406,20.093 21,15.06"></polygon>

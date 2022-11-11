@@ -65,3 +65,7 @@
 .home-partner .ce_hyperlink:hover {
   @apply grayscale-0 opacity-100;
 }
+
+#homeshop img {
+  @apply w-full;
+}

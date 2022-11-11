@@ -91,7 +91,7 @@ nav .grid-nav {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .top-sticky-nav li {
     @apply uppercase text-base;
   }
@@ -134,7 +134,7 @@ nav .grid-nav {
   }
 }
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .top-sticky-nav li {
     @apply uppercase text-xl;
   }
@@ -145,7 +145,7 @@ nav .grid-nav {
   .main_submenu {
     top: 2.25rem;
   }
-}
+} */
 
 @media (min-width: 1536px) {
   .top-sticky-nav li {

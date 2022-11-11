@@ -11,34 +11,6 @@ createApp(HomeStandings).mount("#homestandings");
 createApp(HomeShop).mount("#homeshop");
 
 //Slider
-document.querySelectorAll(".glide-gallery").forEach((el) => {
-  new Glide(el, {
-    type: "carousel",
-    gap: 20,
-    rewind: false,
-    perView: 6,
-    breakpoints: {
-      480: {
-        perView: 1,
-      },
-      768: {
-        perView: 2,
-      },
-      1024: {
-        perView: 3,
-      },
-      1280: {
-        perView: 4,
-      },
-      1536: {
-        perView: 5,
-      },
-      1960: {
-        perView: 6,
-      },
-    },
-  }).mount();
-});
 
 var breakpoints = {};
 var elementWidth = 340;
@@ -57,6 +29,17 @@ for (var i = 1920; i > 0; i -= 200 / 2) {
   }
 }
 
+document.querySelectorAll(".glide-gallery").forEach((el) => {
+  new Glide(el, {
+    type: "carousel",
+    gap: 20,
+    rewind: false,
+    perView: 6,
+    peek: { before: 0, after: 110 },
+    breakpoints,
+  }).mount();
+});
+
 document.querySelectorAll(".glide-news").forEach((el) => {
   new Glide(el, {
     bound: true,
@@ -66,36 +49,6 @@ document.querySelectorAll(".glide-news").forEach((el) => {
     breakpoints,
   }).mount();
 });
-// document.querySelectorAll(".blaze-slider").forEach((el) => {
-//   let config = {};
-//   if (el.dataset.blazeconfig === "gallery") {
-//     config = {
-//       all: {
-//         enableAutoplay: true,
-//         autoplayInterval: 2000,
-//         transitionDuration: 300,
-//         slideGap: "0px",
-//         slidesToShow: 6,
-//       },
-//       "(max-width: 1536px)": {
-//         slidesToShow: 5,
-//       },
-//       "(max-width: 1280px)": {
-//         slidesToShow: 4,
-//       },
-//       "(max-width: 1024px)": {
-//         slidesToShow: 3,
-//       },
-//       "(max-width: 768px)": {
-//         slidesToShow: 2,
-//       },
-//       "(max-width: 500px)": {
-//         slidesToShow: 1,
-//       },
-//     };
-//   }
-//   new BlazeSlider(el, config);
-// });
 
 //Lightbox
 const lightbox = GLightbox({
