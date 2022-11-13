@@ -4,11 +4,9 @@ import Glide from "@glidejs/glide";
 import GLightbox from "glightbox";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
-import HomeShop from "./HomeShop.vue";
 
 createApp(HomeSchedule).mount("#homeschedule");
 createApp(HomeStandings).mount("#homestandings");
-createApp(HomeShop).mount("#homeshop");
 
 //Slider
 
@@ -48,6 +46,32 @@ document.querySelectorAll(".glide-news").forEach((el) => {
     peek: { before: 0, after: 110 },
     breakpoints,
   }).mount();
+});
+
+document.querySelectorAll(".glide-shop").forEach((el) => {
+  var glide = new Glide(el, {
+    bound: true,
+    perView: 3,
+    gap: 0,
+    breakpoints: {
+      640: {
+        perView: 1,
+      },
+      769: {
+        perView: 2,
+      },
+    },
+  });
+
+  glide.on("run.after", function (e, f, g) {
+    var current = el
+      .querySelector(".glide__slide--active a")
+      .getAttribute("href");
+
+    el.querySelector(".buy-now").setAttribute("href", current);
+  });
+
+  glide.mount();
 });
 
 //Lightbox

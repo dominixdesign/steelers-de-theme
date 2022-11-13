@@ -1,6 +1,6 @@
 <?php if ($this->level == 'level_1') : ?>
 <ul
-  class="<?= $this->level ?> text-white w-full font-bold gap-2 lg:gap-0 flex-col lg:flex-row flex justify-items-center justify-between mt-8 font-headline text-2xl uppercase">
+  class="<?= $this->level ?> text-white w-full font-bold gap-2 xl:gap-0 flex-col xl:flex-row flex justify-items-center justify-between mt-8 font-headline text-2xl uppercase">
   <?php foreach ($this->items as $item) : ?>
 
   <?php if (!empty($item['subitems'])) : ?>
