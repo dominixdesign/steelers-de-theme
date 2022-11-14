@@ -1,12 +1,9 @@
 <!-- indexer::stop -->
-<div class="<?= $this->class ?> defaultcontainer form-home bg-black relative !mt-64"
-  <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
+<div class="<?= $this->class ?> defaultcontainer form-home bg-black relative !mt-32 xl:!mt-64" <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
 
-  <img src="files/steelers/layout/player_newsletter.png" class="hidden lg:block absolute bottom-0"
-    alt="STEELERS Newsletter" />
+  <img src="files/steelers/layout/player_newsletter.png" class="hidden lg:block absolute bottom-0" alt="STEELERS Newsletter" />
 
-  <form<?php if ($this->action) : ?> action="<?= $this->action ?>" <?php endif; ?> method="<?= $this->method ?>"
-    enctype="<?= $this->enctype ?>" <?= $this->attributes ?><?= $this->novalidate ?>>
+  <form<?php if ($this->action) : ?> action="<?= $this->action ?>" <?php endif; ?> method="<?= $this->method ?>" enctype="<?= $this->enctype ?>" <?= $this->attributes ?><?= $this->novalidate ?>>
     <div class="grid lg:grid-cols-2">
       <div class="formbody text-steelwhite offset lg:col-start-2 p-10">
         <p class=" uppercase text-base font-bold leading-5 pb-5 pr-5">Du möchtest alle News erhalten und Dir besondere
@@ -20,11 +17,11 @@
           bleiben.
         </p>
         <?php if ('get' != $this->method) : ?>
-        <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formSubmit ?>">
-        <input type="hidden" name="REQUEST_TOKEN" value="<?= $this->requestToken ?>">
-        <?php if ($this->maxFileSize) : ?>
-        <input type="hidden" name="MAX_FILE_SIZE" value="<?= $this->maxFileSize ?>">
-        <?php endif; ?>
+          <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formSubmit ?>">
+          <input type="hidden" name="REQUEST_TOKEN" value="<?= $this->requestToken ?>">
+          <?php if ($this->maxFileSize) : ?>
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?= $this->maxFileSize ?>">
+          <?php endif; ?>
         <?php endif; ?>
         <?= $this->hidden ?>
         <div class="formfields">

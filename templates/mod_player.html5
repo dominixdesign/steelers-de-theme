@@ -6,7 +6,7 @@
 <div class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20">
   <div class="grid md:grid-cols-2 items-end -mt-[30rem]">
     <div class="mb-0 pb-0 p-5">
-      <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-black leading-3">
+      <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-black lg:leading-3">
         <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?></h3>
       <h3 class="player-subheadline leading-3"><?php
                                                 switch ($this->player['position']) {
@@ -64,30 +64,30 @@
     </div>
   </div>
   <?php if ($this->player['warmuppartner']) : ?>
-  <div class="sm:w-4/5 mx-auto relative mb-10 mt-20 text-center">
-    <div class="text-sm uppercase">Warm-Up Partner von <?= $this->player['firstname'] ?>
-      <?= $this->player['lastname'] ?></div>
-    <div class="text-lg font-bold -mt-1"><?= $this->player['warmuppartner'] ?></div>
-  </div>
+    <div class="sm:w-4/5 mx-auto relative mb-10 mt-20 text-center">
+      <div class="text-sm uppercase">Warm-Up Partner von <?= $this->player['firstname'] ?>
+        <?= $this->player['lastname'] ?></div>
+      <div class="text-lg font-bold -mt-1"><?= $this->player['warmuppartner'] ?></div>
+    </div>
   <?php endif; ?>
   <?php if ($this->player['about']) : ?>
-  <div class="sm:w-4/5 mx-auto relative my-20">
-    <div class="grid grid-cols-2 items-start gap-8">
-      <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
-        <?php if ($this->player['profilePic']) :  ?>
-        <?= $this->replaceInsertTags('{{image::' . $this->player['profilePic']['path'] . '?width=450&height=450&mode=crop&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full}}'); ?>
-        <?php endif; ?>
-      </div>
-      <div class="pt-10">
-        <h4 class=" text-2xl font-sans text-black uppercase font-bold">Über <?= $this->player['firstname'] ?>
-          <?= $this->player['lastname'] ?>
-        </h4>
-        <p class="mt-2 leading-relaxed">
-          <?= $this->player['about'] ?>
-        </p>
+    <div class="sm:w-4/5 mx-auto relative my-20">
+      <div class="grid grid-cols-2 items-start gap-8">
+        <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
+          <?php if ($this->player['profilePic']) :  ?>
+            <?= $this->replaceInsertTags('{{image::' . $this->player['profilePic']['path'] . '?width=450&height=450&mode=crop&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full}}'); ?>
+          <?php endif; ?>
+        </div>
+        <div class="pt-10">
+          <h4 class=" text-2xl font-sans text-black uppercase font-bold">Über <?= $this->player['firstname'] ?>
+            <?= $this->player['lastname'] ?>
+          </h4>
+          <p class="mt-2 leading-relaxed">
+            <?= $this->player['about'] ?>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
   <?php endif; ?>
   <div class="mt-28">
     <h3 class="text-steelgreen font-bold text-5xl uppercase font-headline">Aktuelle Saison</h3>
