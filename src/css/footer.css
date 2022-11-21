@@ -1,38 +1,51 @@
-.steelers-footer {
-  @apply mt-5 bg-steelgreen text-steelwhite py-10 px-20;
+#footer {
+  @apply mt-5 bg-black text-steelwhite py-10 px-20;
 }
 
 .footer-container {
   @apply max-w-screen-2xl mx-auto relative px-0 lg:px-3;
 }
 
-.steelers-footer .top {
+#footer .top {
   @apply flex items-center flex-wrap place-content-center;
 }
 
-.steelers-footer .top > div {
-  @apply flex-shrink;
+#footer .top > div {
+  @apply flex-shrink uppercase text-base;
 }
-.steelers-footer .top > div:first-child {
-  @apply flex-grow basis-full justify-self-center;
+#footer .top > div:nth-child(2),
+#footer .top > div:nth-child(3) {
+  @apply flex-grow basis-full justify-self-center text-center my-6;
 }
-.steelers-footer .top .ce_image .image_container {
+
+#footer .top > div:nth-child(3) a {
+  @apply block my-4;
+}
+
+#footer .top .ce_image .image_container {
   @apply w-32;
   margin: 1rem auto;
 }
 
-@media (min-width: 768px) {
-  .steelers-footer .top {
+@media (min-width: 1280px) {
+  #footer .top {
     @apply flex-nowrap;
   }
-  .steelers-footer .top > div:first-child {
-    @apply basis-auto justify-self-auto m-0 mt-4;
+  #footer .top > div:nth-child(2),
+  #footer .top > div:nth-child(3) {
+    @apply inline-block basis-auto justify-self-auto m-0 ml-10 text-left;
   }
-  .steelers-footer .top .ce_image .image_container {
+  #footer .top > div:nth-child(3) a {
+    @apply inline-block ml-10;
+  }
+  #footer .top > div:nth-child(3) {
+    @apply mr-10 text-right;
+  }
+  #footer .top .ce_image .image_container {
     @apply w-32 m-0 mb-4;
   }
 }
 
-.steelers-footer .ce_hyperlink {
-  @apply px-2 fill-white invert pb-4;
+#footer .ce_hyperlink {
+  @apply px-2 fill-white invert;
 }
