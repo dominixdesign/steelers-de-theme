@@ -1,0 +1,30 @@
+<div class="<?= $this->class ?> defaultcontainer mb-8">
+  <?php $this->block('headline'); ?>
+  <?php if ($this->headline) : ?>
+  <<?= $this->hl ?> class="text-5xl"><?= $this->headline ?></<?= $this->hl ?>>
+  <?php endif; ?>
+  <?php $this->endblock(); ?>
+
+  <div class="!my-32 max-w-5xl mx-auto">
+    <?php $this->block('content'); ?>
+
+    <?php if (!$this->addBefore) : ?>
+    <?= $this->text ?>
+    <?php endif; ?>
+
+    <?php if ($this->addImage) : ?>
+    <?php $this->insert('image', $this->arrData); ?>
+    <?php endif; ?>
+
+    <?php if ($this->addBefore) : ?>
+    <?= $this->text ?>
+    <?php endif; ?>
+
+    <?php if ($this->url && $this->linkTitle) : ?>
+    <p class="mt-5">
+      <a href="<?= $this->url ?>" class="btn-default"
+        <?= $this->target === '1' ? 'target="_blank"' : '' ?>><?= $this->linkTitle ?></a>
+    </p>
+    <?php endif; ?>
+  </div>
+</div>
