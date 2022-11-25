@@ -1,5 +1,5 @@
 <div class="<?= $this->class ?> defaultcontainer">
-  <div class="grid px-2 md:p-0 md:grid-cols-2 items-start gap-8">
+  <div class="grid md:p-0 md:grid-cols-2 items-start gap-8">
     <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
       <?php if ($this->addImage) :  ?>
       <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">

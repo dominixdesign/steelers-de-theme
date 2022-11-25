@@ -5,6 +5,10 @@
 #header-del-logo {
   @apply relative z-50;
 }
+#header-del-logo img {
+  height: 40px !important;
+  width: auto !important;
+}
 
 #preheader .ce_hyperlink:not(#header-del-logo) {
   @apply uppercase font-medium text-xs lg:text-sm hidden;
@@ -65,11 +69,6 @@
   }
 }
 
-#header-del-logo img {
-  height: 47px !important;
-  width: auto !important;
-}
-
 @media (min-width: 1024px) {
   .preheader-links > span {
     @apply hidden;
@@ -77,6 +76,10 @@
 
   .preheader-links-inner {
     @apply flex flex-row gap-3;
+  }
+  #header-del-logo img {
+    height: 47px !important;
+    width: auto !important;
   }
 }
 

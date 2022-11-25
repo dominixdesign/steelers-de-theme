@@ -1,9 +1,10 @@
 <?php $this->block('content'); ?>
-<div class="defaultcontainer tilastot-roster <?= $this->cssClass ?>"
+<div class="defaultcontainer tilastot-roster !mt-4 md:!mt-20 <?= $this->cssClass ?>"
   <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
 
   <?php foreach ($this->players as $position => $posPlayers) : ?>
-  <h4 class="uppercase text-5xl font-headline w-full border-b border-gray-800 p-4 mb-4">
+  <h4
+    class="uppercase text-4xl md:text-5xl font-headline w-full border-b border-gray-800 p-4 pl-0 mb-4 mt-16 md:mt-28 first:mt-0">
     <?php
       switch ($position) {
         case '0G':
@@ -19,7 +20,7 @@
       ?>
   </h4>
 
-  <ul role="list" class="mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <ul role="list" class="mb-16 md:mb-24 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <?php if (is_array($posPlayers)) : ?>
     <?php foreach ($posPlayers as $player) : ?>
     <li class="bg-white shadow group">
@@ -70,7 +71,7 @@
         <div>
           <div class="p-5 uppercase">
             <div class="text-2xl"><?= $player['firstname'] ?></div>
-            <div class="-mt-2 text-steelgreen text-4xl font-bold"><?= $player['lastname'] ?></div>
+            <div class="-mt-2 text-steelgreen text-3xl md:text-4xl font-bold"><?= $player['lastname'] ?></div>
           </div>
         </div>
       </a>

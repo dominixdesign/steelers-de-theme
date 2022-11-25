@@ -17,7 +17,7 @@ for (var i = 1920; i > 0; i -= 200 / 2) {
   if (Math.floor(i / elementWidth) <= 1) {
     breakpoints[i] = {
       perView: 1,
-      peek: { before: 0, after: 0 },
+      peek: { before: 0, after: 100 },
     };
   } else {
     breakpoints[i] = {

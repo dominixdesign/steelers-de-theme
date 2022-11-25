@@ -1,5 +1,5 @@
 <!-- indexer::stop -->
-<nav class="<?= $this->class ?> top-sticky-nav bg-steelnav hidden md:block"
+<nav class="<?= $this->class ?> top-sticky-nav bg-steelnav hidden lg:block"
   <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
 
   <a href="<?= $this->request ?>#<?= $this->skipId ?>" class="hidden"><?= $this->skipNavigation ?></a>

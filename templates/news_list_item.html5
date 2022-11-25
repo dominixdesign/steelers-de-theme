@@ -14,11 +14,11 @@ if (!function_exists('tokenTruncate')) {
       }
     }
 
-    return implode(array_slice($parts, 0, $last_part));
+    return trim(implode(array_slice($parts, 0, $last_part)));
   }
 }
 ?>
-<div class="group relative bg-white border border-gray-200 flex flex-col overflow-hidden">
+<div class="group relative bg-white border border-gray-200 mx-4 flex flex-col overflow-hidden">
   <div class="flex flex-col bg-white h-full">
     <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
       <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=370&width=296&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news w-full}}'); ?>
@@ -28,15 +28,17 @@ if (!function_exists('tokenTruncate')) {
         <?php if (count($this->categoriesList) > 0) : ?>
         <?= implode(', ', $this->categoriesList) ?>
         <?php endif; ?>&nbsp;</div>
-      <div class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">
-        <?= $this->newsHeadline ?>
-      </div>
-      <p class="mt-5 text-sm text-black"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
-      <div class="mt-5 flex-1 flex flex-col justify-end">
-        <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
-      </div>
+
+      <?php
+      echo '<div class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">';
+      echo trim($this->newsHeadline) ?>
+    </div>
+    <p class="mt-5 text-sm text-black"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
+    <div class="mt-5 flex-1 flex flex-col justify-end">
+      <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
     </div>
   </div>
+</div>
 </div>
 <?php
 

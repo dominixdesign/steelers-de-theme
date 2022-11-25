@@ -1,11 +1,11 @@
 <div class="<?= $this->class ?> defaultcontainer mb-8">
   <?php $this->block('headline'); ?>
   <?php if ($this->headline) : ?>
-  <<?= $this->hl ?> class="text-5xl"><?= $this->headline ?></<?= $this->hl ?>>
+  <<?= $this->hl ?> class="text-4xl md:text-5xl"><?= $this->headline ?></<?= $this->hl ?>>
   <?php endif; ?>
   <?php $this->endblock(); ?>
 
-  <div class="!my-32 max-w-5xl mx-auto">
+  <div class="!my-8 md:!my-32 max-w-5xl mx-auto">
     <?php $this->block('content'); ?>
 
     <?php if (!$this->addBefore) : ?>

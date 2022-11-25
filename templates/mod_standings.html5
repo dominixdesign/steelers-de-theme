@@ -1,5 +1,6 @@
 <?php $this->block('content'); ?>
-<div class="defaultcontainer <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
+<div class="defaultcontainer !mt-8 md:!mt-20 <?= $this->cssClass ?>"
+  <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
   <div class="standings-table">
     <div class="table-header">
       <div class="sm:hidden">Pl.</div>

@@ -26,16 +26,23 @@ if (!function_exists('tokenTruncate')) {
     <div class="p-5 grow flex flex-col">
       <div class="font-bold uppercase">
         <?php if (count($this->categoriesList) > 0) : ?>
-          <?= implode(', ', $this->categoriesList) ?>
-          <?php endif; ?>&nbsp;</div>
-      <div class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6 whitespace-pre-wrap">
-        <?= $this->newsHeadline ?>
-      </div>
-      <p class="mt-5 text-sm text-black whitespace-pre-wrap"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;
-      </p>
-      <div class="mt-5 flex-1 flex flex-col justify-end">
-        <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
-      </div>
+        <?= implode(', ', $this->categoriesList) ?>
+        <?php endif; ?>&nbsp;</div>
+
+      <?php
+      // needs to be done like that to avoid empty space at the beginning
+      echo '<div class="mt-1 text-lg md:text-xl text-steelgreen uppercase font-bold leading-5 md:leading-6 whitespace-pre-wrap">';
+      echo trim($this->newsHeadline) ?>
     </div>
+
+    <?php
+    // needs to be done like that to avoid empty space at the beginning
+    echo '<p class="mt-3 md:mt-5 text-sm text-black whitespace-pre-wrap">';
+    echo tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;
+    </p>
+    <div class="mt-2 md:mt-5 flex-1 flex flex-col justify-start">
+      <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
+    </div>
+  </div>
   </div>
 </li>

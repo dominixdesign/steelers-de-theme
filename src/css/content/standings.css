@@ -3,7 +3,7 @@
 }
 
 .standings-table {
-  @apply w-full grid grid-cols-1 divide-y-2 divide-black;
+  @apply w-full grid grid-cols-1 divide-y-2 divide-black text-xs;
 }
 
 .standings-table .table-header,
@@ -26,7 +26,7 @@
 }
 .standings-table .table-row:nth-child(n + 15) > div:nth-child(1) {
   @apply border-r-4;
-  border-color: #E31E74;
+  border-color: #e31e74;
 }
 .standings-table .table-row > div:nth-child(2) {
   @apply !border-l-0;
@@ -47,6 +47,9 @@
 }
 
 @media (min-width: 768px) {
+  .standings-table {
+    @apply text-base;
+  }
   .standings-table small {
     @apply inline;
     font-size: 87.5%;

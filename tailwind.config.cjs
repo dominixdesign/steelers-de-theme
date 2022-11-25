@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         steelwhite: "#eef0eb",
-        steelnav: "#009a44",
+        steelnav: "#10b75a",
         steelgreen: "#10b75a",
         steelblue: "#009cde",
         steellightgreen: "#10b75a",

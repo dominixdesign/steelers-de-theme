@@ -4,4 +4,5 @@
   <?php if ($this->headline) : ?>
   <h3 title="<?= $this->headline ?>"><?= $this->headline ?></h3>
   <?php endif; ?>
-  <div class="inside grid <?= strlen($this->class) > 15 ? $this->class : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16' ?>">
+  <div
+    class="inside grid <?= strlen($this->class) > 15 ? $this->class : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16' ?>">

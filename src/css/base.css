@@ -36,9 +36,14 @@ html {
 
 .btn-default {
   @apply bg-steelgreen text-white py-2 px-4 relative transition-all scale-100 inline-block uppercase shadow-none;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
 }
 
+@media (min-width: 1024px) {
+  .btn-default {
+    letter-spacing: 0.15rem;
+  }
+}
 .btn-default:hover {
   @apply scale-105 shadow-lg;
 }
