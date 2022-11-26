@@ -29,7 +29,7 @@
   <?php if ($item['isActive']) : ?>
   <li class="active"><strong><?= $item['link'] ?></strong></li>
   <?php else : ?>
-  <li class="<?= $item['class'] ?> hover:bg-steelgreen"><a href="<?= $item['href'] ?: './' ?>"
+  <li class="<?= $item['class'] ?> hover:bg-steelblue"><a href="<?= $item['href'] ?: './' ?>"
       class="py-1 whitespace-nowrap block" title="<?= $item['pageTitle'] ?: $item['title'] ?>"
       <?php if ('' !== $item['accesskey']) : ?> accesskey="<?= $item['accesskey'] ?>"
       <?php endif; ?><?php if ($item['tabindex']) : ?> tabindex="<?= $item['tabindex'] ?>"
