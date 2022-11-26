@@ -71,7 +71,8 @@
         <div>
           <div class="p-5 uppercase">
             <div class="text-2xl"><?= $player['firstname'] ?></div>
-            <div class="-mt-2 text-steelgreen text-3xl md:text-4xl font-bold"><?= $player['lastname'] ?></div>
+            <div class="-mt-2 text-steelgreen text-3xl md:text-4xl font-bold overflow-ellipsis overflow-hidden">
+              <?= $player['lastname'] ?></div>
           </div>
         </div>
       </a>
