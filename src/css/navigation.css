@@ -51,6 +51,11 @@ nav .grid-nav {
 .main_submenu > li {
   @apply py-1;
 }
+
+.top-sticky-nav li:last-child .main_submenu {
+  @apply right-0 left-auto;
+}
+
 .main_submenu::before {
   @apply w-full bg-steelnav;
   content: "";
