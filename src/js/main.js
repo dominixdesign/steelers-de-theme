@@ -37,6 +37,14 @@ document.querySelectorAll(".glide-gallery").forEach((el) => {
     breakpoints,
   }).mount();
 });
+document.querySelectorAll(".glide-home").forEach((el) => {
+  new Glide(el, {
+    type: "carousel",
+    gap: 20,
+    rewind: false,
+    perView: 1,
+  }).mount();
+});
 
 document.querySelectorAll(".glide-news").forEach((el) => {
   new Glide(el, {

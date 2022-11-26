@@ -1,0 +1,19 @@
+<li class="relative">
+  <div class="grid items-end grid-cols-1 md:grid-cols-2">
+    <div class="lg:mb-52 py-5 pr-16" style="padding-left: 3vw">
+      <h3
+        class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none whitespace-pre-wrap">
+        <?= $this->headline ?></h3>
+      <p class="lg:mt-10">
+        <a class="btn-default inline-block" href="<?= $this->href ?>"><?= $this->linkTitle ?></a>
+      </p>
+    </div>
+    <div class="overflow-hidden" style="max-height: 70vh">
+      <?php
+      if ($this->addImage) :
+        echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=800&width=800&mode=crop&alt=' . $this->headline . '&class=object-cover%20object-center%20w-full%20h-full%20aspect-square}}');
+      endif;
+      ?>
+    </div>
+  </div>
+</li>
