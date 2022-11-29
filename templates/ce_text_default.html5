@@ -2,21 +2,20 @@
   <div class="grid md:p-0 md:grid-cols-2 items-start gap-8">
     <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
       <?php if ($this->addImage) :  ?>
-      <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
-        <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?width=800&height=450&mode=crop&alt=' . $this->headline . '&class=aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full}}'); ?>
-      </a>
+        <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
+          <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?width=800&height=450&mode=crop&alt=' . $this->headline . '&class=aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full}}'); ?>
+        </a>
       <?php endif; ?>
     </div>
     <div class="md:pt-10 flex flex-col items-start">
       <h4 class="text-2xl text-black font-sans uppercase font-bold !mt-0"><?= $this->headline ?></h4>
-      <p class="mt-2 leading-relaxed">
+      <p class="mt-2 leading-relaxed prose">
         <?= $this->text ?>
       </p>
       <?php if ($this->url && $this->linkTitle) : ?>
-      <p class="mt-5">
-        <a href="<?= $this->url ?>" class="btn-default"
-          <?= $this->target === '1' ? 'target="_blank"' : '' ?>><?= $this->linkTitle ?></a>
-      </p>
+        <p class="mt-5">
+          <a href="<?= $this->url ?>" class="btn-default" <?= $this->target === '1' ? 'target="_blank"' : '' ?>><?= $this->linkTitle ?></a>
+        </p>
       <?php endif; ?>
     </div>
   </div>
