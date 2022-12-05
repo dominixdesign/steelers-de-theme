@@ -40,6 +40,7 @@ document.querySelectorAll(".glide-gallery").forEach((el) => {
 document.querySelectorAll(".glide-home").forEach((el) => {
   new Glide(el, {
     type: "carousel",
+    autoplay: 3500,
     gap: 20,
     rewind: false,
     perView: 1,
