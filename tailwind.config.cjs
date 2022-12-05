@@ -10,6 +10,24 @@ module.exports = {
         steelblue: "#009cde",
         steellightgreen: "#10b75a",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              color: 'var(--tw-prose-body)',
+              '&:hover': {
+                color: '#10b75a',
+              },
+            },
+            'a.email': {
+              color: 'var(--tw-prose-body)',
+              '&:hover': {
+                color: '#10b75a',
+              },
+            },
+          },
+        },
+      },
       aspectRatio: {
         news: "4 / 5",
       },
