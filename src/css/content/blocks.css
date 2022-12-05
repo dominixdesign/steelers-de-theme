@@ -45,7 +45,7 @@
 }
 
 .big-text-block {
-  @apply max-w-screen-2xl mx-2 sm:mx-auto relative pt-6 mt-16 text-5xl sm:text-6xl md:text-8xl uppercase;
+  @apply max-w-screen-2xl mx-2 sm:mx-auto relative pt-6 mt-16 text-5xl sm:text-6xl md:text-8xl uppercase isolate;
 }
 
 .big-text-block strong {
