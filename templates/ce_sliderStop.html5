@@ -1,6 +1,6 @@
 </ul>
 </div>
-<div class="mt-5 mx-2 md:mx-12 flex flex-col md:flex-row md:justify-between">
+<div class="mt-5 mx-2 md:mx-12 flex flex-col md:flex-row md:justify-between lg:absolute top-0 lg:top-[32rem]">
   <div class="flex gap-14 glide__arrows" data-glide-el="controls">
     <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><svg xmlns="http://www.w3.org/2000/svg"
         class="fill-black stroke-black" x="0px" y="0px" width="60px" height="40px" viewBox="0 0 60 40">
