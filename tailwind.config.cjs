@@ -77,7 +77,7 @@ module.exports = {
           "sans-serif",
         ],
         headlineItalic: [
-          "WhyteSuperItalic",
+          "WhyteItalic",
           "Lucida Sans Unicode",
           "Geneva",
           "Verdana",

@@ -1,13 +1,13 @@
 <div class="<?= $this->class ?> mt-24">
-  <div class="max-w-screen-2xl mx-auto relative py-4 md:py-4 sm:my-16 md:my-24 xl:my-36 z-40">
+  <div class="max-w-screen-2xl mx-auto relative py-4 md:py-4 sm:my-16 md:my-24 xl:my-32 z-40">
     <h2 class="block-headline w-full invisible lg:visible md:w-auto text-right md:text-left">#<?= $this->player['jersey']; ?></h2>
   </div>
 </div>
 <div class="<?= $this->class ?> defaultcontainer max-w-screen-2xl mx-auto relative my-20">
   <div class="grid md:grid-cols-2 items-end -mt-[24rem] md:-mt-[30rem]">
-    <div class="mb-0 pb-0 p-5">
+    <div class="mb-0 pb-0 xl:p-5">
       <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-black">
-        <span class="block lg:hidden font-headline player-number mt-8">#<?= $this->player['jersey']; ?></span>
+        <span class="block lg:hidden font-headlineItalic player-number mt-20">#<?= $this->player['jersey']; ?></span>
         <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?><br><span class="player-subheadline"><?php
                                                 switch ($this->player['position']) {
                                                   case 'GK':
@@ -55,7 +55,7 @@
         <div class="text-lg font-bold -mt-1"><?= $this->player['steelersince'] ?></div>
       </div>
     </div>
-    <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden mt-8">
+    <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
       <?php
       if ($this->player['pictures'][1]) :
         echo $this->replaceInsertTags('{{image::' . $this->player['pictures'][1]['path'] . '?height=768&width=768&mode=box&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');

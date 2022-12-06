@@ -10,6 +10,7 @@ span.player-subheadline {
   }
   span.player-number {
     color: transparent;
+    font-size: clamp(5rem,15vw,16rem);
     -webkit-text-stroke: 1px #009cde;
     text-shadow: none;
   }
