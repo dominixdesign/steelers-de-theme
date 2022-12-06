@@ -2,9 +2,9 @@
 $ogimage = $this->getImage($this->urlEncode($this->singleSRC), 600, 315, 'crop');
 $GLOBALS['og:image'] = $this->Environment->base . $ogimage;
 ?>
-<div class="relative mb-20">
+<div class="relative mb-20 md:-mt-[29rem] lg:-mt-[26rem] xl:-mt-[32rem]">
   <div class="grid items-end grid-cols-1 md:grid-cols-2">
-    <div class="lg:mb-52 py-5 pr-16" style="padding-left: 3vw">
+    <div class="xl:mb-32 2xl:mb-48 py-5 pr-16" style="padding-left: 3vw">
       <h3
         class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
         <?= $this->newsHeadline ?></h3>
