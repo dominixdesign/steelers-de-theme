@@ -3,11 +3,11 @@
     <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
       <?php if ($this->addImage) :  ?>
         <?php
-          $image = $this->getImage($this->urlEncode($this->arrData['singleSRC']), 800, 450, 'crop');
+          $image = $this->getImage($this->urlEncode($this->arrData['singleSRC']), 800, 800, 'box');
           $imageUrl = $this->Environment->base . $image;
         ?>
         <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
-          <img src="<?= $imageUrl; ?>" class="aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full" />
+          <img src="<?= $imageUrl; ?>" alt="<?= $this->headline ?>" />
         </a>
       <?php endif; ?>
     </div>
