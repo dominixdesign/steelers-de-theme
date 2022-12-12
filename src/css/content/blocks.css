@@ -7,7 +7,7 @@
   text-shadow: 1px 1px white, -1px -1px white;
   max-width: 100%;
   overflow-x: clip;
-  padding: 0 10px 0 10px;
+  padding: 0 0.5rem 0 0.5rem;
 }
 
 #main .block-headline.headline--small {
@@ -45,7 +45,7 @@
 }
 
 .big-text-block {
-  @apply max-w-screen-2xl mx-2 sm:mx-auto relative pt-6 mt-16 text-5xl sm:text-6xl md:text-8xl uppercase isolate;
+  @apply max-w-screen-2xl mx-2 sm:mx-auto relative pt-6 mt-8 text-5xl sm:text-6xl md:text-8xl uppercase isolate;
 }
 
 .big-text-block strong {

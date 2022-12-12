@@ -4,7 +4,7 @@
 
   <?php foreach ($this->players as $position => $posPlayers) : ?>
   <h4
-    class="uppercase text-4xl md:text-5xl font-headline w-full border-b border-gray-800 p-4 pl-0 mb-4 mt-16 md:mt-28 first:mt-0">
+    class="uppercase text-4xl md:text-5xl font-headline w-full border-b-4  border-gray-800 p-4 pl-0 mb-6 mt-16 md:mt-28 first:mt-0">
     <?php
       switch ($position) {
         case '0G':

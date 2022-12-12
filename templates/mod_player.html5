@@ -1,6 +1,7 @@
 <div class="<?= $this->class ?> mt-24">
   <div class="max-w-screen-2xl mx-auto relative py-4 md:py-4 sm:my-16 md:my-24 xl:my-32 z-40">
-    <h2 class="block-headline w-full invisible lg:visible md:w-auto text-right md:text-left">#<?= $this->player['jersey']; ?></h2>
+    <h2 class="block-headline w-full invisible lg:visible md:w-auto text-right md:text-left">
+      #<?= $this->player['jersey']; ?></h2>
   </div>
 </div>
 <div class="<?= $this->class ?> defaultcontainer max-w-screen-2xl mx-auto relative my-20">
@@ -8,22 +9,24 @@
     <div class="mb-0 pb-0 xl:p-5">
       <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-black">
         <span class="block lg:hidden font-headlineItalic player-number mt-20">#<?= $this->player['jersey']; ?></span>
-        <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?><br><span class="player-subheadline"><?php
-                                                switch ($this->player['position']) {
-                                                  case 'GK':
-                                                    echo "Goalie";
-                                                    break;
-                                                  case 'DE':
-                                                    echo "Verteidiger";
-                                                    break;
-                                                  case 'FO':
-                                                  case 'LW':
-                                                  case 'CE':
-                                                  case 'RW':
-                                                    echo "Stürmer";
-                                                    break;
-                                                }
-                                                ?></span></h3>
+        <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?><br><span
+          class="player-subheadline"><?php
+                                                                                                                switch ($this->player['position']) {
+                                                                                                                  case 'GK':
+                                                                                                                    echo "Goalie";
+                                                                                                                    break;
+                                                                                                                  case 'DE':
+                                                                                                                    echo "Verteidiger";
+                                                                                                                    break;
+                                                                                                                  case 'FO':
+                                                                                                                  case 'LW':
+                                                                                                                  case 'CE':
+                                                                                                                  case 'RW':
+                                                                                                                    echo "Stürmer";
+                                                                                                                    break;
+                                                                                                                }
+                                                                                                                ?></span>
+      </h3>
       <div class="flex flex-col justify-end h-full pt-2 w-3/4">
         <div class="text-sm uppercase">Geboren</div>
         <div class="text-lg font-bold -mt-1"><?= Date::parse('d. F Y', $this->player['birthday']) ?></div>
@@ -55,7 +58,7 @@
         <div class="text-lg font-bold -mt-1"><?= $this->player['steelersince'] ?></div>
       </div>
     </div>
-    <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
+    <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden max-[600px]:mt-8">
       <?php
       if ($this->player['pictures'][1]) :
         echo $this->replaceInsertTags('{{image::' . $this->player['pictures'][1]['path'] . '?height=768&width=768&mode=box&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
@@ -64,37 +67,38 @@
     </div>
   </div>
   <?php if ($this->player['warmuppartner']) : ?>
-    <div class="sm:w-4/5 mx-auto relative mb-10 mt-20 text-center">
-      <div class="text-sm uppercase">Warm-Up Partner von <?= $this->player['firstname'] ?>
-        <?= $this->player['lastname'] ?></div>
-      <div class="text-lg font-bold -mt-1"><?= $this->player['warmuppartner'] ?></div>
-    </div>
+  <div class="sm:w-4/5 mx-auto relative mb-10 mt-8 lg:mt-20 text-center">
+    <div class="text-sm uppercase">Warm-Up Partner von <?= $this->player['firstname'] ?>
+      <?= $this->player['lastname'] ?></div>
+    <div class="text-lg font-bold -mt-1"><?= $this->player['warmuppartner'] ?></div>
+  </div>
   <?php endif; ?>
   <?php if ($this->player['about']) : ?>
 
 
-    <div class="sm:w-4/5 mx-auto relative my-20">
-      <div class="grid md:p-0 md:grid-cols-2 items-start gap-8">
-        <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
-          <?php if ($this->player['profilePic']) :  ?>
-            <?php
+  <div class="sm:w-4/5 mx-auto relative my-20">
+    <div class="grid md:p-0 md:grid-cols-2 items-start gap-8">
+      <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
+        <?php if ($this->player['profilePic']) :  ?>
+        <?php
             $image = $this->getImage($this->urlEncode($this->player['profilePic']['path']), 450, 450, 'crop');
             $imageUrl = $this->Environment->base . $image;
             ?>
-            <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
-              <img src="<?= $imageUrl; ?>" alt="<?= $this->player['firstname'] . ' ' . $this->player['lastname']; ?>" class="aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full" />
-            </a>
-          <?php endif; ?>
-        </div>
-        <div class="md:pt-10 flex flex-col items-start">
-          <h4 class="text-2xl text-black font-sans uppercase font-bold !mt-0">Über <?= $this->player['firstname'] ?>
-            <?= $this->player['lastname'] ?></h4>
-          <p class="mt-2 leading-relaxed prose">
-            <?= $this->player['about'] ?>
-          </p>
-        </div>
+        <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
+          <img src="<?= $imageUrl; ?>" alt="<?= $this->player['firstname'] . ' ' . $this->player['lastname']; ?>"
+            class="aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full" />
+        </a>
+        <?php endif; ?>
+      </div>
+      <div class="md:pt-10 flex flex-col items-start">
+        <h4 class="text-2xl text-black font-sans uppercase font-bold !mt-0">Über <?= $this->player['firstname'] ?>
+          <?= $this->player['lastname'] ?></h4>
+        <p class="mt-2 leading-relaxed prose">
+          <?= $this->player['about'] ?>
+        </p>
       </div>
     </div>
+  </div>
 
   <?php endif; ?>
   <div class="mt-28">

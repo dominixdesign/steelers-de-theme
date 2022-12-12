@@ -1,5 +1,5 @@
-<div class="<?= $this->class ?> mt-24">
-  <div class="max-w-screen-2xl mx-auto relative py-4 my-32 z-40">
+<div class="<?= $this->class ?>">
+  <div class="max-w-screen-2xl mx-auto relative pt-4 md:py-4 sm:my-16 md:my-24 xl:my-36 z-40">
     <h2 class="block-headline"><?php
                                 $title = $this->replaceInsertTags('{{article_title::{{page::alias}}}}');
                                 if (!$title) {
@@ -9,19 +9,21 @@
                                 ?></h2>
   </div>
 </div>
-<div class="<?= $this->class ?> max-w-screen-2xl mx-auto relative my-20">
-  <div class="grid md:grid-cols-2 items-end -mt-[32rem]">
-    <div class="mb-20 p-5 order-last md:order-first">
+<div class="<?= $this->class ?> relative mb-20 md:-mt-[29rem] lg:-mt-[26rem] xl:-mt-[32rem]">
+  <div class="grid items-end grid-cols-1 md:grid-cols-2 defaultcontainer">
+    <div class="xl:mb-20 py-5 lg:pr-16">
 
-      <h3 class="text-5xl text-black uppercase font-sans font-bold"><?= $this->headline ?></h3>
+      <h3
+        class="text-3xl lg:text-4xl xl:text-5xl !mt-4 lg:!mt-8 uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
+        <?= $this->headline ?></h3>
       <p class="mt-2 text-lg font-bold">
         <?= strip_tags($this->text) ?>
       </p>
     </div>
-    <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden">
+    <div class="overflow-hidden xl:mx-2">
       <?php
       if ($this->addImage) :
-        echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=768&width=768&mode=box&alt=' . $this->headline . '&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
+        echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=768&width=768&mode=crop&alt=' . $this->headline . '&class=aspect-square}}');
       endif;
       ?>
     </div>

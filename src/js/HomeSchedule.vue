@@ -14,7 +14,7 @@
               currentIndex === 0
                 ? 'fill-slate-800 stroke-slate-800'
                 : 'fill-white stroke-white',
-              'w-[60px] h-[40px]',
+              'w-[51px] h-[34px] xl:w-[60px] xl:h-[40px]',
             ]"
             x="0px"
             y="0px"
@@ -81,7 +81,7 @@
               currentIndex + 1 === allGames.length
                 ? 'fill-slate-800 stroke-slate-800'
                 : 'fill-white stroke-white',
-              'w-p60 h-p40',
+              'w-[51px] h-[34px] xl:w-[60px] xl:h-[40px]',
             ]"
             viewBox="0 0 60 40"
           >

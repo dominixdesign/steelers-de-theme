@@ -13,11 +13,11 @@ if ($filedata) :
 ?>
 <div id="homeshop">
   <div class="<?= $this->class ?> mt-24 md:mt-32 xl:mt-64 pointer-events-none">
-    <div class="max-w-screen-2xl mx-auto relative py-4 my-32 z-40 flex">
+    <div class="max-w-screen-2xl mx-auto relative py-4 my-16 xl:my-32 z-40 flex">
       <h2 class="block-headline headline--small !-top-12 md:!-top-16">Shop</h2>
     </div>
   </div>
-  <div class="glide-shop max-w-screen-2xl mx-2 lg:mx-auto relative my-20 -mt-64">
+  <div class="glide-shop max-w-screen-2xl mx-2 lg:mx-auto relative my-20 -mt-48 xl:-mt-64">
     <div class="lg:grid grid-cols-11">
       <div class="hidden lg:block pt-4 lg:pt-10 col-span-2 relative">
         <a href="<?= $data[0]->permalink ?>"
@@ -31,7 +31,7 @@ if ($filedata) :
           <li class="glide__slide aspect-1">
             <a href="<?= $product->permalink ?>" class="h-[480px] w-[480px]">
               <img class="aspect-1 object-cover" alt="<?= $product->name ?>" title="<?= $product->name ?>"
-                src="<?= $product->images[0]->src ?>" />
+                src="<?= $product->images[0]->src ?>" loading="lazy" />
             </a>
           </li>
           <?php endforeach; ?>

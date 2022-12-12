@@ -21,8 +21,8 @@ if (!function_exists('tokenTruncate')) {
 <li>
   <div class="flex flex-col bg-white h-full">
     <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
-      <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=370&width=296&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news w-full}}'); ?>
-    </a>
+      <img src="<?= $this->getImage($this->urlEncode($this->arrData['singleSRC']), 296, 370, 'crop') ?>"
+        class="aspect-news w-full" alt="<?= $this->newsHeadline ?>" loading="lazy" /></a>
     <div class="p-5 grow flex flex-col">
       <div class="font-bold uppercase">
         <?php if (count($this->categoriesList) > 0) : ?>

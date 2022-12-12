@@ -13,16 +13,17 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            "--tw-prose-body": "#000",
             a: {
-              color: 'var(--tw-prose-body)',
-              '&:hover': {
-                color: '#10b75a',
+              color: "var(--tw-prose-body)",
+              "&:hover": {
+                color: "#10b75a",
               },
             },
-            'a.email': {
-              color: 'var(--tw-prose-body)',
-              '&:hover': {
-                color: '#10b75a',
+            "a.email": {
+              color: "var(--tw-prose-body)",
+              "&:hover": {
+                color: "#10b75a",
               },
             },
           },

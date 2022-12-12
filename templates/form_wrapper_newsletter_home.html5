@@ -3,7 +3,7 @@
   <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
 
   <img src="files/steelers/layout/player_newsletter.png" class="hidden lg:block absolute bottom-0"
-    alt="STEELERS Newsletter" />
+    alt="STEELERS Newsletter" loading="lazy" />
 
   <div class="grid lg:grid-cols-2">
     <div class="formbody text-steelwhite offset lg:col-start-2 p-10">

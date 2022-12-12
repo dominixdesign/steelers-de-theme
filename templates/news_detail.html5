@@ -3,10 +3,10 @@ $ogimage = $this->getImage($this->urlEncode($this->singleSRC), 600, 315, 'crop')
 $GLOBALS['og:image'] = $this->Environment->base . $ogimage;
 ?>
 <div class="relative mb-20 md:-mt-[29rem] lg:-mt-[26rem] xl:-mt-[32rem]">
-  <div class="grid items-end grid-cols-1 md:grid-cols-2">
-    <div class="xl:mb-32 2xl:mb-48 py-5 pr-16" style="padding-left: 3vw">
+  <div class="grid items-end grid-cols-1 md:grid-cols-2 defaultcontainer">
+    <div class="xl:mb-20 py-5 lg:pr-16">
       <h3
-        class="text-3xl lg:text-4xl xl:text-5xl uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
+        class="text-3xl lg:text-4xl xl:text-5xl !mt-4 lg:!mt-8 uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
         <?= $this->newsHeadline ?></h3>
       <p class="mt-2">
         <?php if (count($this->categoriesList) > 0) : ?>
@@ -15,7 +15,7 @@ $GLOBALS['og:image'] = $this->Environment->base . $ogimage;
         <time class="text-lg font-bold text-steelgreen" datetime="<?= $this->datetime ?>"><?= $this->date ?></time>
       </p>
     </div>
-    <div class="overflow-hidden mx-2">
+    <div class="overflow-hidden xl:mx-2">
       <?php
       if ($this->addImage) :
         echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=750&width=750&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-square}}');
@@ -23,9 +23,10 @@ $GLOBALS['og:image'] = $this->Environment->base . $ogimage;
       ?>
     </div>
   </div>
-  <div
-    class="sm:w-3/4 p-5 mt-8 md:my-24 text-lg mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg leading-6 prose">
-    <?= $this->teaser; ?>
-    <hr class="border-black border-t mt-8">
+  <div class="ce_text defaultcontainer mb-8">
+    <div class="!my-8 md:!my-32 max-w-5xl mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg prose">
+      <?= $this->teaser; ?>
+      <hr class="border-black border-t mt-8">
+    </div>
   </div>
 </div>
