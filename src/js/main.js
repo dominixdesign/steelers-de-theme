@@ -32,9 +32,8 @@ document.querySelectorAll(".glide-gallery").forEach((el) => {
     type: "carousel",
     gap: 20,
     rewind: false,
-    perView: 6,
+    perView: parseInt(el.dataset.perrow) || 6,
     peek: { before: 0, after: 110 },
-    breakpoints,
   }).mount();
 });
 document.querySelectorAll(".glide-home").forEach((el) => {

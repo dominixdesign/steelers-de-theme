@@ -10,13 +10,12 @@
   </div>
 </div>
 <div class="<?= $this->class ?> relative mb-20 md:-mt-[29rem] lg:-mt-[26rem] xl:-mt-[32rem]">
-  <div class="grid items-end grid-cols-1 md:grid-cols-2 defaultcontainer">
+  <div class="grid items-end grid-cols-1 md:grid-cols-2 defaultcontainer max-lg:!mt-0">
     <div class="xl:mb-20 py-5 lg:pr-16">
 
-      <h3
-        class="text-3xl lg:text-4xl xl:text-5xl !mt-4 lg:!mt-8 uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
+      <h3 class="text-3xl lg:text-4xl xl:text-5xl !mt-4 lg:!mt-8 uppercase font-bold font-sans text-black leading-none max-w-full text-ellipsis overflow-hidden">
         <?= $this->headline ?></h3>
-      <p class="mt-2 text-lg font-bold">
+      <p class="mt-2 text-lg font-bold leading-[1.4rem]">
         <?= strip_tags($this->text) ?>
       </p>
     </div>

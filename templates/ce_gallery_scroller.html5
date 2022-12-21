@@ -6,7 +6,7 @@
     ?>
   </div>
   <h3 class="pl-5"><?= $this->headline ?></h3>
-  <div class="glide-gallery mx-2 md:mx-12">
+  <div class="glide-gallery mx-2 md:mx-12" data-perrow="<?= $this->perRow; ?>">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         <?php

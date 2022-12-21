@@ -14,6 +14,7 @@ module.exports = {
         DEFAULT: {
           css: {
             "--tw-prose-body": "#000",
+            lineHeight: "auto",
             a: {
               color: "var(--tw-prose-body)",
               "&:hover": {
