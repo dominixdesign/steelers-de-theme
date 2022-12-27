@@ -15,6 +15,10 @@ module.exports = {
           css: {
             "--tw-prose-body": "#000",
             lineHeight: "auto",
+            "--tw-prose-bullets": "#000",
+            ul: {
+              paddingLeft: "1.25em",
+            },
             a: {
               color: "var(--tw-prose-body)",
               "&:hover": {

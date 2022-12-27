@@ -113,8 +113,11 @@ h3.text-5xl {
 h4 {
   font-size: 1.625rem;
 }
-.prose p {
+.prose p,
+.prose li {
   font-size: 1.125rem;
+  margin-top: 1.65em;
+  margin-bottom: 1.65em;
 }
 .mt-2.text-lg.font-bold {
   font-size: 1.125rem;
@@ -126,7 +129,8 @@ h4 {
   h4.text-2xl {
     font-size: 1.875rem;
   }
-  .prose p {
+  .prose p,
+  .prose li {
     font-size: 1.375rem;
   }
   .mt-2.text-lg.font-bold {
@@ -140,7 +144,8 @@ h4 {
   h4 {
     font-size: 1.875rem;
   }
-  .prose p {
+  .prose p,
+  .prose li {
     font-size: 1.25rem;
   }
   .mt-2.text-lg.font-bold {
