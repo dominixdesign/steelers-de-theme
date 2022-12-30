@@ -17,8 +17,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
         'enableVersioning' => true,
         'sql' => array(
             'keys' => array(
-                'id' => 'primary',
-                'tilastotid' => 'unique'
+                'id' => 'primary'
             )
         )
     ),
@@ -76,7 +75,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'lastname,firstname,eliteprospectsid,position,alias,steelersince,warmuppartner;about;{source_legend},pictures'
+        'default' => 'lastname,firstname,eliteprospectsid,birthday,jersey,position,alias,steelersince,warmuppartner;about;{source_legend},pictures'
     ),
     // Fields
     'fields'   => array(
@@ -178,9 +177,8 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
         ),
         'birthday' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['birthday'],
-            'exclude'                 => true,
-            'inputType'               => 'number',
-            'eval'                    => array('mandatory' => true, 'maxlength' => 5, 'rgxp' => 'numeric', 'tl_class' => 'w50'),
+            'inputType'               => 'text',
+            'eval'                    => array('datepicker' => true, 'rgxp' => 'date', 'mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "int(25) NOT NULL default '0'"
         ),
         'height' => array(
