@@ -58,7 +58,7 @@ span.player-subheadline {
   }
   .player-stats > div:nth-child(2n) .title,
   .player-stats > div:nth-child(2n) .number {
-    @apply border-r border-black;
+    @apply border-r border-black border-solid;
   }
   .player-stats > div:nth-child(4n) .title,
   .player-stats > div:nth-child(4n) .number {
