@@ -18,20 +18,22 @@ if (!function_exists('tokenTruncate')) {
   }
 }
 ?>
-<li>
-  <div class="flex flex-col bg-white h-full">
+  <div class="swiper-slide bg-white h-full">
     <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
-      <img src="<?= $this->getImage($this->urlEncode($this->arrData['singleSRC']), 296, 370, 'crop') ?>"
-        class="aspect-news w-full" alt="<?= $this->newsHeadline ?>" loading="lazy" /></a>
+      <img src="<?= $this->getImage($this->urlEncode($this->arrData['singleSRC']), 340, 425, 'crop') ?>" class="aspect-news w-full" alt="<?= $this->newsHeadline ?>" loading="lazy" /></a>
     <div class="p-5 grow flex flex-col">
       <div class="font-bold uppercase">
         <?php if (count($this->categoriesList) > 0) : ?>
-        <?= implode(', ', $this->categoriesList) ?>
-        <?php endif; ?>&nbsp;</div>
+          <?= implode(', ', $this->categoriesList) ?>
+          <?php endif; ?>&nbsp;</div>
 
       <?php
       // needs to be done like that to avoid empty space at the beginning
-      echo '<div class="mt-1 text-lg md:text-xl text-steelgreen uppercase font-bold leading-5 md:leading-6 whitespace-pre-wrap">';
+      echo '<div class="mt-1 text-lg md:text-xl line-clamp-3 text-steelgreen uppercase font-bold leading-5 md:leading-6 whitespace-pre-wrap" style="overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+height: calc(3*1.5rem);">';
       echo trim($this->newsHeadline) ?>
     </div>
 
@@ -45,4 +47,4 @@ if (!function_exists('tokenTruncate')) {
     </div>
   </div>
   </div>
-</li>
+

@@ -1,7 +1,7 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
-import Glide from "@glidejs/glide";
 import GLightbox from "glightbox";
+import Swiper, { Navigation } from "swiper";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 
@@ -10,23 +10,53 @@ createApp(HomeStandings).mount("#homestandings");
 
 //Slider
 
-var breakpoints = {};
-var elementWidth = 340;
+document.querySelectorAll(".swiper-news").forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: "auto",
+      },
+    },
+  });
+});
+document.querySelectorAll(".swiper-home").forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: 1,
+    loop: true,
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
+    },
+  });
+});
 
-for (var i = 1920; i > 0; i -= 200 / 2) {
-  if (Math.floor(i / elementWidth) <= 1) {
-    breakpoints[i] = {
-      perView: 1,
-      peek: { before: 0, after: 100 },
-    };
-  } else {
-    breakpoints[i] = {
-      perView: Math.floor((i - 100) / elementWidth),
-      peek: { before: 0, after: Math.floor((i - 100) % elementWidth) },
-    };
-  }
-}
+document.querySelectorAll(".swiper-shop").forEach((el) => {
+  new Swiper(el, {
+    gap: 0,
+    slidesPerView: "auto",
+    modules: [Navigation],
+    on: {
+      slideChange: function () {
+        console.log('swiper')
+        //var current = el
+        //  .querySelector(".glide__slide--active a")
+         // .getAttribute("href");
 
+        //el.querySelector(".buy-now").setAttribute("href", current);
+      },
+    },
+  });
+});
+
+/*
 document.querySelectorAll(".glide-gallery").forEach((el) => {
   new Glide(el, {
     type: "carousel",
@@ -41,7 +71,7 @@ document.querySelectorAll(".glide-home").forEach((el) => {
     type: "carousel",
     autoplay: 3500,
     gap: 20,
-    rewind: false,
+    loop: true
     perView: 1,
   }).mount();
 });
@@ -81,6 +111,7 @@ document.querySelectorAll(".glide-shop").forEach((el) => {
 
   glide.mount();
 });
+*/
 
 //Lightbox
 const lightbox = GLightbox({
