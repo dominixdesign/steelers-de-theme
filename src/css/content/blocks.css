@@ -58,3 +58,19 @@
   z-index: -5;
   content: "";
 }
+
+@supports (-webkit-text-stroke: 3px #10b75a) {
+  .green-outline {
+      color: transparent;
+      -webkit-text-stroke: 1px #10b75a;
+      text-shadow: none;
+    }
+  @media (min-width: 768px) {
+  .green-outline {
+      color: transparent;
+      -webkit-text-stroke: 3px #10b75a;
+      text-shadow: none;
+    }
+  }
+
+}
