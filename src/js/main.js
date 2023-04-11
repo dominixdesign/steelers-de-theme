@@ -1,7 +1,7 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
-import Glide from "@glidejs/glide";
 import GLightbox from "glightbox";
+import Swiper, { Navigation } from "swiper";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 
@@ -10,76 +10,69 @@ createApp(HomeStandings).mount("#homestandings");
 
 //Slider
 
-var breakpoints = {};
-var elementWidth = 340;
-
-for (var i = 1920; i > 0; i -= 200 / 2) {
-  if (Math.floor(i / elementWidth) <= 1) {
-    breakpoints[i] = {
-      perView: 1,
-      peek: { before: 0, after: 100 },
-    };
-  } else {
-    breakpoints[i] = {
-      perView: Math.floor((i - 100) / elementWidth),
-      peek: { before: 0, after: Math.floor((i - 100) % elementWidth) },
-    };
-  }
-}
-
-document.querySelectorAll(".glide-gallery").forEach((el) => {
-  new Glide(el, {
-    type: "carousel",
-    gap: 20,
-    rewind: false,
-    perView: parseInt(el.dataset.perrow) || 6,
-    peek: { before: 0, after: 110 },
-  }).mount();
-});
-document.querySelectorAll(".glide-home").forEach((el) => {
-  new Glide(el, {
-    type: "carousel",
-    autoplay: 3500,
-    gap: 20,
-    rewind: false,
-    perView: 1,
-  }).mount();
-});
-
-document.querySelectorAll(".glide-news").forEach((el) => {
-  new Glide(el, {
-    bound: true,
-    perView: 6,
-    gap: 20,
-    peek: { before: 0, after: 110 },
-    breakpoints,
-  }).mount();
-});
-
-document.querySelectorAll(".glide-shop").forEach((el) => {
-  var glide = new Glide(el, {
-    bound: true,
-    perView: 3,
-    gap: 0,
+document.querySelectorAll(".swiper-news").forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
+    },
     breakpoints: {
       640: {
-        perView: 1,
-      },
-      769: {
-        perView: 2,
+        slidesPerView: "auto",
       },
     },
   });
-
-  glide.on("run.after", function (e, f, g) {
-    var current = el
-      .querySelector(".glide__slide--active a")
-      .getAttribute("href");
-
-    el.querySelector(".buy-now").setAttribute("href", current);
+});
+document.querySelectorAll(".swiper-home").forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: 1,
+    loop: true,
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
+    },
   });
+});
 
-  glide.mount();
+document.querySelectorAll(".swiper-shop").forEach((el) => {
+  const nextEl = document.querySelector("#homeshop .swiper-button-right")
+  const prevEl = document.querySelector("#homeshop .swiper-button-left")
+  new Swiper(el, {
+    gap: 0,
+    slidesPerView: 3,
+    modules: [Navigation],
+    navigation: {
+      nextEl,
+      prevEl,
+    },
+    on: {
+      slideChangeTransitionEnd: function (swiper) {
+        const href = swiper.el
+          .querySelector(".swiper-slide-active a")
+          .getAttribute("href");
+
+          document
+          .querySelector("#homeshop .buy-now")
+          .setAttribute("href", href);
+      },
+    },
+  });
+});
+
+document.querySelectorAll(".swiper-gallery").forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
+    },
+  });
 });
 
 //Lightbox

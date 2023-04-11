@@ -204,10 +204,12 @@ import { ref, computed } from "vue";
 
 const allGames = window.tilastot_gamedata;
 
-const nextGame = allGames.findIndex((game) => {
+let nextGame = allGames.findIndex((game) => {
   return game.gamedate > Date.now() / 1000;
 });
-
+if(nextGame === -1) {
+  nextGame = allGames.length
+}
 const currentIndex = ref(nextGame - 1);
 
 const currentGame = computed(() => {

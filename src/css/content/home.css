@@ -69,3 +69,8 @@
 #homeshop img {
   @apply w-full;
 }
+
+/* Slider */
+.swiper-news .swiper-slide {
+  width: 340px;
+}
