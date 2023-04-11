@@ -39,79 +39,41 @@ document.querySelectorAll(".swiper-home").forEach((el) => {
 });
 
 document.querySelectorAll(".swiper-shop").forEach((el) => {
+  const nextEl = document.querySelector("#homeshop .swiper-button-right")
+  const prevEl = document.querySelector("#homeshop .swiper-button-left")
   new Swiper(el, {
     gap: 0,
-    slidesPerView: "auto",
+    slidesPerView: 3,
     modules: [Navigation],
+    navigation: {
+      nextEl,
+      prevEl,
+    },
     on: {
-      slideChange: function () {
-        console.log('swiper')
-        //var current = el
-        //  .querySelector(".glide__slide--active a")
-         // .getAttribute("href");
+      slideChangeTransitionEnd: function (swiper) {
+        const href = swiper.el
+          .querySelector(".swiper-slide-active a")
+          .getAttribute("href");
 
-        //el.querySelector(".buy-now").setAttribute("href", current);
+          document
+          .querySelector("#homeshop .buy-now")
+          .setAttribute("href", href);
       },
     },
   });
 });
 
-/*
-document.querySelectorAll(".glide-gallery").forEach((el) => {
-  new Glide(el, {
-    type: "carousel",
-    gap: 20,
-    rewind: false,
-    perView: parseInt(el.dataset.perrow) || 6,
-    peek: { before: 0, after: 110 },
-  }).mount();
-});
-document.querySelectorAll(".glide-home").forEach((el) => {
-  new Glide(el, {
-    type: "carousel",
-    autoplay: 3500,
-    gap: 20,
-    loop: true
-    perView: 1,
-  }).mount();
-});
-
-document.querySelectorAll(".glide-news").forEach((el) => {
-  new Glide(el, {
-    bound: true,
-    perView: 6,
-    gap: 20,
-    peek: { before: 0, after: 110 },
-    breakpoints,
-  }).mount();
-});
-
-document.querySelectorAll(".glide-shop").forEach((el) => {
-  var glide = new Glide(el, {
-    bound: true,
-    perView: 3,
-    gap: 0,
-    breakpoints: {
-      640: {
-        perView: 1,
-      },
-      769: {
-        perView: 2,
-      },
+document.querySelectorAll(".swiper-gallery").forEach((el) => {
+  new Swiper(el, {
+    slidesPerView: "auto",
+    spaceBetween: 20,
+    modules: [Navigation],
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
     },
   });
-
-  glide.on("run.after", function (e, f, g) {
-    var current = el
-      .querySelector(".glide__slide--active a")
-      .getAttribute("href");
-
-    el.querySelector(".buy-now").setAttribute("href", current);
-  });
-
-  glide.mount();
 });
-*/
 
 //Lightbox
 const lightbox = GLightbox({
