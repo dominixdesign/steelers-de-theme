@@ -1,0 +1,188 @@
+:root {
+  --tdm-drawer-width: 300px;
+  --tdm-drawer-speed: 0.2s;
+  --tdm-drawer-background: #10b75a;
+  --tdm-backdrop-background: rgba(0, 0, 0, 0.5);
+}
+
+drawer-menu,
+[data-drawer-backdrop] {
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: block;
+  display: none;
+  height: 100%;
+}
+
+[data-drawer] drawer-menu,
+[data-drawer] [data-drawer-backdrop] {
+  display: block;
+}
+
+drawer-menu {
+  z-index: 99999;
+  margin-left: calc(var(--tdm-drawer-width) * -1);
+  width: var(--tdm-drawer-width);
+  transition: margin-left var(--tdm-drawer-speed);
+  background: var(--tdm-drawer-background);
+}
+
+[data-drawer-backdrop] {
+  z-index: 99998;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  background: var(--tdm-backdrop-background);
+  transition-property: opacity, visibility;
+  transition-duration: var(--tdm-drawer-speed), 0s;
+  transition-delay: 0s, var(--tdm-drawer-speed);
+}
+
+[data-drawer="true"] {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+[data-drawer="true"] [data-drawer-backdrop] {
+  visibility: visible;
+  opacity: 1;
+  transition-property: visibility, opacity;
+  transition-duration: 0s, var(--tdm-drawer-speed);
+  transition-delay: 0s, 0s;
+}
+[data-drawer="true"] drawer-menu {
+  margin-left: 0;
+  transition: margin-left var(--tdm-drawer-speed);
+}
+
+[data-drawer-backdrop]:before {
+  content: "";
+  height: 2.5rem;
+  width: 2.5rem;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-x'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+  background-size: 2.5rem;
+  display: block;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: calc(var(--tdm-drawer-width) + 1rem);
+}
+
+drawer-menu .header-nav-logo {
+  @apply mx-auto my-3 w-36;
+}
+
+drawer-menu .header-nav-logo .puckcolor,
+drawer-menu .header-nav-logo .starcolor {
+  @apply fill-white;
+}
+
+drawer-menu a,
+drawer-menu label {
+  @apply p-2 block uppercase text-lg;
+  font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: block;
+  padding: 0.85rem;
+  color: #fff;
+  box-shadow: inset 0 -1px #ffffff60;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
+drawer-menu a:focus,
+drawer-menu a:hover,
+drawer-menu label:focus,
+drawer-menu label:hover {
+  @apply bg-steelwhite bg-opacity-10;
+}
+drawer-menu label {
+  cursor: pointer;
+}
+
+drawer-menu li.active {
+  position: relative;
+}
+
+drawer-menu li.active > a::after,
+drawer-menu li.active > label::after {
+  @apply absolute left-0 h-full top-0 w-3 bg-steelblue;
+  z-index: -5;
+  content: "";
+}
+
+/**
+ * Styling first level lists items
+ */
+drawer-menu .level_2 a,
+drawer-menu .level_2 label {
+  @apply bg-black bg-opacity-10;
+  padding-left: 2rem;
+  box-shadow: inset 0 -1px #ffffff60;
+}
+drawer-menu .level_2 a:focus,
+drawer-menu .level_2 a:hover,
+drawer-menu .level_2 label:focus,
+drawer-menu .level_2 label:hover {
+  @apply bg-steelwhite bg-opacity-10;
+}
+/**
+ * Styling second level list items
+ */
+drawer-menu .level_3 a,
+drawer-menu .level_3 label {
+  padding-left: 4rem;
+  background: #353535;
+  box-shadow: inset 0 -1px #474747;
+}
+drawer-menu .level_3 a:focus,
+drawer-menu .level_3 a:hover,
+drawer-menu .level_3 label:focus,
+drawer-menu .level_3 label:hover {
+  @apply bg-steelwhite bg-opacity-10;
+}
+/**
+ * Styling third level list items
+ */
+drawer-menu .level_4 a,
+drawer-menu .level_4 label {
+  padding-left: 6rem;
+  background: #454545;
+  box-shadow: inset 0 -1px #575757;
+}
+drawer-menu .level_4 a:focus,
+drawer-menu .level_4 a:hover,
+drawer-menu .level_4 label:focus,
+drawer-menu .level_4 label:hover {
+  @apply bg-steelwhite bg-opacity-10;
+}
+/**
+ * Hide nested lists
+ */
+drawer-menu .level_2,
+drawer-menu .level_3,
+drawer-menu .level_4 {
+  height: 100%;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.5s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
+}
+drawer-menu input[type="checkbox"] {
+  @apply hidden;
+}
+drawer-menu input[type="checkbox"]:checked + label + ul {
+  /* reset the height when checkbox is checked */
+  max-height: 1000px;
+}
+
+drawer-menu label > svg {
+  float: right;
+  height: 44px;
+  margin-top: -8px;
+  -webkit-transition: -webkit-transform 0.35s ease;
+  transition: transform 0.35s ease;
+}
+drawer-menu input[type="checkbox"]:checked + label > svg {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
