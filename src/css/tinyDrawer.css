@@ -22,6 +22,7 @@ drawer-menu,
 
 drawer-menu {
   z-index: 99999;
+  overflow-y: auto;
   margin-left: calc(var(--tdm-drawer-width) * -1);
   width: var(--tdm-drawer-width);
   transition: margin-left var(--tdm-drawer-speed);
@@ -77,21 +78,20 @@ drawer-menu .header-nav-logo .starcolor {
   @apply fill-white;
 }
 
-drawer-menu a,
-drawer-menu label {
-  @apply p-2 block uppercase text-lg;
+drawer-menu ul li a,
+drawer-menu ul li label {
+  @apply p-2 pl-3 block uppercase text-lg;
   font-family: "Whyte", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   display: block;
-  padding: 0.85rem;
   color: #fff;
   box-shadow: inset 0 -1px #ffffff60;
   -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
 }
-drawer-menu a:focus,
-drawer-menu a:hover,
-drawer-menu label:focus,
-drawer-menu label:hover {
+drawer-menu ul li a:focus,
+drawer-menu ul li a:hover,
+drawer-menu ul li label:focus,
+drawer-menu ul li label:hover {
   @apply bg-steelwhite bg-opacity-10;
 }
 drawer-menu label {
@@ -104,9 +104,13 @@ drawer-menu li.active {
 
 drawer-menu li.active > a::after,
 drawer-menu li.active > label::after {
-  @apply absolute left-0 h-full top-0 w-3 bg-steelblue;
+  @apply absolute left-0 h-full top-0 w-2 bg-steelblue;
   z-index: -5;
   content: "";
+}
+
+drawer-menu .level_1 {
+  @apply mb-4;
 }
 
 /**
@@ -129,9 +133,9 @@ drawer-menu .level_2 label:hover {
  */
 drawer-menu .level_3 a,
 drawer-menu .level_3 label {
+  @apply bg-black bg-opacity-20;
   padding-left: 4rem;
-  background: #353535;
-  box-shadow: inset 0 -1px #474747;
+  box-shadow: inset 0 -1px #ffffff60;
 }
 drawer-menu .level_3 a:focus,
 drawer-menu .level_3 a:hover,
@@ -144,9 +148,9 @@ drawer-menu .level_3 label:hover {
  */
 drawer-menu .level_4 a,
 drawer-menu .level_4 label {
+  @apply bg-black bg-opacity-30;
   padding-left: 6rem;
-  background: #454545;
-  box-shadow: inset 0 -1px #575757;
+  box-shadow: inset 0 -1px #ffffff60;
 }
 drawer-menu .level_4 a:focus,
 drawer-menu .level_4 a:hover,
@@ -185,4 +189,17 @@ drawer-menu input[type="checkbox"]:checked + label > svg {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+drawer-menu .after-nav {
+  @apply bg-steelblue shadow-inner pt-3;
+
+}
+
+drawer-menu .ce_hyperlink {
+  @apply text-white px-3 py-1 m-0;
+}
+
+drawer-menu .social-media {
+  @apply grid grid-cols-5 py-3;
 }
