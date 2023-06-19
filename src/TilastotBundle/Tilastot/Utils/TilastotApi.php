@@ -12,57 +12,34 @@
 namespace App\Tilastot\Utils;
 
 use Contao\StringUtil;
-use Contao\Files;
 
 use App\Tilastot\Model\Rounds;
 use App\Tilastot\Model\Standings;
-use App\Tilastot\Utils\RefreshStandings;
-use App\Tilastot\Utils\RefreshGames;
-use App\Tilastot\Utils\RefreshPlayers;
+use App\Tilastot\Utils\ApiDEL;
 
 class TilastotApi
 {
 
-	const API_URL = 'https://s3-eu-west-1.amazonaws.com/de.hokejovyzapis.cz/';
-
-	private static function call($page, $round)
+	public static function call($uri, $additional_headers = array())
 	{
-		$uri = self::API_URL . $page;
-
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
 			CURLOPT_URL => $uri,
-			CURLOPT_USERAGENT => 'starting6media powered website'
+			CURLOPT_USERAGENT => 'starting6media powered website',
+			CURLOPT_HTTPHEADER => $additional_headers
+
 		));
 
 		$response = curl_exec($curl);
 		if (curl_errno($curl) > 0) {
-			throw new \Exception(curl_error());
+			throw new \Exception(curl_error($curl));
 		} elseif (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 200) {
 			throw new \Exception('DEL API response http code: ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) . ' (' . $uri . ')');
 		}
 		curl_close($curl);
 
 		return $response;
-	}
-
-	public static function getGames($round)
-	{
-		$r = Rounds::findById($round);
-		return self::call('league-team-matches/' . $r->year . '/' . $r->league . '/22.json', $round);
-	}
-
-	public static function getStandings($round)
-	{
-		$r = Rounds::findById($round);
-		return self::call('tables/' . $r->standingsid . '.json', $round);
-	}
-
-	public static function getPlayers($round)
-	{
-		$r = Rounds::findById($round);
-		return self::call('league-team-stats/' . $r->year . '/' . $r->league . '/22.json', $round);
 	}
 
 	public static function updateTeam($tilastotTeam, $round)
@@ -96,11 +73,16 @@ class TilastotApi
 		));
 
 		foreach ($r as $round) {
-			RefreshStandings::refresh($round->id);
-			RefreshGames::refresh($round->id);
-			RefreshPlayers::refresh($round->id);
+			switch ($r->api) {
+				case 'del':
+					ApiDEL::refreshAll($round->id);
+					break;
+				case 'holema':
+					ApiHolema::refreshAll($round->id);
+					break;
+				default:
+					throw new \Exception('unknown api "' . $r->api . '"');
+			}
 		}
-
-		\System::log('DEL Update done.', __METHOD__, TL_CRON);
 	}
 }

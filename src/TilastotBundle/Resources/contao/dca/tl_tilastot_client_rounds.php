@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => 'year,league,standingsid,name,season,autorefresh'
+        'default' => 'year,league,standingsid,name,season,autorefresh;api,apikey'
     ),
     // Fields
     'fields'   => array
@@ -97,6 +97,21 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
             'inputType'               => 'text',
             'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
+        ),
+        'api' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['api'],
+            'exclude'                 => true,
+            'inputType'               => 'select',
+            'options'                 => array('DEL2 - Holema' => 'holema', 'DEL' => 'del'),
+            'eval'                    => array('rgxp' => 'alpha', 'mandatory' => false, 'maxlength' => 5, 'tl_class' => 'w50'),
+            'sql'                     => "varchar(10) NULL"
+        ),
+        'apikey' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['api'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "varchar(255) NULL"
         ),
         'year' => array
         (
