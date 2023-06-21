@@ -3,6 +3,7 @@
 @import "tailwind.css";
 @import "navigation.css";
 @import "base.css";
+@import "fonts/formula.css";
 @import "footer.css";
 @import "tinyDrawer.css";
 @import "content/blocks.css";

@@ -69,6 +69,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
+          "PP Formula",
           "WhyteReg",
           "Lucida Sans Unicode",
           "Geneva",
