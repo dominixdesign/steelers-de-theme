@@ -13,7 +13,7 @@
  * Miscellaneous
  */
 $GLOBALS['TL_LANG']['MSC']['delId'] = array('DEL ID der aktuellen Runde', 'Trage hier die ID der aktuelle Runde ein.');
-$GLOBALS['TL_LANG']['MSC']['tilastot_legend'] = 'DEL Einstellungen';
+$GLOBALS['TL_LANG']['MSC']['tilastot_legend'] = 'Statistiken Einstellungen';
 
 $GLOBALS['TL_LANG']['tilastot_standings_columns']['name'] = 'Mannschaft';
 $GLOBALS['TL_LANG']['tilastot_standings_columns']['shortname'] = 'Team';

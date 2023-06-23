@@ -12,7 +12,7 @@
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['tilastot_rounds'] = array('DEL Spielzeiten', 'Hier können Spielzeiten / Spielrunden bearbeitet werden.');
+$GLOBALS['TL_LANG']['MOD']['tilastot_rounds'] = array('Spielzeiten', 'Hier können Spielzeiten / Spielrunden bearbeitet werden.');
 $GLOBALS['TL_LANG']['MOD']['tilastot_refresh'] = array('Aktualisieren', 'Hier können alle Daten von Holema manuell aktualisiert werden.');
 $GLOBALS['TL_LANG']['MOD']['tilastot_games'] = array('Spielplan', 'Hier können alle Spiele bzw. Spielpläne bearbeitet werden.');
 $GLOBALS['TL_LANG']['MOD']['tilastot_standings'] = array('Teams / Tabelle', 'Hier können Teams und Tabellenstand bearbeitet werden.');
@@ -25,4 +25,4 @@ $GLOBALS['TL_LANG']['tl_module']['tilastot_round'] = array('Spielzeit', 'Die Spi
 $GLOBALS['TL_LANG']['tl_module']['tilastot_table_rows'] = array('Plätze', 'Wie viele Plätze sollen angezeigt werden. (für die Tabelle gilt: Es wird versucht der 1. Platz anzuzeigen. Sollte das nicht möglich sein, werden wenn möglich zwei Plätze hinter dem gewählten Team angezeigt.)');
 $GLOBALS['TL_LANG']['tl_module']['tilastot_my_team'] = array('Hervorgehobenes Team', 'An diesem Team wird immer angezeigt, ungeachtet der gewählten Anzahl an Tabellenplätze.');
 
-$GLOBALS['TL_LANG']['tl_module']['tilastot_legend']  = 'DEL Client Einstellungen';
+$GLOBALS['TL_LANG']['tl_module']['tilastot_legend']  = 'Client Einstellungen';

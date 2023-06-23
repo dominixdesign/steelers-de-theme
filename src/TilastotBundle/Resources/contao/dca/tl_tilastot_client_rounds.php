@@ -102,7 +102,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['api'],
             'exclude'                 => true,
             'inputType'               => 'select',
-            'options'                 => array('DEL2 - Holema' => 'holema', 'DEL' => 'del'),
+            'options'                 => array('holema' => 'DEL2 - Holema', 'del' => 'DEL'),
             'eval'                    => array('rgxp' => 'alpha', 'mandatory' => false, 'maxlength' => 6, 'tl_class' => 'w50'),
             'sql'                     => "varchar(10) NULL"
         ),
