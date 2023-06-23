@@ -11,12 +11,10 @@
 
 namespace App\Tilastot\Module;
 
-use Contao\Database;
 use Contao\BackendModule;
 use App\Tilastot\Model\Rounds;
-use App\Tilastot\Utils\RefreshStandings;
-use App\Tilastot\Utils\RefreshGames;
-use App\Tilastot\Utils\RefreshPlayers;
+use App\Tilastot\Utils\ApiDEL;
+use App\Tilastot\Utils\ApiHolema;
 
 class RefreshModule extends BackendModule
 {
@@ -29,11 +27,19 @@ class RefreshModule extends BackendModule
 		if (\Input::post('FORM_SUBMIT') == 'tl_tilastot_refresh') {
 			$done = array();
 			foreach (\Input::post('round') as $round) {
-				RefreshStandings::refresh($round);
-				RefreshGames::refresh($round);
-				RefreshPlayers::refresh($round);
-				$done[$round] = Rounds::findOneBy('id', $round);
+				$r = Rounds::findById($round);
+				switch ($r->api) {
+					case 'del':
+						ApiDEL::refreshAll($round->id);
+						break;
+					case 'holema':
+						ApiHolema::refreshAll($round->id);
+						break;
+					default:
+						throw new \Exception('unknown api "' . $r->api . '"');
+				}
 			}
+
 			$this->Template->result = $done;
 		}
 

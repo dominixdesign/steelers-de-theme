@@ -73,7 +73,7 @@ class TilastotApi
 		));
 
 		foreach ($r as $round) {
-			switch ($r->api) {
+			switch ($round->api) {
 				case 'del':
 					ApiDEL::refreshAll($round->id);
 					break;
@@ -81,7 +81,7 @@ class TilastotApi
 					ApiHolema::refreshAll($round->id);
 					break;
 				default:
-					throw new \Exception('unknown api "' . $r->api . '"');
+					throw new \Exception('unknown api "' . $round->api . '"');
 			}
 		}
 	}
