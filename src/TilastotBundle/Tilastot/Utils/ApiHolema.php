@@ -20,7 +20,8 @@ use App\Tilastot\Model\PlayerStats;
 
 class ApiHolema
 {
-    const API_URL = 'https://del2.holema.eu/api/teams/';
+    const API_URL = 'https://del2.holema.eu/api/v1/';
+    const TEAM_ID = 36;
 
     private static function call($path, $apiKey)
     {
@@ -51,7 +52,7 @@ class ApiHolema
         }
         $r = Rounds::findById($round);
 
-        $data = json_decode(self::call('standings.json/' . $r->standingsid, $r->apikey));
+        $data = json_decode(self::call('teamstats.json/' . $r->standingsid, $r->apikey));
 
         foreach ($data->teamstats->teams->team as $team) {
 
@@ -90,8 +91,8 @@ class ApiHolema
         }
         $r = Rounds::findById($round);
 
-        $rosterData = json_decode(self::call('roster.json/' . $r->standingsid, $r->apikey));
-        $statsData = json_decode(self::call('stats.json/' . $r->standingsid, $r->apikey));
+        $rosterData = json_decode(self::call('roster.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
+        $statsData = json_decode(self::call('stats.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
         if ($rosterData->teamroster->players == "") {
             return null;
         }
@@ -171,7 +172,7 @@ class ApiHolema
         }
         $r = Rounds::findById($round);
 
-        $data = json_decode(self::call('games.json' . $r->standingsid, $r->apikey));
+        $data = json_decode(self::call('games.json' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
 
         foreach ($data->schedule->games->game as $game) {
             $date = date_parse_from_format("d.m.Y", $game->gamedate);

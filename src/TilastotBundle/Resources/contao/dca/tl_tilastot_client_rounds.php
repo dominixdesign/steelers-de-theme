@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
             'exclude'                 => true,
             'inputType'               => 'select',
             'options'                 => array('DEL2 - Holema' => 'holema', 'DEL' => 'del'),
-            'eval'                    => array('rgxp' => 'alpha', 'mandatory' => false, 'maxlength' => 5, 'tl_class' => 'w50'),
+            'eval'                    => array('rgxp' => 'alpha', 'mandatory' => false, 'maxlength' => 6, 'tl_class' => 'w50'),
             'sql'                     => "varchar(10) NULL"
         ),
         'apikey' => array(
@@ -118,7 +118,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['year'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'league' => array
@@ -126,7 +126,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_rounds'] = array
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_rounds']['league'],
             'exclude'                 => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory'=>true, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
+            'eval'                    => array('mandatory'=>false, 'maxlength'=>5, 'rgxp'=>'numeric', 'tl_class'=>'w50'),
             'sql'                     => "int(10) unsigned NOT NULL default '0'"
         ),
         'name' => array
