@@ -39,7 +39,7 @@ class ApiHolema
     private static function updateTeam($team, $round)
     {
         $obj = new \stdClass();
-        $obj->id = $team->id;
+        $obj->id = $team->{'@id'};
         $obj->shortcut = $team->shortname;
         $obj->name = $team->name;
         return TilastotApi::updateTeam($obj, $round);
@@ -67,7 +67,7 @@ class ApiHolema
             }
 
             $t->name = $team->name;
-            $t->tilastotid = $team->id;
+            $t->tilastotid = $team->{'@id'};
             $t->round = $round;
             $t->shortname = $team->shortname;
             $t->games = $team->games;
@@ -172,7 +172,7 @@ class ApiHolema
         }
         $r = Rounds::findById($round);
 
-        $data = json_decode(self::call('games.json' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
+        $data = json_decode(self::call('games.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
 
         foreach ($data->schedule->games->game as $game) {
             $date = date_parse_from_format("d.m.Y", $game->gamedate);

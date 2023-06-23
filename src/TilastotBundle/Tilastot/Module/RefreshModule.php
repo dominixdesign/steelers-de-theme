@@ -30,13 +30,13 @@ class RefreshModule extends BackendModule
 				$r = Rounds::findById($round);
 				switch ($r->api) {
 					case 'del':
-						ApiDEL::refreshAll($round->id);
+						ApiDEL::refreshAll($r->id);
 						break;
 					case 'holema':
-						ApiHolema::refreshAll($round->id);
+						ApiHolema::refreshAll($r->id);
 						break;
 					default:
-						throw new \Exception('unknown api "' . $r->api . '"');
+						throw new \Exception('unknown api "' . $r->api . '"' . var_export($r,true));
 				}
 			}
 
