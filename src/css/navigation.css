@@ -139,7 +139,6 @@ nav .grid-nav {
   height: 4px;
   margin: 0 auto;
   background: #fff;
-  transform: skew(5deg);
   transition: all 0.275s;
 }
 
@@ -153,11 +152,11 @@ nav .grid-nav {
 }
 
 .burger:after {
-  transform: translateY(-12px) translateX(-2px) skew(-20deg);
+  transform: translateY(-12px);
 }
 
 .burger:before {
-  transform: translateY(-16px) skew(-10deg);
+  transform: translateY(-16px);
 }
 
 /* Toggle State part */
@@ -170,7 +169,7 @@ nav .grid-nav {
 }
 
 .is-open .burger:after {
-  transform: translateY(-12px) translateX(10px) skew(-20deg);
+  transform: translateY(-12px) translateX(10px);
   opacity: 0;
 }
 
