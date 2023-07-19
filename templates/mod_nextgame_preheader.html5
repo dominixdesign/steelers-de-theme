@@ -1,7 +1,7 @@
 <?php $this->block('content'); ?>
 <div class="grow justify-center md:justify-end flex">
   <div
-    class=" next-game-at-home flex flex-row items-center  lg:border-r lg:border-gray-400 lg:pr-4 2xl:pr-5 <?= $this->cssClass ?>"
+    class=" next-game-at-home flex flex-row items-center lg:pr-4 2xl:pr-5 <?= $this->cssClass ?>"
     <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
     <?php
     if ($this->game['home']['logo']) {
@@ -10,10 +10,10 @@
       $logoUrl = 'https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['home']['shortname'] . '.png';
     }
     ?>
-    <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden 2xl:block"
+    <div title="<?= $this->game['home']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center block"
       style="<?= 'background-image: url(' . $logoUrl . ')' ?>">
     </div>
-    <div class="font-bold text-lg md:text-xl lg:px-4 hidden 2xl:block">vs</div>
+    <div class="font-bold text-lg md:text-xl px-2 lg:px-4 block">vs</div>
     <?php
     if ($this->game['away']['logo']) {
       $logoUrl = $this->replaceInsertTags('{{figure::' . $this->game['away']['logo'] . '?size=9&template=image_url}}');
@@ -21,7 +21,7 @@
       $logoUrl = 'https://www.penny-del.org/assets/img/teams/dark/team_' . $this->game['away']['shortname'] . '.png';
     }
     ?>
-    <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center hidden xl:block"
+    <div title="<?= $this->game['away']['name'] ?>" class="h-12 w-12 bg-contain bg-no-repeat bg-center block"
       style="<?= 'background-image: url(' . $logoUrl . ')' ?>">
     </div>
     <div class="font-bold leading-5 text-lg lg:pl-8">
