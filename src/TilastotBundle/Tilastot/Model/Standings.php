@@ -26,13 +26,18 @@ class Standings extends Model
 	protected static $strTable = 'tl_tilastot_client_standings';
 	protected static $localCache = array();
 
-	public function findTeamsForSelect()
+	public function findTeamsForSelect($dc)
 	{
 		$ret = array();
 		$ret[-1] = "";
-		$teams = Standings::findAll();
-		foreach ($teams as $team) {
-			$ret[$team->tilastotid] = $team->name;
+		if ($dc->activeRecord->round && Standings::findByRound($dc->activeRecord->round)) {
+			foreach (Standings::findByRound($dc->activeRecord->round) as $team) {
+				$ret[$team->tilastotid] = $team->name;
+			}
+		} else {
+			foreach (Standings::findAll() as $team) {
+				$ret[$team->tilastotid] = $team->name;
+			}
 		}
 
 		return $ret;
