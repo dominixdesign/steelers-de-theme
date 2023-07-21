@@ -16,6 +16,7 @@
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.8",
     "@vitejs/plugin-vue": "^3.0.0",
+    "autoprefixer": "^10.4.14",
     "dotenv": "^16.0.1",
     "ftp": "^0.3.10",
     "postcss-import": "^14.1.0",
@@ -30,5 +31,11 @@
     "lodash.throttle": "^4.1.1",
     "swiper": "^9.2.0",
     "vue": "^3.2.37"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead",
+    "Safari 8"
+  ]
 }
