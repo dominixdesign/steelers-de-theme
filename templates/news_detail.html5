@@ -1,5 +1,5 @@
 <?php
-$ogimage = $this->getImage($this->urlEncode($this->singleSRC), 600, 315, 'crop');
+$ogimage = $this->getImage($this->urlEncode($this->arrData['singleSRC']), 750, 938, 'crop');
 $GLOBALS['og:image'] = $this->Environment->base . $ogimage;
 ?>
 <div class="relative mb-20 md:-mt-[29rem] lg:-mt-[26rem] xl:-mt-[32rem]">
@@ -17,15 +17,16 @@ $GLOBALS['og:image'] = $this->Environment->base . $ogimage;
     <div class="overflow-hidden xl:mx-2">
       <?php
       if ($this->addImage) :
-        echo $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=750&width=750&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-square}}');
-      endif;
       ?>
+        <img src="<?= $ogimage; ?>" alt="<?= $this->newsHeadline; ?>" class="aspect-[4/5]" />
+         <?php
+    endif;
+      ?> </div>
+    </div>
+    <div class="ce_text defaultcontainer mb-8">
+      <div class="!my-8 md:!my-32 max-w-5xl mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg prose">
+        <?= $this->teaser; ?>
+        <hr class="border-black border-t mt-8">
+      </div>
     </div>
   </div>
-  <div class="ce_text defaultcontainer mb-8">
-    <div class="!my-8 md:!my-32 max-w-5xl mx-auto bg-steelwhite/80 relative z-20 backdrop-blur-lg prose">
-      <?= $this->teaser; ?>
-      <hr class="border-black border-t mt-8">
-    </div>
-  </div>
-</div>
