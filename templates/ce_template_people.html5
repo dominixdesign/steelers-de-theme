@@ -2,7 +2,7 @@
 
 <?php $this->block('content'); ?>
 <div class="border-t-4 border-gray-800 pt-6 mt-6 flex gap-3">
-	<?php if ($this->useImage) : ?>
+	<?php if ($this->addImage) : ?>
 		<?php
 		$image = FilesModel::findMultipleByUuids([$this->singleSRC])->fetchAll();
 		$ogimage = $this->getImage($this->urlEncode($image[0]['path']), 160, 160, 'crop');
