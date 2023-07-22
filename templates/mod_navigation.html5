@@ -1,6 +1,5 @@
 <!-- indexer::stop -->
 <nav class="<?= $this->class ?> top-sticky-nav device bg-steelnav" <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
-
 	<div class="grid grid-nav items-center place-items-center py-2 relative mx-12" style="height: 60px;">
 		<div data-drawer-open class="justify-self-start cursor-pointer">
 			<button class=" stroke-white white mt-5">
@@ -8,6 +7,14 @@
 				<span class="burger-text">Menü</span>
 			</button>
 		</div>
+		<?php
+		global $objPage;
+		$layoutId = $objPage->layout;
+		if ($layoutId == 6) { // Layout alwa-cup
+			echo $this->replaceInsertTags('{{insert_article::alwa-cup-titel}}');
+		}
+		?>
+
 		<a class="block" href="/"><svg class="header-nav-logo absolute left-0 right-0 m-auto" version="1.1" viewBox="0 0 211.074 135">
 				<g>
 					<path class="puckcolor" d="M127.802,76.581c0.754-0.874,1.512-1.675,2.28-2.419
