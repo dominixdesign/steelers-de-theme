@@ -191,3 +191,7 @@ nav .grid-nav {
 .is-open .burger-text {
   opacity: 0;
 }
+
+.microsite-nav ul {
+  @apply flex gap-3 mt-1;
+}

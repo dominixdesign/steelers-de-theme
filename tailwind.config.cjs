@@ -96,8 +96,10 @@ module.exports = {
   plugins: [
     require("postcss-import"),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/forms"),
+    require("@tailwindcss/forms")({
+      strategy: "base", // only generate global styles
+    }),
     require("@tailwindcss/aspect-ratio"),
-    require('autoprefixer'),
+    require("autoprefixer"),
   ],
 };

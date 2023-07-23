@@ -9,6 +9,7 @@
   @apply fill-slate-300 stroke-slate-300 p-1;
 }
 
+/*
 .formbody .invisible,
 .formbody label {
   @apply hidden;
@@ -47,6 +48,7 @@
   top: 4px;
   left: 4px;
 }
+*/
 
 .form-home img {
   width: min(50vw, 700px);

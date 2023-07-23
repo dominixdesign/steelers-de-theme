@@ -7,14 +7,6 @@
 				<span class="burger-text">Menü</span>
 			</button>
 		</div>
-		<?php
-		global $objPage;
-		$layoutId = $objPage->layout;
-		if ($layoutId == 6) { // Layout alwa-cup
-			echo $this->replaceInsertTags('{{insert_article::alwa-cup-titel}}');
-		}
-		?>
-
 		<a class="block" href="/"><svg class="header-nav-logo absolute left-0 right-0 m-auto" version="1.1" viewBox="0 0 211.074 135">
 				<g>
 					<path class="puckcolor" d="M127.802,76.581c0.754-0.874,1.512-1.675,2.28-2.419
