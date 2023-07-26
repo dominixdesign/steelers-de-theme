@@ -76,3 +76,7 @@
 .swiper-news .swiper-slide {
   width: 340px;
 }
+
+.frontpage-5050 .inside {
+  @apply grid grid-cols-2 place-items-center;
+}
