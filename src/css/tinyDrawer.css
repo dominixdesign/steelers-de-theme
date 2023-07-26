@@ -134,7 +134,7 @@ drawer-menu .level_2 label:hover {
 drawer-menu .level_3 a,
 drawer-menu .level_3 label {
   @apply bg-black bg-opacity-20;
-  padding-left: 4rem;
+  padding-left: 2.8rem;
   box-shadow: inset 0 -1px #ffffff60;
 }
 drawer-menu .level_3 a:focus,
@@ -191,9 +191,12 @@ drawer-menu input[type="checkbox"]:checked + label > svg {
   transform: rotate(90deg);
 }
 
-drawer-menu .after-nav {
-  @apply bg-steelblue shadow-inner pt-3;
+drawer-menu .after-nav .social-media {
+  @apply pt-3 grid grid-cols-4 items-center mx-8;
+}
 
+drawer-menu .after-nav a {
+  @apply invert;
 }
 
 drawer-menu .ce_hyperlink {
