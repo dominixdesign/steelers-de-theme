@@ -54,7 +54,7 @@
   <?php $this->endblock(); ?>
   <?php
   // classes to avoid purging
-  // mt-10 mt-5 w-p60 h-p40
+  // mt-10 mt-5 w-p60 h-p40 grid grid-cols-2 border-steelgreen border-gray-300 ring-2 ring-steelgreen
   ?>
 </head>
 

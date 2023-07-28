@@ -1,4 +1,4 @@
-<div class="border-b border-gray-900/10 pb-12 <?= $this->prefix ?><?php if ($this->class) : ?> <?= $this->class ?><?php endif; ?>">
+<div class="pb-12 <?= $this->prefix ?><?php if ($this->class) : ?> <?= $this->class ?><?php endif; ?>">
   <?php $this->block('label'); ?>
   <?php $this->endblock(); ?>
 
