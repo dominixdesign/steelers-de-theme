@@ -51,7 +51,17 @@
           echo $fmt->format($this->game['gamedate']) . ', ' . $this->game['gametime'] . 'h';
           ?>
     </div>
-    <div class="pl-2 lg:pl-4"><a href="/tickets"><img class="<?= $iconClasses ?>" src="/files/steelers/layout/ticket-icon.svg" alt="STEELERS Tickets" height="50" width="62" /></a></div>
+    <div class="pl-2 lg:pl-4">
+      <?php
+      if(filter_var($this->game['eventimurl'], FILTER_VALIDATE_URL)):
+      ?>
+        <a href="<?= $this->game['eventimurl'] ?>">
+      <?php else: ?>
+        <a href="/online-tickets">
+      <?php endif; ?>
+        <img class="<?= $iconClasses ?>" src="/files/steelers/layout/ticket-icon.svg" alt="STEELERS Tickets" height="50" width="62" />
+      </a>
+    </div>
   </div>
 </div>
 <?php $this->endblock(); ?>

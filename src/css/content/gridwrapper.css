@@ -6,6 +6,10 @@ h3 {
   @apply text-4xl overflow-hidden text-ellipsis;
 }
 
+
+.grid-221 {
+  @apply inside grid grid-cols-1 gap-4;
+}
 .grid-321 {
   @apply inside grid grid-cols-1 gap-4;
 }
@@ -20,6 +24,9 @@ h3 {
 }
 
 @media (min-width: 768px) {
+  .grid-221 {
+    @apply grid-cols-2 gap-8;
+  }
   .grid-321 {
     @apply grid-cols-2 gap-8;
   }
@@ -36,6 +43,9 @@ h3 {
 @media (min-width: 1024px) {
   .gridwrapper h3 {
     @apply text-5xl overflow-hidden text-ellipsis;
+  }
+  .grid-321 {
+    @apply grid-cols-3 gap-16;
   }
   .grid-321 {
     @apply grid-cols-3 gap-16;

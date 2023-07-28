@@ -1,7 +1,7 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
 import GLightbox from "glightbox";
-import Swiper, { Navigation } from "swiper";
+import Swiper, { Navigation, Autoplay } from "swiper";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 import { tinyDrawer } from "./TinyDrawer";
@@ -31,7 +31,11 @@ document.querySelectorAll(".swiper-home").forEach((el) => {
   new Swiper(el, {
     slidesPerView: 1,
     loop: true,
-    modules: [Navigation],
+    modules: [Navigation, Autoplay],
+    autoplay: {
+      delay: 5000,
+      pauseOnMouseEnter: true,
+    },
     navigation: {
       nextEl: ".swiper-button-right",
       prevEl: ".swiper-button-left",
