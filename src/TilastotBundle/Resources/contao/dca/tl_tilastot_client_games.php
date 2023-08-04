@@ -224,7 +224,9 @@ class tl_tilastot_client_games extends Backend
             return;
         }
         $gamedate = date_create_immutable_from_format("Y-m-d H:i", date('Y-m-d ', $dc->activeRecord->gamedate) . $dc->activeRecord->gametime );
-        $arrSet['gamedate'] = $gamedate->getTimestamp();
-        $this->Database->prepare("UPDATE tl_tilastot_client_games %s WHERE id=?")->set($arrSet)->execute($dc->id);
+        if($gamedate) {
+            $arrSet['gamedate'] = $gamedate->getTimestamp();
+            $this->Database->prepare("UPDATE tl_tilastot_client_games %s WHERE id=?")->set($arrSet)->execute($dc->id);
+        }
     }
 }
