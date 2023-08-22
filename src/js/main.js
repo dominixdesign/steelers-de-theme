@@ -87,6 +87,12 @@ const lightbox = GLightbox({
   loop: false,
   autoplayVideos: false,
 });
+const lightbox2 = GLightbox({
+  selector: "data-lightbox",
+  touchNavigation: true,
+  loop: false,
+  autoplayVideos: false,
+});
 
 // eventlisteners
 window.onscroll = function () {
