@@ -9,15 +9,11 @@
  * file that was distributed with this source code.
  */
 
-use App\Tilastot\Model\Partners;
-
 $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
     // Config
     'config'   => array(
         'dataContainer' => 'Table',
         'enableVersioning' => true,
-        'onsubmit_callback' => array(array('tl_tilastot_partners', 'saveCallback')),
-        'onload_callback' => array(array('tl_tilastot_partners', 'loadCallback')),
         'sql' => array(
             'keys' => array(
                 'id' => 'primary'
@@ -28,13 +24,14 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
     // List
     'list' => array(
         'sorting' => array(
-            'mode'                    => 11,
+            'mode'                    => DataContainer::MODE_SORTED,
+            'flag'                    => DataContainer::SORT_INITIAL_LETTER_ASC,
             'fields'                  => array('name'),
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array(
             'fields'                  => array('name', 'category'),
-            'showColumns'             => true
+            'format' => '%s <span style="color:#999;padding-left:3px">[%s]</span>'
         ),
         'global_operations' => array(
             'all' => array(
@@ -84,6 +81,8 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_partners']['name'],
             'exclude'                 => true,
             'search'                  => true,
+            'filter'                  => true,
+            'sorting'                 => true,
             'inputType'               => 'text',
             'eval'                    => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
@@ -133,27 +132,3 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
         )
     )
 );
-
-class tl_tilastot_partners extends Backend
-{
-    function saveCallback(DataContainer $dc)
-    {
-        // Return if there is no ID
-        if (!$dc->id) {
-            return;
-        }
-        var_dump($dc->activeRecord->category);
-        //$this->Database->prepare("UPDATE tl_tilastot_client_games %s WHERE id=?")->set($arrSet)->execute($dc->id);
-    }
-    function loadCallback(DataContainer $dc)
-    {
-        // Return if there is no ID
-        if (!$dc->id) {
-            return;
-        }
-        var_dump($dc->id);
-        $element = Partners::findById($dc->id);
-        var_dump($element);
-        //$this->Database->prepare("UPDATE tl_tilastot_client_games %s WHERE id=?")->set($arrSet)->execute($dc->id);
-    }
-}
