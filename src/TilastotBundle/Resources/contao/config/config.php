@@ -36,6 +36,8 @@ $GLOBALS['BE_MOD']['del'] = array(
 	)
 );
 
+$GLOBALS['BE_MOD']['content']['tilastot_partners'] = array('tables' => array('tl_tilastot_partners'));
+
 /* Model Classes */
 $GLOBALS['TL_MODELS']['tl_tilastot_client_rounds'] = Rounds::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_games'] = Games::class;
