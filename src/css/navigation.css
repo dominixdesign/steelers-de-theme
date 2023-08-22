@@ -69,13 +69,17 @@ nav .grid-nav {
   }
 
   .header-nav-logo .starcolor {
-    @apply fill-steelgreen;
+    @apply fill-gray-400;
   }
   .sticky .header-nav-logo .starcolor {
     @apply fill-white;
   }
 
   .header-nav-logo .puckcolor {
+    @apply fill-white stroke-steelgreen stroke-2;
+    paint-order: stroke;
+  }
+  .sticky .header-nav-logo .puckcolor {
     @apply fill-white;
   }
 
