@@ -58,6 +58,12 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
                 'icon'                => 'delete.gif',
                 'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
             ),
+            'toggle' => array(
+                'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_partners']['toggle'],
+                'href'                => 'act=toggle&amp;field=published',
+                'icon'                => 'visible.svg',
+                'showInHeader'        => true
+            ),
             'show' => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_partners']['show'],
                 'href'                => 'act=show',

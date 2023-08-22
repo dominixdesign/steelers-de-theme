@@ -27,3 +27,4 @@ $GLOBALS['TL_LANG']['tl_tilastot_partners']['edit'] = array('Partner bearbeiten'
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['copy'] = array('Partner duplizieren', 'Partner ID %s duplizieren');
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['delete'] = array('Partner löschen', 'Partner ID %s löschen');
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['show'] = array('Partner anzeigen', 'Partner ID %s anzeigen');
+$GLOBALS['TL_LANG']['tl_tilastot_partners']['toggle'] = array('Partner anzeige umstellen', 'Sichtbarkeit von Partner ID %s ändern');
