@@ -17,11 +17,15 @@ class PartnersModule extends AbstractFrontendModuleController
 {
 	protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
 	{
+		$categories = deserialize($model->tilastot_partners_category);
+		$category_list = implode('"|"', $categories);
 		$partners = Partners::findAll(array(
-			'column'  => array('published=1'),
+			'column'  => array(
+				'published=1',
+				'category REGEXP \'' . $category_list . '\''
+			),
 			'order' => 'name ASC'
 		));
-		var_dump($model->tilastot_partners_category);
 		$partnerslist = array();
 
 		if (!$partners) {
@@ -29,19 +33,14 @@ class PartnersModule extends AbstractFrontendModuleController
 		}
 		foreach ($partners->fetchAll() as $p) {
 
-			$logo = StringUtil::deserialize($p['logo']);
-
-			if (!empty($logo) || is_array($logo)) {
-				$files = ArrayUtil::sortByOrderField($logo, StringUtil::deserialize($p['orderPictures']));
-				$allPictures = FilesModel::findMultipleByUuids($files)->fetchAll();
-				$p['logo'] = $allPictures;
-			}
+			$p['logo'] = FilesModel::findByUuid(StringUtil::deserialize($p['logo']));
 
 			$partnerslist[] = $p;
 		}
 
 
 		$template->partners = $partnerslist;
+		$template->categories = $categories;
 
 		$template->headline = $this->headline;
 		$template->headlineUnit = $this->hl;

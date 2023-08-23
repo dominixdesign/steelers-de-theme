@@ -70,7 +70,18 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_config_json'] = array(
 $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_partners_category'] = array(
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_partners_category'],
 	'inputType'               => 'checkbox',
-	'reference'               => &$GLOBALS['TL_LANG']['tilastot_partners_category'],
+	'options'               => array(
+		'premium' => 'Premiumpartner',
+		'gold' => 'Businesspartner Gold',
+		'silber' => 'Businesspartner Silber',
+		'bronze' => 'Businesspartner Bronze',
+		'business' => 'Businesspartner',
+		'lounge' => 'Businesslounge',
+		'medien' => 'Medienpartner',
+		'carpool' => 'Carpool Partner',
+		'team' => 'Teampartner',
+		'supporter' => 'Supporter',
+	),
 	'eval'                    => array('multiple' => true),
 	'sql'                     => "text NULL"
 );
