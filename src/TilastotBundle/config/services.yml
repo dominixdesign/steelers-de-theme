@@ -14,8 +14,8 @@ services:
 
   App\Tilastot\Cron\getLatestProductsCron:
     arguments:
-      - '%woo_key%'
-      - '%woo_secret%'
+      - "%woo_key%"
+      - "%woo_secret%"
 
   App\Tilastot\Module\ScheduleModule:
     tags:
@@ -47,6 +47,12 @@ services:
         category: tilastot
         template: mod_player
         type: player
+  App\Tilastot\Module\PartnersModule:
+    tags:
+      - name: contao.frontend_module
+        category: tilastot
+        template: mod_partners
+        type: partners
   App\Tilastot\ContentElement\WrapperBlockStart:
     tags:
       - name: contao.content_element
