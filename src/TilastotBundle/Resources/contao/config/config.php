@@ -15,6 +15,7 @@ use App\Tilastot\Model\Standings;
 use App\Tilastot\Model\Players;
 use App\Tilastot\Model\PlayerStats;
 use \App\Tilastot\Module\RefreshModule;
+use App\Tilastot\Model\Partners;
 
 /* Backend Module */
 
@@ -44,6 +45,7 @@ $GLOBALS['TL_MODELS']['tl_tilastot_client_games'] = Games::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_players'] = Players::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_stats'] = PlayerStats::class;
 $GLOBALS['TL_MODELS']['tl_tilastot_client_standings'] = Standings::class;
+$GLOBALS['TL_MODELS']['tl_tilastot_partners'] = Partners::class;
 
 /* Cronjob */
 $GLOBALS['TL_CRON']['hourly'][] = array('App\\Tilastot\\Utils\\TilastotApi', 'refreshAll');
