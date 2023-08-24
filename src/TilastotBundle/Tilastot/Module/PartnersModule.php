@@ -42,10 +42,11 @@ class PartnersModule extends AbstractFrontendModuleController
 		$template->partners = $partnerslist;
 		$template->categories = $categories;
 
-		$template->headline = $this->headline;
-		$template->headlineUnit = $this->hl;
-		$template->cssId = $this->cssID[0];
-		$template->cssClass = $this->cssID[1];
+		$headline = unserialize($model->headline);
+		$template->headline = $headline['value'];
+		$template->headlineUnit = $headline['unit'];
+		$template->cssId = $model->cssID[0];
+		$template->cssClass = $model->cssID[1];
 
 		return $template->getResponse();
 	}

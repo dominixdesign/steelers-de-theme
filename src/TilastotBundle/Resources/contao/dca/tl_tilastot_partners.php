@@ -73,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'name,displayname,category;logo;published'
+        'default' => 'name,displayname,url;category;logo;published'
     ),
     // Fields
     'fields'   => array(

@@ -14,6 +14,7 @@
  */
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['name'] = array('Name', 'Bitte geben Sie den Namen des Partners ein.');
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['displayname'] = array('Angezeigter Name', 'Falls der Name auf der Webseite anders sein soll, als hier im Backend.');
+$GLOBALS['TL_LANG']['tl_tilastot_partners']['url'] = array('Website URL', 'Beginnt mit https://');
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['category'] = array('Kategorie', 'Ein Partner kann auch in mehreren Kategorien eingetragen werden.');
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['logo'] = array('Partnerlogo', 'Ohne Logo wird nur der angezeigte Name bzw. der Name genutzt.');
 $GLOBALS['TL_LANG']['tl_tilastot_partners']['published'] = array('Anzeigen', 'Sobald der Haken gesetzt ist, ist der Partner auf der Webseite zu sehen.');
