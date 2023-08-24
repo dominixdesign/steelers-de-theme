@@ -101,6 +101,14 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
             'eval'                    => array('mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(255) NOT NULL default ''"
         ),
+        'url' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_partners']['url'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp' => 'url', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
+        ),
         'category' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_partners']['category'],
             'exclude'                 => true,
