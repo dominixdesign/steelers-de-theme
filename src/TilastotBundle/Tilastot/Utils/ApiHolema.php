@@ -92,7 +92,7 @@ class ApiHolema
         $r = Rounds::findById($round);
 
         $rosterData = json_decode(self::call('roster.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
-        $statsData = json_decode(self::call('stats.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
+        $statsData = json_decode(self::call('playerstats.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
         if ($rosterData->teamroster->players == "") {
             return null;
         }
@@ -117,7 +117,7 @@ class ApiHolema
             $p->nationality = $player->nationality;
             $p->shoots = $player->shoots;
             $p->birthday = mktime(0, 0, 0, $birthday['month'], $birthday['day'], $birthday['year']);
-            $p->birthplace = $player->birthplace;
+            $p->birthplace = $player->birthplace ? $player->birthplace : '';
             $p->height = $player->height;
             $p->weight = $player->weight;
 
@@ -152,7 +152,7 @@ class ApiHolema
                         $stats->assists = $stat->assists;
                         $stats->points = $stat->points;
                         $stats->penalties = $stat->penalties;
-                        $stats->plusminus = $stat->plusminus;
+                        $stats->plusminus = $stat->plus - $stat->minus;
                         $stats->faceoffswon = $stat->faceoffswon;
                         $stats->faceoffslost = $stat->faceoffslost;
                         $stats->shots = $stat->shots;
@@ -194,7 +194,7 @@ class ApiHolema
             $g->resulttype = $game->resulttype;
             $g->homescore = $game->homescore;
             $g->awayscore = $game->awayscore;
-            $g->ended = ($game->ended) ? 1 : 0;
+            $g->ended = ($game->ended == 'False') ? 0 : 1;
             $g->tstamp = time();
             $g->save();
         }
