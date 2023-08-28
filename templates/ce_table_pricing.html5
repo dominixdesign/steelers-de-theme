@@ -3,62 +3,25 @@
 <?php $this->block('content'); ?>
 
 <div class="defaultcontainer">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-4xl text-center">
-            <h2 class="text-base font-semibold leading-7 text-indigo-600">Pricing</h2>
-            <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Plans for teams of&nbsp;all&nbsp;sizes</p>
-        </div>
-        <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
-
+    <div class="mx-auto max-w-full px-6 lg:px-8">
         <!-- xs to lg -->
-        <div class="mx-auto mt-12 max-w-md space-y-8 sm:mt-16 lg:hidden">
-            <?php foreach ($this->header as $col) : ?>
-                <section class="p-8">
-                    <h3 id="tier-basic" class="text-sm font-semibold leading-6 text-gray-900">Basic</h3>
-                    <p class="mt-2 flex items-baseline gap-x-1 text-gray-900">
-                        <span class="text-4xl font-bold">$9</span>
-                        <span class="text-sm font-semibold">/month</span>
-                    </p>
-                    <a href="#" aria-describedby="tier-basic" class="mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300">Buy plan</a>
-                    <ul role="list" class="mt-10 space-y-4 text-sm leading-6 text-gray-900">
-                        <li>
-                            <ul role="list" class="space-y-4">
-                                <li class="flex gap-x-3">
-                                    <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span> Integrations </span>
+        <div class="mx-auto mt-12 space-y-4 sm:mt-8 lg:hidden">
+            <?php foreach ($this->header as $i => $col) : ?>
+                <?php if (0 == $i && $this->useLeftTh) : ?>
+                    &nbsp;
+                <?php else : ?>
+                    <section class="p-8">
+                        <h3 class="text-2xl font-semibold leading-6 text-steelgreen"><?= $col['content'] ?></h3>
+                        <ul role="list" class="mt-10 space-y-4 text-sm leading-6 text-gray-900">
+                            <?php foreach ($this->body as $class => $row) : ?>
+                                <li class="grid grid-cols-6 gap-x-3 text-sm leading-6 text-gray-900">
+                                    <div class="col-span-4"><?= $row[0]['content'] ?>:</div>
+                                    <div class="col-span-2 font-bold"><?= $row[$i]['content'] ?></div>
                                 </li>
-                                <li class="flex gap-x-3">
-                                    <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span> Shared links </span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul role="list" class="space-y-4">
-                                <li class="flex gap-x-3">
-                                    <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span> Advanced analytics </span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul role="list" class="space-y-4">
-                                <li class="flex gap-x-3">
-                                    <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span> 24/7 online support </span>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
+                            <?php endforeach; ?>
+                        </ul>
+                    </section>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
 
@@ -66,8 +29,27 @@
         <div class="isolate mt-20 hidden lg:block">
             <div class="relative -mx-8">
                 <div class="absolute inset-x-4 inset-y-0 -z-10 flex">
-                    <div class="flex w-1/5 px-4" style="margin-left: 50%" aria-hidden="true">
-                        <div class="w-full rounded-t-xl border-x border-t border-gray-900/10 bg-gray-400/5"></div>
+                    <div class="flex w-1/5 px-4" style="margin-left: 20%" aria-hidden="true">
+                        <div class="w-full border-x border-t border-[#00519c]/30 bg-[#00519c]/90">
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-x-4 inset-y-0 -z-10 flex">
+                    <div class="flex w-1/5 px-4" style="margin-left: 40%" aria-hidden="true">
+                        <div class="w-full border-x border-t border-[#34a8e0]/30 bg-[#34a8e0]/90">
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-x-4 inset-y-0 -z-10 flex">
+                    <div class="flex w-1/5 px-4" style="margin-left: 60%" aria-hidden="true">
+                        <div class="w-full border-x border-t border-[#3ac635]/30 bg-[#3ac635]/90">
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-x-4 inset-y-0 -z-10 flex">
+                    <div class="flex w-1/5 px-4" style="margin-left: 80%" aria-hidden="true">
+                        <div class="w-full border-x border-t border-[#017900]/30 bg-[#017900]/90">
+                        </div>
                     </div>
                 </div>
                 <table class="w-full table-fixed border-separate border-spacing-x-8 text-left">
@@ -78,8 +60,10 @@
                                     <?php if (0 == $i && $this->useLeftTh) : ?>
                                         <td></td>
                                     <?php else : ?>
-                                        <th scope="col" class="px-6 pt-6 xl:px-8 xl:pt-8">
-                                            <div class="text-sm font-semibold leading-7 text-gray-900"><?= $col['content'] ?></div>
+                                        <th scope="col" class="px-4 pt-6 xl:px-8 xl:pt-8">
+                                            <div class="text-center uppercase text-xl font-headline font-semibold leading-7 text-gray-900">
+                                                <?= $col['content'] ?>
+                                            </div>
                                         </th>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
@@ -97,7 +81,7 @@
                                         </th>
                                     <?php else : ?>
                                         <td class="px-6 py-4 xl:px-8">
-                                            <div class="text-center text-sm leading-6 text-gray-500"><?= $col['content'] ?></div>
+                                            <div class="text-center text-sm leading-6 text-gray-100"><?= $col['content'] ?></div>
                                         </td>
                                     <?php endif; ?>
                                 <?php endforeach; ?>

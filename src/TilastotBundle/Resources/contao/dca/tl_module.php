@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_from_date'] = array(
 $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_schedule_type'] = array(
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_schedule_type'],
 	'inputType'               => 'select',
-	'options'				  => array('results_fixtures','results', 'fixtures'),
+	'options'				  => array('results_fixtures', 'results', 'fixtures'),
 	'eval'                    => array('tl_class' => 'w50 wizard'),
 	'sql'                     => "varchar(10) NOT NULL default ''"
 );
@@ -65,6 +65,24 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_config_json'] = array(
 	'inputType'               => 'textarea',
 	'reference'               => &$GLOBALS['TL_LANG']['tilastot_config_json'],
 	'eval'                    => array('style' => 'height:60px', 'preserveTags' => true, 'rte' => 'ace|html', 'tl_class' => 'clr'),
+	'sql'                     => "text NULL"
+);
+$GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_partners_category'] = array(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tilastot_partners_category'],
+	'inputType'               => 'checkbox',
+	'options'               => array(
+		'premium' => 'Premiumpartner',
+		'gold' => 'Businesspartner Gold',
+		'silber' => 'Businesspartner Silber',
+		'bronze' => 'Businesspartner Bronze',
+		'business' => 'Businesspartner',
+		'lounge' => 'Businesslounge',
+		'medien' => 'Medienpartner',
+		'carpool' => 'Carpool Partner',
+		'team' => 'Teampartner',
+		'supporter' => 'Supporter',
+	),
+	'eval'                    => array('multiple' => true),
 	'sql'                     => "text NULL"
 );
 
@@ -86,3 +104,7 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['nextgame'] .= '{template_legend:hid
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] .= '{tilastot_legend},tilastot_round,tilastot_table_rows,tilastot_my_team,tilastot_standings_columns;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['partners'] = '{title_legend},name,headline,type;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['partners'] .= '{tilastot_legend},tilastot_partners_category;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['partners'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';

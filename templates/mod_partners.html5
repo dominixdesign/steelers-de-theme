@@ -1,0 +1,20 @@
+<?php $this->block('content'); ?>
+<div class="defaultcontainer gridwrapper !px-2 md:px-0 block">
+  <h3 title="Pre­mi­um Part­ner"><?= $this->headline ?></h3>
+  <div class="inside grid ce_wrapperStart grid-543">
+    <?php foreach ($this->partners as $partner) : ?>
+      <div class="ce_hyperlink block">
+        <figure class="image_container">
+          <a href="<?= $partner['url'] ?>" title="<?= $partner['name'] ?>" class="hyperlink_img" target="_blank" rel="noreferrer noopener">
+            <?php if ($partner['logo']) : ?>
+              <img src="<?= $partner['logo']->path; ?>" width="515" height="406" alt="">
+            <?php else : ?>
+              <span><?= $partner['name'] ?></span>
+            <?php endif; ?>
+          </a>
+        </figure>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</div>
+<?php $this->endblock(); ?>

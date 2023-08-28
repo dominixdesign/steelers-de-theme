@@ -17,6 +17,7 @@ $GLOBALS['TL_LANG']['MOD']['tilastot_refresh'] = array('Aktualisieren', 'Hier k�
 $GLOBALS['TL_LANG']['MOD']['tilastot_games'] = array('Spielplan', 'Hier können alle Spiele bzw. Spielpläne bearbeitet werden.');
 $GLOBALS['TL_LANG']['MOD']['tilastot_standings'] = array('Teams / Tabelle', 'Hier können Teams und Tabellenstand bearbeitet werden.');
 $GLOBALS['TL_LANG']['MOD']['tilastot_players'] = array('Spieler / Scorer', 'Spieler und Spielerstatistik verwalten.');
+$GLOBALS['TL_LANG']['MOD']['tilastot_partners'] = array('Partner', 'Partner verwalten.');
 
 $GLOBALS['TL_LANG']['FMD']['schedule'] = array('Spielplan', 'Tilastot Spielplan');
 $GLOBALS['TL_LANG']['FMD']['standings'] = array('Tabelle', 'Tilastot Tabelle');
