@@ -21,10 +21,10 @@
 .standings-table .table-row > div:nth-child(1) {
   @apply border-r-4 border-black;
 }
-.standings-table .table-row:nth-child(-n + 11) > div:nth-child(1) {
+.standings-table .table-row:nth-child(-n + 7) > div:nth-child(1) {
   @apply border-r-4 border-steelblue;
 }
-.standings-table .table-row:nth-child(n + 15) > div:nth-child(1) {
+.standings-table .table-row:nth-child(n + 12) > div:nth-child(1) {
   @apply border-r-4;
   border-color: #e31e74;
 }
