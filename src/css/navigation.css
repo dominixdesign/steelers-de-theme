@@ -44,6 +44,7 @@ nav .grid-nav {
 .header-nav-logo .puckcolor,
 .header-nav-logo .starcolor {
   @apply fill-white;
+  stroke-width: 0;
 }
 
 @media (min-width: 1280px) {
@@ -76,11 +77,13 @@ nav .grid-nav {
   }
 
   .header-nav-logo .puckcolor {
-    @apply fill-white stroke-steelgreen stroke-2;
+    @apply fill-gray-400 stroke-white;
     paint-order: stroke;
+    stroke-width: 3;
   }
   .sticky .header-nav-logo .puckcolor {
     @apply fill-white;
+    stroke-width: 0;
   }
 
   .sticky .header-nav-logo {
