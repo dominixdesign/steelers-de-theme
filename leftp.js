@@ -35,5 +35,5 @@ var x = new LEftp({
 });
 
 if (onStartUploadAll) {
-  setTimeout(() => x.stop(), 5000);
+  setTimeout(() => x.stop(), 10000);
 }
