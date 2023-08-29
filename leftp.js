@@ -35,5 +35,17 @@ var x = new LEftp({
 });
 
 if (onStartUploadAll) {
-  setTimeout(() => x.stop(), 10000);
+  setTimeout(() => {
+    console.log(x.schedule)
+  }, 2000);
+  setTimeout(() => {
+    console.log(x.schedule)
+  }, 6000);
+  setTimeout(() => {
+    console.log(x.schedule)
+  }, 10000);
+  setTimeout(() => {
+    console.log(x.schedule)
+    x.stop()
+  }, 20000);
 }
