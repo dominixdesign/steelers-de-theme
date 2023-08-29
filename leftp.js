@@ -34,18 +34,17 @@ var x = new LEftp({
   onStartUploadAll, // On start, upload all files (that match the "watch criteria").
 });
 
-if (onStartUploadAll) {
-  setTimeout(() => {
-    console.log(x.filesUploaded);
-  }, 2000);
-  setTimeout(() => {
-    console.log(x.filesUploaded);
-  }, 6000);
-  setTimeout(() => {
-    console.log(x.filesUploaded);
-  }, 10000);
-  setTimeout(() => {
-    console.log(x.filesUploaded);
+const checkStop = (filesUploaded, x) => {
+  console.log('check if upload is still running...')
+  if(filesUploaded === x.filesUploaded) {
     x.stop()
-  }, 20000);
+  } else {
+    filesUploaded = x.filesUploaded;
+    setTimeout(() => checkStop(), 2000)
+  }
+}
+
+if (onStartUploadAll) {
+  filesUploaded = -1;
+    setTimeout(() => checkStop(), 2000);
 }
