@@ -14,6 +14,7 @@ class leFtp {
   constructor(config) {
     this.keepWatch = true;
     this.schedule = null;
+    this.filesUploaded = 0;
     //this.localRoot	= config.localRootDir.replace(/\\/g,'/') ;
     //this.remoteRoot	= config.remoteRootDir;//(config.remoteRootDir.startsWith('/')?'':'/') + config.remoteRootDir ;
     if (config.watchList) this.watchList = config.watchList;
@@ -233,6 +234,7 @@ class leFtp {
 
     try {
       await this.Ftp.put(localFileNameFull, remoteFileNameFull);
+      this.filesUploaded++;
       console.log(
         `uploaded file "${localFileNameFull}" to "${remoteFileNameFull}"`
       );

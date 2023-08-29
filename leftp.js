@@ -36,16 +36,16 @@ var x = new LEftp({
 
 if (onStartUploadAll) {
   setTimeout(() => {
-    console.log(x.schedule)
+    console.log(x.filesUploaded);
   }, 2000);
   setTimeout(() => {
-    console.log(x.schedule)
+    console.log(x.filesUploaded);
   }, 6000);
   setTimeout(() => {
-    console.log(x.schedule)
+    console.log(x.filesUploaded);
   }, 10000);
   setTimeout(() => {
-    console.log(x.schedule)
+    console.log(x.filesUploaded);
     x.stop()
   }, 20000);
 }
