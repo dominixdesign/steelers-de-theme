@@ -139,6 +139,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
         'published' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_partners']['published'],
             'exclude'                 => true,
+            'toggle'                  => true,
             'search'                  => true,
             'inputType'               => 'checkbox',
             'eval'                    => array('tl_class' => 'w50'),
