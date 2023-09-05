@@ -1,4 +1,6 @@
 <?php
+$ogimage = $this->getImage($this->urlEncode($this->arrData['singleSRC']), 296, 370, 'crop');
+
 if (!function_exists('tokenTruncate')) {
   function tokenTruncate($string, $your_desired_width)
   {
@@ -21,13 +23,13 @@ if (!function_exists('tokenTruncate')) {
 <div class="group relative bg-white border border-gray-200 mx-2 xl:mx-4 flex flex-col overflow-hidden">
   <div class="flex flex-col bg-white h-full">
     <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
-      <?= $this->replaceInsertTags('{{image::' . $this->arrData['singleSRC'] . '?height=370&width=296&mode=crop&alt=' . $this->newsHeadline . '&class=aspect-news w-full}}'); ?>
+      <img src="<?= $ogimage; ?>" width="296" height="370" alt="<?= $this->newsHeadline ?>" class="aspect-news w-full">
     </a>
     <div class="p-5 grow flex flex-col">
       <div class="font-bold uppercase">
         <?php if (count($this->categoriesList) > 0) : ?>
-        <?= implode(', ', $this->categoriesList) ?>
-        <?php endif; ?>&nbsp;</div>
+          <?= implode(', ', $this->categoriesList) ?>
+          <?php endif; ?>&nbsp;</div>
 
       <?php
       echo '<div class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">';
