@@ -1,6 +1,6 @@
 <?php $this->block('content'); ?>
 <div class="defaultcontainer gridwrapper !px-2 md:px-0 block">
-  <h3 title="Pre­mi­um Part­ner"><?= $this->headline ?></h3>
+  <h3 title="<?= $this->headline ?>"><?= $this->headline ?></h3>
   <div class="inside grid ce_wrapperStart grid-543">
     <?php foreach ($this->partners as $partner) : ?>
       <div class="ce_hyperlink block">
