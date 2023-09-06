@@ -81,6 +81,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_partners_category'] = array(
 		'carpool' => 'Carpool Partner',
 		'team' => 'Teampartner',
 		'supporter' => 'Supporter',
+		'nachwuchs_haupt' => 'Nachwuchs - Hauptsponsor',
+		'nachwuchs' => 'Nachwuchssponsor',
 	),
 	'eval'                    => array('multiple' => true),
 	'sql'                     => "text NULL"

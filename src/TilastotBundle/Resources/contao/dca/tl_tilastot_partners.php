@@ -125,6 +125,8 @@ $GLOBALS['TL_DCA']['tl_tilastot_partners'] = array(
                 'carpool' => 'Carpool Partner',
                 'team' => 'Teampartner',
                 'supporter' => 'Supporter',
+                'nachwuchs_haupt' => 'Nachwuchs - Hauptsponsor',
+                'nachwuchs' => 'Nachwuchssponsor',
             ),
             'eval'                    => array('multiple' => true, 'mandatory' => true, 'maxlength' => 255, 'tl_class' => 'clr w50'),
             'sql'                     => "varchar(255) NULL"
