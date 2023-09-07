@@ -1,6 +1,6 @@
 <!-- indexer::stop -->
 <?php
-$newsletter_image = $this->getImage($this->urlEncode('files/steelers/layout/player_newsletter.png'), 458, 458, 'proportional');
+$newsletter_image = $this->getImage($this->urlEncode('files/steelers/layout/player_newsletter.png'), 700, 700, 'proportional');
 
 ?>
 <div class="<?= $this->class ?> defaultcontainer form-home bg-black relative !mt-32 xl:!mt-64" <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
