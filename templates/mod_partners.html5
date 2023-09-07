@@ -5,11 +5,11 @@
     <?php foreach ($this->partners as $partner) : ?>
       <div class="ce_hyperlink block">
         <figure class="image_container">
-          <a href="<?= $partner['url'] ?>" title="<?= $partner['name'] ?>" class="hyperlink_img" target="_blank" rel="noreferrer noopener">
+          <a href="<?= $partner['url'] ?>" title="<?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?>" class="hyperlink_img" target="_blank" rel="noreferrer noopener">
             <?php if ($partner['logo']) : ?>
               <img src="<?= $partner['logo']->path; ?>" width="515" height="406" alt="">
             <?php else : ?>
-              <span><?= $partner['name'] ?></span>
+              <span><?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?></span>
             <?php endif; ?>
           </a>
         </figure>
