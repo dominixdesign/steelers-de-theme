@@ -80,7 +80,11 @@
             </div>
             <?php
                   if ($player['profilePic']) :
-                    echo $this->replaceInsertTags('{{image::' . $player['profilePic']['path'] . '?width=450&mode=proportional&alt=' . $player['firstname'] . ' ' . $player['lastname'] . '&class=w-full h-full object-center object-cover}}');
+                    $ogimage = $this->getImage($this->urlEncode($player['profilePic']['path']), 300, 450, 'crop');
+                    
+                  ?>
+                    <img src="<?= $ogimage ?>" alt="<?= $player['firstname'] . ' ' . $player['lastname'] ?>" class="w-full h-full object-top object-cover">
+                  <?php
                   endif;
                   ?>
           </div>
