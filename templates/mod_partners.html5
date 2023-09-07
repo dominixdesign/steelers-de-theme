@@ -3,17 +3,23 @@
   <h3 title="<?= $this->headline ?>"><?= $this->headline ?></h3>
   <div class="inside grid ce_wrapperStart grid-543">
     <?php foreach ($this->partners as $partner) : ?>
-      <div class="ce_hyperlink block">
-        <figure class="image_container">
-          <a href="<?= $partner['url'] ?>" title="<?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?>" class="hyperlink_img" target="_blank" rel="noreferrer noopener">
-            <?php if ($partner['logo']) : ?>
-              <img src="<?= $partner['logo']->path; ?>" width="515" height="406" alt="">
-            <?php else : ?>
-              <span><?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?></span>
-            <?php endif; ?>
-          </a>
-        </figure>
-      </div>
+    <div class="ce_hyperlink block">
+      <figure class="image_container">
+        <a href="<?= $partner['url'] ?>"
+          title="<?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?>" class="hyperlink_img"
+          target="_blank" rel="noreferrer noopener">
+          <?php
+            if ($partner['logo']) :
+              $image = $this->getImage($this->urlEncode($partner['logo']->path), 213, 213, 'proportional');
+            ?>
+          <img src="<?= $partner['logo']->path; ?>" width="213" height="213"
+            alt="<?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?>">
+          <?php else : ?>
+          <span><?= $partner['displayname'] ? $partner['displayname'] : $partner['name'] ?></span>
+          <?php endif; ?>
+        </a>
+      </figure>
+    </div>
     <?php endforeach; ?>
   </div>
 </div>
