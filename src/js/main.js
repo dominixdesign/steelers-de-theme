@@ -48,11 +48,19 @@ document.querySelectorAll(".swiper-shop").forEach((el) => {
   const prevEl = document.querySelector("#homeshop .swiper-button-left");
   new Swiper(el, {
     gap: 0,
-    slidesPerView: 3,
+    slidesPerView: 1,
     modules: [Navigation],
     navigation: {
       nextEl,
       prevEl,
+    },
+    breakpoints: {
+      500: {
+        slidesPerView: 2,
+      },
+      1000: {
+        slidesPerView: 3,
+      },
     },
     on: {
       slideChangeTransitionEnd: function (swiper) {
