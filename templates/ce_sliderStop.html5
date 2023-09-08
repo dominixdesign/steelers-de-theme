@@ -1,5 +1,5 @@
 </div>
-<div class="mt-5 flex flex-col md:flex-row md:justify-between md:absolute top-0 md:bottom-[-20rem] lg:bottom-[-28rem] z-50" style="padding-left: 3vw">
+<div class="mt-5 flex flex-col md:flex-row md:justify-between md:absolute bottom-0 lg:bottom-16 z-50" style="padding-left: 3vw; height: 40px;">
   <div class="flex gap-14">
     <button class="swiper-button-left"><svg xmlns="http://www.w3.org/2000/svg" class="fill-black stroke-black" x="0px" y="0px" width="60px" height="40px" viewBox="0 0 60 40">
         <g>
