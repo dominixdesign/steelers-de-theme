@@ -20,14 +20,14 @@
   .mod_schedule .row {
     @apply py-4;
   }
-  .mod_schedule .row .datetime {
-    @apply border-b border-gray-400;
-  }
   .mod_schedule .row .datetime > div {
-    @apply uppercase font-bold mb-2 text-lg leading-5 grid grid-cols-5 items-center;
+    @apply uppercase font-bold mb-2 text-lg leading-5 items-center;
   }
   .mod_schedule .row .datetime > div > div {
-    @apply text-center;
+    @apply text-center inline-block;
+  }
+  .mod_schedule .row .datetime > div > div:not(:last-child)::after {
+    content: ",";
   }
   .mod_schedule .row .datetime .day {
     @apply col-span-2;
@@ -36,7 +36,13 @@
     @apply col-span-2;
   }
   .mod_schedule .row .round {
-    @apply hidden;
+    @apply border-b border-gray-400;
+  }
+  .mod_schedule .row .round > div > div {
+    @apply text-center inline-block;
+  }
+  .mod_schedule .row .round > div > div:not(:last-child)::after {
+    content: ",";
   }
   .mod_schedule .row .game {
     @apply col-span-4 grid grid-cols-5 items-center py-0;

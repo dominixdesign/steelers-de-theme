@@ -1,6 +1,6 @@
 <!-- indexer::stop -->
 <nav class="<?= $this->class ?> top-sticky-nav device bg-steelnav" <?= $this->cssID ?><?php if ($this->style) : ?> style="<?= $this->style ?>" <?php endif; ?>>
-	<div class="grid grid-nav items-center place-items-center py-2 relative mx-12" style="height: 60px;">
+	<div class="grid grid-nav items-center place-items-center py-2 relative mx-2 md:mx-12" style="height: 60px;">
 		<div data-drawer-open class="justify-self-start cursor-pointer">
 			<button class=" stroke-white white mt-5">
 				<span class="burger"></span>

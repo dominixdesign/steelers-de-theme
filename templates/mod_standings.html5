@@ -17,11 +17,11 @@
     <div class="table-row <?= $class ?> <?= $this->my_team == $team['id'] ? 'highlight-team' : '' ?>">
       <div class="font-bold md:font-headline text-steelgreen md:text-5xl"><?= $team['rank'] ?></div>
       <div class="!text-left font-bold col-span-5 flex items-center text-ellipsis overflow-hidden">
-        <div class="logo">
-          <?php
-            $logo = $team['logo'] ? '/' . $team['logo'] : 'https://www.penny-del.org/assets/img/teams/dark/team_' . $team['shortname'] . '.png';
-            echo $this->replaceInsertTags('{{image::' . $logo . '?width=65&height=65&mode=proportional&alt=' . $team['name'] . '}}');
-            ?>
+        <div class="logo" style="width: 65px; height: 65px; text-align: center;">
+          <img src="<?php
+                      $logo = $team['logo'] ? '/' . $team['logo'] : 'https://www.penny-del.org/assets/img/teams/dark/team_' . $team['shortname'] . '.png';
+                      echo $this->getImage($this->urlEncode($logo), 65, 65, 'box');
+                      ?>" alt="<?= $team['name'] ?>" style="max-height: 65px; max-width: 65px; margin: auto;">
         </div><?= $team['name'] ?>
       </div>
       <div class=" col-span-2"><strong><?= $team['games'] ?></strong><br><small><?= $team['rw'] ?> |
