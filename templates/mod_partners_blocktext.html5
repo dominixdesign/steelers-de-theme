@@ -5,7 +5,7 @@
     <div class="ce_list ce_hyperlink nohover block">
       <ul>
         <?php foreach ($this->partners as $partner) : ?>
-          <?= $partner['name']; ?>
+          <li><?= $partner['name']; ?></li>
         <?php endforeach ?>
       </ul>
     </div>
