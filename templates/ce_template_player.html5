@@ -7,7 +7,7 @@
 					<?= $this->keys['about'] ?></div>
 			<?php else : ?>
 				<div class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-6xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
-					#<?= $this->keys['jersey'] ?></div>
+					<?= $this->keys['jersey'] ?></div>
 			<?php endif ?>
 
 			<div class="hidden group-hover:block absolute z-20 text-white bg-steelgreen bg-opacity-80">
