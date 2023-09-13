@@ -178,7 +178,7 @@
             currentGame.gamedate * 1000 > Date.now() &&
             currentGame.home.shortname == 'SCB'
           "
-          href="/tickets"
+          :href="currentGame.eventimurl ? currentGame.eventimurl : '/tickets'"
           class="link-text--big"
           >Tickets kaufen</a
         >
