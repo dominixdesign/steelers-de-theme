@@ -1,8 +1,10 @@
-<div class="p-12 mt-6 flex flex-col justify-between items-end hyperlink-card ring-2 ring-steelblue ring-offset-2">
-  <h5 class="uppercase text-3xl w-full text-center font-headline font-bold leading-tight text-steelgreen"><?php
+<div class="px-2 py-12 mt-6 flex flex-col justify-between items-end hyperlink-card ">
+  <h5 class="uppercase text-3xl xl:text-4xl w-full text-center font-headline font-bold leading-tight text-steelgreen"><?php
                                                                                                           echo $this->headline;
                                                                                                           ?></h5>
   <div class="mx-auto mt-8 text-center">
-    <a class="btn-default" href="<?= $this->href ?>"><?= $this->linkTitle; ?></a>
+    <div class="bg-white">
+      <a class="btn-default my-4 mx-5" href="<?= $this->href ?>"><?= $this->linkTitle; ?></a>
+    </div>
   </div>
 </div>

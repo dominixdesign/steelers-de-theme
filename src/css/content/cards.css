@@ -1,7 +1,9 @@
 .hyperlink-card {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("/files/steelers/layout/card-bg.png");
+  @apply bg-steelgreen;
+}
+
+.hyperlink-card h5 {
+  @apply text-white;
 }
 
 .frontpage-5050 .hyperlink-card {

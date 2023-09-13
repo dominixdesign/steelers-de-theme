@@ -78,11 +78,14 @@
 }
 
 .frontpage-5050 .inside {
-  @apply grid grid-cols-1 place-items-center;
+  
 }
 
 @media (min-width: 1024px) {
+  .frontpage-5050 {
+    padding: 0 !important;
+  }
   .frontpage-5050 .inside {
-    @apply grid-cols-2;
+    @apply flex justify-between;
   }
 }
