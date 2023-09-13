@@ -4,14 +4,15 @@ $ogimage = $this->getImage($this->urlEncode($this->singleSRC), 160, 160, 'crop')
 <?php $this->extend('block_searchable'); ?>
 
 <?php $this->block('content'); ?>
-<div class="border-t-4 border-gray-800 pt-6 mt-6 flex gap-3">
+<div class="border-t-4 border-gray-800 pt-6 mt-6 flex flex-wrap md:flex-nowrap gap-3">
   <?php if ($this->addImage) : ?>
     <img src="<?= $ogimage ?>" class="object-cover object-center w-40 aspect-square" alt="<?= $this->linkTitle ?>" />
   <?php endif; ?>
-  <div>
-    <h5 class="uppercase text-2xl font-bold leading-tight"><a href="<?= $this->href ?>"><?= $this->linkTitle; ?></a></h5>
+  <div style="max-width: 80vw">
+    <h5 class="uppercase text-2xl font-bold leading-tight"><a href="<?= $this->href ?>"><?= $this->linkTitle; ?></a>
+    </h5>
     <ul class="mt-6">
-      <li><a href="<?= $this->href ?>"><?= $this->href; ?></a></li>
+      <li class="text-ellipsis overflow-hidden"><a href="<?= $this->href ?>"><?= $this->href; ?></a></li>
     </ul>
   </div>
 </div>

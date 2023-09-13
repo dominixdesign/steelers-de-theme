@@ -13,17 +13,23 @@
           class="player-subheadline"><?php
                                                                                                                 switch ($this->player['position']) {
                                                                                                                   case 'GK':
+                                                                                                                  case 'G':
                                                                                                                     echo "Goalie";
                                                                                                                     break;
                                                                                                                   case 'DE':
+                                                                                                                  case 'D':
                                                                                                                     echo "Verteidiger";
                                                                                                                     break;
                                                                                                                   case 'FO':
+                                                                                                                  case 'F':
+                                                                                                                  case 'C':
                                                                                                                   case 'LW':
                                                                                                                   case 'CE':
                                                                                                                   case 'RW':
                                                                                                                     echo "Stürmer";
                                                                                                                     break;
+                                                                                                                  default:
+                                                                                                                    echo $this->player['position'];
                                                                                                                 }
                                                                                                                 ?></span>
       </h3>
@@ -61,7 +67,15 @@
     <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden max-[600px]:mt-8">
       <?php
       if ($this->player['pictures'][1]) :
-        echo $this->replaceInsertTags('{{image::' . $this->player['pictures'][1]['path'] . '?height=768&width=768&mode=box&alt=' . $this->player['lastname'] . '%20' . $this->player['lastname'] . '&class=w-full h-full object-center object-cover sm:w-full sm:h-full}}');
+        $topImage = $this->getImage($this->urlEncode($this->player['pictures'][1]['path']), 800, 800, 'crop');
+      elseif ($this->player['pictures'][0]) :
+        $topImage = $this->getImage($this->urlEncode($this->player['pictures'][0]['path']), 800, 800, 'crop');
+      endif;
+      if ($topImage) :
+      ?>
+      <img src="<?= $topImage ?>" alt="<?= $this->player['lastname'] . ' ' . $this->player['lastname'] ?>"
+        class="w-full h-full object-center object-cover sm:w-full sm:h-full">
+      <?php
       endif;
       ?>
     </div>
