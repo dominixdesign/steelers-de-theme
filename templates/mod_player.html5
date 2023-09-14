@@ -6,11 +6,10 @@
 </div>
 <div class="<?= $this->class ?> defaultcontainer max-w-screen-2xl mx-auto relative my-20">
   <div class="grid md:grid-cols-2 items-end -mt-[24rem] md:-mt-[30rem]">
-    <div class="mb-0 pb-0 xl:p-5">
+    <div class="mb-0 !pb-0 xl:p-5">
       <h3 class="text-5xl font-sans inline-block md:block uppercase font-bold text-black">
         <span class="block lg:hidden font-headlineItalic player-number mt-20">#<?= $this->player['jersey']; ?></span>
-        <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?><br><span
-          class="player-subheadline"><?php
+        <?= $this->player['firstname'] ?> <?= $this->player['lastname'] ?><br><span class="player-subheadline"><?php
                                                                                                                 switch ($this->player['position']) {
                                                                                                                   case 'GK':
                                                                                                                   case 'G':
@@ -37,29 +36,32 @@
         <div class="text-sm uppercase">Geboren</div>
         <div class="text-lg font-bold -mt-1"><?= Date::parse('d. F Y', $this->player['birthday']) ?></div>
         <div class="text-lg font-bold -mt-1"><?= $this->player['birthplace'] ?></div>
-        <div class="border-t-2 border-black my-3"></div>
+        <div class="border-t-2 border-black my-2"></div>
         <div class="text-sm uppercase">Facts</div>
         <div class="text-lg font-bold -mt-1"><?= $this->player['weight'] ?> kg</div>
         <div class="text-lg font-bold -mt-1"><?= $this->player['height'] ?> cm</div>
         <div class="text-lg font-bold -mt-1">
           <?php
           if ($this->player['position'] == 'GK') {
-            if ($this->player['shoots'] == 'left') {
+            if ($this->player['shoots'] == 'left' || $this->player['shoots'] == 'L') {
               echo "fängt links";
-            } else if ($this->player['shoots'] == 'right') {
+            } else if ($this->player['shoots'] == 'right' || $this->player['shoots'] == 'R') {
               echo "fängt rechts";
             }
           } else {
-            if ($this->player['shoots'] == 'left') {
+            if ($this->player['shoots'] == 'left' || $this->player['shoots'] == 'L') {
               echo "schießt links";
-            } else if ($this->player['shoots'] == 'right') {
+            } else if ($this->player['shoots'] == 'right' || $this->player['shoots'] == 'R') {
               echo "schießt rechts";
             }
           };
 
           ?>
         </div>
-        <div class="border-t-2 border-black my-3"></div>
+        <div class="border-t-2 border-black my-2"></div>
+        <div class="text-sm uppercase">Nationalität</div>
+        <div class="text-lg font-bold -mt-1"><?= $this->player['nationality'] ?></div>
+        <div class="border-t-2 border-black my-2"></div>
         <div class="text-sm uppercase">Ein Steeler seit</div>
         <div class="text-lg font-bold -mt-1"><?= $this->player['steelersince'] ?></div>
       </div>
@@ -73,46 +75,44 @@
       endif;
       if ($topImage) :
       ?>
-      <img src="<?= $topImage ?>" alt="<?= $this->player['lastname'] . ' ' . $this->player['lastname'] ?>"
-        class="w-full h-full object-center object-cover sm:w-full sm:h-full">
+        <img src="<?= $topImage ?>" alt="<?= $this->player['lastname'] . ' ' . $this->player['lastname'] ?>" class="w-full h-full object-center object-cover sm:w-full sm:h-full">
       <?php
       endif;
       ?>
     </div>
   </div>
   <?php if ($this->player['warmuppartner']) : ?>
-  <div class="sm:w-4/5 mx-auto relative mb-10 mt-8 lg:mt-20 text-center">
-    <div class="text-sm uppercase">Warm-Up Partner von <?= $this->player['firstname'] ?>
-      <?= $this->player['lastname'] ?></div>
-    <div class="text-lg font-bold -mt-1"><?= $this->player['warmuppartner'] ?></div>
-  </div>
+    <div class="sm:w-4/5 mx-auto relative mb-10 mt-8 lg:mt-20 text-center">
+      <div class="text-sm uppercase">Warm-Up Partner von <?= $this->player['firstname'] ?>
+        <?= $this->player['lastname'] ?></div>
+      <div class="text-lg font-bold -mt-1"><?= $this->player['warmuppartner'] ?></div>
+    </div>
   <?php endif; ?>
   <?php if ($this->player['about']) : ?>
 
 
-  <div class="sm:w-4/5 mx-auto relative my-20">
-    <div class="grid md:p-0 md:grid-cols-2 items-start gap-8">
-      <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
-        <?php if ($this->player['profilePic']) :  ?>
-        <?php
+    <div class="sm:w-4/5 mx-auto relative my-20">
+      <div class="grid md:p-0 md:grid-cols-2 items-start gap-8">
+        <div class="overflow-hidden border-t-4 border-gray-800 pt-10">
+          <?php if ($this->player['profilePic']) :  ?>
+            <?php
             $image = $this->getImage($this->urlEncode($this->player['profilePic']['path']), 450, 450, 'crop');
             $imageUrl = $this->Environment->base . $image;
             ?>
-        <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
-          <img src="<?= $imageUrl; ?>" alt="<?= $this->player['firstname'] . ' ' . $this->player['lastname']; ?>"
-            class="aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full" />
-        </a>
-        <?php endif; ?>
-      </div>
-      <div class="md:pt-10 flex flex-col items-start">
-        <h4 class="text-2xl text-black font-sans uppercase font-bold !mt-0">Über <?= $this->player['firstname'] ?>
-          <?= $this->player['lastname'] ?></h4>
-        <p class="mt-2 leading-relaxed prose">
-          <?= $this->player['about'] ?>
-        </p>
+            <a href="<?= $this->arrData['singleSRC']; ?>" class="glightbox">
+              <img src="<?= $imageUrl; ?>" alt="<?= $this->player['firstname'] . ' ' . $this->player['lastname']; ?>" class="aspect-video w-full h-full object-center object-cover sm:w-full sm:h-full" />
+            </a>
+          <?php endif; ?>
+        </div>
+        <div class="md:pt-10 flex flex-col items-start">
+          <h4 class="text-2xl text-black font-sans uppercase font-bold !mt-0">Über <?= $this->player['firstname'] ?>
+            <?= $this->player['lastname'] ?></h4>
+          <p class="mt-2 leading-relaxed prose">
+            <?= $this->player['about'] ?>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
   <?php endif; ?>
   <div class="mt-28">
