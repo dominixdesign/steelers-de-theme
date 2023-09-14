@@ -190,6 +190,7 @@ class ApiHolema
             $g->gametime = $game->gametime;
             $g->round = $round;
             $g->periodscore = $game->periodscore;
+            $g->gameday = $game->gameday;
             $g->gamestatus = $game->gamestatus;
             $g->resulttype = $game->resulttype;
             $g->homescore = $game->homescore;
