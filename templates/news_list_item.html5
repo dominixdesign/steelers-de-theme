@@ -32,9 +32,10 @@ if (!function_exists('tokenTruncate')) {
           <?php endif; ?>&nbsp;</div>
 
       <?php
-      echo '<div class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">';
-      echo trim($this->newsHeadline) ?>
-    </div>
+      echo '<a href="' . $this->link . '" class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">';
+      echo trim($this->newsHeadline);
+      echo '</a>';      
+      ?>
     <p class="mt-5 text-sm text-black"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
     <div class="mt-5 flex-1 flex flex-col justify-end">
       <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
