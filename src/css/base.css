@@ -48,6 +48,10 @@ html {
   @apply scale-105 shadow-lg;
 }
 
+.formbody .error {
+  color: darkred;
+}
+
 .btn-default::after {
   content: "";
   display: inline-block;
