@@ -23,6 +23,7 @@ class ScheduleModule extends AbstractFrontendModuleController
 	{
 		$column = array('gamedate >= ? AND gamedate <= ?');
 		$array = array($model->tilastot_from_date, $model->tilastot_to_date);
+		$order = ' gamedate ASC';
 		// tilastot_schedule_type
 		if ($model->tilastot_my_team > 0) {
 			$column[0] .= ' AND (awayteam = ? OR hometeam = ?)';
@@ -31,6 +32,7 @@ class ScheduleModule extends AbstractFrontendModuleController
 		}
 		if($model->tilastot_schedule_type === 'results') {
 			$column[0] .= ' AND gamedate <= ?';
+			$order = ' gamedate DESC';
 			array_push($array, time());
 		}
 		if($model->tilastot_schedule_type === 'fixtures') {
@@ -38,7 +40,7 @@ class ScheduleModule extends AbstractFrontendModuleController
 			array_push($array, time());
 		}
 		$games = Games::findAll(array(
-			'order'   => ' gamedate ASC',
+			'order'   => $order,
 			'column'  => $column,
 			'value'   => $array
 		));
