@@ -1,5 +1,16 @@
 <?php
-$ogimage = $this->getImage($this->urlEncode($this->arrData['singleSRC']), 296, 370, 'crop');
+
+try {
+  $container = \Contao\System::getContainer();
+  $rootDir = $container->getParameter('kernel.project_dir');
+
+  $image = $container->get('contao.image.picture_factory')->create($rootDir . '/'  . $this->arrData['singleSRC'], 11);
+  $sources = $image->getSources();
+  $imageObj = $sources[0]['src'];
+  $ogimage = $imageObj->getUrl($rootDir);
+} catch (Exception $e) {
+  $ogimage = $this->getImage($this->urlEncode($this->arrData['singleSRC']), 511, 637, 'crop');
+}
 
 if (!function_exists('tokenTruncate')) {
   function tokenTruncate($string, $your_desired_width)
@@ -19,6 +30,7 @@ if (!function_exists('tokenTruncate')) {
     return trim(implode(array_slice($parts, 0, $last_part)));
   }
 }
+
 ?>
 <div class="group relative bg-white border border-gray-200 mx-2 xl:mx-4 flex flex-col overflow-hidden">
   <div class="flex flex-col bg-white h-full">
