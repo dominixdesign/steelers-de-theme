@@ -206,7 +206,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_players'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_standings']['about'],
             'exclude'                 => true,
             'inputType'               => 'textarea',
-            'eval'                    => array('mandatory' => false),
+            'eval'                    => array('rte'=>'tinyMCE', 'basicEntities'=>true, 'tl_class'=>'clr', 'mandatory' => false),
             'sql'                     => "blob Null"
         ),
         'epstats' => array(
