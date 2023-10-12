@@ -9,7 +9,7 @@
             <th class="text-left">Team</th>
             <th class="text-right pr-2">Spiele</th>
             <th class="text-center">Tore</th>
-            <th class="text-right pr-2">P/Sp.</th>
+            <th class="text-right pr-2">Pkt.</th>
           </tr>
         </thead>
         <tbody>
@@ -36,14 +36,7 @@
                 {{ row.goalsfor }}:{{ row.goalsagainst }}
               </td>
               <td class="text-right py-2 pr-2">
-                {{
-                  row.games > 0
-                    ? new Intl.NumberFormat("de-DE", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      }).format(row.points / row.games)
-                    : "0,00"
-                }}
+                {{ row.points }}
               </td>
             </tr>
           </template>
