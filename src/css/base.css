@@ -39,6 +39,10 @@ html {
   letter-spacing: 0.1rem;
 }
 
+.btn-default.btn-blue {
+  @apply bg-steelblue;
+}
+
 @media (min-width: 1024px) {
   .btn-default {
     letter-spacing: 0.15rem;

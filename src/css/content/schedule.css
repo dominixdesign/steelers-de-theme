@@ -127,7 +127,9 @@
   .mod_schedule .row .game .team .logo img {
     @apply self-center;
   }
-
+  .mod_schedule .row .actions > div {
+    @apply justify-end;
+  }
   .mod_schedule .row .actions {
     @apply col-span-2 place-content-end;
   }
