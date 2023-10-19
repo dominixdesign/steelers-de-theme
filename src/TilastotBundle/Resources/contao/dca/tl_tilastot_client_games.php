@@ -70,7 +70,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'round,hometeam,awayteam,gameday,gamedate,gametime,location,spectators,periodscore,homescore,awayscore,resulttype,gamestatus,ended,magentaurl,eventimurl'
+        'default' => 'round,hometeam,awayteam,gameday,gamedate,gametime,location,spectators,periodscore,homescore,awayscore,resulttype,gamestatus,ended,magentaurl,eventimurl;eventUrl,eventTitle'
     ),
     // Fields
     'fields'   => array(
@@ -211,20 +211,35 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
             'inputType'               => 'text',
             'eval'                    => array('rgxp' => 'url', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql'                     => "varchar(255) NULL"
+        ),
+        'eventUrl' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['eventUrl'],
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('mandatory' => true, 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'),
+            'sql'                     => "text NULL"
+        ),
+        'eventTitle' => array(
+            'exclude'                 => true,
+            'search'                  => true,
+            'inputType'               => 'text',
+            'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
+            'sql'                     => "varchar(255) NOT NULL default ''"
         )
     )
 );
 
 class tl_tilastot_client_games extends Backend
 {
-    function saveCallback(DataContainer $dc) {
+    function saveCallback(DataContainer $dc)
+    {
         // Return if there is no ID
-        if (!$dc->id)
-        {
+        if (!$dc->id) {
             return;
         }
-        $gamedate = date_create_immutable_from_format("Y-m-d H:i", date('Y-m-d ', $dc->activeRecord->gamedate) . $dc->activeRecord->gametime );
-        if($gamedate) {
+        $gamedate = date_create_immutable_from_format("Y-m-d H:i", date('Y-m-d ', $dc->activeRecord->gamedate) . $dc->activeRecord->gametime);
+        if ($gamedate) {
             $arrSet['gamedate'] = $gamedate->getTimestamp();
             $this->Database->prepare("UPDATE tl_tilastot_client_games %s WHERE id=?")->set($arrSet)->execute($dc->id);
         }
