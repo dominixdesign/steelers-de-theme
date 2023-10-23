@@ -217,7 +217,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
             'exclude'                 => true,
             'search'                  => true,
             'inputType'               => 'text',
-            'eval'                    => array('mandatory' => true, 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'),
+            'eval'                    => array('mandatory' => false, 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'),
             'sql'                     => "text NULL"
         ),
         'eventTitle' => array(
