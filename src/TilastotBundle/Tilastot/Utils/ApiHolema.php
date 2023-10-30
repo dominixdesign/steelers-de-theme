@@ -109,7 +109,9 @@ class ApiHolema
                 $p->tilastotid = $player->{'@id'};
             }
             $birthday = date_parse_from_format("d.m.Y", $player->birthday);
-            $p->eliteprospectsid = $player->{'@eliteprospectsid'};
+            if ($player->{'@eliteprospectsid'} > 0) {
+                $p->eliteprospectsid = $player->{'@eliteprospectsid'};
+            }
             $p->firstname = $player->firstname;
             $p->lastname = $player->lastname;
             $p->jersey = $player->jersey;
