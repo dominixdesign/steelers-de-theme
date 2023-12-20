@@ -3,7 +3,6 @@ services:
     autowire: true
     autoconfigure: true
     public: false
-
   App\Tilastot\:
     resource: ../src/Tilastot
     exclude: ../src/Tilastot/{Entity,Migrations,Model,Resources,Tests,Widget}
@@ -16,6 +15,10 @@ services:
     arguments:
       - "%woo_key%"
       - "%woo_secret%"
+
+  App\Tilastot\EventListener\LoadFormFieldListener:
+    tags:
+      - { name: contao.hook, hook: LoadFormFieldListener }
 
   App\Tilastot\Module\ScheduleModule:
     tags:
