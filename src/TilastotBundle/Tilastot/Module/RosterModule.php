@@ -49,6 +49,7 @@ class RosterModule extends AbstractFrontendModuleController
 					$playerlist['GK'][] = $p;
 					break;
 				case 'D':
+				case 'LD':
 					$playerlist['DE'][] = $p;
 					break;
 				default:
