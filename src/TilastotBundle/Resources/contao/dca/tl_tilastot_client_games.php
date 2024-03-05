@@ -113,7 +113,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_client_games'] = array(
             'search'                  => true,
             'inputType'               => 'text',
             'eval'                    => array('rgxp' => 'numeric', 'mandatory' => false, 'maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(25) NULL"
+            'sql'                     => "char(25) NULL"
         ),
         'gamedate' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_client_games']['gamedate'],
