@@ -22,6 +22,7 @@ class ApiHolema
 {
     const API_URL = 'https://del2.holema.eu/api/v1/';
     const TEAM_ID = 36;
+    const IGNORED_GAMES = [7446, 7445];
 
     private static function call($path, $apiKey)
     {
@@ -177,6 +178,10 @@ class ApiHolema
         $data = json_decode(self::call('games.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
 
         foreach ($data->schedule->games->game as $game) {
+            if(in_array($game->{'@id'}, self::IGNORED_GAMES)) {
+                // skip games from the ignored list
+                continue;
+            }
             $date = date_parse_from_format("d.m.Y", $game->gamedate);
             $time = explode(':', $game->gametime);
             $g = Games::findById($game->{'@id'});
