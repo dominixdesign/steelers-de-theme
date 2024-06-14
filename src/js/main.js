@@ -4,10 +4,19 @@ import GLightbox from "glightbox";
 import Swiper, { Navigation, Autoplay } from "swiper";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
+import FormApp from './FormApp.vue'
 import { tinyDrawer } from "./TinyDrawer";
+import Vueform from '@vueform/vueform'
+import vueformConfig from './../../vueform.config'
 
 createApp(HomeSchedule).mount("#homeschedule");
 createApp(HomeStandings).mount("#homestandings");
+
+// Form
+const formApp = createApp(FormApp)
+formApp.use(Vueform, vueformConfig)
+formApp.mount('#formApp')
+
 
 //Slider
 

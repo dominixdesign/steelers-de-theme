@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.html5", "./src/**/*.js", "./src/**/*.vue"],
+  content: [
+    "./templates/**/*.html5",
+    "./src/**/*.js",
+    "./src/**/*.vue",
+    './vueform.config.js',
+    './node_modules/@vueform/vueform/themes/tailwind/**/*.vue',
+    './node_modules/@vueform/vueform/themes/tailwind/**/*.js',
+
+  ],
   theme: {
     extend: {
       colors: {
@@ -100,6 +108,8 @@ module.exports = {
       strategy: "base", // only generate global styles
     }),
     require("@tailwindcss/aspect-ratio"),
+    require('@vueform/vueform/tailwind'),
     require("autoprefixer"),
   ],
+  vfDarkMode: false,
 };
