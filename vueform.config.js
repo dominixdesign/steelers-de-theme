@@ -6,4 +6,6 @@ export default defineConfig({
   theme: tailwind,
   locales: { de },
   locale: 'de',
+  size: 'lg',
+  validateOn: 'change|step',
 })
