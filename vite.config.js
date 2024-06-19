@@ -11,7 +11,7 @@ export default defineConfig({
     assetsDir: "./",
     rollupOptions: {
       input: {
-        main: 'src/js/main.js',
+        index: 'src/js/main.js',
         form: 'src/js/form.js',
       },
       output: {
