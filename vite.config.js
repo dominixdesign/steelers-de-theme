@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
@@ -9,6 +10,10 @@ export default defineConfig({
     outDir: "dist/js/",
     assetsDir: "./",
     rollupOptions: {
+      input: {
+        main: 'src/js/main.js',
+        form: 'src/js/form.js',
+      },
       output: {
         manualChunks: {},
         entryFileNames: "[name].js",
