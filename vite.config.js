@@ -10,10 +10,6 @@ export default defineConfig({
     outDir: "dist/js/",
     assetsDir: "./",
     rollupOptions: {
-      input: {
-        index: 'src/js/main.js',
-        form: 'src/js/form.js',
-      },
       output: {
         manualChunks: {},
         entryFileNames: "[name].js",
