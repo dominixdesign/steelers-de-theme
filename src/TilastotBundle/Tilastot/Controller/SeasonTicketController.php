@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/seasontickets/order', name: SeasonTicketController::class)]
+#[AsController]
 class SeasonTicketController
 {
   public function __invoke(Request $request): Response
