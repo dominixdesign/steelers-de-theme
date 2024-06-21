@@ -3,4 +3,5 @@ app.tilastot.utils:
   type: annotation
 app.tilastot.controller:
   resource: ../src/Tilastot/Controller
-  type: annotation
+  type: attribute
+  schemes: [https]
