@@ -2,6 +2,7 @@ app.tilastot.utils:
   resource: ../src/Tilastot/Utils
   type: annotation
 app.tilastot.controller:
-  resource: ../src/Tilastot/Controller
-  type: annotation
+  controller: App\Tilastot\Controller\SeasonTicketController::order
+  path: /seasonticket/order
+  methods: POST
   schemes: [https]
