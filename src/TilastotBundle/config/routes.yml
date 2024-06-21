@@ -1,7 +1,7 @@
 app.tilastot.utils:
-  resource: ../../../Tilastot/Utils
+  resource: ../src/Tilastot/Utils
   type: annotation
 app.tilastot.controller:
-  resource: ../../../Tilastot/Controller
+  resource: ../src/Tilastot/Controller
   type: annotation
   schemes: [https]
