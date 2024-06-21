@@ -6,7 +6,7 @@
   <?php endif; ?>
 
   <div id="formApp"></div>
-  <script src="files/steelers/js/form.js"></script>
+  <script type="module" src="files/steelers/js/form.js"></script>
   <form<?php if ($this->action) : ?> action="<?= $this->action ?>" <?php endif; ?> method="<?= $this->method ?>" enctype="<?= $this->enctype ?>" <?= $this->attributes ?><?= $this->novalidate ?>>
     <div class="max-w-5xl mx-auto formbody space-y-12">
       <?php if ('get' != $this->method) : ?>
