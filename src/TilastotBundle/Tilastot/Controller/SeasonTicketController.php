@@ -6,9 +6,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/seasontickets', name: 'season_ticket_order')]
 class SeasonTicketController
 {
-  #[Route('/seasontickets/order', name: SeasonTicketController::class)]
   public function order(Request $request): Response
   {
     $data = json_decode($request->getContent(), true);  

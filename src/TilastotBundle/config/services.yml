@@ -10,8 +10,6 @@ services:
   App\Tilastot\Utils\:
     resource: ../src/Tilastot/Utils
     public: true
-    tags:
-      - controller.service_arguments
 
   App\Tilastot\Controller\:
     resource: ../src/Tilastot/Controller
