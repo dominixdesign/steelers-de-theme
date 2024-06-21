@@ -11,6 +11,10 @@ services:
     resource: ../src/Tilastot/Utils
     public: true
 
+  App\Tilastot\Controller\:
+    resource: ../src/Tilastot/Controller
+    public: true
+
   App\Tilastot\Cron\getLatestProductsCron:
     arguments:
       - "%woo_key%"
