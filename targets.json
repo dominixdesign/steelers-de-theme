@@ -28,6 +28,10 @@
     "remoteRootDir": "/public"
   },
   {
+    "localRootDir": "./src/TilastotBundle/config",
+    "remoteRootDir": "/config"
+  },
+  {
     "localRootDir": "./src/scripts",
     "remoteRootDir": "/src"
   }
