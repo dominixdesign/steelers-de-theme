@@ -5,6 +5,12 @@ import { defineConfig } from '@vueform/vueform'
 export default defineConfig({
   theme: tailwind,
   locales: { de },
+  endpoints: {
+    submit: {
+      url: '/seasonticket/order',
+      method: 'post'
+    }
+  },
   locale: 'de',
   size: 'lg',
   validateOn: 'change|step',
