@@ -4,15 +4,15 @@ services:
     autoconfigure: true
     public: false
   App\Tilastot\:
-    resource: ../src/Tilastot
-    exclude: ../src/Tilastot/{Entity,Migrations,Model,Resources,Tests,Widget}
+    resource: ../../../Tilastot
+    exclude: ../../../Tilastot/{Entity,Migrations,Model,Resources,Tests,Widget}
 
   App\Tilastot\Utils\:
-    resource: ../src/Tilastot/Utils
+    resource: ../../../Tilastot/Utils
     public: true
 
   App\Tilastot\Controller\:
-    resource: ../src/Tilastot/Controller
+    resource: ../../../Tilastot/Controller
     public: true
 
   App\Tilastot\Cron\getLatestProductsCron:
