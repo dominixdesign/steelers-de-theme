@@ -14,6 +14,7 @@ services:
   App\Tilastot\Controller\:
     resource: ../src/Tilastot/Controller
     public: true
+    tags: [controller.service_arguments]
 
   App\Tilastot\Cron\getLatestProductsCron:
     arguments:

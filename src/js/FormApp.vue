@@ -1,12 +1,13 @@
 <template>
-  <div class="bg-white rounded-lg p-10 max-w-4xl m-auto shadow-box-circle col-span-8">
-    <form @submit="handleSubmit">
+  <Vueform @response="handleResponse" ref="form$">
+    <div class="bg-white rounded-lg p-10 max-w-4xl m-auto shadow-box-circle col-span-12">
 
       <!-- Defining Form Steps -->
       <FormSteps>
 
         <FormStep name="my_season_ticket" label="Meine Dauerkarte"
-          :elements="['ticket_type', 'ticket_area', 'ticket_category', 'ticket_form', 'ticket_seats']" :labels="{
+          :elements="['ticket_type', 'ticket_area', 'ticket_category', 'ticket_form', 'ticket_form2', 'ticket_seats', 'ff']"
+          :labels="{
             next: 'Weiter',
           }" />
 
@@ -60,15 +61,7 @@
           </template>
         </GroupElement>
 
-        <RadiogroupElement name="ticket_form" :conditions="[['ticket_category', '!=', null]]" rules="required" :items="[
-          { value: 'mobile', label: 'Mobile Dauerkarte', description: '(zur Ablage im Smartphone)' },
-          { value: 'plastik', label: 'Klassische Plastikkarte' },
-          { value: 'mobile_plastik', label: 'Klassische Plastikkarte + mobile Dauerkarte' },
-        ]" view="blocks">
-          <template #label>
-            <div class="text-lg leading-tight mt-2">Dauerkartenform:</div>
-          </template>
-        </RadiogroupElement>
+        <FormComponentFF />
 
         <RadiogroupElement name="ticket_payment" rules="required" :items="[
           {
@@ -175,35 +168,37 @@
       </FormElements>
 
       <FormStepsControls />
-    </form>
-  </div>
+    </div>
+  </Vueform>
 </template>
 
 <script>
+import { inject, computed } from 'vue'
 import { Vueform, useVueform } from '@vueform/vueform'
 import FormComponentSeat from "./FormComponentSeat.vue";
 import FormComponentCategory from "./FormComponentCategory.vue";
+import FormComponentFF from "./FormComponentFF.vue";
 import FormOverview from "./FormOverview.vue";
+
 
 export default {
   mixins: [Vueform],
   setup: useVueform,
   methods: {
     onAreaChange() {
-      this.el$('ticket_category').reset()
+      this.$refs.form$.el$('ticket_category').reset()
     },
-
-  },
-  computed: {
-    selectedSeat() {
-      return ''
+    handleResponse(_response, form$) {
+      form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
+      form$.reset()
     }
   },
   components: {
     FormComponentSeat,
     FormComponentCategory,
+    FormComponentFF,
     FormOverview,
-  },
+  }
 }
 </script>
 

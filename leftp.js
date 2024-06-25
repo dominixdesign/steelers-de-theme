@@ -21,6 +21,7 @@ var x = new LEftp({
     ".js",
     ".html",
     ".html5",
+    ".twig",
     "txt",
     "jpg",
     "json",
