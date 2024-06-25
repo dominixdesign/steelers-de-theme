@@ -319,7 +319,11 @@
                                       <p style="margin: 0 0 5px 0;"></p>
                                     </td>
                                     <td align="right" style="font-size: 14px; line-height: 16px; word-break: normal; padding-top: 20px;">
-                                      <p style="margin: 0 0 5px 0;">$24.95</p>
+                                    {% if ff_new_dk|length > 0 %}
+                                      <p style="margin: 0 0 5px 0;"><span style="text-decoration: line-through">{{ price|number_format(2,',') }} €</span> <b>{{ (price / 2)|number_format(2,',') }} €</b></p>
+                                    {% else %}
+                                      <p style="margin: 0 0 5px 0;">{{ price|number_format(2,',') }}</p>
+                                    {% endif %}
                                     </td>
                                   </tr>
                                   <tr>

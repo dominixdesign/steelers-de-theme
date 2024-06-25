@@ -11,13 +11,30 @@
       <div class="text-sm text-steelblue"><a href="" @click.prevent="handleChangeDauerkarte">Ändern</a></div>
     </div>
     <div class="col-span-12" v-if="form_data.ticket_area == 'stehplatz'">
-      Stehplatz - EgeTrans Block - {{ ticket_category }} - {{ new Intl.NumberFormat('de-DE',
-      { style: 'currency', currency: 'EUR' }).format(
-      ticket_price,
-      ) }}<br>
+      Stehplatz - EgeTrans Block - {{ ticket_category }} - <span :class="isFF ? 'line-through' : ''">{{ new
+        Intl.NumberFormat('de-DE',
+        { style: 'currency', currency: 'EUR' }).format(
+        ticket_price,
+        ) }}</span><span class="font-bold" v-if="isFF">&nbsp; {{ new
+        Intl.NumberFormat('de-DE',
+        { style: 'currency', currency: 'EUR' }).format(
+        ticket_price / 2,
+        ) }}</span><br>
     </div>
     <div class="col-span-12" v-if="form_data.ticket_area == 'sitzplatz'">
-      {{ form_data.seat_row }} - EgeTrans Block - Rentner - xx,xx€<br>
+      {{ form_data.seat_block }} - Reihe {{ parseInt(form_data.seat_row) + 1 }} - Platz {{ parseInt(form_data.seat_seat)
+      + 1 }}
+      - {{ ticket_category
+      }} - <span :class="isFF ? 'line-through' : ''">{{
+        new
+        Intl.NumberFormat('de-DE',
+        { style: 'currency', currency: 'EUR' }).format(
+        ticket_price,
+        ) }}</span><span class="font-bold" v-if="isFF">&nbsp; {{ new
+        Intl.NumberFormat('de-DE',
+        { style: 'currency', currency: 'EUR' }).format(
+        ticket_price / 2,
+        ) }}</span><br>
     </div>
     <!-- Kontakt details -->
     <div class="col-span-12 flex justify-between pt-5 mt-5 border-t border-gray-200 ">
@@ -156,6 +173,9 @@ export default {
     const form_data = computed(() => {
       return form$.value.data
     })
+    const isFF = computed(() => {
+      return !!form$.value.data.ff_new_dk
+    })
 
     const ticket_price = computed(() => {
       let cat = form$.value.data.ticket_category
@@ -164,6 +184,23 @@ export default {
       }
       if (form$.value.data.ticket_area === 'stehplatz') {
         return prices[form$.value.data.ticket_type]['J'][cat]
+      } else {
+        let block = form$.value.data.seat_block.slice(-1)
+        switch(block) {
+          case 'A':
+          case 'G':
+            block = 'A,G'
+          case 'B':
+          case 'F':
+          case 'H':
+          case 'L':
+            block = 'B,F,H,L'
+          case 'C':
+          case 'I':
+          case 'K':
+            block = 'C,I,K'
+        }
+        return prices[form$.value.data.ticket_type][block][cat]
       }
       return 0;
     })
@@ -199,6 +236,7 @@ export default {
       ticket_category,
       form_data,
       shipTo,
+      isFF,
       ticket_price,
       handleChangeDauerkarte,
       handleChangeContact,
