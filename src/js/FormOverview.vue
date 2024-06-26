@@ -190,11 +190,13 @@ export default {
           case 'A':
           case 'G':
             block = 'A,G'
+            break
           case 'B':
           case 'F':
           case 'H':
           case 'L':
             block = 'B,F,H,L'
+            break
           case 'C':
           case 'I':
           case 'K':

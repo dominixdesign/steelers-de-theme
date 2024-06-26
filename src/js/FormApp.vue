@@ -72,6 +72,15 @@
           <template #label>
             <div class="text-lg leading-tight mt-2">Bezahlung:</div>
           </template>
+          <template #after>
+            <div class="mt-2">Der Dauerkartenverkauf ist unterteilt in zwei Verkaufsphasen:<br />
+              <ul>
+                <li>1. Phase: 01.07.2024 bis 31.07.2024 (Zahlungseingang muss bis spätestens 31.07.2024 erfolgen)</li>
+                <li>2. Phase: 01.08.2024 bis 15.09.2024 (Zahlungseingang muss bis spätestens 15.09.2024 erfolgen)</li>
+              </ul>
+              Die Ausgabe der Dauerkarte (schätzungsweise ab Mitte August) erfolgt nur bei vorheriger Bezahlung
+            </div>
+          </template>
         </RadiogroupElement>
 
         <GroupElement name="customer_data">
@@ -85,7 +94,7 @@
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_street" autocomplete="address-line1" rules="required" placeholder=" Straße"
+          <TextElement name="customer_street" autocomplete="address-line1" rules="required" placeholder="Straße und Hausnummer"
             :columns="{
               container: 12,
               label: 3,
@@ -111,7 +120,7 @@
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_birthday" autocomplete="bday" input-type="date" placeholder="Geburtstag" :columns="{
+          <TextElement name="customer_birthday" autocomplete="bday" input-type="date" label="Geburtstag" placeholder="Geburtstag" :columns="{
             container: 6,
             label: 3,
             wrapper: 12,
@@ -152,7 +161,7 @@
           <TextElement name="eventim_email" autocomplete="email"
             :conditions="[['customer_eventim.eventim', '==', 'ja']]"
             label="Hinterlegte E-Mailadresse meines EVENTIM-Kontos" rules="required" placeholder="EVENTIM" />
-          <TextElement name="eventim_account" rules="required" :conditions="[['customer_eventim.eventim', '==', 'ja']]"
+          <TextElement name="eventim_account" :conditions="[['customer_eventim.eventim', '==', 'ja']]"
             label="Meine 6-stellige EVENTIM Kundennummer:" placeholder="EVENTIM Kundennummer:">
             <template #info>
               *Die Kundennummer ist auf gekauften Online-Tickets (bzw. Rechnungen) abgebildet
@@ -190,7 +199,7 @@ export default {
     },
     handleResponse(_response, form$) {
       form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
-      form$.reset()
+      //form$.reset()
     }
   },
   components: {

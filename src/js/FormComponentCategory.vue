@@ -35,7 +35,7 @@ export default {
 
       if (form$.value.data.ticket_area == 'rollstuhl') {
         items = [
-          { value: 'vollzahler', label: 'Vollzahler' },
+          { value: 'vollzahler', label: 'Rollstuhlfahrer inkl. Begleitperson' },
         ]
       }
       return items

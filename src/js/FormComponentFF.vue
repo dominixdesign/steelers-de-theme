@@ -1,7 +1,7 @@
 <template>
   <GroupElement name="ff" v-if="Date.now() < Date.parse('31 Jul 2024 00:00:00 GMT')"
     :conditions="[['ticket_category', '!=', null], ['ticket_category', '!=', 'familie1'], ['ticket_category', '!=', 'familie2'], ['ticket_category', '!=', 'familie3']]">
-    <RadiogroupElement name="family_and_friends" default="no" :items="[
+    <RadiogroupElement @change="onFFChange" name="family_and_friends" default="no" :items="[
       { value: 'werben', label: 'Ich will jemanden werben', description: '(zur Ablage im Smartphone)' },
       { value: 'geworben', label: 'Ich werde geworben' },
       { value: 'no', label: 'leider nicht' },
@@ -25,11 +25,16 @@
 </template>
 
 <script>
-import { inject, computed, watch } from 'vue'
+import { inject, computed } from 'vue'
 
 export default {
   setup(props, context) {
     const form$ = inject('form$')
+    
+    const onFFChange = () => {
+      form$.value.el$('ff.ff_new_dk').reset()
+      form$.value.el$('ff.ff_old_dk').reset()
+    }
 
     const ticket_type = computed(() => {
       return form$.value.data.ticket_type
@@ -42,15 +47,16 @@ export default {
         ]
       }
       return [
-        { value: 'mobile', label: 'Mobile Dauerkarte', description: '(zur Ablage im Smartphone)' },
         { value: 'plastik', label: 'Klassische Plastikkarte' },
         { value: 'mobile_plastik', label: 'Klassische Plastikkarte + mobile Dauerkarte' },
+        { value: 'mobile', label: 'Mobile Dauerkarte', description: '(zur Ablage im Smartphone)' },
       ]
     })
 
 
     return {
       ticket_type,
+      onFFChange,
       ticketFormItems,
     }
   },

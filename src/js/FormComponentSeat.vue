@@ -21,7 +21,7 @@
     <ul class="col-span-12">
       <li class="grid grid-cols-3 gap-4 w-full" v-for="additonal_seat in additonal_seats">
         <div class="px-4">{{ block }}</div>
-        <div class="px-4">Reihe {{ row + 1 }}</div>
+        <div class="px-4">Reihe {{ parseInt(row) + 1 }}</div>
         <div class="px-4">Platz {{ additonal_seat }}</div>
       </li>
     </ul>
@@ -46,14 +46,13 @@ export default {
         ]
       } else {
         return [
-          'Black A',
+          'Block A',
           'Block B',
           'Block C',
           'Block F',
           'Block G',
           'Block H',
           'Block I',
-          'Block J',
           'Block K',
           'Block L',
         ]

@@ -19,7 +19,7 @@ class SeasonTicketController {
     $email = new TemplatedEmail();
     $email->subject('Steelers Dauerkarte - Bestellung');
     $email->from('webseite@steelers.de');
-    $email->replyTo('tickets@steelers.de');
+    $email->replyTo('ticketing@steelers.de');
 
     $email->to($data['customer_email']);
     $email->htmlTemplate('@Contao_App/email_season_ticket_confirmation.html.twig');
@@ -106,7 +106,7 @@ class SeasonTicketController {
         ]
       ]
     ];
-var_dump($type, $block, $category);
+
     return $prices[$type][$block][$category];
   }
   private function getTicketPrice($area, $category, $block, $type): int
@@ -116,6 +116,9 @@ var_dump($type, $block, $category);
 
     if ($area === 'stehplatz') {
       return $this->getPrices($type, 'J', $category);
+    }
+    if ($area === 'rollstuhl') {
+      return $this->getPrices($type, 'R1,R3,R4', $category);
     }
 
     $blockMap = [
