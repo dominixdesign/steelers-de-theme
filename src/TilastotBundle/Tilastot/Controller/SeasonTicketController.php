@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Bridge\Twig\Mime\Email;
+use Contao\Email;
 
 class SeasonTicketController {
   public function order(Request $request, MailerInterface $mailer, ContaoFramework $framework): Response
@@ -29,14 +29,11 @@ class SeasonTicketController {
     $mailer->send($email);
 
     $email2 = new Email();
-    $email2->subject('Steelers Dauerkarte - Bestellung');
-    $email2->from('webseite@steelers.de');
-    $email2->replyTo('ticketing@steelers.de');
+    $email2->subject = 'Steelers Dauerkarte - Bestellung';
+    $email2->from = 'webseite@steelers.de';
 
-    $email2->to('dominik.sander@steelers.de');
-    $email2->text(json_encode($data, JSON_PRETTY_PRINT));
-
-    $mailer->send($email);
+    $email2->text = json_encode($data, JSON_PRETTY_PRINT);
+    $email2->sendTo('ticketing@steelers.de');
 
     return new Response('Hello World!');
   }
