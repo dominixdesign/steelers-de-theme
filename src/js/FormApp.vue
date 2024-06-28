@@ -6,7 +6,7 @@
       <FormSteps @next="onNextStep">
 
         <FormStep name="my_season_ticket" label="Meine Dauerkarte"
-          :elements="['ticket_type', 'ticket_area', 'ticket_category', 'ticket_form', 'ticket_form2', 'ticket_seats', 'ff']"
+          :elements="['ticket_type', 'ticket_area', 'ticket_category', 'ticket_form', 'ticket_form2', 'ticket_seats', 'ticket_seats_rollstuhl', 'ff']"
           :labels="{
             next: 'Weiter',
           }" />
@@ -61,7 +61,8 @@
           </template>
         </GroupElement>
 
-        <GroupElement name="ticket_seats" :conditions="[['ticket_category', '!=', null], ['ticket_area', 'rollstuhl']]">
+        <GroupElement name="ticket_seats_rollstuhl"
+          :conditions="[['ticket_category', '!=', null], ['ticket_area', 'rollstuhl']]">
           <SelectElement :name="'seat_rollstuhl_block'" rules="required" placeholder="Block" :native="false" :items="[
             'Block R1',
             'Block R3',
@@ -198,7 +199,6 @@
 </template>
 
 <script>
-import { inject, computed } from 'vue'
 import { Vueform, useVueform } from '@vueform/vueform'
 import FormComponentSeat from "./FormComponentSeat.vue";
 import FormComponentCategory from "./FormComponentCategory.vue";
@@ -219,7 +219,7 @@ export default {
     handleResponse(response, form$) {
       if(response.status == 200) {
         form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
-        form$.value.steps$.goTo('my_season_ticket')
+        this.$refs.form$.steps$.goTo('my_season_ticket')
       } else {
         form$.messageBag.append(`Irgendetwas ist schief gelaufen. Bitte versuche es später erneut, oder wende die an ticketing@steelers.de`)
 

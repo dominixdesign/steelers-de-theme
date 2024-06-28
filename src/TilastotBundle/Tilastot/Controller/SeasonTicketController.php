@@ -117,8 +117,8 @@ class SeasonTicketController {
     if ($area === 'stehplatz') {
       return $this->getPrices($type, 'J', $category);
     }
-    if ($area === 'rollstuhl') {
-      return $this->getPrices($type, 'R1,R3,R4', $category);
+    if ($area === 'rollstuhl') { 
+      return $this->getPrices($type, 'R1,R3,R4', 'rollstuhl');
     }
 
     $blockMap = [
