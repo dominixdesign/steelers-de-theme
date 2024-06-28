@@ -314,6 +314,10 @@
                                       {% if ticket_area == 'stehplatz' %}
                                       <p style="margin: 0 0 5px 0; color: #ACA9BB; padding-bottom: 10px;">EgeTrans Block</p>
                                       {% endif %}
+                                      {% if ticket_area == 'rollstuhl' %}
+                                      <p style="margin: 0 0 5px 0; color: #ACA9BB; padding-bottom: 10px;">{{ seat_rollstuhl_block }}</p>
+                                      {% endif %}
+                                      
                                     </td>
                                     <td align="right" style="font-size: 14px; line-height: 16px; word-break: normal; padding-top: 20px; padding-right: 5px;">
                                       <p style="margin: 0 0 5px 0;"></p>

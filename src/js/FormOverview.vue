@@ -36,6 +36,19 @@
         ticket_price / 2,
         ) }}</span><br>
     </div>
+    <div class="col-span-12" v-if="form_data.ticket_area == 'rollstuhl'">
+      {{ form_data.seat_rollstuhl_block }} - Rollstuhlfahrer inkl. Begleitperson
+      - <span :class="isFF ? 'line-through' : ''">{{
+        new
+        Intl.NumberFormat('de-DE',
+        { style: 'currency', currency: 'EUR' }).format(
+        ticket_price,
+        ) }}</span><span class="font-bold" v-if="isFF">&nbsp; {{ new
+        Intl.NumberFormat('de-DE',
+        { style: 'currency', currency: 'EUR' }).format(
+        ticket_price / 2,
+        ) }}</span><br>
+    </div>
     <!-- Kontakt details -->
     <div class="col-span-12 flex justify-between pt-5 mt-5 border-t border-gray-200 ">
       <div class="flex items-start mr-6">
@@ -52,6 +65,7 @@
       {{ form_data.customer_email }}<br>
     </div>
   </div>
+  <TextareaElement name="comment" placeholder="Bemerkungen" />
   <CheckboxElement name="data_privacy" rules="required">
     Ich akzeptiere die Allgemeinen Datenschutzbestimmungen der Steelers GmbH sowie die Konditionen und
     Bedingungen zur Dauerkarte 2024/2025. Die AGB sind jederzeit im Internet unter: http://www.steelers.de/agb
@@ -184,6 +198,8 @@ export default {
       }
       if (form$.value.data.ticket_area === 'stehplatz') {
         return prices[form$.value.data.ticket_type]['J'][cat]
+      } else if (form$.value.data.ticket_area === 'rollstuhl') {
+        return prices[form$.value.data.ticket_type]['R1,R3,R4']['rollstuhl']
       } else {
         let block = form$.value.data.seat_block.slice(-1)
         switch(block) {

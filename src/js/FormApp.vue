@@ -3,7 +3,7 @@
     <div class="bg-white rounded-lg p-10 max-w-4xl m-auto shadow-box-circle col-span-12">
 
       <!-- Defining Form Steps -->
-      <FormSteps>
+      <FormSteps @next="onNextStep">
 
         <FormStep name="my_season_ticket" label="Meine Dauerkarte"
           :elements="['ticket_type', 'ticket_area', 'ticket_category', 'ticket_form', 'ticket_form2', 'ticket_seats', 'ff']"
@@ -61,6 +61,21 @@
           </template>
         </GroupElement>
 
+        <GroupElement name="ticket_seats" :conditions="[['ticket_category', '!=', null], ['ticket_area', 'rollstuhl']]">
+          <SelectElement :name="'seat_rollstuhl_block'" rules="required" placeholder="Block" :native="false" :items="[
+            'Block R1',
+            'Block R3',
+            'Block R4',
+          ]" :columns="{
+              container: 4,
+              label: 12,
+              wrapper: 12,
+            }" />
+          <template #label>
+            <div class="text-lg leading-tight mt-2">Mein Platz:</div>
+          </template>
+        </GroupElement>
+
         <FormComponentFF />
 
         <RadiogroupElement name="ticket_payment" rules="required" :items="[
@@ -94,8 +109,8 @@
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_street" autocomplete="address-line1" rules="required" placeholder="Straße und Hausnummer"
-            :columns="{
+          <TextElement name="customer_street" autocomplete="address-line1" rules="required"
+            placeholder="Straße und Hausnummer" :columns="{
               container: 12,
               label: 3,
               wrapper: 12,
@@ -120,7 +135,8 @@
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_birthday" autocomplete="bday" input-type="date" label="Geburtstag" placeholder="Geburtstag" :columns="{
+          <TextElement name="customer_birthday" autocomplete="bday" input-type="date" label="Geburtstag"
+            placeholder="Geburtstag" :columns="{
             container: 6,
             label: 3,
             wrapper: 12,
@@ -197,9 +213,17 @@ export default {
     onAreaChange() {
       this.$refs.form$.el$('ticket_category').reset()
     },
-    handleResponse(_response, form$) {
-      form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
-      //form$.reset()
+    onNextStep() {
+      window.scrollTo(0,100)
+    },
+    handleResponse(response, form$) {
+      if(response.status == 200) {
+        form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
+        form$.value.steps$.goTo('my_season_ticket')
+      } else {
+        form$.messageBag.append(`Irgendetwas ist schief gelaufen. Bitte versuche es später erneut, oder wende die an ticketing@steelers.de`)
+
+      }
     }
   },
   components: {
