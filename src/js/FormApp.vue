@@ -220,6 +220,7 @@ export default {
       if(response.status == 200) {
         form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
         this.$refs.form$.steps$.goTo('my_season_ticket')
+        window.scrollTo(0, 0)
       } else {
         form$.messageBag.append(`Irgendetwas ist schief gelaufen. Bitte versuche es später erneut, oder wende die an ticketing@steelers.de`)
 
