@@ -44,11 +44,11 @@ class SeasonTicketController {
       $data['customer_email'] . "\t" .
       "/". "\t" . // Firma
       $data['ticket_form'] . "\t" .
-      $data['customer_member'] ? $data['customer_member'] : "/"  . "\t" .
+      ($data['customer_member'] ? $data['customer_member'] : "/")  . "\t" .
       $data['ticket_payment'] . "\t" .
       "/". "\t" . // Firma
       $data['price'] . "\t" .
-      $data['ff_new_dk'] ? $data['ff_new_dk'] : "nein" . "\t" .
+      ($data['ff_new_dk'] ? $data['ff_new_dk'] : "nein") . "\t" .
       $data['customer_last_season'] . "\t" .
       date('j/n/y') . "\t";
 
