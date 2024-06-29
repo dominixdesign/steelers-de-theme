@@ -66,15 +66,15 @@
     </div>
   </div>
   <TextareaElement name="comment" placeholder="Bemerkungen" />
-  <CheckboxElement name="data_privacy" rules="required">
-    Ich akzeptiere die Allgemeinen Datenschutzbestimmungen der Steelers GmbH sowie die Konditionen und
-    Bedingungen zur Dauerkarte 2024/2025. Die AGB sind jederzeit im Internet unter: http://www.steelers.de/agb
-    nachzulesen. Des Weiteren habe ich die Datenschutzrichtlinie zur Kenntnis genommen. Diese ist auf der
-    Geschäftsstelle sowie auf der Homepage der Steelers GmbH einsehbar. Die Steelers GmbH ist berechtigt, meine
-    persönlichen Daten zu nutzen, um eine entsprechende Dauerkarte beim Ticketdienstleister erstellen zu können.
-  </CheckboxElement>
   <CheckboxElement name="terms" rules="required">
-    Ich habe die AGBs zur Kenntnis genommen und stimme diesen zu.
+    Ich akzeptiere die Allgemeinen Geschäftsbedinungen der Steelers GmbH sowie die Konditionen und
+    Bedingungen zur Dauerkarte 2024/2025. Die AGB sind jederzeit im Internet unter <a href="https://www.steelers.de/agb" target="_blank">https://www.steelers.de/agb</a>
+    nachzulesen.  
+  </CheckboxElement>
+  <CheckboxElement name="data_privacy" rules="required">
+    Des Weiteren habe ich die Datenschutzrichtlinie zur Kenntnis genommen. Diese ist auf der
+    Geschäftsstelle sowie auf der Homepage der Steelers GmbH unter <a href="https://www.steelers.de/datenschutz" target="_blank">https://www.steelers.de/datenschutz</a> einsehbar. Die Steelers GmbH ist berechtigt, meine
+    persönlichen Daten zu nutzen, um eine entsprechende Dauerkarte beim Ticketdienstleister erstellen zu können.
   </CheckboxElement>
 
 

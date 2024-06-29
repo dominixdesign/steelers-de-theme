@@ -21,7 +21,7 @@ export default {
         { value: 'azubi', label: 'Auszubildender' },
         { value: 'schueler', label: 'Schüler über 18 Jahre' },
         { value: 'mitglied', label: 'SC Mitglied' },
-        { value: 'jugendliche', label: 'Jugendlicher (13-17 Jahre)' },
+        { value: 'jugendlich', label: 'Jugendlicher (13-17 Jahre)' },
         { value: 'kind', label: 'Kind (8-12 Jahre)' },
         { value: 'behinderung', label: 'Fan mit Behinderung ab 50%' },
       ]
