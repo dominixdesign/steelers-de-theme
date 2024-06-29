@@ -173,7 +173,7 @@ export default {
       "azubi": "Auszubildender",
       "schueler": "Schüler über 18 Jahre",
       "mitglied": "SC Mitglied",
-      "jugendlicher": "Jugendlicher (13-17 Jahre)",
+      "jugendlich": "Jugendlicher (13-17 Jahre)",
       "kind": "Kind (8-12 Jahre)",
       "behinderung": "Fan mit Behinderung ab 50%",
     }
