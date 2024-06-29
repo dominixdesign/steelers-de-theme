@@ -65,7 +65,7 @@
       {{ form_data.customer_email }}<br>
     </div>
   </div>
-  <TextareaElement name="comment" placeholder="Bemerkungen" />
+  <TextareaElement name="bemerkung" placeholder="Bemerkung zu meiner Bestellung" />
   <CheckboxElement name="terms" rules="required">
     Ich akzeptiere die Allgemeinen Geschäftsbedinungen der Steelers GmbH sowie die Konditionen und
     Bedingungen zur Dauerkarte 2024/2025. Die AGB sind jederzeit im Internet unter <a href="https://www.steelers.de/agb" target="_blank">https://www.steelers.de/agb</a>

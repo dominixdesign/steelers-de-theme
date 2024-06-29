@@ -131,7 +131,7 @@
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_email" autocomplete="email" rules="required" placeholder="E-Mail" :columns="{
+          <TextElement name="customer_email" autocomplete="email" :rules="['required', 'email']" placeholder="E-Mail" :columns="{
             container: 6,
             label: 3,
             wrapper: 12,
