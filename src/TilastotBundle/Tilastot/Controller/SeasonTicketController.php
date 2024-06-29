@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Contao\CoreBundle\Framework\ContaoFramework;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Mime\Address;
 use Contao\Email;
 
 class SeasonTicketController {
@@ -19,7 +20,7 @@ class SeasonTicketController {
 
     $email = new TemplatedEmail();
     $email->subject('Steelers Dauerkarte - Bestellung');
-    $email->from('webseite@steelers.de');
+    $email->from(new Address('webseite@steelers.de', 'Bietigheim Steelers'));
     $email->replyTo('ticketing@steelers.de');
 
     $email->to($data['customer_email']);
@@ -34,7 +35,7 @@ class SeasonTicketController {
     $email2->from('webseite@steelers.de');
     $email2->replyTo($data['customer_email']);
 
-    $email2->to('dominik.sander@steelers.de');
+    $email2->to('ticketing@steelers.de');
     $email2->htmlTemplate('@Contao_App/email_season_ticket_order.html.twig');
     $email2->context(array_merge($data, ['raw_data' => json_encode($data, JSON_PRETTY_PRINT)]));
     
