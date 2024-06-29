@@ -28,36 +28,19 @@ class SeasonTicketController {
     
     $mailer->send($email);
 
-    $email2 = new Email();
-    $email2->subject = 'Steelers Dauerkarte - Bestellung';
-    $email2->from = 'webseite@steelers.de';
 
-    $email2->text = 
-      $data['ticket_type'] . "\t" .
-      $data['seat_block'] . "\t" .
-      $data['seat_row'] + 1 . "\t" .
-      $data['seat_seat'] + 1 . "\t" .
-      $data['customer_firstname'] . "\t" .
-      $data['customer_name'] . "\t" .
-      $data['ticket_category'] . "\t" .
-      $data['eventim_account'] . "\t" .
-      $data['customer_email'] . "\t" .
-      "/". "\t" . // Firma
-      $data['ticket_form'] . "\t" .
-      ($data['customer_member'] ? $data['customer_member'] : "/")  . "\t" .
-      $data['ticket_payment'] . "\t" .
-      "/". "\t" . // Firma
-      $data['price'] . "\t" .
-      ($data['ff_new_dk'] ? $data['ff_new_dk'] : "nein") . "\t" .
-      $data['customer_last_season'] . "\t" .
-      date('j/n/y') . "\t";
+    $email2 = new TemplatedEmail();
+    $email2->subject('Dauerkarte Bestellung - ' . $data['customer_vorname'] .' '. $data['customer_name']);
+    $email2->from('webseite@steelers.de');
+    $email2->replyTo($data['customer_email']);
 
-    $email2->text .= "\r\n\r\n\r\n";
-    $email2->text .= json_encode($data, JSON_PRETTY_PRINT);
+    $email2->to('dominik.sander@steelers.de');
+    $email2->htmlTemplate('@Contao_App/email_season_ticket_order.html.twig');
+    $email2->context([...$data, 'raw_data' => json_encode($data, JSON_PRETTY_PRINT)]);
+    
+    $mailer->send($email2);
 
-    $email2->sendTo('dominik.sander@steelers.de');
-
-    return new Response('Hello World!');
+    return new Response('order successful');
   }
 
   private function getPrices($type, $block, $category): int

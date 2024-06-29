@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<body>
+  
+  <table>
+    <tr>
+    <td>{{ ticket_type }}</td>
+    <td>{{ seat_block }}</td>
+    <td>{{ seat_row + 1 }}</td>
+    <td>{{ seat_seat + 1 }}</td>
+    <td>{{ customer_firstname }}</td>
+    <td>{{ customer_name }}</td>
+    <td>{{ ticket_category }}</td>
+    <td>{{ eventim_account }}</td>
+    <td>{{ customer_email }}</td>
+    <td>/</td>
+    <td>{{ customer_member }}</td>
+    <td>{{ ticket_payment }}</td>
+    <td></td>
+    <td>{{ price }}</td>
+    <td>{{ ff_new_dk }}</td>
+    <td>{{ customer_last_season }}</td>
+    <td>{{ "now"|date("j/n/y") }}</td>
+    <td>{{ ticket_type }}</td>
+    </tr>
+  </table>
+
+  <pre>
+  {{ raw_data }}
+  </pre>
+</body>
+
+</html>
