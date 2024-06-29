@@ -30,7 +30,7 @@ class SeasonTicketController {
 
 
     $email2 = new TemplatedEmail();
-    $email2->subject('Dauerkarte Bestellung - ' . $data['customer_vorname'] .' '. $data['customer_name']);
+    $email2->subject('Dauerkarte Bestellung - ' . $data['customer_firstname'] .' '. $data['customer_name']);
     $email2->from('webseite@steelers.de');
     $email2->replyTo($data['customer_email']);
 

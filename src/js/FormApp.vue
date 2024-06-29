@@ -100,12 +100,12 @@
         </RadiogroupElement>
 
         <GroupElement name="customer_data">
-          <TextElement name="customer_name" autocomplete="family-name" rules="required" placeholder="Nachname" :columns="{
+          <TextElement name="customer_firstname" autocomplete="given-name" placeholder="Vorname" :columns="{
             container: 6,
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_firstname" autocomplete="given-name" placeholder="Vorname" :columns="{
+          <TextElement name="customer_name" autocomplete="family-name" rules="required" placeholder="Nachname" :columns="{
             container: 6,
             label: 3,
             wrapper: 12,
@@ -215,6 +215,7 @@ export default {
     },
     onNextStep() {
       window.scrollTo(0,100)
+      this.$refs.form$.messageBag.clear()
     },
     handleResponse(response, form$) {
       if(response.status == 200) {
