@@ -36,7 +36,7 @@ class SeasonTicketController {
 
     $email2->to('dominik.sander@steelers.de');
     $email2->htmlTemplate('@Contao_App/email_season_ticket_order.html.twig');
-    $email2->context([...$data, 'raw_data' => json_encode($data, JSON_PRETTY_PRINT)]);
+    $email2->context(array_merge($data, ['raw_data' => json_encode($data, JSON_PRETTY_PRINT)]));
     
     $mailer->send($email2);
 
