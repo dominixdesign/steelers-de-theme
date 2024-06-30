@@ -219,7 +219,7 @@ export default {
     },
     handleResponse(response, form$) {
       if(response.status == 200) {
-        form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.`, 'message')
+        form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.<br>Du möchtest eine weitere Dauerkarte bestellen ? Dann findest Du das vorausgefüllte Formular weiter unten. Solltest Du keine weitere Dauerkarte benötigen, dann kannst Du diese Seite jetzt schließen.`, 'message')
         this.$refs.form$.steps$.goTo('my_season_ticket')
         window.scrollTo(0, 0)
       } else {
