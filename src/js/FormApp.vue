@@ -237,6 +237,8 @@ export default {
       if (response.status == 200) {
         this.$refs.form$.steps$.goTo('my_season_ticket')
         window.scrollTo(0, 0)
+        this.$refs.form$.el$('final_overview.data_privacy').reset()
+        this.$refs.form$.el$('final_overview.terms').reset()
         this.formDone = true
       } else {
         form$.messageBag.append(`Irgendetwas ist schief gelaufen. Bitte prüfe deine Angaben (ganz besonders deine E-Mail-Adresse!) und versuche es erneut. Sollte es weiterhin zu problemen kommen, wende dich an ticketing@steelers.de`)
