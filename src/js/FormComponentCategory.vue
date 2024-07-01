@@ -50,9 +50,11 @@ export default {
 
     const onCategoryChange = (newValue, oldValue) => {
       if (newValue?.includes('familie') || oldValue?.includes('familie')) {
-        form$.value.el$('ticket_seats.my_seat.seat_block').reset()
-        form$.value.el$('ticket_seats.my_seat.seat_seat').reset()
-        form$.value.el$('ticket_seats.my_seat.seat_row').reset()
+        if (form$.value.el$('ticket_seats.my_seat.seat_block')) {
+          form$.value.el$('ticket_seats.my_seat.seat_block').reset()
+          form$.value.el$('ticket_seats.my_seat.seat_seat').reset()
+          form$.value.el$('ticket_seats.my_seat.seat_row').reset()
+        }
       }
     }
 

@@ -1,5 +1,16 @@
 <template>
-  <Vueform @response="handleResponse" ref="form$">
+  <div class="bg-white rounded-lg p-10 max-w-4xl m-auto shadow-box-circle col-span-12" v-if="formDone">
+    <h3>Danke für deine Bestellung!</h3>
+    <p>Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung
+      deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir
+      melden.</p>
+    <p>Du möchtest eine weitere Dauerkarte bestellen ? Dann kannst du einfach einen weiteren Bestellprozess
+      starten:</p>
+    <button
+      class="mt-10 inline-block transition form-border-width-btn form-shadow-btn focus:outline-zero form-bg-btn form-color-btn form-border-color-btn form-p-btn-lg form-radius-btn-lg form-text-lg cursor-pointer transition-transform ease-linear focus:form-ring transform hover:scale-105"
+      @click="onRestartClick">Weitere DK bestellen</button>
+  </div>
+  <Vueform @response="handleResponse" ref="form$" :class="formDone ? 'hidden' : ''">
     <div class="bg-white rounded-lg p-10 max-w-4xl m-auto shadow-box-circle col-span-12">
 
       <!-- Defining Form Steps -->
@@ -26,6 +37,7 @@
           finish: 'Verbindlich bestellen',
           previous: 'Zurück'
         }" />
+
       </FormSteps>
 
       <!-- Defining form elements -->
@@ -68,10 +80,10 @@
             'Block R3',
             'Block R4',
           ]" :columns="{
-              container: 4,
-              label: 12,
-              wrapper: 12,
-            }" />
+            container: 4,
+            label: 12,
+            wrapper: 12,
+          }" />
           <template #label>
             <div class="text-lg leading-tight mt-2">Mein Platz:</div>
           </template>
@@ -131,17 +143,18 @@
             label: 3,
             wrapper: 12,
           }" />
-          <TextElement name="customer_email" autocomplete="email" :rules="['required', 'email']" placeholder="E-Mail" :columns="{
-            container: 6,
-            label: 3,
-            wrapper: 12,
-          }" />
+          <TextElement name="customer_email" autocomplete="email" :rules="['required', 'email']" placeholder="E-Mail"
+            :columns="{
+              container: 6,
+              label: 3,
+              wrapper: 12,
+            }" />
           <TextElement name="customer_birthday" autocomplete="bday" input-type="date" label="Geburtstag"
             placeholder="Geburtstag" :columns="{
-            container: 6,
-            label: 3,
-            wrapper: 12,
-          }" />
+              container: 6,
+              label: 3,
+              wrapper: 12,
+            }" />
           <TextElement name="customer_member" input-type="number" rules="required"
             :conditions="[['ticket_category', '==', 'mitglied']]" placeholder="Mitgliedsnummer" :columns="{
               container: 6,
@@ -213,19 +226,26 @@ export default {
     onAreaChange() {
       this.$refs.form$.el$('ticket_category').reset()
     },
+    onRestartClick() {
+      this.formDone = false
+    },
     onNextStep() {
-      window.scrollTo(0,100)
+      window.scrollTo(0, 100)
       this.$refs.form$.messageBag.clear()
     },
     handleResponse(response, form$) {
-      if(response.status == 200) {
-        form$.messageBag.append(`Danke für deine Bestellung!<br />Du solltest eine E-Mail bekommen haben mit einer Zusammenfassung deiner Bestellung. Wir werden deine Bestellung nun prüfen und nur im Falle von Problemen uns bei dir melden.<br>Du möchtest eine weitere Dauerkarte bestellen ? Dann findest Du das vorausgefüllte Formular weiter unten. Solltest Du keine weitere Dauerkarte benötigen, dann kannst Du diese Seite jetzt schließen.`, 'message')
+      if (response.status == 200) {
         this.$refs.form$.steps$.goTo('my_season_ticket')
         window.scrollTo(0, 0)
+        this.formDone = true
       } else {
-        form$.messageBag.append(`Irgendetwas ist schief gelaufen. Bitte versuche es später erneut, oder wende die an ticketing@steelers.de`)
-
+        form$.messageBag.append(`Irgendetwas ist schief gelaufen. Bitte prüfe deine Angaben (ganz besonders deine E-Mail-Adresse!) und versuche es erneut. Sollte es weiterhin zu problemen kommen, wende dich an ticketing@steelers.de`)
       }
+    }
+  },
+  data() {
+    return {
+      formDone: false
     }
   },
   components: {
