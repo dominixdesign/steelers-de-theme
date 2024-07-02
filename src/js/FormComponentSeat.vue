@@ -25,6 +25,8 @@
         <div class="px-4">Platz {{ additonal_seat }}</div>
       </li>
     </ul>
+    <img class="col-start-4 col-span-6"
+      src="https://steelers.de/files/steelers/layout/Saalplan_Homepage_1024_1024.webp" />
   </GroupElement>
 </template>
 
