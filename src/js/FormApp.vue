@@ -84,6 +84,8 @@
             label: 12,
             wrapper: 12,
           }" />
+          <img class="col-start-4 col-span-6"
+            src="https://steelers.de/files/steelers/layout/Saalplan_Homepage_1024_1024.webp" />
           <template #label>
             <div class="text-lg leading-tight mt-2">Mein Platz:</div>
           </template>
