@@ -40,8 +40,10 @@ $randomElement = $vorteile[array_rand($vorteile)];
     var swiper1 = document.querySelector('.swiper-home.swiper');
     var swiper2 = document.querySelector('.relative.z-10.mt-32');
     var logo = document.getElementById('header-del-logo');
+    var zamboni = document.getElementById('zamboni');
 
     popup.classList.remove("hidden");
+    zamboni.classList.add("hidden");
     nav.classList.remove("top-sticky-nav");
     logo.classList.add("!z-0")
     document.body.classList.add("!overflow-y-hidden")
@@ -59,10 +61,12 @@ $randomElement = $vorteile[array_rand($vorteile)];
     var swiper1 = document.querySelector('.swiper-home.swiper');
     var swiper2 = document.querySelector('.relative.z-10.mt-32');
     var logo = document.getElementById('header-del-logo');
+    var zamboni = document.getElementById('zamboni');
 
     popup.classList.replace("opacity-100", "opacity-0");
     setTimeout(() => {
       popup.classList.add("hidden");
+      zamboni.classList.remove("hidden");
       nav.classList.add("top-sticky-nav");
       logo.classList.remove("!z-0")
       document.body.classList.remove("!overflow-y-hidden")
