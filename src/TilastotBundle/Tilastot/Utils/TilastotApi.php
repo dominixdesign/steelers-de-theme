@@ -20,12 +20,13 @@ use App\Tilastot\Utils\ApiDEL;
 class TilastotApi
 {
 
-	public static function call($uri, $additional_headers = array())
+	public static function call($uri, $additional_headers = array(), $queryParameters = array())
 	{
 		$curl = curl_init();
+		$queryString = http_build_query($queryParameters);
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => $uri,
+			CURLOPT_URL => $uri . '?' . $queryString,
 			CURLOPT_USERAGENT => 'starting6media powered website',
 			CURLOPT_HTTPHEADER => $additional_headers
 
