@@ -24,13 +24,14 @@ class ApiHockeydata
     const TEAM_ID = 36;
     const IGNORED_GAMES = [];
 
-    private static function call($params)
+    private static function call($standingsid, $apiKey)
     {
         $url = self::API_URL;
         if (!$params) {
             $params = [
-                'apiKey' => '3c5a99d835fcb70156d40cd60d03f350',
+                'apiKey' => '3c5a99d835fcb70156d40cd60d03f350', // $apiKey
                 'referer' => 'deb-online.live',
+                'divisionId' => $standingsid
             ];
         }
 
@@ -50,9 +51,9 @@ class ApiHockeydata
     private static function updateTeam($team, $round)
     {
         $obj = new \stdClass();
-        $obj->id = $team->{'@id'};
-        $obj->shortcut = $team->shortname;
-        $obj->name = $team->name;
+        $obj->id = $team->id;
+        $obj->shortcut = $team->teamShortname;
+        $obj->name = $team->teamLongname;
         return TilastotApi::updateTeam($obj, $round);
     }
 
@@ -65,32 +66,32 @@ class ApiHockeydata
 
         $data = json_decode(self::call('Standings', $r->standingsid, $r->apikey));
 
-        foreach ($data->teamstats->teams->team as $team) {
+        foreach ($data->data->rows as $team) {
 
             $t = Standings::findAll(array(
                 'limit'   => 1,
                 'column'  => array('tilastotid=?', 'round=?'),
-                'value'   => array($team->{'@id'}, $round)
+                'value'   => array($team->id, $round)
             ));
 
             if (!$t) {
                 $t = self::updateTeam($team, $round);
             }
 
-            $t->name = $team->name;
-            $t->tilastotid = $team->{'@id'};
+            $t->name = $team->teamLongname;
+            $t->tilastotid = $team->id;
             $t->round = $round;
-            $t->shortname = $team->shortname;
-            $t->games = $team->games;
-            $t->rw = $team->rw;
-            $t->ow = $team->ow;
-            $t->pw = $team->pw;
-            $t->pl = $team->pl;
-            $t->ol = $team->ol;
-            $t->rl = $team->rl;
+            $t->shortname = $team->teamShortname;
+            $t->games = $team->gamesPlayed;
+            $t->rw = $team->gamesWon;
+            $t->ow = $team->gamesWonInOt;
+            //          $t->pw = $team->pw;
+            //          $t->pl = $team->pl;
+            $t->ol = $team->gamesLostInOt;
+            $t->rl = $team->gamesLost;
             $t->points = $team->points;
-            $t->goalsfor = $team->goalsfor;
-            $t->goalsagainst = $team->goalsagainst;
+            $t->goalsfor = $team->goalsFor;
+            $t->goalsagainst = $team->goalsAgainst;
             $t->save();
         }
     }
@@ -185,34 +186,50 @@ class ApiHockeydata
         }
         $r = Rounds::findById($round);
 
-        $data = json_decode(self::call('games.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
+        $data = json_decode(self::call('Schedule', $r->standingsid, $r->apikey));
 
-        foreach ($data->schedule->games->game as $game) {
-            if (in_array($game->{'@id'}, self::IGNORED_GAMES)) {
+        foreach ($data->data->games as $game) {
+            if (in_array($game->id, self::IGNORED_GAMES)) {
                 // skip games from the ignored list
                 continue;
             }
-            $date = date_parse_from_format("d.m.Y", $game->gamedate);
-            $time = explode(':', $game->gametime);
-            $g = Games::findById($game->{'@id'});
+            if ($game->awayTeamId != self::TEAM_ID && $game->homeTeamId != self::TEAM_ID) {
+                // skip non steelers games
+                continue;
+            }
+            $date = date_parse_from_format("d.m.Y", $game->scheduledDate->value);
+            $time = explode(':', $game->scheduledTime);
+            $g = Games::findById($game->id);
             if (!$g) {
                 $g = new Games();
-                $g->id = $game->{'@id'};
+                $g->id = $game->id;
             }
-            self::updateTeam($game->hometeam, $round);
-            self::updateTeam($game->awayteam, $round);
-            $g->hometeam = $game->hometeam->{'@id'};
-            $g->awayteam = $game->awayteam->{'@id'};
+            self::updateTeam([
+                id => $game->awayTeamId,
+                teamShortname => $game->awayTeamShortname,
+                teamLongname => $game->awayTeamLongname
+            ], $round);
+            self::updateTeam([
+                id => $game->homeTeamId,
+                teamShortname => $game->homeTeamShortname,
+                teamLongname => $game->homeTeamLongname
+            ], $round);
+            $g->hometeam = $game->homeTeamId;
+            $g->awayteam = $game->awayTeamId;
             $g->gamedate = mktime($time[0], $time[1], 0, $date['month'], $date['day'], $date['year']);
-            $g->gametime = $game->gametime;
+            $g->gametime = $game->scheduledTime;
             $g->round = $round;
-            $g->periodscore = $game->periodscore;
-            $g->gameday = $game->gameday;
-            $g->gamestatus = $game->gamestatus;
-            $g->resulttype = $game->resulttype;
-            $g->homescore = $game->homescore;
-            $g->awayscore = $game->awayscore;
-            $g->ended = ($game->ended == 'False') ? 0 : 1;
+            $g->periodscore = $game->periodResults;
+            $g->gameday = $game->gameDay;
+            $g->gamestatus = $game->gameStatus; // 4 = ended
+            if ($game->isOvertime) {
+                $g->resulttype = 'OT';
+            } else if ($game->isShootOut) {
+                $g->resulttype = 'SO';
+            }
+            $g->homescore = $game->homeTeamScore;
+            $g->awayscore = $game->awayTeamScore;
+            $g->ended = ($game->gameStatus == 4) ? 0 : 1;
             $g->tstamp = time();
             $g->save();
         }
