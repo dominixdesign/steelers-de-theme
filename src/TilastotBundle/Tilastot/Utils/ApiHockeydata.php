@@ -20,25 +20,24 @@ use App\Tilastot\Model\PlayerStats;
 
 class ApiHockeydata
 {
-    const API_URL = 'https://api.hockeydata.net/data/ebel/Standings';
-    const TEAM_ID = 36;
+    const API_URL = 'https://api.hockeydata.net/data/ebel/';
+    const TEAM_ID = 54834;
     const IGNORED_GAMES = [];
 
-    private static function call($standingsid, $apiKey)
+    private static function call($endpoint, $standingsid, $apiKey, $teamid = null)
     {
-        $url = self::API_URL;
-        if (!$params) {
-            $params = [
-                'apiKey' => '3c5a99d835fcb70156d40cd60d03f350', // $apiKey
-                'referer' => 'deb-online.live',
-                'divisionId' => $standingsid
-            ];
+        $url = self::API_URL . $endpoint;
+        $params = [
+            'apiKey' => $apiKey,
+            'referer' => 'deb-online.live', // needs to be changed after we got our own API key
+            'divisionId' => $standingsid
+        ];
+
+        if($teamid) {
+            $params['teamId'] = $teamid;
         }
 
-        $params = array_merge($params, [], $params);
-
-
-        return TilastotApi::call($url, array('apikey: ' . $apiKey));
+        return TilastotApi::call($url, $params);
     }
 
     public static function refreshAll($round)
@@ -103,37 +102,29 @@ class ApiHockeydata
         }
         $r = Rounds::findById($round);
 
-        $rosterData = json_decode(self::call('roster.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
-        $statsData = json_decode(self::call('playerstats.json/' . $r->standingsid . '/' . self::TEAM_ID, $r->apikey));
-        if ($rosterData->teamroster->players == "") {
-            return null;
-        }
-
-        foreach ($rosterData->teamroster->players->player as $player) {
+        $rosterData = json_decode(self::call('GetTeamDetails', $r->standingsid, $r->apikey, self::TEAM_ID));
+        foreach ($rosterData->data->teamRoster as $player) {
 
             $p = Players::findAll(array(
                 'limit'   => 1,
                 'column'  => array('tilastotid=?'),
-                'value'   => array($player->{'@id'})
+                'value'   => array($player->id)
             ));
             if (!$p) {
                 $p = new Players();
-                $p->tilastotid = $player->{'@id'};
+                $p->tilastotid = $player->id;
             }
-            $birthday = date_parse_from_format("d.m.Y", $player->birthday);
-            if ($player->{'@eliteprospectsid'} > 0) {
-                $p->eliteprospectsid = $player->{'@eliteprospectsid'};
-            }
-            $p->firstname = $player->firstname;
-            $p->lastname = $player->lastname;
-            $p->jersey = $player->jersey;
+
+            $birthday = date_parse_from_format("d.m.Y", $player->birthdate->formattedShort);
+            $p->firstname = $player->playerFirstname;
+            $p->lastname = ucwords(strtolower($player->playerLastname), '-');
+            $p->jersey = $player->playerJerseyNr;
             $p->position = $player->position;
-            $p->nationality = $player->nationality;
-            $p->shoots = $player->shoots;
+            $p->nationality = $player->nation;
+            $p->shoots = $player->shootsCatches == 1 ? 'R' : 'L';
             $p->birthday = mktime(0, 0, 0, $birthday['month'], $birthday['day'], $birthday['year']);
-            $p->birthplace = $player->birthplace ? $player->birthplace : '';
-            $p->height = $player->height;
-            $p->weight = $player->weight;
+            $p->height = $player->playerHeight;
+            $p->weight = $player->playerWeight;
 
             $p->alias = StringUtil::generateAlias($p->firstname . " " . $p->lastname);
 
@@ -148,34 +139,34 @@ class ApiHockeydata
             $p->tstamp = time();
             $savedPlayer = $p->save();
 
-            if ($statsData->playerstats->players != '') {
-                foreach ($statsData->playerstats->players->player as $stat) {
-                    if ($player->{'@id'} == $stat->{'@id'}) {
-                        $stats = PlayerStats::findAll(array(
-                            'limit'   => 1,
-                            'column'  => array('pid=?', 'round=?'),
-                            'value'   => array($savedPlayer->id, $round)
-                        ));
-                        if (!$stats) {
-                            $stats = new PlayerStats();
-                            $stats->pid = $savedPlayer->id;
-                        }
-                        $stats->round = $round;
-                        $stats->games = $stat->games;
-                        $stats->goals = $stat->goals;
-                        $stats->assists = $stat->assists;
-                        $stats->points = $stat->points;
-                        $stats->penalties = $stat->penalties;
-                        $stats->plusminus = $stat->plus - $stat->minus;
-                        $stats->faceoffswon = $stat->faceoffswon;
-                        $stats->faceoffslost = $stat->faceoffslost;
-                        $stats->shots = $stat->shots;
-                        $stats->tstamp = time();
-                        $stats->save();
-                        break;
+            foreach ($rosterData->data->playerStats as $stat) {
+                if ($player->id == $stat->id) {
+                    $stats = PlayerStats::findAll(array(
+                        'limit'   => 1,
+                        'column'  => array('pid=?', 'round=?'),
+                        'value'   => array($savedPlayer->id, $round)
+                    ));
+                    if (!$stats) {
+                        $stats = new PlayerStats();
+                        $stats->pid = $savedPlayer->id;
                     }
+                    $stats->round = $round;
+                    $stats->games = $stat->gamesPlayed;
+                    $stats->goals = $stat->goals;
+                    $stats->assists = $stat->assists;
+                    $stats->points = $stat->points;
+                    $stats->penalties = $stat->penaltyMinutes;
+                    $stats->plusminus = $stat->plusMinus;
+                    $faceoffs = explode('/', $stat->faceoffs);
+                    $stats->faceoffswon = $faceoffs[0];
+                    $stats->faceoffslost = $faceoffs[1];
+                    $stats->shots = $stat->shotsOnGoal;
+                    $stats->tstamp = time();
+                    $stats->save();
+                    break;
                 }
             }
+            
         }
     }
 
