@@ -16,6 +16,8 @@ use Contao\StringUtil;
 use App\Tilastot\Model\Rounds;
 use App\Tilastot\Model\Standings;
 use App\Tilastot\Utils\ApiDEL;
+use App\Tilastot\Utils\ApiHolema;
+use App\Tilastot\Utils\ApiHockeydata;
 
 class TilastotApi
 {
@@ -80,6 +82,9 @@ class TilastotApi
 					break;
 				case 'holema':
 					ApiHolema::refreshAll($round->id);
+					break;
+				case 'deb':
+					ApiHockeydata::refreshAll($round->id);
 					break;
 				default:
 					throw new \Exception('unknown api "' . $round->api . '"');
