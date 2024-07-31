@@ -8,4 +8,5 @@
 :after,
 * {
   --vf-primary: #10b75a;
+  -webkit-font-smoothing: antialiased;
 }
