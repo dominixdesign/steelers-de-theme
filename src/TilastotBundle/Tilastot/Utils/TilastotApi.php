@@ -38,7 +38,7 @@ class TilastotApi
 		if (curl_errno($curl) > 0) {
 			throw new \Exception(curl_error($curl));
 		} elseif (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 200) {
-			throw new \Exception('DEL API response http code: ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) . ' (' . $uri . ')');
+			throw new \Exception('API response http code: ' . curl_getinfo($curl, CURLINFO_HTTP_CODE) . ' (' . $uri . '?' . $queryString . ')');
 		}
 		curl_close($curl);
 
@@ -47,7 +47,6 @@ class TilastotApi
 
 	public static function updateTeam($tilastotTeam, $round)
 	{
-
 		$t = Standings::findAll(array(
 			'limit'   => 1,
 			'column'  => array('tilastotid=?', 'round=?'),

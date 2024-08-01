@@ -14,6 +14,7 @@ namespace App\Tilastot\Module;
 use Contao\BackendModule;
 use App\Tilastot\Model\Rounds;
 use App\Tilastot\Utils\ApiDEL;
+use App\Tilastot\Utils\ApiHockeydata;
 use App\Tilastot\Utils\ApiHolema;
 
 class RefreshModule extends BackendModule
@@ -35,8 +36,11 @@ class RefreshModule extends BackendModule
 					case 'holema':
 						ApiHolema::refreshAll($r->id);
 						break;
+					case 'deb':
+						ApiHockeydata::refreshAll($r->id);
+						break;
 					default:
-						throw new \Exception('unknown api "' . $r->api . '"' . var_export($r,true));
+						throw new \Exception('unknown api "' . $r->api . '"' . var_export($r, true));
 				}
 			}
 
