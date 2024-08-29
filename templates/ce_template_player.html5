@@ -2,10 +2,12 @@
   <a class="col-span-1 flex flex-col ">
     <div class="aspect-w-4 aspect-h-5 bg-white overflow-hidden relative">
       <?php if ($this->keys['position'] == 'Staff') : ?>
-        <div class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-4xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
+        <div
+          class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-4xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
           <?= $this->keys['about'] ?></div>
       <?php else : ?>
-        <div class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-6xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
+        <div
+          class="absolute z-30 font-headline group-hover:text-white text-steelgreen text-6xl left-4 top-2 right-auto bottom-auto w-auto h-auto">
           <?= $this->keys['jersey'] ?></div>
       <?php endif ?>
 
@@ -19,9 +21,11 @@
           <?php endif; ?>
           <?php if ($this->keys['position'] != 'Staff' && ($this->keys['weight'] > 0 || $this->keys['height'] > 0 || isset($this->keys['shoots']))) : ?>
             <div class="text-sm uppercase">Facts</div>
-            <?php if ($this->keys['weight'] > 0) : ?><div class="text-lg font-bold -mt-1"><?= $this->keys['weight'] ?> kg</div>
+            <?php if ($this->keys['weight'] > 0) : ?><div class="text-lg font-bold -mt-1"><?= $this->keys['weight'] ?> kg
+              </div>
             <?php endif; ?>
-            <?php if ($this->keys['height'] > 0) : ?><div class="text-lg font-bold -mt-1"><?= $this->keys['height'] ?> cm</div>
+            <?php if ($this->keys['height'] > 0) : ?><div class="text-lg font-bold -mt-1"><?= $this->keys['height'] ?> cm
+              </div>
             <?php endif; ?>
             <div class="text-lg font-bold -mt-1">
               <?php
@@ -51,9 +55,23 @@
       <?php if ($this->addImage) : ?>
         <?php
         $image = FilesModel::findMultipleByUuids([$this->singleSRC])->fetchAll();
-        $ogimage = $this->getImage($this->urlEncode($image[0]['path']), 450, 450, 'proportional');
+        $ogimage_800 = $this->getImage($this->urlEncode($image[0]['path']), 800, 800, 'proportional');
+        $ogimage_600 = $this->getImage($this->urlEncode($image[0]['path']), 600, 600, 'proportional');
+        $ogimage_500 = $this->getImage($this->urlEncode($image[0]['path']), 500, 500, 'proportional');
+        $ogimage_450 = $this->getImage($this->urlEncode($image[0]['path']), 450, 450, 'proportional');
         ?>
-        <img src="<?= $ogimage ?>" class="w-full h-full object-center object-cover" alt="<?= $this->keys['firstname']; ?> <?= $this->keys['lastname']; ?>" />
+        <img src="<?= $ogimage_800 ?>" srcset="
+        <?= $ogimage_800 ?> 640w,
+        <?= $ogimage_450 ?> 768w,
+        <?= $ogimage_600 ?> 1024w,
+        <?= $ogimage_500 ?> 1280w,
+        <?= $ogimage_450 ?> 1536w
+    " sizes="(max-width: 640px) 640px, 
+           (max-width: 768px) 768px, 
+           (max-width: 1024px) 1024px, 
+           (max-width: 1280px) 1280px, 
+           1536px" class="w-full h-full object-center object-cover"
+          alt="<?= $this->keys['firstname']; ?> <?= $this->keys['lastname']; ?>" />
       <?php endif; ?>
     </div>
     <div>
