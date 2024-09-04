@@ -21,7 +21,7 @@ class LoadFormFieldListener
             $games = Games::findAll(array(
                 'order'   => ' gamedate ASC',
                 'column'  => $column,
-                'value'   => array(time(), 36)
+                'value'   => array(time(), 54744)
             ));
             if (!$games) {
                 $widget->options = array('value' => 'no-game-found', 'label' => "Kein Spiel gefunden.");
