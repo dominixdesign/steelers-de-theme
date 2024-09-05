@@ -51,7 +51,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_schedule_type'] = array(
 	'inputType'               => 'select',
 	'options'				  => array('results_fixtures', 'results', 'fixtures'),
 	'eval'                    => array('tl_class' => 'w50 wizard'),
-	'sql'                     => "varchar(10) NOT NULL default ''"
+	'sql'                     => "varchar(20) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['tilastot_to_date'] = array(
