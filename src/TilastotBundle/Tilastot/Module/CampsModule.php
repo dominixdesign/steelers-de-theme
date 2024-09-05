@@ -18,14 +18,23 @@ class CampsModule extends AbstractFrontendModuleController
 	protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
 	{
 		$camps = Camps::findAll(array(
+			'column'  => array(
+				'published=1',
+			),
 			'order' => 'startdate ASC'
 		));
+
+		$campslist = array();
 
 		if (!$camps) {
 			return new Response();
 		}
+		foreach ($camps->fetchAll() as $p) {
+			$campslist[$p['category']][] = $p;
+		}
 
-		$template->camps = $camps->fetchAll();
+
+		$template->camps = $campslist;
 
 		$template->cssId = $model->cssID[0];
 		$template->cssClass = $model->cssID[1];

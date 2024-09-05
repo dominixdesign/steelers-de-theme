@@ -56,3 +56,7 @@ $GLOBALS['TL_CRON']['hourly'][] = array('App\\Tilastot\\Utils\\TilastotApi', 're
 /* Wrapper */
 $GLOBALS['TL_WRAPPERS']['start'][] = 'rowStart';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'rowEnd';
+
+// Add permissions
+$GLOBALS['TL_PERMISSIONS'][] = 'tilastot_camps';
+$GLOBALS['TL_PERMISSIONS'][] = 'tilastot_campsp';

@@ -13,7 +13,9 @@ $GLOBALS['TL_DCA']['tl_tilastot_camps'] = array(
     // Config
     'config'   => array(
         'dataContainer' => 'Table',
+        'switchToEdit' => true,
         'enableVersioning' => true,
+        'markAsCopy' => true,
         'sql' => array(
             'keys' => array(
                 'id' => 'primary'
@@ -25,8 +27,8 @@ $GLOBALS['TL_DCA']['tl_tilastot_camps'] = array(
     'list' => array(
         'sorting' => array(
             'mode'                    => DataContainer::MODE_SORTED,
-            'flag'                    => DataContainer::SORT_INITIAL_LETTER_ASC,
-            'fields'                  => array('name'),
+            'flag'                    => DataContainer::SORT_YEAR_DESC,
+            'fields'                  => array('startdate'),
             'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array(
@@ -49,7 +51,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_camps'] = array(
             ),
             'copy'   => array(
                 'label'               => &$GLOBALS['TL_LANG']['tl_tilastot_camps']['copy'],
-                'href'                => 'act=paste&amp;mode=copy',
+                'href'                => 'act=copy',
                 'icon'                => 'copy.gif',
             ),
             'delete' => array(
