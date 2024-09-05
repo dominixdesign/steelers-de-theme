@@ -111,3 +111,6 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['standings'] .= '{template_legend:hi
 $GLOBALS['TL_DCA']['tl_module']['palettes']['partners'] = '{title_legend},name,headline,type;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['partners'] .= '{tilastot_legend},tilastot_partners_category;';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['partners'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['camps'] = '{title_legend},name,headline,type;';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['camps'] .= '{template_legend:hide},customTpl;{expert_legend:hide},cssID,space';

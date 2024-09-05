@@ -61,6 +61,12 @@ services:
         category: tilastot
         template: mod_partners
         type: partners
+  App\Tilastot\Module\CampsModule:
+    tags:
+      - name: contao.frontend_module
+        category: tilastot
+        template: mod_camps
+        type: camps
   App\Tilastot\ContentElement\WrapperBlockStart:
     tags:
       - name: contao.content_element
