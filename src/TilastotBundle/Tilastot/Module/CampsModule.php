@@ -13,7 +13,7 @@ use Contao\FilesModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class PartnersModule extends AbstractFrontendModuleController
+class CampsModule extends AbstractFrontendModuleController
 {
 	protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
 	{
