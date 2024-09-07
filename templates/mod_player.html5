@@ -70,34 +70,24 @@
     <div class="aspect-w-4 aspect-h-5 xl:aspect-h-4 bg-gray-400 overflow-hidden max-[600px]:mt-8">
       <?php
       if ($this->player['pictures'][1]) :
-        $topImage = $this->getImage($this->urlEncode($this->player['pictures'][1]['path']), 800, 800, 'crop');
+        $topImage = $this->getImage($this->urlEncode($this->player['pictures'][1]['path']), 1000, 1000, 'crop');
         $ogimage_800 = $this->getImage($this->player['pictures'][1]['path'], 800, 800, 'proportional');
         $ogimage_600 = $this->getImage($this->player['pictures'][1]['path'], 600, 600, 'proportional');
         $ogimage_500 = $this->getImage($this->player['pictures'][1]['path'], 500, 500, 'proportional');
         $ogimage_450 = $this->getImage($this->player['pictures'][1]['path'], 450, 450, 'proportional');
       elseif ($this->player['pictures'][0]) :
-        $topImage = $this->getImage($this->urlEncode($this->player['pictures'][0]['path']), 800, 800, 'crop');
-        $ogimage_800 = $this->getImage($this->player['pictures'][1]['path'], 800, 800, 'proportional');
-        $ogimage_600 = $this->getImage($this->player['pictures'][1]['path'], 600, 600, 'proportional');
-        $ogimage_500 = $this->getImage($this->player['pictures'][1]['path'], 500, 500, 'proportional');
-        $ogimage_450 = $this->getImage($this->player['pictures'][1]['path'], 450, 450, 'proportional');
+        $topImage = $this->getImage($this->urlEncode($this->player['pictures'][0]['path']), 1000, 1000, 'crop');
+        $ogimage_800 = $this->getImage($this->player['pictures'][0]['path'], 800, 800, 'proportional');
+        $ogimage_600 = $this->getImage($this->player['pictures'][0]['path'], 600, 600, 'proportional');
+        $ogimage_500 = $this->getImage($this->player['pictures'][0]['path'], 500, 500, 'proportional');
+        $ogimage_450 = $this->getImage($this->player['pictures'][0]['path'], 450, 450, 'proportional');
       endif;
       if ($topImage) :
       ?>
         <?php
-        $image = FilesModel::findMultipleByUuids([$this->singleSRC])->fetchAll();
+        // $image = FilesModel::findMultipleByUuids([$this->singleSRC])->fetchAll();
         ?>
-        <img src="<?= $ogimage_800 ?>" srcset="
-        <?= $ogimage_800 ?> 640w,
-        <?= $ogimage_450 ?> 768w,
-        <?= $ogimage_600 ?> 1024w,
-        <?= $ogimage_500 ?> 1280w,
-        <?= $ogimage_450 ?> 1536w
-    " sizes="(max-width: 640px) 640px, 
-           (max-width: 768px) 768px, 
-           (max-width: 1024px) 1024px, 
-           (max-width: 1280px) 1280px, 
-           1536px" class="w-full h-full object-center object-cover sm:w-full sm:h-full"
+        <img src="<?= $ogimage_800 ?>" class="w-full h-full object-center object-cover sm:w-full sm:h-full"
           alt="<?= $this->player['lastname'] . ' ' . $this->player['lastname'] ?>" />
       <?php
       endif;

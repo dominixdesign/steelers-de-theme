@@ -134,7 +134,7 @@ class ApiHockeydata
 
             $birthday = date_parse_from_format("d.m.Y", $player->birthdate->formattedShort);
             $p->firstname = $player->playerFirstname;
-            $p->lastname = ucwords(strtolower($player->playerLastname), '-');
+            $p->lastname = ucwords(mb_strtolower($player->playerLastname, 'UTF-8'), '-');
             $p->jersey = $player->playerJerseyNr;
             $p->position = $player->position;
             $p->nationality = $player->nation;

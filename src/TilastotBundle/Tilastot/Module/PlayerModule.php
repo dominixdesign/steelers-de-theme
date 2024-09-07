@@ -23,7 +23,7 @@ class PlayerModule extends AbstractFrontendModuleController
   protected $strTemplate = 'mod_player';
   protected function getResponse(Template $template, ModuleModel $model, Request $request): Response
   {
-    $player = Players::findByAlias(Input::get('auto_item'));
+    $player = Players::findOneBy(array('alias = ? AND published = 1'), array(Input::get('auto_item')));
     if (!$player) {
       throw new PageNotFoundException('Page not found: ' . Environment::get('uri'));
     }
@@ -46,7 +46,9 @@ class PlayerModule extends AbstractFrontendModuleController
     ));
 
     $template->player = $p;
-    $template->stats = $stats->fetchAll()[0];
+    if ($stats) {
+      $template->stats = $stats->fetchAll()[0];
+    }
     $template->headlineUnit = $this->hl;
     $template->cssId = $this->cssID[0];
     $template->cssClass = $this->cssID[1];
