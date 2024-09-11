@@ -1,6 +1,4 @@
-<?php $this->block('content'); ?>
 <div class="holema-table <?= $this->cssClass ?>" <?= ($this->cssId) ? 'id="' . $this->cssId . '"' : '' ?>>
-  <<?= $this->headlineUnit ?>><?= $this->headline ?></<?= $this->headlineUnit ?>>
   <table>
     <thead>
       <tr>
@@ -21,12 +19,181 @@
           <td><?= $game['gametime'] ?> Uhr</td>
           <td><?= $game['home']['name'] ?></td>
           <td><?= $game['away']['name'] ?></td>
-          <td>Grafiken anzeigen</td>
+          <td><button
+              onclick="generateImages('<?= $game['away']['logo'] ?>','<?= $game['home']['logo'] ?>','<?= $game['away']['shortname'] ?>','<?= $game['home']['shortname'] ?>')">generate</button>
+          </td>
         </tr>
       <?php
       }
       ?>
     </tbody>
   </table>
+  <div>
+    <?php
+    // Define the directory path
+    $directoryPath = '../files/steelers/tools/social-media/home';
+
+    // Use glob to get all image files in the directory
+    $imageFiles = glob($directoryPath . '/*.{png,webp,svg,jpg,jpeg,gif}', GLOB_BRACE);
+    ?>
+    <script>
+      const imageLogo = new Image();
+
+      const font = new FontFace('Bahnschrift', 'url(/files/steelers/tools/social-media/fonts/bahnschrift.ttf)');
+      font.load().then(function(loadedFont) {
+        document.fonts.add(loadedFont);
+        <?php
+        foreach ($imageFiles as $key => $file) {
+        ?>
+          drawCanvas<?= $key ?>();
+        <?php
+        }
+        ?>
+      });
+
+      const fontC = new FontFace('Bahnschrift Condensed',
+        'url(/files/steelers/tools/social-media/fonts/bahnschrift.ttf)');
+      fontC.stretch = 'condensed';
+      fontC.load().then(function(loadedFont) {
+        document.fonts.add(loadedFont);
+        <?php
+        foreach ($imageFiles as $key => $file) {
+        ?>
+          drawCanvas<?= $key ?>();
+        <?php
+        }
+        ?>
+      });
+
+      function generateImages(logo) {
+        imageLogo.src = logo;
+        imageLogo.onload = function() {
+          <?php
+          foreach ($imageFiles as $key => $file) {
+          ?>
+            drawCanvas<?= $key ?>();
+          <?php
+          }
+          ?>
+        };
+      }
+    </script>
+    <?php
+    // Check if any image files were found
+    if ($imageFiles !== false) {
+      // Loop through the array and print each file name
+      foreach ($imageFiles as $key => $file) {
+    ?>
+        <canvas id="<?= basename($file) ?>" width="1080" height="1920" style="width: 300px;"></canvas>
+        <script>
+          const canvas<?= $key ?> = document.getElementById('<?= basename($file) ?>');
+          const ctx<?= $key ?> = canvas<?= $key ?>.getContext('2d');
+
+          // Load the image
+          const image<?= $key ?> = new Image();
+          image<?= $key ?>.src = '/files/steelers/tools/social-media/home/<?= basename($file) ?>';
+          image<?= $key ?>.onload = function() {
+            drawCanvas<?= $key ?>();
+          };
+
+          function drawCanvas<?= $key ?>() {
+            ctx<?= $key ?>.clearRect(0, 0, canvas<?= $key ?>.width, canvas<?= $key ?>.height);
+            ctx<?= $key ?>.drawImage(image<?= $key ?>, 0, 0);
+
+            <?php
+            $filename = 'Erstes_Drittel.png';
+
+            switch (basename($file)) {
+              case 'Beginn_Drittes_Drittel.png':
+              case 'Beginn_Zweites_Drittel.png':
+              case 'Spielbeginn.png':
+            ?>
+                const maxWidth = 350; // Replace with your desired max width
+                const maxHeight = 350; // Replace with your desired max height
+                const boxX = 0; // X-coordinate of the box
+                const boxY = 1400; // Y-coordinate of the box
+                const boxWidth = 1080; // Width of the box
+                const boxHeight = 350; // Height of the box
+              <?php
+                break;
+              case 'Drittels_Drittel.png':
+              case 'Erstes_Drittel.png':
+              case 'Zweites_Drittel.png':
+              ?>
+                const maxWidth = 200; // Replace with your desired max width
+                const maxHeight = 200; // Replace with your desired max height
+                const boxX = 600; // X-coordinate of the box
+                const boxY = 800; // Y-coordinate of the box
+                const boxWidth = 240; // Width of the box
+                const boxHeight = 240; // Height of the box
+              <?php
+                break;
+              case 'Sieg_Gegner.png':
+              ?>
+                // text for next game
+                var text1 = "Sieg für unsere Gegner !".toUpperCase();
+                ctx<?= $key ?>.font = '72px Bahnschrift Condensed';
+                ctx<?= $key ?>.fillStyle = 'white';
+                var text1Width = ctx<?= $key ?>.measureText(text1).width + 10;
+                var x1 = (canvas<?= $key ?>.width - text1Width) / 2;
+                ctx<?= $key ?>.fillText(text1, x1, 580);
+              <?php
+              case 'Sieg_Steelers.png':
+              ?>
+                const maxWidth = 200; // Replace with your desired max width
+                const maxHeight = 200; // Replace with your desired max height
+                const boxX = 600; // X-coordinate of the box
+                const boxY = 640; // Y-coordinate of the box
+                const boxWidth = 240; // Width of the box
+                const boxHeight = 240; // Height of the box
+
+                // text for next game
+                // Load the font
+
+
+
+
+              <?php
+                break;
+              case 'Tor_Gegner.png':
+              case 'Tor_Steelers.png':
+              ?>
+                const maxWidth = 200; // Replace with your desired max width
+                const maxHeight = 200; // Replace with your desired max height
+                const boxX = 600; // X-coordinate of the box
+                const boxY = 1030; // Y-coordinate of the box
+                const boxWidth = 240; // Width of the box
+                const boxHeight = 240; // Height of the box
+            <?php
+                break;
+              default:
+                break;
+            }
+            ?>
+            if (imageLogo.width > 0) {
+
+              let width = imageLogo.width;
+              let height = imageLogo.height;
+
+              height = height * (maxWidth / width);
+              width = maxWidth;
+
+              width = width * (maxHeight / height);
+              height = maxHeight;
+
+              // Calculate the coordinates to center the image within the box
+              const centerX = boxX + (boxWidth - width) / 2;
+              const centerY = boxY + (boxHeight - height) / 2;
+
+              createImageBitmap(imageLogo).then((bitmap) => {
+                ctx<?= $key ?>.drawImage(bitmap, centerX, centerY, width, height);
+              });
+            }
+          }
+        </script>
+    <?php
+      }
+    }
+    ?>
+  </div>
 </div>
-<?php $this->endblock(); ?>

@@ -25,6 +25,18 @@
   <?= $this->head ?>
   <?php $this->endblock(); ?>
 
+  <style>
+    @font-face {
+      font-family: 'Bahnschrift';
+      src: url('/files/steelers/tools/social-media/fonts/bahnschrift.ttf') format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Bahnschrift Condensed';
+      src: url('/files/steelers/tools/social-media/fonts/bahnschrift.ttf') format('truetype');
+      font-stretch: condensed;
+    }
+  </style>
 </head>
 
 <body id="top" <?php if ($this->class): ?> class="<?= $this->class ?>" <?php endif; ?><?php if ($this->onload): ?>
