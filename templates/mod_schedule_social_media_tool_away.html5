@@ -12,16 +12,16 @@
     <tbody>
       <?php
       foreach ($this->games as $key => $game) {
-        if ($game['away']['shortname'] == 'SCB') {
+        if ($game['home']['shortname'] == 'SCB') {
           continue;
         }
         $class = ($team['holemaid'] == $this->my_team) ? ' class="highlight-team"' : '';
-        // finde next home game
+        // finde next away game
         for ($i = $key + 1; $i < count($this->games); $i++) {
           if ($this->games[$i]['home']['shortname'] == 'SCB') {
             $nextGame = [
               'gamedate' => $this->games[$i]['gamedate'],
-              'opponent' => $this->games[$i]['away']['shortname'],
+              'opponent' => $this->games[$i]['home']['shortname'],
               'opponent_name' => $this->games[$i]['away']['name'],
               'logo' => $this->games[$i]['away']['logo'],
             ];
@@ -38,7 +38,7 @@
           <td><?= $game['home']['name'] ?></td>
           <td><?= $game['away']['name'] ?></td>
           <td><button
-              onclick="generateImages('<?= $game['away']['logo'] ?>','<?= $game['home']['logo'] ?>','<?= $game['away']['shortname'] ?>','<?= $game['home']['shortname'] ?>', nextGame<?= $key ?>)">generate</button>
+              onclick="generateImages('<?= $game['home']['logo'] ?>','<?= $game['away']['logo'] ?>','<?= $game['home']['shortname'] ?>','<?= $game['away']['shortname'] ?>', nextGame<?= $key ?>)">generate</button>
           </td>
         </tr>
       <?php
@@ -50,7 +50,7 @@
     <p><button onclick="downloadAllCanvases()">Download All Canvases</button></p>
     <?php
     // Define the directory path
-    $directoryPath = '../files/steelers/tools/social-media/home';
+    $directoryPath = '../files/steelers/tools/social-media/away';
 
     // Use glob to get all image files in the directory
     $imageFiles = glob($directoryPath . '/*.{png,webp,svg,jpg,jpeg,gif}', GLOB_BRACE);
@@ -58,6 +58,7 @@
     <script>
       var nextGame;
       var winText;
+      var ortText = '';
       var goalText = '';
       var goalTop = 'Tor für die';
       const imageLogo = new Image();
@@ -89,8 +90,8 @@
         ?>
       });
 
-      function generateImages(logoAway, logoHome, teamAway, teamHome, nextGameParam) {
-        imageLogo.src = logoAway;
+      function generateImages(logohome, logoaway, teamhome, teamaway, nextGameParam) {
+        imageLogo.src = logohome;
         nextGameLogo.src = nextGameParam.logo;
         nextGame = nextGameParam;
         console.log('generateImages', nextGame)
@@ -112,69 +113,81 @@
           }
           ?>
         };
-        switch (teamAway) {
+        switch (teamhome) {
           case 'EHF':
             winText = 'Sieg für die Black Hawks !';
             goalTop = 'Tor für die';
             goalText = 'Black Hawks';
+            ortText = 'Passau';
             break;
           case 'DSC':
             winText = 'Sieg für Deggendorf !';
             goalTop = 'Tor für';
             goalText = 'Deggendorf';
+            ortText = 'Deggendorf';
             break;
           case 'MEM':
             winText = 'Sieg für die Indians !';
             goalTop = 'Tor für die';
             goalText = 'Indians';
+            ortText = 'Memmingen';
             break;
           case 'ECT':
             winText = 'Sieg für den EC Bad Tölz !';
             goalTop = 'Tor für die';
             goalText = 'Löwen';
+            ortText = 'Bad Tölz';
             break;
           case 'SEC':
             winText = 'Sieg für die Rebels !';
             goalTop = 'Tor für die';
             goalText = 'Rebels';
+            ortText = 'Stuttgart';
             break;
           case 'OTB':
             winText = 'Sieg für die Tigers !';
             goalTop = 'Tor für die';
             goalText = 'Tigers';
+            ortText = 'Bayreuth';
             break;
           case 'ECP':
             winText = 'Sieg für Peiting !';
             goalTop = 'Tor für den'
             goalText = 'EC Peiting';
+            ortText = 'Peiting';
             break;
           case 'HNF':
             winText = 'Sieg für Heilbronn !';
             goalTop = 'Tor für die';
             goalText = 'Falken';
+            ortText = 'Heilbronn';
             break;
           case 'EVF':
             winText = 'Sieg für Füssen !';
             goalTop = 'Tor für';
             goalText = 'Füssen';
+            ortText = 'Füssen';
             break;
           case 'LIN':
             winText = 'Sieg für Lindau !';
             goalTop = 'Tor für die';
             goalText = 'Islanders';
+            ortText = 'Lindau';
             break;
           case 'HEC':
             winText = 'Sieg für Höchstadt !';
             goalTop = 'Tor für die';
             goalText = 'Alligators';
+            ortText = 'Höchstadt';
             break;
           case 'SCR':
             winText = 'Sieg für den SC Riessersee !';
             goalTop = 'Tor für den'
             goalText = 'SCR';
+            ortText = 'Garmisch';
             break;
           default:
-            console.log('unknown team ' + teamAway)
+            console.log('unknown team ' + teamhome)
         }
 
         winText = winText.toUpperCase()
@@ -212,7 +225,7 @@
 
           // Load the image
           const image<?= $key ?> = new Image();
-          image<?= $key ?>.src = '/files/steelers/tools/social-media/home/<?= basename($file) ?>';
+          image<?= $key ?>.src = '/files/steelers/tools/social-media/away/<?= basename($file) ?>';
           image<?= $key ?>.onload = function() {
             drawCanvas<?= $key ?>();
           };
@@ -221,18 +234,43 @@
             ctx<?= $key ?>.clearRect(0, 0, canvas<?= $key ?>.width, canvas<?= $key ?>.height);
             ctx<?= $key ?>.drawImage(image<?= $key ?>, 0, 0);
 
+            var topText = '';
+
             <?php
             $filename = 'Erstes_Drittel.png';
 
             switch (basename($file)) {
-              case 'Beginn_Drittes_Drittel.png':
-              case 'Beginn_Zweites_Drittel.png':
               case 'Spielbeginn.png':
             ?>
+                topText = 'ERÖFFNUNGSBULLY IN ' + ortText.toUpperCase() + "...";
+
+                ctx<?= $key ?>.font = '100 72px Bahnschrift Condensed';
+                ctx<?= $key ?>.fillStyle = 'black';
+                var text1Width = ctx<?= $key ?>.measureText(topText).width + 10;
+                var x1 = (canvas<?= $key ?>.width - text1Width) / 2;
+                ctx<?= $key ?>.fillText(topText, x1, 580);
                 const maxWidth = 350; // Replace with your desired max width
                 const maxHeight = 350; // Replace with your desired max height
                 const boxX = 0; // X-coordinate of the box
-                const boxY = 1400; // Y-coordinate of the box
+                const boxY = 800; // Y-coordinate of the box
+                const boxWidth = 1080; // Width of the box
+                const boxHeight = 350; // Height of the box
+              <?php
+                break;
+              case 'Beginn_Drittes_Drittel.png':
+              case 'Beginn_Zweites_Drittel.png':
+              ?> // text for winner
+
+                topText = 'WEITER GEHT ES IN ' + ortText.toUpperCase() + "...";
+                ctx<?= $key ?>.font = '100 72px Bahnschrift Condensed';
+                ctx<?= $key ?>.fillStyle = 'black';
+                var text1Width = ctx<?= $key ?>.measureText(topText).width + 10;
+                var x1 = (canvas<?= $key ?>.width - text1Width) / 2;
+                ctx<?= $key ?>.fillText(topText, x1, 580);
+                const maxWidth = 350; // Replace with your desired max width
+                const maxHeight = 350; // Replace with your desired max height
+                const boxX = 0; // X-coordinate of the box
+                const boxY = 800; // Y-coordinate of the box
                 const boxWidth = 1080; // Width of the box
                 const boxHeight = 350; // Height of the box
               <?php
@@ -243,7 +281,7 @@
               ?>
                 const maxWidth = 200; // Replace with your desired max width
                 const maxHeight = 200; // Replace with your desired max height
-                const boxX = 600; // X-coordinate of the box
+                const boxX = 255; // X-coordinate of the box
                 const boxY = 800; // Y-coordinate of the box
                 const boxWidth = 240; // Width of the box
                 const boxHeight = 240; // Height of the box
@@ -253,7 +291,7 @@
               ?>
                 // text for winner
                 ctx<?= $key ?>.font = '100 72px Bahnschrift Condensed';
-                ctx<?= $key ?>.fillStyle = 'white';
+                ctx<?= $key ?>.fillStyle = 'black';
                 var text1Width = ctx<?= $key ?>.measureText(winText).width + 10;
                 var x1 = (canvas<?= $key ?>.width - text1Width) / 2;
                 ctx<?= $key ?>.fillText(winText, x1, 580);
@@ -262,7 +300,7 @@
               ?>
                 const maxWidth = 200; // Replace with your desired max width
                 const maxHeight = 200; // Replace with your desired max height
-                const boxX = 600; // X-coordinate of the box
+                const boxX = 255; // X-coordinate of the box
                 const boxY = 640; // Y-coordinate of the box
                 const boxWidth = 240; // Width of the box
                 const boxHeight = 240; // Height of the box
@@ -346,7 +384,7 @@
               ?>
                 const maxWidth = 200; // Replace with your desired max width
                 const maxHeight = 200; // Replace with your desired max height
-                const boxX = 600; // X-coordinate of the box
+                const boxX = 255; // X-coordinate of the box
                 const boxY = 1030; // Y-coordinate of the box
                 const boxWidth = 240; // Width of the box
                 const boxHeight = 240; // Height of the box

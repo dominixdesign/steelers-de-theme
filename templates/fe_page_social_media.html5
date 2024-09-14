@@ -35,6 +35,7 @@
       font-family: 'Bahnschrift Condensed';
       src: url('/files/steelers/tools/social-media/fonts/bahnschrift.ttf') format('truetype');
       font-stretch: condensed;
+      font-weight: 100;
     }
   </style>
 </head>
