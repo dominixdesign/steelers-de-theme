@@ -1,5 +1,5 @@
 #main .block-headline {
-  @apply italic;
+  @apply italic; 
   color: #009cde;
   font-family: "WhyteItalic", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-transform: uppercase;
@@ -52,23 +52,22 @@
   @apply relative;
   font-weight: normal;
 }
-
 .big-text-block strong::after {
   @apply absolute left-0 right-0 bottom-5 h-3 sm:h-7 bg-steelgreen;
   z-index: -5;
   content: "";
 }
 
-@supports (-webkit-text-stroke: 3px #10b75a) {
+@supports (-webkit-text-stroke: 3px #046a38) {
   .green-outline {
       color: transparent;
-      -webkit-text-stroke: 1px #10b75a;
+      -webkit-text-stroke: 1px #046a38;
       text-shadow: none;
     }
   @media (min-width: 768px) {
   .green-outline {
       color: transparent;
-      -webkit-text-stroke: 3px #10b75a;
+      -webkit-text-stroke: 3px #046a38;
       text-shadow: none;
     }
   }

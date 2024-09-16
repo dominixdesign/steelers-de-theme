@@ -13,10 +13,10 @@ module.exports = {
     extend: {
       colors: {
         steelwhite: "#eef0eb",
-        steelnav: "#10b75a",
-        steelgreen: "#10b75a",
+        steelnav: "#046a38",
+        steelgreen: "#046a38",
         steelblue: "#009cde",
-        steellightgreen: "#10b75a",
+        steellightgreen: "#046a38",
       },
       typography: {
         DEFAULT: {
@@ -30,13 +30,13 @@ module.exports = {
             a: {
               color: "var(--tw-prose-body)",
               "&:hover": {
-                color: "#10b75a",
+                color: "#046a38",
               },
             },
             "a.email": {
               color: "var(--tw-prose-body)",
               "&:hover": {
-                color: "#10b75a",
+                color: "#046a38",
               },
             },
           },
