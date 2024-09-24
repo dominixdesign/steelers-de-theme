@@ -38,7 +38,7 @@ var x = new LEftp({
 const checkStop = (filesUploaded, x) => {
   console.log("check if upload is still running...");
   if (filesUploaded === x.filesUploaded) {
-    setTimeout(() => x.stop(), 2000);
+    setTimeout(() => x.stop(), 5000);
   } else {
     filesUploaded = x.filesUploaded;
     setTimeout(() => checkStop(filesUploaded, x), 2000);
