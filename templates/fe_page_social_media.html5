@@ -37,6 +37,12 @@
       font-stretch: condensed;
       font-weight: 100;
     }
+
+    .kfonvajs-content,
+    .fkonvajs-content canvas {
+      width: 360px !important;
+      height: 450px !important;
+    }
   </style>
 </head>
 
