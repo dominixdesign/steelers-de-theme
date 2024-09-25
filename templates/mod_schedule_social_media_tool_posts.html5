@@ -1,0 +1,402 @@
+<?php
+$allLogos = [];
+foreach ($this->games as $key => $game) {
+  if (!in_array($game['home']['logo'], $allLogos)) {
+    $allLogos[] = $game['home']['logo'];
+  }
+  if (!in_array($game['away']['logo'], $allLogos)) {
+    $allLogos[] = $game['away']['logo'];
+  }
+}
+?>
+<div>
+  <select id="fileSelect">
+    <option value="">...Post wählen...</option>
+    <option value="Endstand_Home">Endstand_Home</option>
+    <option value="News">News</option>
+  </select>
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <canvas id="posts" width="1080" height="1350" style="max-width: 100vw;"></canvas>
+  <div>
+    <select id="logoSelect">
+      <?php foreach ($allLogos as $logo): ?>
+        <option value="<?php echo htmlspecialchars($logo); ?>"><?php echo htmlspecialchars(basename($logo)); ?></option>
+      <?php endforeach; ?>
+    </select>
+    <input type="file" id="uploadImage" accept="image/*">
+    <br>
+    <label for="headlineInput">Headline:</label>
+    <input type="text" id="headlineInput" value="endstand">
+    <br>
+    <label for="smalltextInput">Kleiner Text:</label>
+    <input type="text" id="smalltextInput" value="15.09.2024 vs essen">
+    <br>
+    <label for="resultInput">Ergebnis:</label>
+    <input type="text" id="resultInput" value="9:9">
+    <br>
+    <label for="periodsInput">Drittelergebnisse:</label>
+    <input type="text" id="periodsInput" value="( 9:9 | 9:9 | 9:9 )">
+    <br>
+    <button id="save">Save</button>
+  </div>
+
+  <script>
+    const postConfig = {
+      'Endstand_Home': ['smalltext', 'bgImage', 'result', 'periods', 'opponentAway'],
+      'News': ['headline', 'bgImage', 'smalltext', 'paragraph']
+    }
+    let config = [];
+    let headline = '';
+    let smalltext = '';
+    let resultText = '';
+    let periodsText = '( 9:9 | 9:9 | 9:9 )';
+    let opponentLogo;
+
+    const headlineInput = document.getElementById('headlineInput');
+    const smalltextInput = document.getElementById('smalltextInput');
+    const resultInput = document.getElementById('resultInput');
+    const periodsInput = document.getElementById('periodsInput');
+    const logoSelect = document.getElementById('logoSelect');
+    const fileSelect = document.getElementById('fileSelect');
+
+    const canvas = document.getElementById('posts');
+    const ctx = canvas.getContext('2d');
+
+    // Load the image
+    let image = new Image();
+
+    headlineInput.addEventListener('input', function() {
+      headline = headlineInput.value;
+      drawCanvas();
+    });
+
+    resultInput.addEventListener('input', function() {
+      resultText = resultInput.value;
+      drawCanvas();
+    });
+
+    smalltextInput.addEventListener('input', function() {
+      smalltext = smalltextInput.value;
+      drawCanvas();
+    });
+
+    periodsInput.addEventListener('input', function() {
+      periodsText = periodsInput.value;
+      drawCanvas();
+    });
+
+    logoSelect.addEventListener('change', function() {
+      const selectedLogo = logoSelect.value;
+      const img = new Image();
+      img.src = selectedLogo;
+
+      img.onload = function() {
+        // Clear the canvas before drawing the new image
+        opponentLogo = img;
+        drawCanvas();
+      };
+    });
+
+    fileSelect.addEventListener('change', function() {
+      const selectedFile = fileSelect.value;
+      const img = new Image();
+      img.src = '/files/steelers/tools/social-media/posts/empty' + selectedFile + '.png';
+
+      img.onload = function() {
+        // Clear the canvas before drawing the new image
+        config = postConfig[selectedFile];
+        image = img;
+        drawCanvas();
+      };
+    });
+
+    const fontC = new FontFace('Bahnschrift Condensed',
+      'url(/files/steelers/tools/social-media/fonts/bahnschrift.ttf)', {
+        weight: 'bold', // You can also use numeric values like '400', '700', etc.
+        style: 'normal',
+        stretch: 'semi-condensed'
+      });
+    fontC.load().then(function(loadedFont) {
+      document.fonts.add(loadedFont);
+      drawCanvas();
+    });
+
+    const fontC2 = new FontFace('Bahnschrift2',
+      'url(/files/steelers/tools/social-media/fonts/bahnschrift2.ttf)', {
+        weight: '100', // You can also use numeric values like '400', '700', etc.
+        style: 'normal',
+        stretch: 'condensed'
+      });
+    fontC2.load().then(function(loadedFont) {
+      document.fonts.add(loadedFont);
+      drawCanvas();
+    });
+
+    const fontC3 = new FontFace('Bahnschrift3',
+      'url(/files/steelers/tools/social-media/fonts/bahnschrift2.ttf)', {
+        weight: '700', // You can also use numeric values like '400', '700', etc.
+        style: 'normal',
+        stretch: 'condensed'
+      });
+    fontC3.load().then(function(loadedFont) {
+      document.fonts.add(loadedFont);
+      drawCanvas();
+    });
+
+    const fontF = new FontFace('PPFormula',
+      'url(/files/steelers/tools/social-media/fonts/PPFormula-CondensedRegular.otf)');
+    fontC.load().then(function(loadedFont) {
+      document.fonts.add(loadedFont);
+      drawCanvas();
+    });
+
+    let backgroundImage;
+
+    let imageX = 0;
+    let imageY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let scale = 1;
+    let lastScale = 1;
+
+    function drawCanvas() {
+      if (config.length === 0) {
+        return;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (config.includes('bgImage')) {
+        if (backgroundImage) {
+          ctx.drawImage(backgroundImage, imageX, imageY, backgroundImage.width * scale, backgroundImage.height * scale);
+        }
+      }
+      ctx.drawImage(image, 0, 0);
+
+      if (config.includes('opponentAway')) {
+        if (opponentLogo) {
+          const maxWidth = 170; // Replace with your desired max width
+          const maxHeight = 170; // Replace with your desired max height
+          const boxX = 700; // X-coordinate of the box
+          const boxY = 988; // Y-coordinate of the box
+          const boxWidth = 220; // Width of the box
+          const boxHeight = 200; // Height of the box
+
+          let width2 = opponentLogo.width;
+          let height2 = opponentLogo.height;
+
+          height2 = height2 * (maxWidth / width2);
+          width2 = maxWidth;
+
+          width2 = width2 * (maxHeight / height2);
+          height2 = maxHeight;
+
+          // Calculate the coordinates to center the image within the box
+          const centerX2 = boxX + (boxWidth - width2) / 2;
+          const centerY2 = boxY + (boxHeight - height2) / 2;
+
+          createImageBitmap(opponentLogo).then((bitmap) => {
+            ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
+          });
+        }
+      }
+
+      let startX
+      let startY
+
+      if (config.includes('headline')) {
+        ctx.save(); // Save the current context state
+        // main headline
+        const textScale = .85
+        ctx.scale(textScale, textScale);
+        headline = headline.toUpperCase();
+        ctx.font = '700 143px Bahnschrift Condensed';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillStyle = '#046a38';
+        var text1Width = (ctx.measureText(headline).width);
+        var text1Height = 143;
+        var x1 = ((canvas.width - text1Width) / 2) + (text1Width - (text1Width * textScale));
+        var y1 = 325;
+        ctx.fillText(headline, x1, y1);
+
+        ctx.restore();
+
+        // Ecke oben links
+        startX = x1 - 106
+        startY = y1 - 94
+        ctx.beginPath();
+        ctx.moveTo(startX, startY); // links unten
+        ctx.lineTo(startX, startY - 69); // links ecke
+        ctx.lineTo(startX + 69, startY - 69); // links oben
+        ctx.strokeStyle = '#046a38';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Ecke unten rechts
+        startX = x1 + (text1Width * textScale) - 59
+        startY = y1 - 12
+        ctx.beginPath();
+        ctx.moveTo(startX, startY); // recht unten
+        ctx.lineTo(startX + 69, startY); // rechts ecke
+        ctx.lineTo(startX + 69, startY - 69); // rechts oben
+        ctx.strokeStyle = '#046a38';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+      }
+
+
+      if (config.includes('smalltext')) {
+        if (!config.includes('headline')) {
+          startX = 780
+        }
+        smalltext = smalltext.toUpperCase();
+        ctx.font = '100 34px Bahnschrift2';
+        ctx.fillStyle = '#046a38';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'alphabetic';
+        var text1Width = (ctx.measureText(smalltext).width);
+        var text1Height = 143;
+        var x1 = startX - text1Width - 20;
+        var y1 = 322;
+        ctx.fillText(smalltext, x1, y1);
+      }
+
+      if (config.includes('result')) {
+        // Ergebnis
+        ctx.font = '100 180px Bahnschrift3';
+        ctx.fillStyle = 'white';
+        var text1Width = (ctx.measureText(resultText).width);
+        ctx.fillText(resultText, (canvas.width - text1Width) / 2, 1150);
+      }
+
+      if (config.includes('periods')) {
+        // Ergebnis
+        ctx.font = '700 43px Bahnschrift2';
+        ctx.fillStyle = 'white';
+        var text1Width = (ctx.measureText(periodsText).width);
+        ctx.fillText(periodsText, (canvas.width - text1Width) / 2, 1204);
+      }
+
+      if (config.includes('paragraph')) {
+        const text = "Tickets für die ersten acht oberliga-spiele ab sofort verfügbar";
+        const boxX = 250;
+        const boxY = 991;
+        const boxWidth = 1080 - 500;
+        const boxHeight = 200;
+        const lineHeight = 50;
+        const font = '100 40px Bahnschrift2';
+
+        drawMultilineText(ctx, text, boxX, boxY, boxWidth, boxHeight, lineHeight, font);
+
+      }
+    }
+
+    // Initialize Hammer.js
+    const hammer = new Hammer(canvas);
+
+    // Handle touch events for dragging using Hammer.js
+    hammer.on('panstart', function(event) {
+      const rect = canvas.getBoundingClientRect();
+      const touchX = event.center.x - rect.left;
+      const touchY = event.center.y - rect.top;
+      isDragging = true;
+      dragStartX = touchX - imageX;
+      dragStartY = touchY - imageY;
+    });
+
+    hammer.on('panmove', function(event) {
+      if (isDragging) {
+        const rect = canvas.getBoundingClientRect();
+        imageX = event.center.x - rect.left - dragStartX;
+        imageY = event.center.y - rect.top - dragStartY;
+        drawCanvas();
+      }
+    });
+
+    hammer.on('panend pancancel', function() {
+      isDragging = false;
+    });
+
+    // Handle pinch events for resizing using Hammer.js
+    hammer.get('pinch').set({
+      enable: true
+    });
+
+    hammer.on('pinchstart', function() {
+      lastScale = scale;
+    });
+
+    hammer.on('pinchmove', function(event) {
+      scale = lastScale * event.scale;
+      drawCanvas();
+    });
+
+    // Handle mousewheel events for scaling
+    document.getElementById('posts').addEventListener('wheel', function(event) {
+      event.preventDefault();
+      const scaleAmount = 0.01;
+      if (event.deltaY < 0) {
+        scale += scaleAmount;
+      } else {
+        scale -= scaleAmount;
+      }
+      drawCanvas();
+    });
+
+    // Handle image upload
+    document.getElementById('uploadImage').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const uploadedImage = new Image();
+          uploadedImage.src = e.target.result;
+          uploadedImage.onload = function() {
+            const targetWidth = 1080;
+            const originalWidth = uploadedImage.width;
+            scale = targetWidth / originalWidth;
+
+            backgroundImage = uploadedImage;
+            drawCanvas();
+          };
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function drawMultilineText(ctx, text, boxX, boxY, boxWidth, boxHeight, lineHeight, font) {
+      ctx.font = font;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'white';
+
+      // Split text into lines that fit within the box width
+      const words = text.toUpperCase().split(' ');
+      let lines = [];
+      let currentLine = words[0];
+
+      for (let i = 1; i < words.length; i++) {
+        const word = words[i];
+        const width = ctx.measureText(currentLine + ' ' + word).width;
+        if (width < boxWidth) {
+          currentLine += ' ' + word;
+        } else {
+          lines.push(currentLine);
+          currentLine = word;
+        }
+      }
+      lines.push(currentLine);
+
+      // Calculate the starting y-coordinate to center the text vertically
+      const totalHeight = lines.length * lineHeight;
+      let y = boxY + (boxHeight - totalHeight) / 2 + lineHeight / 2;
+
+      // Draw each line centered horizontally within the box
+      lines.forEach(line => {
+        ctx.fillText(line, boxX + boxWidth / 2, y);
+        y += lineHeight;
+      });
+    }
+  </script>
+</div>
