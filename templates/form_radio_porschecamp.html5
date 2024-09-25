@@ -17,42 +17,21 @@
   <?php endif; ?>
 
   <div class="space-y-4">
-    <?php
-    // Load data from the database
-    use App\Tilastot\Model\Camps;
-
-    $objData = Camps::findAll(array(
-      'order'   => ' startdate ASC',
-      'column'  => array('published=?', 'startdate>?'),
-      'value'   => array(1, time())
-    ));
-    ?>
-    <?php foreach ($objData->fetchAll() as $option) : ?>
+    <?php foreach ($this->getOptions() as $option) : ?>
       <label
         class="relative block cursor-pointer rounded-lg border bg-white px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between">
-        <input onChange="activate_opt_<?= $option['id'] ?>()" id="opt_<?= $option['id'] ?>" name="selectedCamp"
-          type="radio" value="<?= $option['name'] ?>" class="sr-only" aria-labelledby="lbl_<?= $option['id'] ?>"
+        <input onChange="activate_opt_<?= $option['id'] ?>()" id="opt_<?= $option['id'] ?>" name="<?= $option['name'] ?>"
+          type="radio" value="<?= $option['value'] ?>" class="sr-only" aria-labelledby="lbl_<?= $option['id'] ?>"
           aria-describedby="desc_<?= $option['id'] ?>">
         <span class="flex items-center">
           <span class="flex flex-col text-sm">
-            <span id="lbl_<?= $option['id'] ?>" class="font-medium text-gray-900"><?= $option['name'] ?></span>
+            <span id="lbl_<?= $option['id'] ?>" class="font-medium text-gray-900"><?= $option['value'] ?></span>
             <span class="text-gray-500">
             </span>
           </span>
         </span>
         <span id="desc_<?= $option['id'] ?>" class="mt-2 flex text-sm sm:ml-4 sm:mt-0 sm:flex-col sm:text-right">
-          <span class="font-medium text-gray-900"><?php
-                                                  $timezone = new DateTimeZone('Europe/Berlin');
-                                                  $timestamp1 = $option['startdate']; // Replace with your first timestamp
-                                                  $timestamp2 = $option['enddate']; // Replace with your second timestamp
-                                                  $date1 = new DateTime("@$timestamp1");
-                                                  $date1->setTimezone($timezone);
-                                                  $date2 = new DateTime("@$timestamp2");
-                                                  $date2->setTimezone($timezone);
-                                                  $formattedDate1 = $date1->format('d');
-                                                  $formattedDate2 = $date2->format('d.m.Y');
-                                                  echo $formattedDate1 . '. bis ' . $formattedDate2;
-                                                  ?></span>
+          <span class="font-medium text-gray-900"><?= $option['label'] ?></span>
         </span>
         <span class="pointer-events-none absolute -inset-px rounded-lg border-2" aria-hidden="true"></span>
         <script>
