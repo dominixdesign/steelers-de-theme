@@ -156,7 +156,7 @@ foreach ($pngFiles as $file) {
       'News': ['headline', 'bgImage', 'smalltext', 'paragraph'],
       'Starting_Six': ['smalltext', 'playerSelect1', 'playerSelect2', 'playerSelect3', 'playerSelect4',
         'playerSelect5', 'playerSelect6'
-      ], 
+      ],
     }
     let config = [];
     let selectedPost;
@@ -167,8 +167,13 @@ foreach ($pngFiles as $file) {
     let paragraphText = '';
     let periodsText = '( 9:9 | 9:9 | 9:9 )';
     let opponentLogo;
+    let opponentShortname;
+    let matchupData;
+    let matchupDataFairplay;
+    let matchupDataScoring;
+    let matchupDataPlayer;
 
-    <?php for ($i = 1; $i <= 6; $i++): ?> 
+    <?php for ($i = 1; $i <= 6; $i++): ?>
       let selectedPlayer<?= $i ?> = '';
     <?php endfor; ?>
 
@@ -221,6 +226,12 @@ foreach ($pngFiles as $file) {
       drawCanvas();
     });
 
+    const steelersLogo = new Image();
+    steelersLogo.src = '/files/steelers/layout/logo-nav.svg';
+    steelersLogo.onload = function() {
+      drawCanvas();
+    };
+
     <?php for ($i = 1; $i <= 6; $i++): ?>
       playerSelect<?= $i ?>.addEventListener('change', function() {
         const selectedPlayer = playerSelect<?= $i ?>.value;
@@ -234,10 +245,97 @@ foreach ($pngFiles as $file) {
       });
     <?php endfor; ?>
 
+    logoSelect.addEventListener('change', function() {
+      const selectedLogo = logoSelect.value;
+      const img = new Image();
+      img.src = selectedLogo;
+
+      switch (selectedLogo) {
+        case 'files/steelers/teams/ol/memmingen.png':
+          opponentShortname = "MEM";
+          break;
+        case 'files/steelers/teams/ol/Rebels-Logo.png':
+          opponentShortname = "SEC";
+          break;
+        case 'files/steelers/teams/ol/bayreuth.png':
+          opponentShortname = "OTB";
+          break;
+        case 'files/steelers/teams/ol/fuessen.png':
+          opponentShortname = "EVF";
+          break;
+        case 'files/steelers/teams/ol/passau.png':
+          opponentShortname = "EHF";
+          break;
+        case 'files/steelers/teams/ol/peiting.png':
+          opponentShortname = "ECP";
+          break;
+        case 'files/steelers/teams/ol/hoechstadt.png':
+          opponentShortname = "HEC";
+          break;
+        case 'files/steelers/teams/ol/heilbronn.png':
+          opponentShortname = "HNF";
+          break;
+        case 'files/steelers/teams/ol/riessersee.png':
+          opponentShortname = "SCR";
+          break;
+        case 'files/steelers/teams/ol/deggendorf.png':
+          opponentShortname = "DSC";
+          break;
+        case 'files/steelers/teams/ol/lindau.png':
+          opponentShortname = "LIN";
+          break;
+        case 'files/steelers/teams/ol/badtoelz.png':
+          opponentShortname = "ECT";
+          break;
+      }
+
+      img.onload = function() {
+        // Clear the canvas before drawing the new image
+        opponentLogo = img;
+        drawCanvas();
+      };
+    });
+
     fileSelect.addEventListener('change', function() {
       const selectedFile = fileSelect.value;
       const img = new Image();
       img.src = '/files/steelers/tools/social-media/posts/empty' + selectedFile + '.png';
+
+
+      if (selectedFile == 'Matchup') {
+        fetch(
+            `https://api.hockeydata.net/data/ebel/Standings?apiKey=3c5a99d835fcb70156d40cd60d03f350&divisionId=15881&referer=deb-online.live`
+          )
+          .then(response => response.json())
+          .then(data => {
+            matchupData = data.data.rows;
+            drawCanvas();
+          });
+        fetch(
+            `https://api.hockeydata.net/data/ebel/TeamFairplay?apiKey=3c5a99d835fcb70156d40cd60d03f350&divisionId=15881&referer=deb-online.live`
+          )
+          .then(response => response.json())
+          .then(data => {
+            matchupDataFairplay = data.data.rows;
+            drawCanvas();
+          });
+        fetch(
+            `https://api.hockeydata.net/data/ebel/TeamScoringEfficiency?apiKey=3c5a99d835fcb70156d40cd60d03f350&divisionId=15881&referer=deb-online.live`
+          )
+          .then(response => response.json())
+          .then(data => {
+            matchupDataScoring = data.data.rows;
+            drawCanvas();
+          });
+        fetch(
+            `https://api.hockeydata.net/data/ebel/LeaderFieldPlayers?apiKey=3c5a99d835fcb70156d40cd60d03f350&divisionId=15881&referer=deb-online.live`
+          )
+          .then(response => response.json())
+          .then(data => {
+            matchupDataPlayer = data.data.rows;
+            drawCanvas();
+          });
+      }
 
       img.onload = function() {
         // Clear the canvas before drawing the new image
@@ -335,9 +433,8 @@ foreach ($pngFiles as $file) {
             boxY = 510; // Y-coordinate of the box
           }
           if (selectedPost == 'Matchup') {
-            boxX = 845; // X-coordinate of the box
-            boxY = 810; // Y-coordinate of the box
-            
+            boxX = 660; // X-coordinate of the box
+            boxY = 410; // Y-coordinate of the box
           }
 
           let width2 = opponentLogo.width;
@@ -529,6 +626,118 @@ foreach ($pngFiles as $file) {
             2) - playerWidth, 880);
         }
       }
+
+      if (config.includes('matchup')) {
+        if (matchupDataScoring && matchupData && matchupDataFairplay && matchupDataPlayer) {
+          let startY = 650;
+          const lineHeight = 70;
+
+          ctx.font = '100 50px Bahnschrift2';
+          ctx.fillStyle = 'white';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+
+          [
+            'Tabellenplatz',
+            'Punkte',
+            'Siege',
+            'Siege nach OT',
+            'Tore | Gegentore',
+            'Top-Scorer',
+            'Strafminuten',
+            'Torschüsse',
+          ].forEach((line, index) => {
+            const lineWidth = ctx.measureText(line.toUpperCase()).width;
+            ctx.fillText(line.toUpperCase(), 540, startY + (index * lineHeight));
+          });
+
+
+          ctx.font = '700 50px Bahnschrift3';
+          ctx.fillStyle = 'white';
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+          const homeData = matchupData.find(obj => obj['teamShortname'] === 'SCB');
+          const homeDataFairplay = matchupDataFairplay.find(obj => obj['teamShortname'] === 'SCB');
+          const homeDataScoring = matchupDataScoring.find(obj => obj['teamShortname'] === 'SCB');
+          const homeDataPlayer = matchupDataPlayer.find(obj => obj['teamShortname'] === 'SCB');
+
+          [
+            homeData['tableRank'].toString(),
+            homeData['points'].toString(),
+            homeData['gamesWon'].toString(),
+            homeData['gamesWonInOt'].toString(),
+            homeData['goalsFor'] + ' | ' + homeData['goalsAgainst'],
+            shortenLastname(homeDataPlayer['playerLastname']) + " | " + homeDataPlayer['points'],
+            homeDataFairplay['penaltyMinutes'].toString(),
+            homeDataScoring['shotsOnGoal'].toString(),
+          ].forEach((line, index) => {
+            const lineWidth = ctx.measureText(line.toUpperCase()).width;
+            ctx.fillText(line.toUpperCase(), 330, startY + (index * lineHeight));
+          });
+
+          if (opponentShortname) {
+            ctx.font = '700 50px Bahnschrift3';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            const awayData = matchupData.find(obj => obj['teamShortname'] === opponentShortname);
+            const awayDataFairplay = matchupDataFairplay.find(obj => obj['teamShortname'] === opponentShortname);
+            const awayDataScoring = matchupDataScoring.find(obj => obj['teamShortname'] === opponentShortname);
+            const awayDataPlayer = matchupDataPlayer.find(obj => obj['teamShortname'] === opponentShortname);
+
+            [
+              awayData['tableRank'].toString(),
+              awayData['points'].toString(),
+              awayData['gamesWon'].toString(),
+              awayData['gamesWonInOt'].toString(),
+              awayData['goalsFor'] + ' | ' + awayData['goalsAgainst'],
+              shortenLastname(awayDataPlayer['playerLastname']) + " | " + awayDataPlayer['points'],
+              awayDataFairplay['penaltyMinutes'].toString(),
+              awayDataScoring['shotsOnGoal'].toString(),
+            ].forEach((line, index) => {
+              const lineWidth = ctx.measureText(line.toUpperCase()).width;
+              ctx.fillText(line.toUpperCase(), 750, startY + (index * lineHeight));
+            });
+          }
+
+          if (steelersLogo) {
+            let boxX = 210; // X-coordinate of the box
+            let boxY = 410; // Y-coordinate of the box
+            const maxWidth = 150; // Replace with your desired max width
+            const maxHeight = 150; // Replace with your desired max height
+            const boxWidth = 220; // Width of the box
+            const boxHeight = 200; // Height of the box
+
+            let width2 = steelersLogo.width;
+            let height2 = steelersLogo.height;
+
+            height2 = height2 * (maxWidth / width2);
+            width2 = maxWidth;
+
+            width2 = width2 * (maxHeight / height2);
+            height2 = maxHeight;
+
+            // Calculate the coordinates to center the image within the box
+            const centerX2 = boxX + (boxWidth - width2) / 2;
+            const centerY2 = boxY + (boxHeight - height2) / 2;
+
+            createImageBitmap(steelersLogo).then((bitmap) => {
+              ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
+            });
+          }
+
+        }
+
+      }
+
+    }
+
+    function shortenLastname(input) {
+      const minusIndex = input.indexOf('-');
+      if (minusIndex !== -1 && minusIndex + 1 < input.length) {
+        return input.substring(0, minusIndex + 2) + '.';
+      }
+      return input;
     }
 
     // Initialize Hammer.js
@@ -687,7 +896,6 @@ foreach ($pngFiles as $file) {
       const playerHeight = 250;
       // Ergebnis
       let playerData = player.src.split('/').pop().split('_').map(part => part.replace('.png', ''));
-      console.log(playerData);
       let nummer = playerData[1];
 
       let nummerX = x
