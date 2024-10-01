@@ -84,6 +84,7 @@ foreach ($pngFiles as $file) {
           <option value="Gameday_Home">Gameday_Home</option>
           <option value="Gameday_Away">Gameday_Away</option>
           <option value="News">News</option>
+          <option value="Preview">Preview</option>
           <option value="Matchup">Matchup</option>
           <option value="Geburtstag">Geburtstag</option>
         </select>
@@ -151,9 +152,10 @@ foreach ($pngFiles as $file) {
       'Endstand_Home': ['smalltext', 'bgImage', 'result', 'periods', 'opponentAway'],
       'Matchup': ['headline', 'smalltext', 'opponentAway', 'matchup'],
       'Endstand_Away': ['smalltext', 'bgImage', 'result', 'periods', 'opponentAway'],
-      'Gameday_Home': ['smalltext', 'bgImage', 'opponentAway', 'time'],
+      'Gameday_Home': ['smalltext', 'bgImage', 'opponentAway', 'time', 'wby'],
       'Gameday_Away': ['smalltext', 'bgImage', 'opponentAway', 'time'],
       'News': ['headline', 'bgImage', 'smalltext', 'paragraph'],
+      'Preview': ['bgImage', 'opponentAway', 'paragraph'],
       'Starting_Six': ['smalltext', 'playerSelect1', 'playerSelect2', 'playerSelect3', 'playerSelect4',
         'playerSelect5', 'playerSelect6'
       ],
@@ -196,6 +198,15 @@ foreach ($pngFiles as $file) {
     // Load the image
     let image = new Image();
 
+    document.getElementById('save').addEventListener('click', function() {
+      var canvas = document.getElementById('posts');
+      var dataURL = canvas.toDataURL('image/png');
+      var link = document.createElement('a');
+      link.href = dataURL;
+      link.download = selectedPost + '.png';
+      link.click();
+    });
+
     headlineInput.addEventListener('input', function() {
       headline = headlineInput.value;
       drawCanvas();
@@ -229,6 +240,12 @@ foreach ($pngFiles as $file) {
     const steelersLogo = new Image();
     steelersLogo.src = '/files/steelers/layout/logo-nav.svg';
     steelersLogo.onload = function() {
+      drawCanvas();
+    };
+
+    const wby = new Image();
+    wby.src = '/files/steelers/tools/social-media/wby.svg';
+    wby.onload = function() {
       drawCanvas();
     };
 
@@ -409,53 +426,6 @@ foreach ($pngFiles as $file) {
       }
       ctx.drawImage(image, 0, 0);
 
-      if (config.includes('opponentAway')) {
-        if (opponentLogo) {
-
-          let boxX = 700; // X-coordinate of the box
-          let boxY = 988; // Y-coordinate of the box
-          const maxWidth = 170; // Replace with your desired max width
-          const maxHeight = 170; // Replace with your desired max height
-          const boxWidth = 220; // Width of the box
-          const boxHeight = 200; // Height of the box
-
-          if (selectedPost == 'Endstand_Away') {
-            boxX = 158; // X-coordinate of the box
-            boxY = 988; // Y-coordinate of the box
-          }
-
-          if (selectedPost == 'Gameday_Home') {
-            boxX = 745; // X-coordinate of the box
-            boxY = 820; // Y-coordinate of the box
-          }
-          if (selectedPost == 'Gameday_Away') {
-            boxX = 745; // X-coordinate of the box
-            boxY = 510; // Y-coordinate of the box
-          }
-          if (selectedPost == 'Matchup') {
-            boxX = 660; // X-coordinate of the box
-            boxY = 410; // Y-coordinate of the box
-          }
-
-          let width2 = opponentLogo.width;
-          let height2 = opponentLogo.height;
-
-          height2 = height2 * (maxWidth / width2);
-          width2 = maxWidth;
-
-          width2 = width2 * (maxHeight / height2);
-          height2 = maxHeight;
-
-          // Calculate the coordinates to center the image within the box
-          const centerX2 = boxX + (boxWidth - width2) / 2;
-          const centerY2 = boxY + (boxHeight - height2) / 2;
-
-          createImageBitmap(opponentLogo).then((bitmap) => {
-            ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
-          });
-        }
-      }
-
       let startX
       let startY
 
@@ -559,15 +529,22 @@ foreach ($pngFiles as $file) {
         ctx.fillText(timeText, x1, 1177);
       }
 
+      let points;
       if (config.includes('paragraph')) {
-        const boxX = 250;
-        const boxY = 1000;
-        const boxWidth = 1080 - 500;
-        const boxHeight = 300;
-        const lineHeight = 50;
-        const font = '100 40px Bahnschrift2';
+        let boxX = 250;
+        let boxY = 1000;
+        let boxWidth = 1080 - 500;
+        let boxHeight = 300;
+        let lineHeight = 50;
+        let font = '100 40px Bahnschrift2';
 
-        let points = drawMultilineText(ctx, paragraphText, boxX, boxY, boxWidth, boxHeight, lineHeight, font);
+        if (selectedPost == 'Preview') {
+          boxWidth = 240;
+          boxX = 750
+          boxY = 910;
+        }
+
+        points = drawMultilineText(ctx, paragraphText, boxX, boxY, boxWidth, boxHeight, lineHeight, font);
 
         // Ecke oben links
         startX = points[0] - 24
@@ -591,6 +568,61 @@ foreach ($pngFiles as $file) {
         ctx.lineWidth = 2;
         ctx.stroke();
 
+      }
+
+
+      if (config.includes('opponentAway')) {
+        if (opponentLogo) {
+
+          let boxX = 700; // X-coordinate of the box
+          let boxY = 988; // Y-coordinate of the box
+          const maxWidth = 170; // Replace with your desired max width
+          const maxHeight = 170; // Replace with your desired max height
+          const boxWidth = 220; // Width of the box
+          const boxHeight = 200; // Height of the box
+
+          if (selectedPost == 'Endstand_Away') {
+            boxX = 158; // X-coordinate of the box
+            boxY = 988; // Y-coordinate of the box
+          }
+
+          if (selectedPost == 'Gameday_Home') {
+            boxX = 745; // X-coordinate of the box
+            boxY = 820; // Y-coordinate of the box
+          }
+          if (selectedPost == 'Gameday_Away') {
+            boxX = 745; // X-coordinate of the box
+            boxY = 510; // Y-coordinate of the box
+          }
+          if (selectedPost == 'Matchup') {
+            boxX = 660; // X-coordinate of the box
+            boxY = 410; // Y-coordinate of the box
+          }
+          if (selectedPost == 'Preview') {
+            boxX = 760; // X-coordinate of the box
+            boxY = 700; // Y-coordinate of the box
+            if (points) {
+              boxY = points[1] - (points[3] / 2) - 200;
+            }
+          }
+
+          let width2 = opponentLogo.width;
+          let height2 = opponentLogo.height;
+
+          height2 = height2 * (maxWidth / width2);
+          width2 = maxWidth;
+
+          width2 = width2 * (maxHeight / height2);
+          height2 = maxHeight;
+
+          // Calculate the coordinates to center the image within the box
+          const centerX2 = boxX + (boxWidth - width2) / 2;
+          const centerY2 = boxY + (boxHeight - height2) / 2;
+
+          createImageBitmap(opponentLogo).then((bitmap) => {
+            ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
+          });
+        }
       }
 
       if (config.includes('playerSelect1')) {
@@ -728,6 +760,33 @@ foreach ($pngFiles as $file) {
 
         }
 
+      } // endif matchup
+
+
+      if (wby && config.includes('wby')) {
+        let boxX = 70; // X-coordinate of the box
+        let boxY = 30; // Y-coordinate of the box
+        const maxWidth = 120; // Replace with your desired max width
+        const maxHeight = 100; // Replace with your desired max height
+        const boxWidth = 200; // Width of the box
+        const boxHeight = 100; // Height of the box
+
+        let width2 = wby.width;
+        let height2 = wby.height;
+
+        height2 = height2 * (maxWidth / width2);
+        width2 = maxWidth;
+
+        width2 = width2 * (maxHeight / height2);
+        height2 = maxHeight;
+
+        // Calculate the coordinates to center the image within the box
+        const centerX2 = boxX;
+        const centerY2 = boxY;
+
+        createImageBitmap(wby).then((bitmap) => {
+          ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
+        });
       }
 
     }
