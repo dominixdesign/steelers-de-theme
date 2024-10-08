@@ -17,6 +17,7 @@ $GLOBALS['TL_LANG']['tl_tilastot_camps']['category'] = array('Kategorie', 'Bitte
 $GLOBALS['TL_LANG']['tl_tilastot_camps']['startdate'] = array('Beginn', 'Bitte geben Sie das Datum vom Beginn des Camps ein.');
 $GLOBALS['TL_LANG']['tl_tilastot_camps']['enddate'] = array('Ende', 'Bitte geben Sie das Datum vom Ende des Camps ein.');
 $GLOBALS['TL_LANG']['tl_tilastot_camps']['description'] = array('Beschreibung', 'Bitte geben Sie die ausführliche Beschreibung dse Camps ein.');
+$GLOBALS['TL_LANG']['tl_tilastot_camps']['full'] = array('Ausgebucht', 'Anhaken, wenn das Camp bereits ausgebucht ist und eine entsprechender Hinweis angezeigt werden soll.');
 
 /**
  * Buttons

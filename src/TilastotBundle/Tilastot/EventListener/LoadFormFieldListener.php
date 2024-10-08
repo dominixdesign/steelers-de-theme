@@ -57,6 +57,9 @@ class LoadFormFieldListener
                     $formattedDate1 = $date1->format('d');
                     $formattedDate2 = $date2->format('d.m.Y');
                     $text = $formattedDate1 . '. bis ' . $formattedDate2;
+                    if($camp['full']) {
+                        $text .= ' - ausgebucht (Warteliste)';
+                    }
                     return array('value' => $camp['name'], 'label' => $text);
                 }, $campsArray);
             }

@@ -75,7 +75,7 @@ $GLOBALS['TL_DCA']['tl_tilastot_camps'] = array(
     ),
     // Palettes
     'palettes' => array(
-        'default' => 'category,name,startdate,enddate;description;published'
+        'default' => 'category,name,startdate,enddate,full;description;published'
     ),
     // Fields
     'fields'   => array(
@@ -124,6 +124,15 @@ $GLOBALS['TL_DCA']['tl_tilastot_camps'] = array(
             'inputType'               => 'textarea',
             'eval'                    => array('rte' => 'tinyMCE', 'basicEntities' => true, 'tl_class' => 'clr', 'mandatory' => false),
             'sql'                     => "blob Null"
+        ),
+        'full' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_camps']['full'],
+            'exclude'                 => true,
+            'toggle'                  => true,
+            'search'                  => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('tl_class' => 'w50'),
+            'sql'                     => "int(1) NOT NULL default '0'"
         ),
         'published' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_tilastot_camps']['published'],

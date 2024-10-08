@@ -6,6 +6,11 @@
     <div class="inside grid ce_wrapperStart grid-221">
       <?php foreach ($elements as $camp) : ?>
         <div class="ce_text prose block">
+          <?php
+          if ($camp['full']):
+          ?>
+            <p class="text-red-600 font-bold">ausgebucht - Warteliste</p>
+          <?php endif; ?>
           <?= $camp['description']; ?>
         </div>
       <?php endforeach; ?>
