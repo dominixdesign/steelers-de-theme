@@ -169,6 +169,7 @@ foreach ($pngFiles as $file) {
     let paragraphText = '';
     let periodsText = '( 9:9 | 9:9 | 9:9 )';
     let opponentLogo;
+    let opponentLogos = [];
     let opponentShortname;
     let matchupData;
     let matchupDataFairplay;
@@ -263,6 +264,20 @@ foreach ($pngFiles as $file) {
     <?php endfor; ?>
 
     logoSelect.addEventListener('change', function() {
+      if (logoSelect.selectedOptions.length > 1) {
+        opponentLogo = false;
+        opponentLogos = [];
+        for (let option of logoSelect.selectedOptions) {
+          const selectedLogo = option.value;
+          const img = new Image();
+          img.src = selectedLogo;
+          img.onload = function() {
+            opponentLogos.push(img);
+            drawCanvas();
+          };
+        }
+        return
+      }
       const selectedLogo = logoSelect.value;
       const img = new Image();
       img.src = selectedLogo;
@@ -602,7 +617,7 @@ foreach ($pngFiles as $file) {
             boxX = 760; // X-coordinate of the box
             boxY = 700; // Y-coordinate of the box
             if (points) {
-              boxY = points[1] - (points[3] / 2) - 200;
+              boxY = points[1] - 230;
             }
           }
 
@@ -622,6 +637,36 @@ foreach ($pngFiles as $file) {
           createImageBitmap(opponentLogo).then((bitmap) => {
             ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
           });
+        } else if (opponentLogos.length > 0 && points) {
+          let count = 1
+          for (let logo of opponentLogos) {
+            let boxX = 760;
+            let boxY = points[1] - 30 - (190 * count);
+            count++;
+            const maxWidth = 160;
+            const maxHeight = 160;
+            const boxWidth = 200;
+            const boxHeight = 180;
+            console.log(points)
+
+            let width2 = logo.width;
+            let height2 = logo.height;
+
+            height2 = height2 * (maxWidth / width2);
+            width2 = maxWidth;
+
+            width2 = width2 * (maxHeight / height2);
+            height2 = maxHeight;
+
+            // Calculate the coordinates to center the image within the box
+            const centerX2 = boxX + (boxWidth - width2) / 2;
+            const centerY2 = boxY + (boxHeight - height2) / 2;
+
+            createImageBitmap(logo).then((bitmap) => {
+              ctx.drawImage(bitmap, centerX2, centerY2, width2, height2);
+            });
+
+          }
         }
       }
 
@@ -943,6 +988,9 @@ foreach ($pngFiles as $file) {
         postConfig[selectedPostType].forEach(inputName => {
           if (allInputs[inputName]) {
             allInputs[inputName].parentElement.style.display = 'block';
+            if (inputName == 'opponentAway' && selectedPostType == 'Preview') {
+              allInputs[inputName].multiple = true;
+            }
           }
         });
       }
