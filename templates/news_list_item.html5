@@ -38,22 +38,23 @@ if (!function_exists('tokenTruncate')) {
       <img src="<?= $ogimage; ?>" width="296" height="370" alt="<?= $this->newsHeadline ?>" class="aspect-news w-full">
     </a>
     <div class="p-5 grow flex flex-col">
-      <div class="font-bold uppercase">
+      <div class="text-gray-400 italic uppercase">
         <?php if (count($this->categoriesList) > 0) : ?>
           <?= implode(', ', $this->categoriesList) ?>
-          <?php endif; ?>&nbsp;</div>
+          <?php endif; ?>&nbsp;
+      </div>
 
       <?php
       echo '<a href="' . $this->link . '" class="mt-1 text-xl text-steelgreen uppercase font-bold leading-6">';
       echo trim($this->newsHeadline);
-      echo '</a>';      
+      echo '</a>';
       ?>
-    <p class="mt-5 text-sm text-black"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
-    <div class="mt-5 flex-1 flex flex-col justify-end">
-      <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
+      <p class="mt-5 text-sm text-black"><?= tokenTruncate(strip_tags($this->teaser), 120) ?>&#8230;</p>
+      <div class="mt-5 flex-1 flex flex-col justify-end">
+        <time class="text-sm text-steelgreen" datetime="<?= $this->datetime ?>"><?= date('d.m.Y', $this->time) ?></time>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <?php
 

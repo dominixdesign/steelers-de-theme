@@ -21,7 +21,7 @@ try {
   $container = \Contao\System::getContainer();
   $rootDir = $container->getParameter('kernel.project_dir');
 
-  $image = $container->get('contao.image.picture_factory')->create($rootDir . '/'  . $this->arrData['singleSRC'],11);
+  $image = $container->get('contao.image.picture_factory')->create($rootDir . '/'  . $this->arrData['singleSRC'], 11);
   $sources = $image->getSources();
   $imageObj = $sources[0]['src'];
   $imageUrl = $imageObj->getUrl($rootDir);
@@ -33,10 +33,11 @@ try {
   <a href="<?= $this->link ?>" data-bigimage="<?= $this->arrData['singleSRC'] ?>">
     <img src="<?= $imageUrl ?>" class="aspect-news w-full" alt="<?= $this->newsHeadline ?>" loading="lazy" /></a>
   <div class="p-5 grow flex flex-col">
-    <div class="font-bold uppercase">
+    <div class="text-gray-400 italic uppercase">
       <?php if (count($this->categoriesList) > 0) : ?>
         <?= implode(', ', $this->categoriesList) ?>
-        <?php endif; ?>&nbsp;</div>
+        <?php endif; ?>&nbsp;
+    </div>
 
     <?php
     // needs to be done like that to avoid empty space at the beginning
