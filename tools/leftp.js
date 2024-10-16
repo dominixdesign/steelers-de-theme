@@ -235,8 +235,9 @@ class leFtp {
     try {
       await this.Ftp.put(localFileNameFull, remoteFileNameFull);
       this.filesUploaded++;
+      const currentTime = new Date().toLocaleString();
       console.log(
-        `uploaded file "${localFileNameFull}" to "${remoteFileNameFull}"`
+        `[${currentTime}] uploaded file "${localFileNameFull}" to "${remoteFileNameFull}"`
       );
     } catch (e) {
       console.log(e);
