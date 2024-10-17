@@ -216,7 +216,7 @@ foreach ($pngFiles as $file) {
     });
 
     headlineInput.addEventListener('input', function() {
-      headline = headlineInput.value;
+      headline = headlineInput.value.trim();
       drawCanvas();
     });
 
@@ -461,42 +461,65 @@ foreach ($pngFiles as $file) {
       let startX
       let startY
 
+      // Hilfslinien
+
+      // Mitte
+      // ctx.strokeStyle = 'pink';
+      // ctx.lineWidth = 2;
+      // ctx.beginPath();
+      // ctx.moveTo(canvas.width / 2, 0);
+      // ctx.lineTo(canvas.width / 2, canvas.height);
+      // ctx.stroke();
+
+      // save area for isntagram posts
+      // let squareSize = canvas.width;
+      // let squareX = (canvas.width - squareSize) / 2;
+      // let squareY = (canvas.height - squareSize) / 2;
+      // ctx.strokeRect(squareX, squareY, squareSize, squareSize);
+
+
       if (config.includes('headline')) {
         ctx.save(); // Save the current context state
         // main headline
         const textScale = .85
+        const cornerGapVertical = 25
+        const cornerGapHorizontal = 65
+        const cornerSize = 70
         ctx.scale(textScale, textScale);
         headline = headline.toUpperCase();
         ctx.font = '700 143px Bahnschrift Condensed';
-        ctx.textAlign = 'left';
+        ctx.textAlign = 'center';
         ctx.textBaseline = 'alphabetic';
         ctx.fillStyle = '#046a38';
-        var text1Width = (ctx.measureText(headline).width);
-        var text1Height = 143;
-        var x1 = ((canvas.width - text1Width) / 2) + (text1Width - (text1Width * textScale));
+        var text1Width = (ctx.measureText(headline).width * textScale);
+        var text1Height = (ctx.measureText(headline).fontBoundingBoxDescent * textScale);
+        var x1 = (canvas.width / 2) / textScale;
         var y1 = 325;
         ctx.fillText(headline, x1, y1);
 
         ctx.restore();
 
+        x1 = x1 * textScale
+        y1 = y1 * textScale
+
         // Ecke oben links
-        startX = x1 - 106
-        startY = y1 - 94
+        startX = x1 - (text1Width / 2) - cornerGapHorizontal
+        startY = y1 - text1Height - cornerGapVertical
         ctx.beginPath();
         ctx.moveTo(startX, startY); // links unten
-        ctx.lineTo(startX, startY - 69); // links ecke
-        ctx.lineTo(startX + 69, startY - 69); // links oben
+        ctx.lineTo(startX, startY - cornerSize); // links ecke
+        ctx.lineTo(startX + cornerSize, startY - cornerSize); // links oben
         ctx.strokeStyle = '#046a38';
         ctx.lineWidth = 4;
         ctx.stroke();
 
         // Ecke unten rechts
-        startX = x1 + (text1Width * textScale) - 59
-        startY = y1 - 12
+        startX = x1 + (text1Width / 2) + cornerGapHorizontal - cornerSize
+        startY = y1 + 35
         ctx.beginPath();
         ctx.moveTo(startX, startY); // recht unten
-        ctx.lineTo(startX + 69, startY); // rechts ecke
-        ctx.lineTo(startX + 69, startY - 69); // rechts oben
+        ctx.lineTo(startX + cornerSize, startY); // rechts ecke
+        ctx.lineTo(startX + cornerSize, startY - cornerSize); // rechts oben
         ctx.strokeStyle = '#046a38';
         ctx.lineWidth = 4;
         ctx.stroke();
@@ -587,7 +610,7 @@ foreach ($pngFiles as $file) {
       let points;
       if (config.includes('paragraph')) {
         let boxX = 250;
-        let boxY = 1000;
+        let boxY = 890;
         let boxWidth = 1080 - 500;
         let boxHeight = 300;
         let lineHeight = 50;
@@ -597,7 +620,7 @@ foreach ($pngFiles as $file) {
         if (selectedPost == 'Preview') {
           boxWidth = 240;
           boxX = 750
-          boxY = 910;
+          boxY = 890;
         }
         if (selectedPost == 'Geburtstag') {
           font = '100 60px Bahnschrift2';
@@ -694,7 +717,6 @@ foreach ($pngFiles as $file) {
             const maxHeight = 160;
             const boxWidth = 200;
             const boxHeight = 180;
-            console.log(points)
 
             let width2 = logo.width;
             let height2 = logo.height;
@@ -754,7 +776,7 @@ foreach ($pngFiles as $file) {
       if (config.includes('matchup')) {
         if (matchupDataScoring && matchupData && matchupDataFairplay && matchupDataPlayer) {
           let startY = 650;
-          const lineHeight = 70;
+          const lineHeight = 64;
 
           ctx.font = '100 50px Bahnschrift2';
           ctx.fillStyle = 'white';
@@ -765,8 +787,7 @@ foreach ($pngFiles as $file) {
             'Spiele',
             'Tabellenplatz',
             'Punkte',
-            'Siege',
-            'Siege nach OT',
+            'Siege | nach OT',
             'Tore | Gegentore',
             'Top-Scorer',
             'Strafminuten',
@@ -778,7 +799,7 @@ foreach ($pngFiles as $file) {
           });
 
 
-          ctx.font = '700 50px Bahnschrift3';
+          ctx.font = '700 45px Bahnschrift3';
           ctx.fillStyle = 'white';
           ctx.textAlign = 'right';
           ctx.textBaseline = 'middle';
@@ -791,8 +812,7 @@ foreach ($pngFiles as $file) {
             homeData['gamesPlayed'].toString(),
             homeData['tableRank'].toString(),
             homeData['points'].toString(),
-            homeData['gamesWon'].toString(),
-            homeData['gamesWonInOt'].toString(),
+            homeData['gamesWon'].toString() + ' | ' + homeData['gamesWonInOt'].toString(),
             homeData['goalsFor'] + ' | ' + homeData['goalsAgainst'],
             shortenLastname(homeDataPlayer['playerLastname']) + " | " + homeDataPlayer['points'],
             homeDataFairplay['penaltyMinutes'].toString(),
@@ -804,7 +824,7 @@ foreach ($pngFiles as $file) {
           });
 
           if (opponentShortname) {
-            ctx.font = '700 50px Bahnschrift3';
+            ctx.font = '700 45px Bahnschrift3';
             ctx.fillStyle = 'white';
             ctx.textAlign = 'left';
             ctx.textBaseline = 'middle';
@@ -817,8 +837,7 @@ foreach ($pngFiles as $file) {
               awayData['gamesPlayed'].toString(),
               awayData['tableRank'].toString(),
               awayData['points'].toString(),
-              awayData['gamesWon'].toString(),
-              awayData['gamesWonInOt'].toString(),
+              awayData['gamesWon'].toString() + ' | ' + awayData['gamesWonInOt'].toString(),
               awayData['goalsFor'] + ' | ' + awayData['goalsAgainst'],
               shortenLastname(awayDataPlayer['playerLastname']) + " | " + awayDataPlayer['points'],
               awayDataFairplay['penaltyMinutes'].toString(),
@@ -1016,7 +1035,7 @@ foreach ($pngFiles as $file) {
 
       // Calculate the starting y-coordinate to center the text vertically
       const totalHeight = lines.length * lineHeight;
-      let y = boxY + (boxHeight - totalHeight) / 2 + lineHeight / 2;
+      let y = boxY + boxHeight - totalHeight + lineHeight / 2;
 
       const longestLine = lines.reduce((a, b) => a.length > b.length ? a : b);
 
@@ -1100,7 +1119,7 @@ foreach ($pngFiles as $file) {
         playerWidth,
         playerHeight);
 
-      drawRoundedRect(ctx, x - 10, y + playerHeight, playerWidth + 20, 30, 10, playerData[2], playerData[1]);
+      drawRoundedRect(ctx, x - 10, y + playerHeight, playerWidth + 20, 30, 10, decodeURIComponent(playerData[2]), playerData[1]);
     }
 
     function drawRoundedRect(ctx, x, y, width, height, radius, text) {
