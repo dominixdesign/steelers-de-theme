@@ -53,7 +53,7 @@
       >
         <span
           v-if="currentGame.ended > 0"
-          class="text-6xl md:text-8xl whitespace-nowrap"
+          class="text-4xl md:text-8xl whitespace-nowrap"
           >{{ currentGame.homescore }} : {{ currentGame.awayscore }}</span
         ><span v-else class="text-6xl md:text-8xl whitespace-nowrap">- : -</span
         ><br />
@@ -204,12 +204,12 @@ import { ref, computed } from "vue";
 
 const allGames = window.tilastot_gamedata;
 
-let initValue = 0
+let initValue = 0;
 let nextGame = allGames.findIndex((game) => {
   return game.gamedate > Date.now() / 1000;
 });
-if(nextGame === -1) {
-  nextGame = allGames.length
+if (nextGame === -1) {
+  nextGame = allGames.length;
 }
 const currentIndex = ref(nextGame > 0 ? nextGame - 1 : nextGame);
 

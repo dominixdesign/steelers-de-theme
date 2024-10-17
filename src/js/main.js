@@ -1,7 +1,7 @@
 import throttle from "lodash.throttle";
 import { createApp } from "vue";
 import GLightbox from "glightbox";
-import Swiper, { Navigation, Autoplay } from "swiper";
+import Swiper, { Navigation, Autoplay, Pagination } from "swiper";
 import HomeSchedule from "./HomeSchedule.vue";
 import HomeStandings from "./HomeStandings.vue";
 // import FormApp from './FormApp.vue'
@@ -16,7 +16,6 @@ createApp(HomeStandings).mount("#homestandings");
 // const formApp = createApp(FormApp)
 // formApp.use(Vueform, vueformConfig)
 // formApp.mount('#formApp')
-
 
 //Slider
 
@@ -48,6 +47,26 @@ document.querySelectorAll(".swiper-home").forEach((el) => {
     navigation: {
       nextEl: ".swiper-button-right",
       prevEl: ".swiper-button-left",
+    },
+  });
+});
+
+document.querySelectorAll(".swiper-topnews").forEach((el) => {
+  new Swiper(el, {
+    modules: [Pagination, Autoplay],
+    speed: 800,
+    loop: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-right",
+      prevEl: ".swiper-button-left",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 });
